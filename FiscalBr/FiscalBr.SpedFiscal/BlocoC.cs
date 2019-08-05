@@ -477,7 +477,7 @@ namespace FiscalBr.SpedFiscal
             ///     Código do documento fiscal
             /// </summary>
             [SpedCampos(5, "COD_MOD", "C", 2, 0, true)]
-            public int CodMod { get; set; }
+            public string CodMod { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
@@ -502,6 +502,14 @@ namespace FiscalBr.SpedFiscal
             /// </summary>
             [SpedCampos(9, "DT_DOC", "N", 8, 0, true)]
             public DateTime DtDoc { get; set; }
+            
+            /// <summary>
+            ///     Chave de acesso do documento fiscal
+            /// </summary>
+            [SpedCampos(10, "CHV_DOCe", "C", 44, 0, false)]
+            public string ChvDoc { get; set; }
+            
+            
         }
 
         /// <summary>
