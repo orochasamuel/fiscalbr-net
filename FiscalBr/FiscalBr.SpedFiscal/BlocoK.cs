@@ -271,7 +271,7 @@ namespace FiscalBr.SpedFiscal
             ///     Data de conclusão da ordem de produção
             /// </summary>
             [SpedCampos(3, "DT_FIN_OP", "N", 8, 0, false)]
-            public DateTime DtFinOp { get; set; }
+            public DateTime? DtFinOp { get; set; }
 
             /// <summary>
             ///     Código de identificação da ordem de produção

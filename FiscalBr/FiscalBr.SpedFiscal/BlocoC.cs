@@ -1171,91 +1171,91 @@ namespace FiscalBr.SpedFiscal
             ///     Valor da base de cálculo do IPI
             /// </summary>
             [SpedCampos(22, "VL_BC_IPI", "N", 0, 2, false)]
-            public decimal VlBcIpi { get; set; }
+            public decimal? VlBcIpi { get; set; }
 
             /// <summary>
             ///     Alíquota do IPI
             /// </summary>
             [SpedCampos(23, "ALIQ_IPI", "N", 6, 2, false)]
-            public decimal AliqIpi { get; set; }
+            public decimal? AliqIpi { get; set; }
 
             /// <summary>
             ///     Valor do IPI creditado/debitado
             /// </summary>
             [SpedCampos(24, "VL_IPI", "N", 0, 2, false)]
-            public decimal VlIpi { get; set; }
+            public decimal? VlIpi { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao PIS
             /// </summary>
             [SpedCampos(25, "CST_PIS", "N", 2, 0, false)]
-            public int CstPis { get; set; }
+            public int? CstPis { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do PIS
             /// </summary>
             [SpedCampos(26, "VL_BC_PIS", "N", 0, 2, false)]
-            public decimal VlBcPis { get; set; }
+            public decimal? VlBcPis { get; set; }
 
             /// <summary>
             ///     Alíquota do PIS (em percentual)
             /// </summary>
             [SpedCampos(27, "ALIQ_PIS", "N", 8, 4, false)]
-            public decimal AliqPis { get; set; }
+            public decimal? AliqPis { get; set; }
 
             /// <summary>
             ///     Quantidade - Base de cálculo PIS
             /// </summary>
             [SpedCampos(28, "QUANT_BC_PIS", "N", 0, 3, false)]
-            public decimal QuantBcPis { get; set; }
+            public decimal? QuantBcPis { get; set; }
 
             /// <summary>
             ///     Alíquota do PIS (em reais)
             /// </summary>
             [SpedCampos(29, "ALIQ_PIS", "N", 0, 4, false)]
-            public decimal AliqPisReais { get; set; }
+            public decimal? AliqPisReais { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
             [SpedCampos(30, "VL_PIS", "N", 0, 2, false)]
-            public decimal VlPis { get; set; }
+            public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao COFINS
             /// </summary>
             [SpedCampos(31, "CST_COFINS", "N", 2, 0, false)]
-            public int CstCofins { get; set; }
+            public int? CstCofins { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo da COFINS
             /// </summary>
             [SpedCampos(32, "VL_BC_COFINS", "N", 0, 2, false)]
-            public decimal VlBcCofins { get; set; }
+            public decimal? VlBcCofins { get; set; }
 
             /// <summary>
             ///     Alíquota do COFINS (em percentual)
             /// </summary>
             [SpedCampos(33, "ALIQ_COFINS", "N", 8, 4, false)]
-            public decimal AliqCofins { get; set; }
+            public decimal? AliqCofins { get; set; }
 
             /// <summary>
             ///     Quantidade - Base de cálculo COFINS
             /// </summary>
             [SpedCampos(34, "QUANT_BC_COFINS", "N", 0, 3, false)]
-            public decimal QuantBcCofins { get; set; }
+            public decimal? QuantBcCofins { get; set; }
 
             /// <summary>
             ///     Alíquota da COFINS (em reais)
             /// </summary>
             [SpedCampos(35, "ALIQ_COFINS", "N", 0, 4, false)]
-            public decimal AliqCofinsReais { get; set; }
+            public decimal? AliqCofinsReais { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
             [SpedCampos(36, "VL_COFINS", "N", 0, 2, false)]
-            public decimal VlCofins { get; set; }
+            public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Código da conta analítica contábil debitada/creditada

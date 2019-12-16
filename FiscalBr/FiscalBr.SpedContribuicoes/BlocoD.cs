@@ -115,7 +115,7 @@ namespace SpedBr.EfdContribuicoes
             /// <summary>
             ///     Subsérie do documento fiscal            
             /// </summary>
-            [SpedCampos(8, "SUB", "C", 3, 0, true)]
+            [SpedCampos(8, "SUB", "C", 3, 0, false)]
             public string Sub { get; set; }
 
             /// <summary>
