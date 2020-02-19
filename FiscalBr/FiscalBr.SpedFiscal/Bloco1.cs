@@ -138,6 +138,12 @@ namespace FiscalBr.SpedFiscal
             /// </summary>
             [SpedCampos(13, "IND_GIAF4", "LE", 1, 0, true)]
             public SimOuNao IndGiaf4 { get; set; }
+
+            /// <summary>
+            ///     Reg. 1250 – Possui informações consolidadas de saldos de restituição, ressarcimento e complementação do ICMS?
+            /// </summary>
+            [SpedCampos(14, "IND_REST_RESSARC_COMPL_ICMS", "LE", 1, 0, true)]
+            public SimOuNao IndRestRessarcComplIcms { get; set; }
         }
 
         /// <summary>
@@ -881,6 +887,29 @@ namespace FiscalBr.SpedFiscal
             /// </summary>
             [SpedCampos(17, "OBS", "C", 0, 0, false)]
             public string Obs { get; set; }
+
+            /// <summary>
+            ///     Informar o insumo conforme código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(18, "COD_ITEM", "C", 60, 0, true)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Tipo de resíduo produzido
+            /// </summary>
+            /// <remarks>
+            ///     01 – Bagaço de cana
+            ///     02 - DDG
+            ///     03 - WDG
+            /// </remarks>
+            [SpedCampos(19, "TP_RESIDUO", "N", 2, 0, false)]
+            public int? TpResiduo { get; set; }
+
+            /// <summary>
+            ///     Quantidade de resíduo produzido (toneladas)
+            /// </summary>
+            [SpedCampos(19, "QTD_RESIDUO", "N", 0, 2, true)]
+            public decimal QtdResiduo { get; set; }
         }
 
         /// <summary>

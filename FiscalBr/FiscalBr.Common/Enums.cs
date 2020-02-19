@@ -217,6 +217,62 @@ namespace FiscalBr.Common
         /// </summary>
         [DefaultValue("1")] RemessaArquivoSubstituto
     }
+    
+    /// <summary>
+    ///     Classificacao do Estabelecimento Industrial
+    /// </summary>
+    public enum ClassEstabIndustrial
+    {
+        /// <summary>
+        ///     Industrial - Transformação
+        /// </summary>
+        [DefaultValue("00")] IndustrialTransformacao,
+
+        /// <summary>
+        ///     Industrial - Beneficiamento
+        /// </summary>
+        [DefaultValue("01")] IndustrialBeneficiario,
+
+        /// <summary>
+        ///     Industrial - Montagem
+        /// </summary>
+        [DefaultValue("02")] IndustrialMontagem,
+
+        /// <summary>
+        ///     Industrial - Acondicionamento ou Reacondicionamento
+        /// </summary>
+        [DefaultValue("03")] IndustrialAcondicionamentoReacondicionamento,
+
+        /// <summary>
+        ///     Industrial - Renovação ou Recondicionamento
+        /// </summary>
+        [DefaultValue("04")] IndustrialRenovacaoRecndicionamento,
+
+        /// <summary>
+        ///     Equiparado a industrial - Por opção
+        /// </summary>
+        [DefaultValue("05")] EquiparadoIndustrialOpcao,
+
+        /// <summary>
+        ///     Equiparado a industrial - Importação Direta
+        /// </summary>
+        [DefaultValue("06")] EquiparadoIndustrialImportacaoDireta,
+
+        /// <summary>
+        ///     Equiparado a industrial - Por lei específica
+        /// </summary>
+        [DefaultValue("07")] EquiparadoIndustrialLeiEspecifica,
+
+        /// <summary>
+        ///     Equiparado a industrial - Não enquadrado nos códigos 05, 06 ou 07
+        /// </summary>
+        [DefaultValue("08")] EquiparadoIndustrialNaoEnqCodigo05_06_07,
+
+        /// <summary>
+        ///     Outros
+        /// </summary>
+        [DefaultValue("09")] Outros
+    }
 
     /// <summary>
     ///     Perfil de apresentação do arquivo fiscal
