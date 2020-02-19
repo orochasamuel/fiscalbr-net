@@ -319,6 +319,12 @@ namespace FiscalBr.SpedFiscal
             [SpedCampos(8, "DT_DOC", "N", 8, 0, true)]
             public DateTime DtDoc { get; set; }
 
+            /// <summary>
+            ///     Número do documento de arrecadação estadual, se houver
+            /// </summary>
+            [SpedCampos(9, "NUM_DA", "C", 99, 0, false)]
+            public string NumDa { get; set; }
+
             public List<RegistroG140> RegG140s { get; set; }
         }
 
@@ -346,6 +352,42 @@ namespace FiscalBr.SpedFiscal
             /// </summary>
             [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
             public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Quantidade, deste item da nota fiscal, que foi aplicada neste bem, expressa na mesma unidade constante no documento fiscal de entrada
+            /// </summary>
+            [SpedCampos(4, "QTDE", "N", 0, 5, true)]
+            public decimal Qtde { get; set; }
+
+            /// <summary>
+            ///     Unidade do item constante no documento fiscal de entrada
+            /// </summary>
+            [SpedCampos(5, "UNID", "C", 6, 0, true)]
+            public string Unid { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS da Operação Própria na entrada do item, proporcional à quantidade aplicada no bem ou componente.
+            /// </summary>
+            [SpedCampos(6, "VL_ICMS_OP_APLICADO", "N", 0, 2, true)]
+            public decimal VlIcmsOpAplicado { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS ST na entrada do item, proporcional à quantidade aplicada no bem ou componente.
+            /// </summary>
+            [SpedCampos(7, "VL_ICMS_ST_APLICADO", "N", 0, 2, true)]
+            public decimal VlIcmsStAplicado { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS sobre Frete do Conhecimento de Transporte na entrada do item, proporcional à quantidade aplicada no bem ou componente.
+            /// </summary>
+            [SpedCampos(8, "VL_ICMS_FRT_APLICADO", "N", 0, 2, true)]
+            public decimal VlIcmsFrtAplicado { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS Diferencial de Alíquota, na entrada do item, proporcional à quantidade aplicada no bem ou componente.
+            /// </summary>
+            [SpedCampos(9, "VL_ICMS_DIF_APLICADO", "N", 0, 2, true)]
+            public decimal VlIcmsDifAplicado { get; set; }
         }
 
         /// <summary>

@@ -37,6 +37,9 @@ namespace FiscalBr.Common
             if (type == typeof(IndTipoAtividade))
                 return ((IndTipoAtividade)valueOfType).ToDefaultValue();
 
+            if (type == typeof(ClassEstabIndustrial))
+                return ((ClassEstabIndustrial)valueOfType).ToDefaultValue();
+
             if (type == typeof(IndCodMod))
                 return ((IndCodMod)valueOfType).ToDefaultValue();
 
