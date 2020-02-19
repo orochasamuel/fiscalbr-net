@@ -1653,6 +1653,45 @@ namespace FiscalBr.SpedFiscal
             public decimal IcmsRet { get; set; }
         }
 
+        public class RegistroC180 : RegistroBaseSped
+        {
+            public RegistroC180()
+            {
+                Reg = "C180";
+            }
+
+            [SpedCampos(2, "COD_RESP_RET", "N", 1, 0, true)]
+            public int CodRespRet { get; set; }
+
+            [SpedCampos(3, "QUANT_CONV", "N", 9, 6, true)]
+            public decimal QuantConv { get; set; }
+
+            [SpedCampos(4, "UNID", "C", 100, 0, true)]
+            public string Unid { get; set; }
+
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 9, 6, true)]
+            public decimal VlUnitConv { get; set; }
+
+            [SpedCampos(6, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, true)]
+            public decimal VlUnitIcmsOpConv { get; set; }
+
+            [SpedCampos(7, "VL_UNIT_BC_ICMS_ST_CONV", "N", 9, 6, true)]
+            public decimal VlUnitBcIcmsStConv { get; set; }
+
+            [SpedCampos(8, "VL_UNIT_ICMS_ST_CONV", "N", 9, 6, true)]
+            public decimal VlUnitIcmsStConv { get; set; }
+
+            [SpedCampos(9, "VL_UNIT_FCP_ST_CONV", "N", 9, 6, false)]
+            public decimal VlUnitFcpStConv { get; set; }
+
+            [SpedCampos(10, "COD_DA", "C", 100, 0, false)]
+            public int CodDa { get; set; }
+
+            [SpedCampos(11, "NUM_DA", "C", 100, 0, false)]
+            public string NumDa { get; set; }
+        }
+
+
         /// <summary>
         ///     REGISTRO C190: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 01, 1B, 04, 55 e 65)
         /// </summary>
