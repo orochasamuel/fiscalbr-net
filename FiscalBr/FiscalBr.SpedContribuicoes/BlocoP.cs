@@ -4,6 +4,9 @@ namespace SpedBr.EfdContribuicoes
 {
     public class BlocoP
     {
+        public RegistroP001 RegP001 { get; set; }
+        public RegistroP001 RegP990 { get; set; }
+
         public class RegistroP001 : RegistroBaseSped
         {
             public RegistroP001()
@@ -13,6 +16,7 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
         }
 
         public class RegistroP990 : RegistroBaseSped

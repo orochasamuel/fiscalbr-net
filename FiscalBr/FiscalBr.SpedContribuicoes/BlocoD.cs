@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using FiscalBr.Common;
 
 namespace SpedBr.EfdContribuicoes
@@ -8,6 +9,9 @@ namespace SpedBr.EfdContribuicoes
     /// </summary>
     public class BlocoD
     {
+        public RegistroD001 RegD001 { get; set; }
+        public RegistroD990 RegD990 { get; set; }
+
         /// <summary>
         ///     REGISTRO D001: ABERTURA DO BLOCO D
         /// </summary>
@@ -26,6 +30,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroD010> RegD010s { get; set; }            
         }
 
         /// <summary>
@@ -46,6 +52,13 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
             public string Cnpj { get; set; }
+
+            public List<RegistroD100> RegD100s { get; set; }
+            //public List<RegistroD200> RegD200s { get; set; }
+            //public List<RegistroD300> RegD300s { get; set; }
+            //public List<RegistroD350> RegD350s { get; set; }
+            public List<RegistroD500> RegD500s { get; set; }
+            //public List<RegistroD600> RegD600s { get; set; }            
         }
 
         /// <summary>
@@ -221,6 +234,11 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(23, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
+
+
+            public List<RegistroD101> RegD101s { get; set; }
+            public List<RegistroD105> RegD105s { get; set; }
+            //public List<RegistroD111> RegD111s { get; set; }
         }
 
         /// <summary>
@@ -507,6 +525,10 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(22, "VL_COFINS", "N", 0, 2, false)]
             public decimal VlCofins { get; set; }
 
+
+            public List<RegistroD501> RegD501s { get; set; }
+            public List<RegistroD505> RegD505s { get; set; }
+            //public List<RegistroD509> RegD509s { get; set; }
         }
 
         /// <summary>

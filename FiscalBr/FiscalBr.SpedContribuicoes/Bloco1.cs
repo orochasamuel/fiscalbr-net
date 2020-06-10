@@ -1,10 +1,14 @@
 ﻿using FiscalBr.Common;
 using System;
+using System.Collections.Generic;
 
 namespace SpedBr.EfdContribuicoes
 {
     public class Bloco1
     {
+        public Registro1001 Reg1001 { get; set; }
+        public Registro1990 Reg1990 { get; set; }
+
         public class Registro1001 : RegistroBaseSped
         {
             public Registro1001()
@@ -14,6 +18,17 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            //public List<Registro1010> Reg1010s { get; set; }
+            //public List<Registro1020> Reg1020s { get; set; }
+            //public List<Registro1100> Reg1100s { get; set; }
+            //public List<Registro1200> Reg1200s { get; set; }
+            //public List<Registro1300> Reg1300s { get; set; }
+            //public List<Registro1500> Reg1500s { get; set; }
+            //public List<Registro1600> Reg1600s { get; set; }
+            //public List<Registro1700> Reg1700s { get; set; }
+            public List<Registro1800> Reg1800s { get; set; }
+            public List<Registro1900> Reg1900s { get; set; }
         }
 
         /// <summary>
@@ -93,6 +108,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(9, "COD_REC", "C", 4, 0, false)]
             public string CodRec { get; set; }
+
+            //public List<Registro1809> Reg1809s { get; set; }
         }
 
         public class Registro1900 : RegistroBaseSped

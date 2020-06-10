@@ -1,10 +1,14 @@
 ﻿using FiscalBr.Common;
 using System;
+using System.Collections.Generic;
 
 namespace SpedBr.EfdContribuicoes
 {
     public class BlocoM
     {
+        public RegistroM001 RegM001 { get; set; }
+        public RegistroM990 RegM990 { get; set; }
+
         public class RegistroM001 : RegistroBaseSped
         {
             public RegistroM001()
@@ -14,6 +18,16 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroM100> RegM100s { get; set; }
+            public List<RegistroM200> RegM200s { get; set; }
+            public List<RegistroM300> RegM300s { get; set; }
+            public List<RegistroM350> RegM350s { get; set; }
+            public List<RegistroM400> RegM400s { get; set; }
+            public List<RegistroM500> RegM500s { get; set; }
+            public List<RegistroM600> RegM600s { get; set; }
+            public List<RegistroM700> RegM700s { get; set; }
+            public List<RegistroM800> RegM800s { get; set; }
         }
 
         /// <summary>
@@ -121,6 +135,9 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(15, "VL_CRED_DESC", "N", 0, 2, true)]
             public decimal SldCred { get; set; }
+
+            public List<RegistroM105> RegM105s { get; set; }
+            public List<RegistroM110> RegM110s { get; set; }
         }
 
         /// <summary>
@@ -264,6 +281,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
             public DateTime? DtRef { get; set; }
+
+            public List<RegistroM115> RegM115s { get; set; }
         }
 
         /// <summary>
@@ -372,6 +391,9 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(13, "VL_TOT_CONT_REC", "N", 0, 2, true)]
             public decimal VlTotContRec { get; set; }
+
+            public List<RegistroM205> RegM205s { get; set; }
+            public List<RegistroM210> RegM210s { get; set; }
         }
 
         public class RegistroM205 : RegistroBaseSped
@@ -433,6 +455,10 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(13, "VL_CONT_PER", "N", 0, 2, true)]
             public decimal VlContPer { get; set; }
+
+            //public List<RegistroM211> RegM211s { get; set; }
+            public List<RegistroM220> RegM220s { get; set; }
+            //public List<RegistroM230> RegM230s { get; set; }
         }
 
         public class RegistroM220 : RegistroBaseSped
@@ -459,6 +485,8 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
             public DateTime? DtRef { get; set; }
+
+            public List<RegistroM225> RegM225s { get; set; }
         }
 
         [SpedRegistros("01/10/2015", null)]
@@ -639,6 +667,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(4, "DESC_COMPL", "C", int.MaxValue, 0, false)]
             public string DescCompl { get; set; }
+
+            public List<RegistroM410> RegM410s { get; set; }
         }
 
         /// <summary>
@@ -811,6 +841,9 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(15, "VL_CRED_DESC", "N", 0, 2, true)]
             public decimal SldCred { get; set; }
+
+            public List<RegistroM505> RegM505s { get; set; }
+            public List<RegistroM510> RegM510s { get; set; }
         }
         /// <summary>
         ///     REGISTRO M505: DETALHAMENTO DA BASE DE CALCULO DO CRÉDITO APURADO NO PERÍODO – COFINS
@@ -951,6 +984,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
             public DateTime? DtRef { get; set; }
+
+            public List<RegistroM515> RegM515s { get; set; }
         }
 
         /// <summary>
@@ -1063,6 +1098,9 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(13, "VL_TOT_CONT_REC", "N", 0, 2, true)]
             public decimal VlTotContRec { get; set; }
+
+            public List<RegistroM605> RegM605s { get; set; }
+            public List<RegistroM610> RegM610s { get; set; }
         }
 
         public class RegistroM605 : RegistroBaseSped
@@ -1124,6 +1162,11 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(13, "VL_CONT_PER", "N", 0, 2, true)]
             public decimal VlContPer { get; set; }
+
+            //public List<RegistroM611> RegM611s { get; set; }
+            public List<RegistroM620> RegM620s { get; set; }
+            //public List<RegistroM630> RegM630s { get; set; }
+
         }
 
         public class RegistroM620 : RegistroBaseSped
@@ -1150,6 +1193,8 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
             public DateTime? DtRef { get; set; }
+
+            public List<RegistroM625> RegM625s { get; set; }
         }
 
         [SpedRegistros("01/10/2015", null)]
@@ -1287,6 +1332,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(4, "DESC_COMPL", "C", int.MaxValue, 0, false)]
             public string DescCompl { get; set; }
+
+            public List<RegistroM810> RegM810s { get; set; }
         }
 
         /// <summary>

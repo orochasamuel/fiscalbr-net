@@ -1,15 +1,19 @@
 ﻿using System;
+using System.Collections.Generic;
 using FiscalBr.Common;
 
 namespace SpedBr.EfdContribuicoes
 {
     public class BlocoC
     {
+        public RegistroC001 RegC001 { get; set; }
+        public RegistroC990 RegC990 { get; set; }
         /// <summary>
         ///     ABERTURA DO BLOCO C
-        /// </summary>
+        /// </summary>        
         public class RegistroC001 : RegistroBaseSped
         {
+
             public RegistroC001()
             {
                 Reg = "C001";
@@ -20,6 +24,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroC010> RegC010s { get; set; }
         }
 
         /// <summary>
@@ -48,7 +54,16 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(3, "IND_ESCRI", "C", 1, 0, false)]
             public int IndEscri { get; set; }
-            
+
+            public List<RegistroC100> RegC100s { get; set; }
+            public List<RegistroC180> RegC180s { get; set; }
+            public List<RegistroC190> RegC190s { get; set; }
+            public List<RegistroC380> RegC380s { get; set; }
+            public List<RegistroC400> RegC400s { get; set; }
+            public List<RegistroC500> RegC500s { get; set; }
+            //public List<RegistroC600> RegC600s { get; set; }
+            //public List<RegistroC800> RegC800s { get; set; }
+            public List<RegistroC860> RegC860s { get; set; }
         }
 
         /// <summary>
@@ -246,6 +261,11 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false)]
             public decimal? VlCofinsSt { get; set; }
 
+            public List<RegistroC110> RegC110s { get; set; }
+            //public List<RegistroC111> RegC111s { get; set; }
+            //public List<RegistroC120> RegC120s { get; set; }
+            public List<RegistroC170> RegC170s { get; set; }
+            public List<RegistroC175> RegC175s { get; set; }
         }
 
         /// <summary>
@@ -567,7 +587,7 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(7, "ALIQ_PIS", "N", 8, 4, false)]
             public decimal? AliqPis { get; set; }
-            
+
             /// <summary>
             ///     Base de cálculo do PIS/PASEP (em quantidade)
             /// </summary>
@@ -664,6 +684,9 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(8, "VL_TOT_ITEM", "N", 0, 2, true)]
             public decimal VlTotItem { get; set; }
 
+            public List<RegistroC181> RegC181s { get; set; }
+            public List<RegistroC185> RegC185s { get; set; }
+            //public List<RegistroC188> RegC188s { get; set; }
         }
 
         public class RegistroC181 : RegistroBaseSped
@@ -770,6 +793,10 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(8, "VL_TOT_ITEM", "N", 0, 2, true)]
             public decimal VlTotItem { get; set; }
 
+            public List<RegistroC191> RegC191s { get; set; }
+            public List<RegistroC195> RegC195s { get; set; }
+            //public List<RegistroC198> RegC198s { get; set; }
+            public List<RegistroC199> RegC199s { get; set; }
         }
 
         public class RegistroC191 : RegistroBaseSped
@@ -928,6 +955,9 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(8, "VL_DOC_CANC", "N", 0, 2, false)]
             public decimal VlDocCanc { get; set; }
 
+            public List<RegistroC381> RegC381s { get; set; }
+            public List<RegistroC385> RegC385s { get; set; }
+
         }
 
         public class RegistroC381 : RegistroBaseSped
@@ -1027,6 +1057,8 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(8, "VL_DOC", "N", 0, 2, true)]
             public decimal? VlDoc { get; set; }
+
+            public List<RegistroC396> RegC396s { get; set; }
         }
 
         public class RegistroC396 : RegistroBaseSped
@@ -1094,6 +1126,9 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(5, "ECF_CX", "N", 3, 0, true)]
             public int EcfCx { get; set; }
+
+            public List<RegistroC405> RegC405s { get; set; }
+            //public List<RegistroC489> RegC489s { get; set; }
         }
 
         public class RegistroC405 : RegistroBaseSped
@@ -1120,6 +1155,9 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(7, "VL_BRT", "N", 0, 2, true)]
             public decimal VlBrt { get; set; }
+
+            public List<RegistroC481> RegC481s { get; set; }
+            public List<RegistroC485> RegC485s { get; set; }
         }
 
         public class RegistroC481 : RegistroBaseSped
@@ -1283,8 +1321,12 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(14, "VL_COFINS", "N", 0, 2, false)]
             public decimal? VlCofins { get; set; }
+
+            public List<RegistroC501> RegC501s { get; set; }
+            public List<RegistroC505> RegC505s { get; set; }
+            //public List<RegistroC509> RegC509s { get; set; }
         }
-        
+
         public class RegistroC501 : RegistroBaseSped
         {
             public RegistroC501()
@@ -1385,6 +1427,10 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(4, "DOC_FIM", "N", 9, 0, false)]
             public int? DocFim { get; set; }
+
+            public List<RegistroC870> RegC870s { get; set; }
+            public List<RegistroC880> RegC880s { get; set; }
+            //public List<RegistroC890> RegC890s { get; set; }
         }
 
         /// <summary>
@@ -1485,7 +1531,7 @@ namespace SpedBr.EfdContribuicoes
         ///     SAT-CF-E (CÓDIGO 59) - PIS/PASEP E COFINS APURADO POR UNIDADE DE MEDIDA DE
         ///     PRODUTO
         /// </summary>
-        public class RegistroC880:RegistroBaseSped
+        public class RegistroC880 : RegistroBaseSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC880"/>.
@@ -1572,8 +1618,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(14, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
-        }              
-        
+        }
+
         public class RegistroC990 : RegistroBaseSped
         {
             public RegistroC990()

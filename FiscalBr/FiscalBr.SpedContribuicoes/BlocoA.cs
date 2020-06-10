@@ -1,10 +1,14 @@
 ﻿using System;
+using System.Collections.Generic;
 using FiscalBr.Common;
 
 namespace SpedBr.EfdContribuicoes
 {
     public class BlocoA
     {
+        public List<RegistroA001> RegA001 { get; set; }
+        public RegistroA990 RegA990 { get; set; }
+
         public class RegistroA001 : RegistroBaseSped
         {
             public RegistroA001()
@@ -14,8 +18,10 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroA010> RegA010s { get; set; }
         }
-        
+
         /// <summary>
         /// IDENTIFICAÇÃO DO ESTABELECIMENTO
         /// </summary>
@@ -29,8 +35,9 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
             public string Cnpj { get; set; }
 
+            public List<RegistroA100> RegA100s { get; set; }
         }
-        
+
         /// <summary>
         /// DOCUMENTO - NOTA FISCAL DE SERVIÇO
         /// </summary>
@@ -169,8 +176,10 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(21, "VL_ISS", "N", 0, 2, false)]
             public decimal? VlIss { get; set; }
+
+            public List<RegistroA110> RegA110s { get; set; }
         }
-        
+
         /// <summary>
         /// COMPLEMENTO DO DOCUMENTO - INFORMAÇÃO COMPLEMENTAR DA NF
         /// </summary>
@@ -187,7 +196,7 @@ namespace SpedBr.EfdContribuicoes
             [SpedCampos(3, "TXT_COMPL", "C", int.MaxValue, 0, false)]
             public string TxtCompl { get; set; }
         }
-        
+
         /// <summary>
         /// COMPLEMENTO DO DOCUMENTO - ITENS DO DOCUMENTO
         /// </summary>

@@ -9,8 +9,10 @@ namespace FiscalBr.SpedFiscal
     /// </summary>
     public class BlocoB
     {
+        public RegistroB001 RegB001 { get; set; }
+        public RegistroB990 RegB990 { get; set; }
         /// <summary>
-        ///     REGISTRO C001: ABERTURA DO BLOCO C
+        ///     REGISTRO B001: ABERTURA DO BLOCO B
         /// </summary>
         public class RegistroB001 : RegistroBaseSped
         {

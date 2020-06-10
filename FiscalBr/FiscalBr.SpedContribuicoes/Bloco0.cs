@@ -1,10 +1,15 @@
 ﻿using FiscalBr.Common;
 using System;
+using System.Collections.Generic;
 
 namespace SpedBr.EfdContribuicoes
 {
     public class Bloco0
     {
+        public Registro0000 Reg0000 { get; set; }
+        public Registro0001 Reg0001 { get; set; }
+        public Registro0990 Reg0990 { get; set; }
+
         public class Registro0000 : RegistroBaseSped
         {
             public Registro0000()
@@ -61,6 +66,15 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<Registro0035> Reg0035s { get; set; }
+            public List<Registro0100> Reg0100s { get; set; }
+            public Registro0110 Reg0110 { get; set; }
+            public List<Registro0120> Reg0120s { get; set; }
+            public List<Registro0140> Reg0140s { get; set; }
+            public List<Registro0500> Reg0500s { get; set; }
+            public List<Registro0600> Reg0600s { get; set; }
+
         }
 
         public class Registro0035 : RegistroBaseSped
@@ -258,6 +272,12 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(9, "SUFRAMA", "C", 9, 0, false)]
             public string Suframa { get; set; }
+
+            public List<Registro0150> Reg0150s { get; set; }
+            public List<Registro0190> Reg0190s { get; set; }
+            public List<Registro0200> Reg0200s { get; set; }
+            public List<Registro0400> Reg0400s { get; set; }
+            public List<Registro0450> Reg0450s { get; set; }
         }
 
         /// <summary>
@@ -452,6 +472,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
             public decimal AliqIcms { get; set; }
+
+            public List<Registro0205> Reg0205s { get; set; }
         }
 
         /// <summary>

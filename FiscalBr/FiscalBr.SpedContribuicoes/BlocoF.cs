@@ -1,10 +1,14 @@
 ﻿using FiscalBr.Common;
 using System;
+using System.Collections.Generic;
 
 namespace SpedBr.EfdContribuicoes
 {
     public class BlocoF
     {
+        public RegistroF001 RegF001 { get; set; }
+        public RegistroF990 RegF990 { get; set; }
+
         public class RegistroF001 : RegistroBaseSped
         {
             public RegistroF001()
@@ -14,6 +18,8 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroF010> RegF010s { get; set; }
         }
 
         /// <summary>
@@ -28,6 +34,19 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
             public string Cnpj { get; set; }
+
+            public List<RegistroF100> RegF100s { get; set; }
+            //public List<RegistroF120> RegF120s { get; set; }
+            //public List<RegistroF130> RegF130s { get; set; }
+            public List<RegistroF150> RegF150s { get; set; }
+            public List<RegistroF200> RegF200s { get; set; }
+            public List<RegistroF500> RegF500s { get; set; }
+            //public List<RegistroF510> RegF510s { get; set; }
+            public List<RegistroF525> RegF525s { get; set; }
+            public List<RegistroF560> RegF560s { get; set; }
+            public List<RegistroF600> RegF600s { get; set; }
+            public List<RegistroF700> RegF700s { get; set; }
+            //public List<RegistroF800> RegF800s { get; set; }
         }
 
         /// <summary>
@@ -93,6 +112,8 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(19, "DESC_DOC_OPER", "C", int.MaxValue, 0, false)]
             public string DescDocOper { get; set; }
+
+            //public List<RegistroF111> RegF111s { get; set; }
         }
 
         /// <summary>
@@ -259,6 +280,8 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(22, "INF_COMP", "C", 90, 0, false)]
             public string InfComp { get; set; }
+
+            //public RegistroF205 RegF205 { get; set; }
         }
 
         /// <summary>
@@ -315,6 +338,8 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(16, "INFO_COMPL", "C", int.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
+
+            //public List<RegistroF509> RegF509s { get; set; }
         }
 
         public class RegistroF525 : RegistroBaseSped
@@ -406,6 +431,8 @@ namespace SpedBr.EfdContribuicoes
 
             [SpedCampos(16, "INFO_COMPL", "C", 0, 0, false)]
             public string InfoCompl { get; set; }
+
+            //public List<RegistroF559> RegF559s { get; set; }
         }
 
         /// <summary>
@@ -513,6 +540,8 @@ namespace SpedBr.EfdContribuicoes
             /// </summary>
             [SpedCampos(16, "INFO_COMPL", "C", int.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
+
+            //public List<RegistroF569> RegF569s { get; set; }
         }
 
         /// <summary>
