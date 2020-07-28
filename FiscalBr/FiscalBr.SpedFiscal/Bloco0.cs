@@ -534,7 +534,7 @@ namespace FiscalBr.SpedFiscal
             /// <summary>
             ///     Representação alfanumérica do código de barra do produto, se houver.
             /// </summary>
-            [SpedCampos(4, "COD_BARRA", "C", 0, 0, false)]
+            [SpedCampos(4, "COD_BARRA", "C", 99, 0, false)]
             public string CodBarra { get; set; }
 
             /// <summary>
