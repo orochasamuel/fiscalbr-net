@@ -12,5 +12,3 @@ Apoie o Projeto no [Apoia.se](https://apoia.se/fiscalbr)
 
 
 *ICONES DISPONIVEIS EM ICONS8.COM.BR
-
-<a href="https://icons8.com/icon/ZDURYTlMxCmV/aperto-de-mão">Aperto de mão icon by Icons8</a>
