@@ -3,7 +3,7 @@ using FiscalBr.Common.Sped;
 using System;
 using System.Collections.Generic;
 
-namespace FiscalBr.SpedFiscal
+namespace FiscalBr.EFDFiscal
 {
     /// <summary>
     ///     BLOCO G: CONTROLE DO CRÉDITO DE ICMS DO ATIVO PERMANENTE CIAP

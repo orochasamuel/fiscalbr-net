@@ -2,7 +2,7 @@
 using FiscalBr.Common.Sped;
 using System;
 
-namespace FiscalBr.Contribuicoes
+namespace FiscalBr.EFDContribuicoes
 {
     /// <summary>
     ///     BLOCO 9: CONTROLE E ENCERRAMENTO DO ARQUIVO DIGITAL

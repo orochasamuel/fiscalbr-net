@@ -11,6 +11,7 @@
     <PackageLicenseFile>license.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/osamueloliveira/FiscalBr.NET</PackageProjectUrl>
     <PackageTags>fiscalbr  efd sped fiscal icms ipi</PackageTags>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

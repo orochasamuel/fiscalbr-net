@@ -2,7 +2,7 @@
 using FiscalBr.Common.Sped;
 using System;
 
-namespace SpedBr.EfdContribuicoes
+namespace FiscalBr.EFDContribuicoes
 {
     /// <summary>
     ///     BLOCO D: DOCUMENTOS FISCAIS ii - SERVIÇOS (ICMS)

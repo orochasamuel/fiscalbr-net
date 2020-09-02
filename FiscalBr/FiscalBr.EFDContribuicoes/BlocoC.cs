@@ -2,7 +2,7 @@
 using FiscalBr.Common.Sped;
 using System;
 
-namespace SpedBr.EfdContribuicoes
+namespace FiscalBr.EFDContribuicoes
 {
     public class BlocoC
     {

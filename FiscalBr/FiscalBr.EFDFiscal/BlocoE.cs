@@ -3,7 +3,7 @@ using FiscalBr.Common.Sped;
 using System;
 using System.Collections.Generic;
 
-namespace FiscalBr.SpedFiscal
+namespace FiscalBr.EFDFiscal
 {
     /// <summary>
     ///     BLOCO E: APURAÇÃO DO ICMS E DO IPI

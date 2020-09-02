@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalBr.EFDContribuicoes",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalBr.EFDFiscal", "FiscalBr.EFDFiscal\FiscalBr.EFDFiscal.csproj", "{364FF184-CB48-4B25-8509-0A309EF3D3AF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalBr.ECF", "FiscalBr.ECF\FiscalBr.ECF.csproj", "{249CEE6E-0C57-467D-8DCB-4D30CE6435EE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -43,6 +45,10 @@ Global
 		{364FF184-CB48-4B25-8509-0A309EF3D3AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{364FF184-CB48-4B25-8509-0A309EF3D3AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{364FF184-CB48-4B25-8509-0A309EF3D3AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{249CEE6E-0C57-467D-8DCB-4D30CE6435EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{249CEE6E-0C57-467D-8DCB-4D30CE6435EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{249CEE6E-0C57-467D-8DCB-4D30CE6435EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{249CEE6E-0C57-467D-8DCB-4D30CE6435EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{79DF89B3-4320-4EBD-8CE0-CA71DDAADD71} = {735BA9C1-6C1A-46C1-A778-C0EDF3CB7B24}
 		{39E2E5E4-9E1F-4851-9C3D-3682F5745B0A} = {735BA9C1-6C1A-46C1-A778-C0EDF3CB7B24}
 		{364FF184-CB48-4B25-8509-0A309EF3D3AF} = {735BA9C1-6C1A-46C1-A778-C0EDF3CB7B24}
+		{249CEE6E-0C57-467D-8DCB-4D30CE6435EE} = {735BA9C1-6C1A-46C1-A778-C0EDF3CB7B24}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {511C924A-7BB5-4584-869C-2DB665C8F326}
