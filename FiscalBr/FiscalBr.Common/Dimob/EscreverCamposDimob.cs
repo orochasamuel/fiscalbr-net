@@ -5,7 +5,7 @@ using System.Text;
 
 namespace FiscalBr.Dimob
 {
-    public static class EscreverCamposDimobByAttribute
+    public static class EscreverCamposDimob
     {
         #region Convenções de Formato e Tamanho dos Campos
 
@@ -119,7 +119,7 @@ namespace FiscalBr.Dimob
                     }
                 }
             }
-            
+
 
             return sb.ToString();
         }

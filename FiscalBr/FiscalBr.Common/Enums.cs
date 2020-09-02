@@ -217,7 +217,7 @@ namespace FiscalBr.Common
         /// </summary>
         [DefaultValue("1")] RemessaArquivoSubstituto
     }
-    
+
     /// <summary>
     ///     Classificacao do Estabelecimento Industrial
     /// </summary>

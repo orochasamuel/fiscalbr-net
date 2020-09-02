@@ -4,7 +4,7 @@ using System.ComponentModel;
 
 namespace FiscalBr.Common
 {
-    public static class ExtensionMethods
+    public static class MetodosAuxiliares
     {
         public static Nullable<T> ToNullable<T>(this string s) where T : struct
         {
