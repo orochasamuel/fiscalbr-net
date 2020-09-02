@@ -1,19 +1,20 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;netstandard2.0;net48;net472;net471;net47;net461;net46;net452;net451;net45;net40</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <Authors>osamueloliveira</Authors>
-    <Company>osamueloliveira</Company>
-    <PackageProjectUrl>https://github.com/osamueloliveira/FiscalBr.NET</PackageProjectUrl>
-    <Copyright>Copyright ₢ 2020 Samuel Rocha de Oliveira</Copyright>
-    <PackageTags>fiscalbr</PackageTags>
+    <Product>FiscalBr EFD Contribuições</Product>
     <PackageLicenseFile>license.txt</PackageLicenseFile>
-    <Product>FiscalBr Common</Product>
-    <Description>Biblioteca auxiliar para geração dos arquivos</Description>
-    <Version>3.0.0</Version>
-    <PackageReleaseNotes>- Inclusão do arquivo EFD Contribuições</PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/osamueloliveira/FiscalBr.NET</PackageProjectUrl>
+    <PackageTags>fiscalbr efd sped contribuicoes</PackageTags>
+    <Copyright>Copyright ₢ 2020 Samuel Rocha de Oliveira</Copyright>
+    <Description>Biblioteca para geração do arquivo EFD Contribuições</Description>
   </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FiscalBr.Common\FiscalBr.Common.csproj" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Include="..\..\..\..\..\Documents\license.txt">
