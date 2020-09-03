@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace FiscalBr.Dimob
+namespace FiscalBr.Common.Dimob
 {
     [AttributeUsage(AttributeTargets.Property)]
     public class DimobCamposAttribute : Attribute

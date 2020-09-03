@@ -1,4 +1,6 @@
-﻿namespace FiscalBr.Dimob
+﻿using FiscalBr.Common.Dimob;
+
+namespace FiscalBr.Dimob
 {
     /// <summary>
     /// Header da Declaração

@@ -11,8 +11,8 @@
     <PackageLicenseFile>license.txt</PackageLicenseFile>
     <Product>FiscalBr Common</Product>
     <Description>Biblioteca auxiliar para geração dos arquivos</Description>
-    <Version>3.0.1</Version>
-    <PackageReleaseNotes>- Inclusão do arquivo EFD Contribuições</PackageReleaseNotes>
+    <Version>3.0.2</Version>
+    <PackageReleaseNotes>- Correção namespace da Dimob e mesclagem dos enums com as constantes</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>

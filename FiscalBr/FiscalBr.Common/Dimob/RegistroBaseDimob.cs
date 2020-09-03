@@ -1,4 +1,4 @@
-﻿namespace FiscalBr.Dimob
+﻿namespace FiscalBr.Common.Dimob
 {
     public class RegistroBaseDimob
     {

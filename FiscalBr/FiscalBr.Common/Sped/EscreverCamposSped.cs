@@ -65,11 +65,11 @@ namespace FiscalBr.Common.Sped
             //        $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
 
             if (!hasValue && isRequired)
-                return Constants.StructuralError;
+                return Constantes.StructuralError;
 
             if (isRequired && isDecimal &&
                 (valorEscrever == string.Empty || valorEscrever.ToDecimal() == 0))
-                return Constants.VZero.ToString("N" + decimalPlaces);
+                return Constantes.VZero.ToString("N" + decimalPlaces);
             else
             {
                 if (isDecimal && hasValue)
@@ -270,7 +270,7 @@ namespace FiscalBr.Common.Sped
                                     spedCampoAttr.QtdCasas
                                     ));
 
-                        if (campoEscrito == Constants.StructuralError)
+                        if (campoEscrito == Constantes.StructuralError)
                             throw new Exception(string.Format(
                                 "O campo {0} - {1} no Registro {2} é obrigatório e não foi informado!", spedCampoAttr.Ordem, spedCampoAttr.Campo, registroAtual));
 
@@ -349,7 +349,7 @@ namespace FiscalBr.Common.Sped
                                     spedCampoAttr.QtdCasas
                                     ));
 
-                        if (campoEscrito == Constants.StructuralError)
+                        if (campoEscrito == Constantes.StructuralError)
                             throw new Exception(string.Format(
                                 "O campo {0} - {1} no Registro {2} é obrigatório e não foi informado!", spedCampoAttr.Ordem, spedCampoAttr.Campo, registroAtual));
 
@@ -432,7 +432,7 @@ namespace FiscalBr.Common.Sped
                                     spedCampoAttr.QtdCasas
                                     ));
 
-                        if (resultadoCampoEscrito == Constants.StructuralError)
+                        if (resultadoCampoEscrito == Constantes.StructuralError)
                             errosEncontrados +=
                                 string.Format("O campo {0} - {1} no Registro {2} é obrigatório e não foi informado!\n", spedCampoAttr.Ordem, spedCampoAttr.Campo, registroAtual);
                         else

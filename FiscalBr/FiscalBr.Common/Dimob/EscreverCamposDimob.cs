@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Text;
 
-namespace FiscalBr.Dimob
+namespace FiscalBr.Common.Dimob
 {
     public static class EscreverCamposDimob
     {

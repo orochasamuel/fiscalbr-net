@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FiscalBr.Common.Dimob;
+using System;
 
 namespace FiscalBr.Dimob
 {
