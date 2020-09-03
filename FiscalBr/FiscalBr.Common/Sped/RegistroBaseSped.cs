@@ -24,110 +24,110 @@ namespace FiscalBr.Common.Sped
 
         public static string IdentifyEnumValueByType(Type type, object valueOfType)
         {
-            if (type == typeof(Constantes.SimOuNao))
-                return ((Constantes.SimOuNao)valueOfType).ToDefaultValue();
+            if (type == typeof(SimOuNao))
+                return ((SimOuNao)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndMovimento))
-                return ((Constantes.IndMovimento)valueOfType).ToDefaultValue();
+            if (type == typeof(IndMovimento))
+                return ((IndMovimento)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndCodFinalidadeArquivo))
-                return ((Constantes.IndCodFinalidadeArquivo)valueOfType).ToDefaultValue();
+            if (type == typeof(IndCodFinalidadeArquivo))
+                return ((IndCodFinalidadeArquivo)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndPerfilArquivo))
-                return ((Constantes.IndPerfilArquivo)valueOfType).ToDefaultValue();
+            if (type == typeof(IndPerfilArquivo))
+                return ((IndPerfilArquivo)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoAtividade))
-                return ((Constantes.IndTipoAtividade)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoAtividade))
+                return ((IndTipoAtividade)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.ClassEstabIndustrial))
-                return ((Constantes.ClassEstabIndustrial)valueOfType).ToDefaultValue();
+            if (type == typeof(ClassEstabIndustrial))
+                return ((ClassEstabIndustrial)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndCodMod))
-                return ((Constantes.IndCodMod)valueOfType).ToDefaultValue();
+            if (type == typeof(IndCodMod))
+                return ((IndCodMod)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoItem))
-                return ((Constantes.IndTipoItem)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoItem))
+                return ((IndTipoItem)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoMercadoria))
-                return ((Constantes.IndTipoMercadoria)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoMercadoria))
+                return ((IndTipoMercadoria)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndNaturezaConta))
-                return ((Constantes.IndNaturezaConta)valueOfType).ToDefaultValue();
+            if (type == typeof(IndNaturezaConta))
+                return ((IndNaturezaConta)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoConta))
-                return ((Constantes.IndTipoConta)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoConta))
+                return ((IndTipoConta)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoOperacaoProduto))
-                return ((Constantes.IndTipoOperacaoProduto)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoOperacaoProduto))
+                return ((IndTipoOperacaoProduto)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoOperacaoServico))
-                return ((Constantes.IndTipoOperacaoServico)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoOperacaoServico))
+                return ((IndTipoOperacaoServico)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndEmitente))
-                return ((Constantes.IndEmitente)valueOfType).ToDefaultValue();
+            if (type == typeof(IndEmitente))
+                return ((IndEmitente)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndCodSitDoc))
-                return ((Constantes.IndCodSitDoc)valueOfType).ToDefaultValue();
+            if (type == typeof(IndCodSitDoc))
+                return ((IndCodSitDoc)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoPagamento))
-                return ((Constantes.IndTipoPagamento)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoPagamento))
+                return ((IndTipoPagamento)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoFrete))
-                return ((Constantes.IndTipoFrete)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoFrete))
+                return ((IndTipoFrete)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoOperacaoStUfDiversa))
-                return ((Constantes.IndTipoOperacaoStUfDiversa)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoOperacaoStUfDiversa))
+                return ((IndTipoOperacaoStUfDiversa)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndOrigemProcesso))
-                return ((Constantes.IndOrigemProcesso)valueOfType).ToDefaultValue();
+            if (type == typeof(IndOrigemProcesso))
+                return ((IndOrigemProcesso)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndCodModDocArrecadacao))
-                return ((Constantes.IndCodModDocArrecadacao)valueOfType).ToDefaultValue();
+            if (type == typeof(IndCodModDocArrecadacao))
+                return ((IndCodModDocArrecadacao)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoTransporte))
-                return ((Constantes.IndTipoTransporte)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoTransporte))
+                return ((IndTipoTransporte)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndDocumentoImportacao))
-                return ((Constantes.IndDocumentoImportacao)valueOfType).ToDefaultValue();
+            if (type == typeof(IndDocumentoImportacao))
+                return ((IndDocumentoImportacao)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoTituloCred))
-                return ((Constantes.IndTipoTituloCred)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoTituloCred))
+                return ((IndTipoTituloCred)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndPeriodoApuracaoIpi))
-                return ((Constantes.IndPeriodoApuracaoIpi)valueOfType).ToDefaultValue();
+            if (type == typeof(IndPeriodoApuracaoIpi))
+                return ((IndPeriodoApuracaoIpi)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndMovFisicaItem))
-                return ((Constantes.IndMovFisicaItem)valueOfType).ToDefaultValue();
+            if (type == typeof(IndMovFisicaItem))
+                return ((IndMovFisicaItem)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndBaseProdFarmaceutico))
-                return ((Constantes.IndBaseProdFarmaceutico)valueOfType).ToDefaultValue();
+            if (type == typeof(IndBaseProdFarmaceutico))
+                return ((IndBaseProdFarmaceutico)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoProdFarmaceutico))
-                return ((Constantes.IndTipoProdFarmaceutico)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoProdFarmaceutico))
+                return ((IndTipoProdFarmaceutico)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoArmaFogo))
-                return ((Constantes.IndTipoArmaFogo)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoArmaFogo))
+                return ((IndTipoArmaFogo)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoOperacaoVeiculo))
-                return ((Constantes.IndTipoOperacaoVeiculo)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoOperacaoVeiculo))
+                return ((IndTipoOperacaoVeiculo)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndClasseConsumoEnergia))
-                return ((Constantes.IndClasseConsumoEnergia)valueOfType).ToDefaultValue();
+            if (type == typeof(IndClasseConsumoEnergia))
+                return ((IndClasseConsumoEnergia)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndClasseConsumoAgua))
-                return ((Constantes.IndClasseConsumoAgua)valueOfType).ToDefaultValue();
+            if (type == typeof(IndClasseConsumoAgua))
+                return ((IndClasseConsumoAgua)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndClasseConsumoGas))
-                return ((Constantes.IndClasseConsumoGas)valueOfType).ToDefaultValue();
+            if (type == typeof(IndClasseConsumoGas))
+                return ((IndClasseConsumoGas)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndCodTipoLigacao))
-                return ((Constantes.IndCodTipoLigacao)valueOfType).ToDefaultValue();
+            if (type == typeof(IndCodTipoLigacao))
+                return ((IndCodTipoLigacao)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndCodGrupoTensao))
-                return ((Constantes.IndCodGrupoTensao)valueOfType).ToDefaultValue();
+            if (type == typeof(IndCodGrupoTensao))
+                return ((IndCodGrupoTensao)valueOfType).ToDefaultValue();
 
-            if (type == typeof(Constantes.IndTipoAjuste))
-                return ((Constantes.IndTipoAjuste)valueOfType).ToDefaultValue();
+            if (type == typeof(IndTipoAjuste))
+                return ((IndTipoAjuste)valueOfType).ToDefaultValue();
 
             return string.Empty;
         }
