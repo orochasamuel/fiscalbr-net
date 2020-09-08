@@ -15,7 +15,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2019 - para gera
 
 Se as bibliotecas lhe ajudaram ou contribuiram de alguma forma, apoie. :D Ajude a dar continuidade nesse projeto.
 
-###### Lista de Apoiadores
+###### Últimos Apoios
 
 [@rodrigofornasier](https://github.com/rodrigofornasier)
 
