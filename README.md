@@ -1,20 +1,69 @@
-# FiscalBr.NET
+# FiscalBr.NET [![GitHub](https://img.shields.io/github/license/osamueloliveira/fiscalbr.net)](https://github.com/osamueloliveira/FiscalBr.NET/blob/master/LICENSE)
+[![Nuget](https://img.shields.io/nuget/v/FiscalBr.Common?label=Common)](https://www.nuget.org/packages/FiscalBr.Common/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Dimob?label=Dimob)](https://www.nuget.org/packages/FiscalBr.Dimob/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Sintegra?label=Sintegra)](https://www.nuget.org/packages/FiscalBr.Sintegra/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?label=EFDContribuicoes)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?label=EFDFiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.ECF?label=ECF)](https://www.nuget.org/packages/FiscalBr.ECF/)
 
-| Pacote Nuget | Instalação | Downloads | 
-| ------------- | ------------- | ------------- |
-| [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Common?color=gray&label=FiscalBr.Common&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.Common/) | `Install-Package FiscalBr.Common -Version *` | [![Nuget](https://img.shields.io/nuget/dt/FiscalBr.Common?color=gray&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.Common/) |
-| [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Dimob?color=blue&label=FiscalBr.Dimob&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.Dimob/) | `Install-Package FiscalBr.Dimob -Version *` | [![Nuget](https://img.shields.io/nuget/dt/FiscalBr.Dimob?color=blue&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.Dimob/) |
-| [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Sintegra?color=orange&label=FiscalBr.Sintegra&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.Sintegra/) | `Install-Package FiscalBr.Sintegra -Version *` | [![Nuget](https://img.shields.io/nuget/dt/FiscalBr.Sintegra?color=orange&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.Sintegra/) |
-| [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?color=purple&label=FiscalBr.EFDContribuicoes&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/) | `Install-Package FiscalBr.EFDContribuicoes -Version *` | [![Nuget](https://img.shields.io/nuget/dt/FiscalBr.EFDContribuicoes?color=purple&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/) |
-| [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?color=red&label=FiscalBr.EFDFiscal&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/) | `Install-Package FiscalBr.EFDFiscal -Version *` | [![Nuget](https://img.shields.io/nuget/dt/FiscalBr.EFDFiscal?color=red&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/) |
-| [![Nuget](https://img.shields.io/nuget/v/FiscalBr.ECF?color=yellow&label=FiscalBr.ECF&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.ECF/) | `Install-Package FiscalBr.ECF -Version *` | [![Nuget](https://img.shields.io/nuget/dt/FiscalBr.ECF?color=yellow&style=for-the-badge)](https://www.nuget.org/packages/FiscalBr.ECF/) |
+###### SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
+Biblioteca gratuita  - desenvolvida com Visual Studio Community 2019 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
-### Apoiadores [![Apoia.se FiscalBr](https://img.shields.io/badge/apoia.se-FiscalBr-green?color=green&label=apoia.se&style=for-the-badge)](https://apoia.se/fiscalbr)
+## TODO
 
-Apoie o Projeto no [Apoia.se](https://apoia.se/fiscalbr)
+- [ ] Implementar Factory Pattern para facilitar uso da biblioteca.
+- [ ] Mapear enums restantes do SPED.
+- [ ] Implementar leitura dos layouts.
+- [ ] Melhorar performance na geração das linhas.
+
+## Apoiadores [![Donate](https://img.shields.io/badge/apoia.se-FiscalBr-green)](https://apoia.se/fiscalbr)
+
+Se as bibliotecas lhe ajudaram ou contribuiram de alguma forma, apoie. :D Ajude a dar continuidade nesse projeto.
+
+###### Lista de Apoiadores
 
 [@rodrigofornasier](https://github.com/rodrigofornasier)
 
-### Licença
+## Declarações
+
+###### Projeto SPED
+
+- [x] EFD Fiscal (ICMS/IPI)
+- [x] EFD Contribuições (PIS/COFINS)
+- [x] Escrituração Contábil Fiscal (ECF)
+- [ ] Escrituração Contábil Digital (ECD)
+
+###### Outras
+
+- [x] DIMOB
+- [x] SINTEGRA
+
+## Exemplos
+
+###### EFD Contribuições
+
+- Exemplo de Preenchimento do Bloco F - Registro 200
+
+```cs
+var listaLinhasArquivo = new List<string>();
+
+var competencia = new DateTime(dataInicial.Year, dataInicial.Month, 1);
+
+var listaContratos = ObtemListaContratosNoPeriodo(dataInicial, dataFinal);
+
+var totalLinhasF200 = 0;
+
+/* Cada contrato imobiliário gera um registro F200 */
+foreach (var objContrato in listaContratos) {
+  var registroF200 = new BlocoF.EfdContribRegF200 {
+    // Preenche informações
+  };
+
+  /* adiciona nas linhas do arquivo */
+  listaLinhasArquivo.Add(registroF200.EscreverCampos(competencia));
+  totalLinhasF200++;
+}
+```
+
+## Dúvidas?
+
+Abra um issue na página do projeto no GitHub ou [clique aqui](https://github.com/osamueloliveira/FiscalBr.NET/issues).
+
+## Licença
 
 [MIT](https://github.com/osamueloliveira/FiscalBr.NET/blob/master/LICENSE)
