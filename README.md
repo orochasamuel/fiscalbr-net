@@ -6,7 +6,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2019 - para gera
 
 ## TODO
 
-- [ ] Implementar Factory Pattern para facilitar uso da biblioteca.
+- [ ] Implementar Factory Pattern.
 - [ ] Mapear enums restantes do SPED.
 - [ ] Implementar leitura dos layouts.
 - [ ] Melhorar performance na geração das linhas.
