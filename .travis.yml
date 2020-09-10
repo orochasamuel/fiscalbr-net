@@ -1,9 +1,10 @@
 language: csharp
+solution: "./src/FiscalBr.sln"
 mono: none
 dist: xenial
 dotnet: 3.1.402
 install:
-  - dotnet restore "./src/FiscalBr.sln"
+  - dotnet restore
 script:
   - dotnet build
   - dotnet test "./src/FiscalBr.Tests/FiscalBr.Tests.csproj"
