@@ -402,38 +402,67 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(2, "COD_CONT", "C", 2, 0, true)]
             public int CodCont { get; set; }
 
-            [SpedCampos(3, "VL_REC_BRT", "N", 0, 2, true)]
+            [SpedCampos(3, "VL_REC_BRT", "N", int.MaxValue, 2, true)]
             public decimal VlRecBrt { get; set; }
 
-            [SpedCampos(4, "VL_BC_CONT", "N", 0, 2, true)]
+            [SpedCampos(4, "VL_BC_CONT", "N", int.MaxValue, 2, true)]
             public decimal VlBcCont { get; set; }
 
-            [SpedCampos(5, "ALIQ_PIS", "N", 8, 4, false)]
+            [SpedCampos(5, "VL_AJUS_ACRES_BC_PIS", "N", int.MaxValue, 2, true)]
+            public decimal VlAjusAcresBcPis { get; set; }
+
+            [SpedCampos(6, "VL_AJUS_REDUC_BC_PIS", "N", int.MaxValue, 2, true)]
+            public decimal VlAjusReducBcPis { get; set; }
+
+            [SpedCampos(7, "VL_BC_CONT_AJUS", "N", int.MaxValue, 2, true)]
+            public decimal VlBcContAjus
+            {
+                get
+                {
+                    return 
+                        VlBcCont + 
+                        VlAjusAcresBcPis - 
+                        VlAjusReducBcPis;
+                } 
+            }
+
+            [SpedCampos(8, "ALIQ_PIS", "N", 8, 4, false)]
             public decimal? AliqPis { get; set; }
 
-            [SpedCampos(6, "QUANT_BC_PIS", "N", 0, 3, false)]
+            [SpedCampos(9, "QUANT_BC_PIS", "N", int.MaxValue, 3, false)]
             public decimal? QuantBcPis { get; set; }
 
-            [SpedCampos(7, "ALIQ_PIS_QUANT", "N", 0, 4, false)]
+            [SpedCampos(10, "ALIQ_PIS_QUANT", "N", int.MaxValue, 4, false)]
             public decimal? AliqPisQuant { get; set; }
 
-            [SpedCampos(8, "VL_CONT_APUR", "N", 0, 2, true)]
+            [SpedCampos(11, "VL_CONT_APUR", "N", int.MaxValue, 2, true)]
             public decimal VlContApur { get; set; }
 
-            [SpedCampos(9, "VL_AJUS_ACRES", "N", 0, 2, true)]
+            [SpedCampos(12, "VL_AJUS_ACRES", "N", int.MaxValue, 2, true)]
             public decimal VlAjusAcres { get; set; }
 
-            [SpedCampos(10, "VL_AJUS_REDUC", "N", 0, 2, true)]
+            [SpedCampos(13, "VL_AJUS_REDUC", "N", int.MaxValue, 2, true)]
             public decimal VlAjusReduc { get; set; }
 
-            [SpedCampos(11, "VL_CONT_DIFER", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_CONT_DIFER", "N", int.MaxValue, 2, false)]
             public decimal? VlContDifer { get; set; }
 
-            [SpedCampos(12, "VL_CONT_DIFER_ANT", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_CONT_DIFER_ANT", "N", int.MaxValue, 2, false)]
             public decimal? VlContDiferAnt { get; set; }
 
-            [SpedCampos(13, "VL_CONT_PER", "N", 0, 2, true)]
-            public decimal VlContPer { get; set; }
+            [SpedCampos(16, "VL_CONT_PER", "N", int.MaxValue, 2, true)]
+            public decimal VlContPer
+            {
+                get
+                {
+                    return
+                        VlContApur + 
+                        VlAjusAcres - 
+                        VlAjusReduc - 
+                        VlContDifer.GetValueOrDefault() + 
+                        VlContDiferAnt.GetValueOrDefault();
+                }
+            }
         }
 
         public class RegistroM220 : RegistroBaseSped
