@@ -1,11 +1,9 @@
 language: csharp
 mono: none
-os: windows
+dist: xenial
 dotnet: 3.1
-before_install:
-  - choco install netfx-4.6.2-devpack
 install:
   - dotnet restore "./src/FiscalBr.sln"
 script:
-  - dotnet build "./src/FiscalBr.sln" -f net462
+  - dotnet build "./src/FiscalBr.sln" -f netcoreapp3.1
   - dotnet test "./src/FiscalBr.Tests/FiscalBr.Tests.csproj"
