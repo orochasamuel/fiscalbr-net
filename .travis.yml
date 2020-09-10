@@ -3,4 +3,4 @@ solution: "./src/FiscalBr.sln"
 install:
 - travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./src/FiscalBr.sln
 script:
-- xbuild ./src/FiscalBr.sln
+- msbuild ./src/FiscalBr.sln
