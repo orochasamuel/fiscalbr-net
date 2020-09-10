@@ -1,8 +1,7 @@
 language: csharp
-solution: "./src/FiscalBr.sln"
-install:
-  - nuget restore "./src/FiscalBr.sln"
-  - nuget install xunit.runners -Version 2.0.0 -OutputDirectory testrunner
+mono: none
+dotnet: 2.0.0
+dist: xenial
 script:
-  - msbuild /p:Configuration=Release FiscalBr.sln
-  - mono ./testrunner/xunit.runners.2.0.0/tools/xunit.console.clr4.exe ./src/Fiscalbr.Tests/bin/Release/FiscalBr.Tests.dll
+ - cd "./src/"
+ - dotnet test
