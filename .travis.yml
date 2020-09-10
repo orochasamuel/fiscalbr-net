@@ -5,5 +5,5 @@ dotnet: 3.1
 install:
   - dotnet restore "./src/FiscalBr.sln"
 script:
-  - dotnet build "./src/FiscalBr.sln" -f net48
+  - dotnet build "./src/FiscalBr.sln" -f netstandard2.1
   - dotnet test "./src/FiscalBr.Tests/FiscalBr.Tests.csproj"
