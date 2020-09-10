@@ -1,6 +1,8 @@
 language: csharp
-solution: "./src/FiscalBr.sln"
+mono: none
+dist: xenial
+dotnet: 3.1.402
 install:
-- travis_retry nuget restore -source "https://www.nuget.org/api/v2" ./src/FiscalBr.sln
+  - dotnet restore "./src/FiscalBr.sln"
 script:
-- msbuild ./src/FiscalBr.sln
+  - dotnet test "./src/FiscalBr.Tests/FiscalBr.Tests.csproj"
