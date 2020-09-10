@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using Xunit;
 
 namespace FiscalBr.Tests.Sped
@@ -8,11 +9,14 @@ namespace FiscalBr.Tests.Sped
         [Fact]
         public void EFDFiscal()
         {
-            var initialDate = DateTime.Now.AddDays(-(DateTime.Now.Day - 1));
+            var initialDate = (DateTime.Now.AddDays(-(DateTime.Now.Day - 1))).Date;
             var finalDate = initialDate.AddMonths(1).AddDays(-1);
 
+            var formatedInitialDate = initialDate.ToString(new CultureInfo("pt-BR")).Replace("/", "").Split(" ")[0];
+            var formatedFinalDate = finalDate.ToString(new CultureInfo("pt-BR")).Replace("/", "").Split(" ")[0];
+
             var expectedResult = 
-                $"|0000|006|0|{initialDate.ToShortDateString().Replace("/", "")}|{finalDate.ToShortDateString().Replace("/", "")}|BANCO DO BRASIL S.A.|00000000000191||GO|123456789|5204508|||A|1|{Environment.NewLine}";
+                $"|0000|006|0|{formatedInitialDate}|{formatedFinalDate}|BANCO DO BRASIL S.A.|00000000000191||GO|123456789|5204508|||A|1|{Environment.NewLine}";
 
             var currentResult = new EFDFiscal.Bloco0.Registro0000();
 
