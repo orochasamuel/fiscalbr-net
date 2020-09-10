@@ -655,16 +655,148 @@ namespace FiscalBr.EFDContribuicoes
             public string Ccus { get; set; }
         }
 
-        public class Registro0990 : RegistroBaseSped
+        /// <summary>
+        ///     REGISTRO 0900: COMPOSIÇÃO DAS RECEITAS DO PERÍODO - RECEITA BRUTA E DEMAIS RECEIRAS
+        ///</summary>
+        public class Registro0900 : RegistroBaseSped
         {
-            public Registro0990()
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0900" />.
+            /// </summary>
+            public Registro0900()
             {
-                Reg = "0990";
+                Reg = "0900";
+            }
+            
+            /// <summary>
+            ///     Receita total referente aos registros escriturados no Bloco A
+            /// </summary>
+            [SpedCampos(2, "REC_TOTAL_BLOCO_A", "N", int.MaxValue, 2, true)]
+            public decimal RecTotalBlocoA { get; set; }
+            
+            /// <summary>
+            ///     Parcela da receita total escriturada no Bloco A (campo 02), não classificada como receita bruta
+            /// </summary>
+            [SpedCampos(3, "REC_NRB_BLOCO_A", "N", int.MaxValue, 2, false)]
+            public decimal? RecNrbBlocoA { get; set; }
+            
+            /// <summary>
+            ///     Receita total referente aos registros escriturados no Bloco C
+            /// </summary>
+            [SpedCampos(4, "REC_TOTAL_BLOCO_C", "N", int.MaxValue, 2, true)]
+            public decimal RecTotalBlocoC { get; set; }
+
+            /// <summary>
+            ///     Parcela da receita total escriturada no Bloco C (campo 04), não classificada como receita bruta
+            /// </summary>
+            [SpedCampos(5, "REC_NRB_BLOCO_C", "N", int.MaxValue, 2, false)]
+            public decimal? RecNrbBlocoC { get; set; }
+
+            /// <summary>
+            ///     Receita total referente aos registros escriturados no Bloco D
+            /// </summary>
+            [SpedCampos(6, "REC_TOTAL_BLOCO_D", "N", int.MaxValue, 2, true)]
+            public decimal RecTotalBlocoD { get; set; }
+
+            /// <summary>
+            ///     Parcela da receita total escriturada no Bloco D (campo 06), não classificada como receita bruta
+            /// </summary>
+            [SpedCampos(7, "REC_NRB_BLOCO_D", "N", int.MaxValue, 2, false)]
+            public decimal? RecNrbBlocoD { get; set; }
+
+            /// <summary>
+            ///     Receita total referente aos registros escriturados no Bloco F
+            /// </summary>
+            [SpedCampos(8, "REC_TOTAL_BLOCO_F", "N", int.MaxValue, 2, true)]
+            public decimal RecTotalBlocoF { get; set; }
+
+            /// <summary>
+            ///     Parcela da receita total escriturada no Bloco F (campo 08), não classificada como receita bruta
+            /// </summary>
+            [SpedCampos(9, "REC_NRB_BLOCO_F", "N", int.MaxValue, 2, false)]
+            public decimal? RecNrbBlocoF { get; set; }
+
+            /// <summary>
+            ///     Receita total referente aos registros escriturados no Bloco I
+            /// </summary>
+            [SpedCampos(10, "REC_TOTAL_BLOCO_I", "N", int.MaxValue, 2, true)]
+            public decimal RecTotalBlocoI { get; set; }
+
+            /// <summary>
+            ///     Parcela da receita total escriturada no Bloco I (campo 10) não classificada como receita bruta
+            /// </summary>
+            [SpedCampos(11, "REC_NRB_BLOCO_I", "N", int.MaxValue, 2, false)]
+            public decimal? RecNrbBlocoI { get; set; }
+
+            /// <summary>
+            ///     Receita total referente aos registros escriturados no Bloco 1 (RET)
+            /// </summary>
+            [SpedCampos(12, "REC_TOTAL_BLOCO_1", "N", int.MaxValue, 2, true)]
+            public decimal RecTotalBloco1 { get; set; }
+
+            /// <summary>
+            ///     Parcela da receita total escriturada no Bloco 1 (campo 12), não classificada como receita bruta
+            /// </summary>
+            [SpedCampos(13, "REC_NRB_BLOCO_1", "N", int.MaxValue, 2, false)]
+            public decimal? RecNrbBloco1 { get; set; }
+
+            /// <summary>
+            ///     Receita bruta total (soma dos campos 02, 04, 06, 08, 10 e 12)
+            /// </summary>
+            [SpedCampos(14, "REC_TOTAL_PERIODO", "N", int.MaxValue, 2, true)]
+            public decimal RecTotalPeriodo
+            {
+                get
+                {
+                    return 
+                        RecTotalBlocoA + 
+                        RecTotalBlocoC + 
+                        RecTotalBlocoD + 
+                        RecTotalBlocoF + 
+                        RecTotalBlocoI + 
+                        RecTotalBloco1;
+                }
             }
 
-            [SpedCampos(2, "QTD_LIN_0", "N", int.MaxValue, 0, true)]
-            public int QtdLin0 { get; set; }
+            /// <summary>
+            ///     Parcela da receita total escriturada (campo 14), não classificada como receita bruta (soma dos campos 03, 05, 07, 09, 11 e 13)
+            /// </summary>
+            [SpedCampos(15, "REC_TOTAL_NRB_PERIODO", "N", int.MaxValue, 2, false)]
+            public decimal? RecTotalNrbPeriodo
+            {
+                get
+                {
+                    return 
+                        RecNrbBlocoA.GetValueOrDefault() + 
+                        RecNrbBlocoC.GetValueOrDefault() + 
+                        RecNrbBlocoD.GetValueOrDefault() + 
+                        RecNrbBlocoF.GetValueOrDefault() + 
+                        RecNrbBlocoI.GetValueOrDefault() + 
+                        RecNrbBloco1.GetValueOrDefault();
+                }
+            }
         }
 
+        /// <summary>
+        ///     REGISTRO 0990: ENCERRAMENTO DO BLOCO 0
+        /// </summary>
+        public class Registro0990 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0990" />.
+            /// </summary>
+            /// <param name="qtdLinhas">Quantidade total de linhas do Bloco 0</param>
+            public Registro0990(int qtdLinhas)
+            {
+                Reg = "0990";
+                QtdLin0 = qtdLinhas;
+            }
+
+            /// <summary>
+            ///     Quantidade total de linhas do Bloco 0
+            /// </summary>
+            [SpedCampos(2, "QTD_LIN_0", "N", int.MaxValue, 0, true)]
+            public int QtdLin0 { get; private set; }
+        }
     }
 }
