@@ -4,62 +4,244 @@ using System;
 
 namespace FiscalBr.EFDContribuicoes
 {
+    /// <summary>
+    /// BLOCO 0: ABERTURA, IDENTIFICAÇÃO E REFERÊNCIAS
+    /// </summary>
     public class Bloco0
     {
+        /// <summary>
+        /// REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA PESSOA JURÍDICA
+        /// </summary>
         public class Registro0000 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0000" />.
+            /// </summary>
             public Registro0000()
             {
                 Reg = "0000";
             }
 
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0000" />.
+            /// </summary>
+            /// <param name="cdVersao">Código da versão do leiaute</param>
+            /// <param name="tpEscrituracao">Tipo de escrituração</param>
+            /// <param name="dtInicial">Data inicial das informações contidas no arquivo</param>
+            /// <param name="dtFinal">Data final das informações contidas no arquivo</param>
+            /// <param name="rzSocial">Nome empresarial da pessoa jurídica</param>
+            /// <param name="nrCnpj">Número de inscrição do estabelecimento matriz da pessoa jurídica no CNPJ</param>
+            /// <param name="uf">Sigla da Unidade da Federação da pessoa jurídica</param>
+            /// <param name="cdMunicipio">Código do município do domicílio fiscal da pessoa jurídica</param>
+            /// <param name="idAtividade">Indicador de tipo de atividade preponderante</param>
+            public Registro0000(
+                int cdVersao,
+                int tpEscrituracao,
+                DateTime dtInicial,
+                DateTime dtFinal,
+                string rzSocial,
+                string nrCnpj,
+                string uf,
+                string cdMunicipio,
+                int idAtividade
+                )
+            {
+                Reg = "0000";
+                CodVer = cdVersao;
+                TipoEscrit = tpEscrituracao;
+                DtIni = dtInicial;
+                DtFin = dtFinal;
+                Nome = rzSocial;
+                Cnpj = nrCnpj;
+                Uf = uf;
+                CodMun = cdMunicipio;
+                IndAtiv = idAtividade;
+            }
+
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0000" />.
+            /// </summary>
+            /// <param name="cdVersao">Código da versão do leiaute</param>
+            /// <param name="tpEscrituracao">Tipo de escrituração</param>
+            /// <param name="idSituacaoEspecial">Indicador de situação especial</param>
+            /// <param name="nrReciboAnterior">Número do Recibo da Escrituração anterior a ser retificada</param>
+            /// <param name="dtInicial">Data inicial das informações contidas no arquivo</param>
+            /// <param name="dtFinal">Data final das informações contidas no arquivo</param>
+            /// <param name="rzSocial">Nome empresarial da pessoa jurídica</param>
+            /// <param name="nrCnpj">Número de inscrição do estabelecimento matriz da pessoa jurídica no CNPJ</param>
+            /// <param name="uf">Sigla da Unidade da Federação da pessoa jurídica</param>
+            /// <param name="cdMunicipio">Código do município do domicílio fiscal da pessoa jurídica</param>
+            /// <param name="suframa">Inscrição da pessoa jurídica na Suframa</param>
+            /// <param name="idNaturezaPj">Indicador da natureza da pessoa jurídica</param>
+            /// <param name="idAtividade">Indicador de tipo de atividade preponderante</param>
+            public Registro0000(
+                int cdVersao,
+                int tpEscrituracao,
+                int idSituacaoEspecial,
+                string nrReciboAnterior,
+                DateTime dtInicial,
+                DateTime dtFinal,
+                string rzSocial,
+                string nrCnpj,
+                string uf,
+                string cdMunicipio,
+                string suframa,
+                int idNaturezaPj,
+                int idAtividade
+                )
+            {
+                Reg = "0000";
+                CodVer = cdVersao;
+                TipoEscrit = tpEscrituracao;
+                IndSitEsp = idSituacaoEspecial;
+                NumRecAnterior = nrReciboAnterior;
+                DtIni = dtInicial;
+                DtFin = dtFinal;
+                Nome = rzSocial;
+                Cnpj = nrCnpj;
+                Uf = uf;
+                CodMun = cdMunicipio;
+                Suframa = suframa;
+                IndNatPj = idNaturezaPj;
+                IndAtiv = idAtividade;
+            }
+
+            /// <summary>
+            /// Código da versão do leiaute
+            /// </summary>
             [SpedCampos(2, "COD_VER", "N", 3, 0, true)]
             public int CodVer { get; set; }
 
+            /// <summary>
+            /// Tipo de escrituração:
+            /// <remarks>
+            /// 0 - Original; <para/>
+            /// 1 - Retificadora.2
+            /// </remarks>
+            /// </summary>
             [SpedCampos(3, "TIPO_ESCRIT", "N", 1, 0, true)]
             public int TipoEscrit { get; set; }
 
+            /// <summary>
+            /// Indicador de situação especial:
+            /// <remarks>
+            /// 0 - Abertura; <para/>
+            /// 1 - Cisão; <para/>
+            /// 2 - Fusão; <para/>
+            /// 3 - Incorporação; <para/>
+            /// 4 - Encerramento.
+            /// </remarks>
+            /// </summary>
             [SpedCampos(4, "IND_SIT_ESP", "N", 1, 0, false)]
             public int? IndSitEsp { get; set; }
 
+            /// <summary>
+            /// Número do Recibo da Escrituração anterior a ser retificada, utilizado quando TIPO_ESCRIT for igual a 1
+            /// </summary>
             [SpedCampos(5, "NUM_REC_ANTERIOR", "C", 41, 0, false)]
             public string NumRecAnterior { get; set; }
 
+            /// <summary>
+            /// Data inicial das informações contidas no arquivo
+            /// </summary>
             [SpedCampos(6, "DT_INI", "N", 8, 0, true)]
             public DateTime DtIni { get; set; }
 
+            /// <summary>
+            /// Data final das informações contidas no arquivo
+            /// </summary>
             [SpedCampos(7, "DT_FIN", "N", 8, 0, true)]
             public DateTime DtFin { get; set; }
 
+            /// <summary>
+            /// Nome empresarial da pessoa jurídica
+            /// </summary>
             [SpedCampos(8, "NOME", "C", 100, 0, true)]
             public string Nome { get; set; }
 
+            /// <summary>
+            /// Número de inscrição do estabelecimento matriz da pessoa jurídica no CNPJ
+            /// </summary>
             [SpedCampos(9, "CNPJ", "N", 14, 0, true)]
             public string Cnpj { get; set; }
 
+            /// <summary>
+            /// Sigla da Unidade da Federação da pessoa jurídica
+            /// </summary>
             [SpedCampos(10, "UF", "C", 2, 0, true)]
             public string Uf { get; set; }
 
+            /// <summary>
+            /// Código do município do domicílio fiscal da pessoa jurídica, conforme a tabela IBGE
+            /// </summary>
             [SpedCampos(11, "COD_MUN", "N", 7, 0, true)]
             public string CodMun { get; set; }
 
+            /// <summary>
+            /// Inscrição da pessoa jurídica na Suframa
+            /// </summary>
             [SpedCampos(12, "SUFRAMA", "C", 9, 0, false)]
             public string Suframa { get; set; }
 
+            /// <summary>
+            /// Indicador da natureza da pessoa jurídica:
+            /// <remarks>
+            /// 00 - Pessoa jurídica em geral (não participante de SCP como sócia ostensiva); <para/>
+            /// 01 - Sociedade cooperativa (não participante de SCP como sócia ostensiva); <para/>
+            /// 02 - Entidade sujeita ao PIS/Pasep exclusivamente com base na Folha de Salários; <para/>
+            /// 03 - Pessoa jurídica em geral participante de SCP como sócia ostensiva; <para/>
+            /// 04 - Sociedade cooperativa participante de SCP como sócia ostensiva; <para/>
+            /// 05 - Sociedade em Conta de Participação - SCP.
+            /// </remarks>
+            /// </summary>
             [SpedCampos(13, "IND_NAT_PJ", "N", 2, 0, false)]
             public int? IndNatPj { get; set; }
 
+            /// <summary>
+            /// Indicador de tipo de atividade preponderante:
+            /// <remarks>
+            /// 0 - Industrial ou equiparado a industrial; <para/>
+            /// 1 - Prestador de serviços; <para/>
+            /// 2 - Atividade de comércio; <para/>
+            /// 3 - Pessoas jurídicas referidas nos §§ 6º, 8º e 9º do art. 3º da Lei nº 9.718, de 1998; <para/>
+            /// 4 - Atividade imobiliária; <para/>
+            /// 9 - Outros.
+            /// </remarks>
+            /// </summary>
             [SpedCampos(14, "IND_ATIV", "N", 1, 0, true)]
             public int IndAtiv { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO 0001: ABERTURA DO BLOCO 0
+        /// </summary>
         public class Registro0001 : RegistroBaseSped
         {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0000" />.
+            /// </summary>
             public Registro0001()
             {
                 Reg = "0001";
             }
 
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="Registro0000" />.
+            /// </summary>
+            /// <param name="indicador">Indicador de movimento</param>
+            public Registro0001(IndMovimento indicador)
+            {
+                Reg = "0001";
+                IndMov = indicador;
+            }
+
+            /// <summary>
+            /// Indicador de movimento:
+            /// <remarks>
+            /// 0 - Bloco com dados informados; <para/>
+            /// 1 - Bloco sem dados informados.
+            /// </remarks>
+            /// </summary>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
         }
@@ -74,10 +256,10 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(2, "COD_SCP", "N", 14, 0, false)]
             public string CodScp { get; set; }
 
-            [SpedCampos(3, "DESC_SCP", "C", 0, 0, false)]
+            [SpedCampos(3, "DESC_SCP", "C", int.MaxValue, 0, false)]
             public string DescScp { get; set; }
 
-            [SpedCampos(4, "INF_COMP", "C", 0, 0, false)]
+            [SpedCampos(4, "INF_COMP", "C", int.MaxValue, 0, false)]
             public string InfComp { get; set; }
         }
 
@@ -782,6 +964,14 @@ namespace FiscalBr.EFDContribuicoes
         /// </summary>
         public class Registro0990 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0990" />.
+            /// </summary>
+            public Registro0990()
+            {
+                Reg = "0990";
+            }
+
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0990" />.
             /// </summary>

@@ -11,7 +11,7 @@
     <Copyright>Copyright ₢ 2020 Samuel Rocha de Oliveira</Copyright>
     <Description>Biblioteca para geração do arquivo EFD Contribuições (PIS/COFINS)</Description>
     <Company>osamueloliveira sroliveira</Company>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <PackageReleaseNotes>Inclusão do registro 0900 e alteração no construtor do registro 0990</PackageReleaseNotes>
   </PropertyGroup>
 
