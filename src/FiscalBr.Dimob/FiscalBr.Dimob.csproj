@@ -13,7 +13,8 @@
     <Copyright>Copyright ₢ 2020 Samuel Rocha de Oliveira</Copyright>
     <Product>FiscalBr Dimob</Product>
     <Description>Biblioteca para geração do arquivo DIMOB</Description>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
+    <PackageReleaseNotes>- Alteração no Header e no Trailer para incluir os espaços em branco.</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
