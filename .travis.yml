@@ -7,5 +7,6 @@ before_install:
 install:
   - dotnet restore "./src/FiscalBr.sln"
 script:
-  - dotnet build "./src/FiscalBr.sln"
+  - dotnet build "./src/FiscalBr.Dimob/FiscalBr.Dimob.csproj" -c Release -f netstandard2.1
+  - dotnet build "./src/FiscalBr.Tests/FiscalBr.Tests.csproj" -c Release -f netcoreapp3.1
   - dotnet test "./src/FiscalBr.Tests/FiscalBr.Tests.csproj"
