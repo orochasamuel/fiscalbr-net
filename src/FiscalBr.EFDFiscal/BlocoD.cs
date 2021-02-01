@@ -341,6 +341,663 @@ namespace FiscalBr.EFDFiscal
         }
 
         /// <summary>
+        ///     REGISTRO  D130:  COMPLEMENTO  DO  CONHECIMENTO  RODOVIÁRIO  DE  CARGAS (CÓDIGO 08) E DO CONHECIMENTO RODOVIÁRIO DE CARGAS AVULSO (CÓDIGO 8B)
+        /// </summary>
+        public class RegistroD130 : RegistroBaseSped
+        {
+            public RegistroD130()
+            {
+                Reg = "D130";
+            }
+
+            /// <summary>
+            ///    Código do participante (campo 02 do Registro 0150):-consignatário, se houver
+            /// </summary>
+            [SpedCampos(2, "COD_PART_CONSG", "C", 60, 0, false)]
+            public string CodPartConsg { get; set; }
+
+
+            /// <summary>
+            ///    Código do participante (campo 02 do Registro 0150):-redespachado, se houver
+            /// </summary>
+            [SpedCampos(3, "COD_PART_RED", "C", 60, 0, false)]
+            public string CodPartRed { get; set; }
+
+            /// <summary>
+            ///    Indicador do tipo do frete da operação de redespacho:
+            ///    0 – Sem redespacho;
+            ///    1 - Por conta do emitente;
+            ///    2 - Por conta do destinatário;
+            ///    9 –Outros.
+            /// </summary>
+            [SpedCampos(4, "IND_FRT_RED", "C", 1, 0, true)]
+            public Int16 IntFrtRed { get; set; }
+
+            /// <summary>
+            ///    Código do município de origem do serviço, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(5, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            ///    Código do município de destino, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(6, "COD_MUN_DEST", "N", 7, 0, true)]
+            public string CodMunDest { get; set; }
+
+            /// <summary>
+            ///    Placa de identificação do veículo
+            /// </summary>
+            [SpedCampos(7, "VEIC_ID", "C", 7, 0, false)]
+            public string VeicId { get; set; }
+
+            /// <summary>
+            ///    Valor líquido do frete 
+            /// </summary>
+            [SpedCampos(8, "VL_LIQ_FRT", "N", 0, 2, true)]
+            public string VlLiqFrt { get; set; }
+
+            /// <summary>
+            ///     Soma de valores de Sec/Cat (serviços de coleta/custo adicional de transporte) 
+            /// </summary>
+            [SpedCampos(9, "VL_SEC_CAT", "N", 0, 2, false)]
+            public string VlSecCat { get; set; }
+
+            /// <summary>
+            ///     Soma de valores de despacho
+            /// </summary>
+            [SpedCampos(10, "VL_DESP", "N", 0, 2, false)]
+            public string VlDesp { get; set; }
+
+            /// <summary>
+            ///     Soma dos valores de pedágio
+            /// </summary>
+            [SpedCampos(11, "VL_PEDG", "N", 0, 2, false)]
+            public string VlPedg { get; set; }
+
+            /// <summary>
+            ///    Outros valores 
+            /// </summary>
+            [SpedCampos(12, "VL_OUT", "N", 0, 2, false)]
+            public string VlOut { get; set; }
+
+            /// <summary>
+            ///     Valor total do frete
+            /// </summary>
+            [SpedCampos(13, "VL_FRT", "N", 0, 2, true)]
+            public string VlFrt { get; set; }
+
+            /// <summary>
+            ///     Sigla da UF da placa do veículo
+            /// </summary>
+            [SpedCampos(14, "UF_ID", "C", 2, 0, false)]
+            public string UfId { get; set; }
+
+        }
+
+        /// <summary>
+        ///     REGISTRO D140: COMPLEMENTO DO CONHECIMENTO AQUAVIÁRIO DE CARGAS (CÓDIGO 09)
+        /// </summary>
+        public class RegistroD140 : RegistroBaseSped
+        {
+            public RegistroD140()
+            {
+                Reg = "D140";
+            }
+
+            /// <summary>
+            ///   Código do participante (campo 02 do Registro 0150):-consignatário, se houver
+            /// </summary>
+            [SpedCampos(2, "COD_PART_CONSG", "C", 60, 0, false)]
+            public string CodPartConsg { get; set; }
+
+
+            /// <summary>
+            ///  Código do município de origem do serviço, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(3, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            ///  Código do município de destino, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(4, "COD_MUN_DEST", "N", 7, 0, true)]
+            public string CodMunDest { get; set; }
+
+
+            /// <summary>
+            ///  Indicador do tipo do veículo transportador:
+            ///  0- Embarcação;
+            ///  1-Empurrador/rebocador
+            /// </summary>
+            [SpedCampos(5, "IND_VEIC", "C", 1, 0, true)]
+            public string IndVeic { get; set; }
+
+            /// <summary>
+            ///  Identificação da embarcação (IRIM ou Registro CPP)
+            /// </summary>
+            [SpedCampos(6, "VEIC_ID", "C", 0, 0, false)]
+            public string VeicId { get; set; }
+
+            /// <summary>
+            ///  Indicador do tipo da navegação:
+            ///  0- Interior;
+            ///  1-Cabotagem
+            /// </summary>
+            [SpedCampos(7, "IND_NAV", "C", 1, 0, true)]
+            public string IndNav { get; set; }
+
+            /// <summary>
+            ///  Número da viagem
+            /// </summary>
+            [SpedCampos(8, "VIAGEM", "N", 0, 0, false)]
+            public string Viagem { get; set; }
+
+            /// <summary>
+            ///  Valor líquido do frete
+            /// </summary>
+            [SpedCampos(9, "VL_FRT_LIQ", "N", 0, 2, true)]
+            public string VlFrtLiq { get; set; }
+
+            /// <summary>
+            ///  Valor das despesas portuárias 
+            /// </summary>
+            [SpedCampos(10, "VL_DESP_PORT", "N", 0, 2, false)]
+            public string VlDespPort { get; set; }
+
+            /// <summary>
+            ///  Valor das despesas com carga e descarga 
+            /// </summary>
+            [SpedCampos(11, "VL_DESP_CAR_DESC", "N", 0, 2, false)]
+            public string VlDespCarDesC { get; set; }
+
+            /// <summary>
+            ///   Outros valores
+            /// </summary>
+            [SpedCampos(12, "VL_OUT", "N", 0, 2, false)]
+            public string VlOut { get; set; }
+
+            /// <summary>
+            ///  Valor brutodo frete
+            /// </summary>
+            [SpedCampos(13, "VL_FRT_BRT", "N", 0, 2, true)]
+            public string VlFrtBrt { get; set; }
+
+            /// <summary>
+            /// Valor adicional do frete para renovação da Marinha Mercante
+            /// <summary>
+            [SpedCampos(14, "VL_FRT_MM", "N", 0, 2, false)]
+            public string VlFrtMm { get; set; }
+
+        }
+
+        /// <summary>
+        ///   REGISTRO D150: COMPLEMENTO DO CONHECIMENTO AÉREO (CÓDIGO 10)  
+        /// </summary>
+        public class RegistroD150 : RegistroBaseSped
+        {
+
+            public RegistroD150()
+            {
+                Reg = "D150";
+            }
+
+            /// <summary>
+            ///     Código do município de origem do serviço, conforme a tabela IBGE (Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(2, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            ///    Código do município de destino, conforme a tabela IBGE (Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(3, "COD_MUN_DEST", "N", 7, 0, true)]
+            public string CodMunDest { get; set; }
+
+            /// <summary>
+            ///    Identificação da aeronave (DAC)
+            /// </summary>
+            [SpedCampos(4, "VEIC_ID", "C", 0, 0, false)]
+            public string VeicId { get; set; }
+
+            /// <summary>
+            ///    Número do vôo.
+            /// </summary>
+            [SpedCampos(5, "VIAGEM", "N", 0, 0, false)]
+            public string Viagem { get; set; }
+
+            /// <summary>
+            ///    Indicador do tipo de tarifa aplicada:
+            ///    0- Exp.;
+            ///    1- Enc.;
+            ///    2- C.I.;
+            ///    9-Outra
+            /// </summary>
+            [SpedCampos(6, "IND_TFA", "C", 1, 0, true)]
+            public string IndTfa { get; set; }
+
+            /// <summary>
+            ///   Peso taxado
+            /// </summary>
+            [SpedCampos(7, "VL_PESO_TX", "N", 0, 2, true)]
+            public string VlPesoTx { get; set; }
+
+            /// <summary>
+            ///   Valor da taxa terrestre
+            /// </summary>
+            [SpedCampos(8, "VL_TX_TERR", "N", 0, 2, false)]
+            public string VlTxTerr { get; set; }
+
+
+            /// <summary>
+            ///    Valor da taxa de redespacho
+            /// </summary>
+            [SpedCampos(9, "VL_TX_RED", "N", 0, 2, false)]
+            public string VlTxRed { get; set; }
+
+
+            /// <summary>
+            ///    Outros valores
+            /// </summary>
+            [SpedCampos(10, "VL_OUT", "N", 0, 2, false)]
+            public string VlOut { get; set; }
+
+            /// <summary>
+            ///    Valor da taxa "ad valorem"
+            /// </summary>
+            [SpedCampos(11, "VL_TX_ADV", "N", 0, 2, false)]
+            public string VlTxAdv { get; set; }
+
+        }
+
+        /// <summary>
+        ///   REGISTRO D160: CARGA TRANSPORTADA (CÓDIGO 08, 8B, 09, 10, 11, 26 e 27)
+        /// </summary>
+        public class RegistroD160 : RegistroBaseSped
+        {
+
+            public RegistroD160()
+            {
+                Reg = "D160";
+            }
+
+            /// <summary>
+            ///   Identificação do número do despacho 
+            /// </summary>
+            [SpedCampos(2, "DESPACHO", "C", 0, 0, false)]
+            public string Despacho { get; set; }
+
+            /// <summary>
+            ///    CNPJ ou CPF do remetente das mercadorias que constam na nota fiscal.
+            /// </summary>
+            [SpedCampos(3, "CNPJ_CPF_REM", "N", 14, 0, false)]
+            public string CnpjCpfRem { get; set; }
+
+            /// <summary>
+            ///   Inscrição Estadual do remetente das mercadorias que constam na nota fiscal.
+            /// </summary>
+            [SpedCampos(4, "IE_REM", "C", 14, 0, false)]
+            public string IeRem { get; set; }
+
+            /// <summary>
+            ///    Código do Município de origem, conforme tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(5, "COD_MUN_ORI", "N", 7, 0, true)]
+            public string CodMunOri { get; set; }
+
+            /// <summary>
+            ///   CNPJ ou CPF do destinatário das mercadorias que constam na nota fiscal.
+            /// </summary>
+            [SpedCampos(6, "CNPJ_CPF_DEST", "N", 14, 0, false)]
+            public string CnpjCpfDest { get; set; }
+
+            /// <summary>
+            ///   Inscrição Estadual do destinatáriodas mercadorias que constam na nota fiscal.
+            /// </summary>
+            [SpedCampos(7, "IE_DEST", "C", 14, 0, false)]
+            public string IeDest { get; set; }
+
+            /// <summary>
+            ///   Código do Município de destino, conforme tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(8, "COD_MUN_DEST", "N", 7, 0, true)]
+            public string CodMunDest { get; set; }
+
+
+        }
+
+        /// <summary>
+        ///  REGISTRO D161: LOCAL DA COLETA E ENTREGA (CÓDIGO 08, 8B, 09, 10, 11 e 26)
+        /// </summary>
+        public class RegistroD161 : RegistroBaseSped
+        {
+
+            public RegistroD161()
+            {
+                Reg = "D161";
+            }
+
+            /// <summary>
+            ///   Indicador do tipo de transporte da carga coletada:
+            ///   0-Rodoviário
+            ///   1-Ferroviário
+            ///   2-Rodo-Ferroviário
+            ///   3-Aquaviário
+            ///   4-Dutoviário
+            ///   5-Aéreo
+            ///   9-Outros
+            /// </summary>
+            [SpedCampos(2, "IND_CARGA", "N", 1, 0, true)]
+            public string IndCarga { get; set; }
+
+            /// <summary>
+            ///    Número do CNPJ ou CPF do local da coleta.
+            /// </summary>
+            [SpedCampos(3, "CNPJ_CPF_COL", "C", 14, 0, false)]
+            public string CnpjCpfCol { get; set; }
+
+            /// <summary>
+            ///   Inscrição Estadual do contribuinte do local de coleta.
+            /// </summary>
+            [SpedCampos(4, "IE_Col", "C", 14, 0, false)]
+            public string IeCol { get; set; }
+
+            /// <summary>
+            ///    Código   do   Município   do   local   de   coleta, conforme tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(5, "COD_MUN_COL", "N", 7, 0, true)]
+            public string CodMunCol { get; set; }
+
+            /// <summary>
+            ///   Número do CNPJ ou CPF do local da entrega
+            /// </summary>
+            [SpedCampos(6, "CNPJ_CPF_ENTG", "C", 14, 0, false)]
+            public string CnpjCpfEntg { get; set; }
+
+            /// <summary>
+            ///   Inscrição  Estadual  do  contribuinte  do  local  de entrega
+            /// </summary>
+            [SpedCampos(7, "IE_ENTG", "C", 14, 0, false)]
+            public string IeEntg { get; set; }
+
+            /// <summary>
+            ///  Código   do   Município   do   local   de   entrega, conforme tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(8, "COD_MUN_ENTG", "N", 7, 0, true)]
+            public string CodMunEntg { get; set; }
+        }
+
+        /// <summary>
+        /// REGISTRO  D162:  IDENTIFICAÇÃO  DOS  DOCUMENTOS  FISCAIS  (CÓDIGOS  08,  8B,  09, 10, 11, 26 E 27)
+        /// </summary>
+        public class RegistroD162 : RegistroBaseSped
+        {
+
+            public RegistroD162()
+            {
+                Reg = "D162";
+            }
+
+            /// <summary>
+            ///    Código do modelo do documento fiscal, conforme a Tabela 4.1.1
+            /// </summary>
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, false)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            ///   Série do documento fiscal
+            /// </summary>
+            [SpedCampos(3, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            ///    Número do documento fiscal
+            /// </summary>
+            [SpedCampos(4, "NUM_DOC", "N", 9, 0, true)]
+            public string NumDoc { get; set; }
+
+            /// <summary>
+            ///   Data da emissão do documento fiscal
+            /// </summary>
+            [SpedCampos(5, "DT_DOC", "N", 8, 0, false)]
+            public string DtDoc { get; set; }
+
+            /// <summary>
+            ///   Valor total do documento fiscal 
+            /// </summary>
+            [SpedCampos(6, "VL_DOC", "N", 0, 2, false)]
+            public string VlDoc { get; set; }
+
+            /// <summary>
+            ///  Valor das mercadorias constantes no documento fiscal
+            /// </summary>
+            [SpedCampos(7, "VL_MERC", "N", 0, 2, false)]
+            public string VlMerc { get; set; }
+
+            /// <summary>
+            ///  Quantidade de volumes transportados
+            /// </summary>
+            [SpedCampos(8, "QTD_VOL", "N", 0, 0, true)]
+            public string QtdVol { get; set; }
+
+
+            /// <summary>
+            ///   Peso bruto dos volumes transportados (em kg)
+            /// </summary>
+            [SpedCampos(9, "PESO_BRT", "N", 0, 2, false)]
+            public string PesoBrt { get; set; }
+
+
+            /// <summary>
+            ///    Peso líquido dos volumes transportados (em kg)
+            /// </summary>
+            [SpedCampos(10, "PESO_LIQ", "N", 0, 2, false)]
+            public string PesoLiq { get; set; }
+        }
+
+        /// <summary>
+        ///  REGISTRO  D170:  COMPLEMENTO  DO  CONHECIMENTO  MULTIMODAL  DE  CARGAS (CÓDIGO 26)
+        /// </summary>
+        public class RegistroD170 : RegistroBaseSped
+        {
+            public RegistroD170()
+            {
+                Reg = "D170";
+            }
+
+            /// <summary>
+            ///   Código do participante (campo 02 do Registro 0150):-consignatário, se houver
+            /// </summary>
+            [SpedCampos(2, "COD_PART_CONSG", "C", 60, 0, false)]
+            public string CodPartConsg { get; set; }
+
+            /// <summary>
+            /// Código do participante (campo 02 do Registro 0150):-redespachante, se houver
+            /// </summary>
+            [SpedCampos(3, "COD_PART_RED", "C", 60, 0, false)]
+            public string CodPartRed { get; set; }
+
+            /// <summary>
+            ///  Código do município de origem do serviço, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(4, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            /// Código do município de destino, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(5, "COD_MUN_DEST", "N", 7, 0, true)]
+            public string CodMunDest { get; set; }
+
+            /// <summary>
+            ///  Registro do operador de transporte multimodal
+            /// </summary>
+            [SpedCampos(6, "OTM", "C", 0, 0, true)]
+            public string Otm { get; set; }
+
+            /// <summary>
+            /// Indicador da natureza do frete:
+            /// 0- Negociável;
+            /// 1-Não negociável
+            /// </summary>
+            [SpedCampos(7, "IND_NAT_FRT", "C", 1, 0, true)]
+            public string IndNatFrt { get; set; }
+
+            /// <summary>
+            /// Valor líquido do frete
+            /// </summary>
+            [SpedCampos(8, "VL_LIQ_FRT", "N", 0, 2, true)]
+            public string VlLinqFrt { get; set; }
+
+            /// <summary>
+            ///  Valor do gris (gerenciamento de risco)
+            /// </summary>
+            [SpedCampos(9, "VL_GRIS", "N", 0, 2, false)]
+            public string VlGris { get; set; }
+
+            /// <summary>
+            /// Somatório dos valores de pedágio
+            /// </summary>
+            [SpedCampos(10, "VL_PDG", "N", 0, 2, false)]
+            public string VlPdg { get; set; }
+
+            /// <summary>
+            ///  Outros valores
+            /// </summary>
+            [SpedCampos(11, "VL_OUT", "N", 0, 2, false)]
+            public string VlOut { get; set; }
+
+            /// <summary>
+            ///  Valor total do frete
+            /// </summary>
+            [SpedCampos(12, "VL_FRT", "N", 0, 2, true)]
+            public string VlFrt { get; set; }
+
+            /// <summary>
+            ///  Placa de identificação do veículo
+            /// </summary>
+            [SpedCampos(13, "VEIC_ID", "C", 7, 0, false)]
+            public string VeicId { get; set; }
+
+            /// <summary>
+            /// Sigla da UF da placa do veículo
+            /// <summary>
+            [SpedCampos(14, "UF_ID", "C", 2, 0, false)]
+            public string UfId { get; set; }
+        }
+
+        /// <summary>
+        ///  REGISTRO D180: MODAIS (CÓDIGO 26)
+        /// </summary>
+        public class RegistroD180 : RegistroBaseSped
+        {
+
+            public RegistroD180()
+            {
+                Reg = "D180";
+            }
+
+            /// <summary>
+            ///   Número de ordem sequencial do modal
+            /// </summary>
+            [SpedCampos(2, "NUM_SEQ", "N", 0, 0, true)]
+            public string NumSeq { get; set; }
+
+            /// <summary>
+            /// Indicador do emitente do documento fiscal:
+            /// 0 - Emissão própria;
+            /// 1 -Terceiros
+            /// </summary>
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
+            public string IndEmit { get; set; }
+
+            /// <summary>
+            /// CNPJ ou CPF do participante emitente do modal
+            /// </summary>
+            [SpedCampos(4, "CNPJ_CPF_EMIT", "N", 14, 0, true)]
+            public string CnpjCpfEmit { get; set; }
+
+            /// <summary>
+            /// Sigla da unidade da federação do participante emitente do modal
+            /// </summary>
+            [SpedCampos(5, "UF_EMIT", "C", 2, 0, true)]
+            public string UfEmit { get; set; }
+
+            /// <summary>
+            ///  Inscrição Estadual do participante emitente do modal
+            /// </summary>
+            [SpedCampos(6, "IE_EMIT", "C", 14, 0, false)]
+            public string IeEmit { get; set; }
+
+            /// <summary>
+            /// Código do município de origem do serviço, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(7, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            /// CNPJ/CPF do participante tomador do serviço
+            /// </summary>
+            [SpedCampos(8, "CNPJ_CPF_TOM", "N", 14, 0, true)]
+            public string CnpjCpfTom { get; set; }
+
+            /// <summary>
+            ///  Sigla da unidade da federação do participante tomador do serviço
+            /// </summary>
+            [SpedCampos(9, "UF_TOM", "C", 2, 0, true)]
+            public string UfTom { get; set; }
+
+            /// <summary>
+            /// Inscrição Estadual do participante tomador do serviço
+            /// </summary>
+            [SpedCampos(10, "IE_TOM", "C", 14, 0, false)]
+            public string IeTom { get; set; }
+
+            /// <summary>
+            /// Código do município de destino, conforme a tabela IBGE(Preencher com 9999999, se Exterior)
+            /// </summary>
+            [SpedCampos(11, "COD_MUN_DEST", "N", 7, 0, true)]
+            public string CodMunDest { get; set; }
+
+            /// <summary>
+            ///  Código do modelo do documento fiscal, conforme a Tabela 4.1.1 
+            /// </summary>
+            [SpedCampos(12, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            ///  Série do documento fiscal
+            /// </summary>
+            [SpedCampos(13, "SER", "C", 4, 0, true)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            /// Subsérie do documento fiscal
+            /// <summary>
+            [SpedCampos(14, "SUB", "N", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            /// Número do documento fiscal
+            /// </summary>
+            [SpedCampos(15, "NUM_DOC", "N", 9, 0, true)]
+            public string NumDoc { get; set; }
+
+            /// <summary>
+            /// Data da emissão do documento fiscal
+            /// </summary>
+            [SpedCampos(16, "DT_DOC", "N", 8, 0, true)]
+            public string DtDoc { get; set; }
+
+            /// <summary>
+            /// Valor total do documento fiscal
+            /// </summary>
+            [SpedCampos(17, "VL_DOC", "N", 0, 2, true)]
+            public string VlDoc { get; set; }
+        }
+
+
+        /// <summary>
         ///     REGISTRO D190: REGISTRO ANALÍTICO DOS DOCUMENTOS (CÓDIGO 07, 08, 8B, 09, 10, 11, 26, 27 e 57).
         /// </summary>
         public class RegistroD190 : RegistroBaseSped
@@ -488,6 +1145,197 @@ namespace FiscalBr.EFDFiscal
             public decimal VlOutros { get; set; }
         }
 
+        /// <summary>
+        /// REGISTRO D300: REGISTRO ANALÍTICO DOS BILHETES CONSOLIDADOS DE PASSAGEM RODOVIÁRIO (CÓDIGO 13), 
+        /// DE PASSAGEM AQUAVIÁRIO (CÓDIGO 14), DE PASSAGEM E NOTA DE BAGAGEM (CÓDIGO 15) E DE PASSAGEM FERROVIÁRIO (CÓDIGO 16)
+        /// </summary>
+        public class RegistroD300 : RegistroBaseSped
+        {
+            public RegistroD300()
+            {
+                Reg = "D300";
+            }
+
+            /// <summary>
+            ///   Código do modelo do documento fiscal, conforme a Tabela 4.1.1 
+            /// </summary>
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            /// Série do documento fiscal
+            /// </summary>
+            [SpedCampos(3, "SER", "C", 4, 0, true)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            /// Subsérie do documento fiscal
+            /// </summary>
+            [SpedCampos(4, "SUB", "N", 4, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            /// Número do primeiro documento fiscal emitido (mesmo modelo, série e subsérie)
+            /// </summary>
+            [SpedCampos(5, "NUM_DOC_INI", "N", 6, 0, true)]
+            public string NumDocIni { get; set; }
+
+            /// <summary>
+            /// Número do último documento fiscal emitido (mesmo modelo, série e subsérie)
+            /// </summary>
+            [SpedCampos(6, "NUM_DOC_FIN", "N", 0, 0, true)]
+            public string NumDocFin { get; set; }
+
+            /// <summary>
+            /// Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1
+            /// </summary>
+            [SpedCampos(7, "CST_ICMS", "N", 3, 0, true)]
+            public string CstIcms { get; set; }
+
+            /// <summary>
+            /// Código Fiscal de Operação e Prestação conforme tabela indicada no item 4.2.2
+            /// </summary>
+            [SpedCampos(8, "CFOP", "N", 4, 0, true)]
+            public string Cfop { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(9, "ALIQ_ICMS", "N", 6, 2, false)]
+            public string AliqIcms { get; set; }
+
+            /// <summary>
+            /// Data da emissão dos documentos fiscais
+            /// </summary>
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, true)]
+            public string DtDoc { get; set; }
+
+            /// <summary>
+            /// Valor total acumulado das operações correspondentes à combinação de CST_ICMS, CFOP e alíquota do ICMS,
+            /// incluídas as despesas acessórias e acréscimos. 
+            /// </summary>
+            [SpedCampos(11, "VL_OPR", "N", 0, 2, true)]
+            public string VlOpr { get; set; }
+
+            /// <summary>
+            /// Valor total dos descontos
+            /// </summary>
+            [SpedCampos(12, "VL_DESC", "N", 0, 2, false)]
+            public string VlDesc { get; set; }
+
+            /// <summary>
+            /// Valor total da prestação de serviço
+            /// </summary>
+            [SpedCampos(13, "VL_SERV", "N", 0, 2, true)]
+            public string VlServ { get; set; }
+
+            /// <summary>
+            /// Valor de seguro
+            /// </summary>
+            [SpedCampos(14, "VL_SEG", "N", 0, 2, false)]
+            public string VlSeg { get; set; }
+
+            /// <summary>
+            /// Valor de outras despesas
+            /// </summary>
+            [SpedCampos(15, "VL_OUT_DESP", "N", 0, 2, false)]
+            public string VlOutDesp { get; set; }
+
+            /// <summary>
+            /// Valor total da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(16, "VL_BC_ICMS", "N", 0, 2, true)]
+            public string VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Valor total do ICMS
+            /// </summary>
+            [SpedCampos(17, "VL_ICMS", "N", 0, 2, true)]
+            public string VlIcms { get; set; }
+
+            /// <summary>
+            /// Valor não tributado em função da redução da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS.
+            /// </summary>
+            [SpedCampos(18, "VL_RED_BC", "N", 0, 2, true)]
+            public string VlRedBc { get; set; }
+
+            /// <summary>
+            /// Código da observação do lançamento fiscal (campo 02 do Registro 0460)
+            /// </summary>
+            [SpedCampos(19, "COD_OBS", "C", 6, 0, false)]
+            public string CodObs { get; set; }
+
+            /// <summary>
+            /// Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(20, "COD_CTA", "C", 0, 0, false)]
+            public string CodCta { get; set; }
+        }
+        /// <summary>
+        ///    REGISTRO D301: DOCUMENTOS CANCELADOS DOS BILHETES DE PASSAGEM RODOVIÁRIO (CÓDIGO 13), 
+        ///    DE PASSAGEM AQUAVIÁRIO (CÓDIGO 14), DE PASSAGEM E NOTA DE BAGAGEM (CÓDIGO 15) E DE PASSAGEM FERROVIÁRIO (CÓDIGO 16). 
+        /// </summary>
+        public class RegistroD301 : RegistroBaseSped
+        {
+            public RegistroD301()
+            {
+                Reg = "D301";
+            }
+
+            /// <summary>
+            ///  Número do documento fiscal cancelado 
+            /// </summary>
+            [SpedCampos(2, "NUM_DOC_CANC", "N", 0, 0, true)]
+            public string NumDocCanc { get; set; }
+
+        }
+        /// <summary>
+        ///    REGISTRO D310: COMPLEMENTO DOS BILHETES (CÓDIGO 13, 14, 15 E 16).
+        /// </summary>
+        public class RegistroD310 : RegistroBaseSped
+        {
+            public RegistroD310()
+            {
+                Reg = "D310";
+            }
+
+            /// <summary>
+            ///  Código do município de origem do serviço, conforme a tabela IBGE
+            /// </summary>
+            [SpedCampos(2, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            ///  Valor total da prestação de serviço
+            /// </summary>
+            [SpedCampos(3, "VL_SERV", "N", 0, 2, true)]
+            public string VlServ { get; set; }
+
+            /// <summary>
+            ///  Valor total da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(4, "VL_BC_ICMS", "N", 0, 2, false)]
+            public string VlBcIcms { get; set; }
+
+            /// <summary>
+            ///  Valor total do ICMS
+            /// </summary>
+            [SpedCampos(5, "VL_ICMS", "N", 0, 2, false)]
+            public string VlIcms { get; set; }
+        }
+
+        /// <summary>
+        ///   REGISTRO D350: EQUIPAMENTO ECF (CÓDIGOS 2E, 13, 14, 15 e 16)
+        /// </summary>
+        public class RegistroD350 : RegistroBaseSped
+        {
+            public RegistroD350()
+            {
+                Reg = "D350";
+            }
+
+
+        }
         /// <summary>
         ///     REGISTRO D500: NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E NOTA FISCAL DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22)
         /// </summary>
@@ -837,7 +1685,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código de área do terminal faturado
             /// </summary>
-            [SpedCampos(6,"COD_AREA", "C", int.MaxValue, 0, false)]
+            [SpedCampos(6, "COD_AREA", "C", int.MaxValue, 0, false)]
             public string CodArea { get; set; }
 
             /// <summary>
