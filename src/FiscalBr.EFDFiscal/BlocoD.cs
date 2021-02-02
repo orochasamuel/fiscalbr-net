@@ -1334,8 +1334,502 @@ namespace FiscalBr.EFDFiscal
                 Reg = "D350";
             }
 
+            /// <summary>
+            ///  Código do modelo do documento fiscal, conforme a Tabela 4.1.1
+            /// </summary>
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            /// Modelo do equipamento
+            /// </summary>
+            [SpedCampos(3, "ECF_MOD", "C", 20, 0, true)]
+            public string EcfMod { get; set; }
+
+            /// <summary>
+            ///  Número de série de fabricação do ECF
+            /// </summary>
+            [SpedCampos(4, "ECF_FAB", "C", 21, 0, true)]
+            public string EcfFab { get; set; }
+
+            /// <summary>
+            ///  Número do caixa atribuído ao ECF
+            /// </summary>
+            [SpedCampos(5, "ECF_CX", "N", 3, 0, true)]
+            public string EcfCx { get; set; }
+        }
+
+        /// <summary>
+        ///  REGISTRO D355: REDUÇÃO Z (CÓDIGOS 2E, 13, 14, 15 e 16). 
+        /// </summary>
+        public class RegistroD355 : RegistroBaseSped
+        {
+            public RegistroD355()
+            {
+                Reg = "D355";
+            }
+
+            /// <summary>
+            /// Data do movimento a que se refere a Redução Z
+            /// </summary>
+            [SpedCampos(2, "DT_DOC", "N", 8, 0, true)]
+            public string DtDoc { get; set; }
+
+            /// <summary>
+            /// Posição do Contador de Reinício de Operação
+            /// </summary>
+            [SpedCampos(3, "CRO", "N", 3, 0, true)]
+            public string Cro { get; set; }
+
+            /// <summary>
+            /// Posição do Contador de Redução Z
+            /// </summary>
+            [SpedCampos(4, "CRZ", "N", 6, 0, true)]
+            public string Crz { get; set; }
+
+            /// <summary>
+            /// Número do Contador de Ordem de Operação do último documento emitido no dia. (Número do COO na Redução Z)
+            /// </summary>
+            [SpedCampos(5, "NUM_COO_FIN", "N", 9, 0, true)]
+            public string NumCooFin { get; set; }
+
+            /// <summary>
+            /// Valor do Grande Total final
+            /// </summary>
+            [SpedCampos(6, "GT_FIN", "N", 0, 2, true)]
+            public string GtFin { get; set; }
+
+            /// <summary>
+            /// Valor da venda bruta
+            /// </summary>
+            [SpedCampos(7, "VL_BRT", "N", 0, 2, true)]
+            public string VlBrt { get; set; }
+        }
+        
+        /// <summary>
+        ///   REGISTRO D360: PIS E COFINS TOTALIZADOS NO DIA (CÓDIGOS 2E, 13, 14, 15 e 16).
+        /// </summary>
+        public class RegistroD360 : RegistroBaseSped
+        {
+            public RegistroD360()
+            {
+                Reg = "D360";
+            }
+
+            /// <summary>
+            /// Valor total do PIS
+            /// </summary>
+            [SpedCampos(2, "VL_PIS", "N", 0, 2, false)]
+            public string VlPis { get; set; }
+
+            /// <summary>
+            /// Valor total da COFINS
+            /// </summary>
+            [SpedCampos(3, "VL_COFINS", "N", 0, 2, false)]
+            public string VlCofins { get; set; }
 
         }
+
+        /// <summary>
+        ///   REGISTRO   D365:   REGISTRO   DOS   TOTALIZADORES   PARCIAIS DA   REDUÇÃO   Z (CÓDIGOS 2E, 13, 14, 15 e 16).
+        /// </summary>
+        public class RegistroD365 : RegistroBaseSped
+        {
+            public RegistroD365()
+            {
+                Reg = "D365";
+            }
+
+            /// <summary>
+            /// Código do totalizador, conforme Tabela 4.4.6
+            /// </summary>
+            [SpedCampos(2, "COD_TOT_PAR", "C", 7, 0, true)]
+            public string CodTotPar { get; set; }
+
+            /// <summary>
+            /// Valor acumulado no totalizador, relativo à respectiva Redução Z.
+            /// </summary>
+            [SpedCampos(3, "VLR_ACUM_TOT", "N", 0, 2, true)]
+            public string VlrAcumTot { get; set; }
+
+            /// <summary>
+            /// Número do totalizador quando ocorrer mais de uma situação com a mesma carga tributária efetiva.
+            /// </summary>
+            [SpedCampos(4, "NR_TOT", "N", 2, 0, false)]
+            public string NrTot { get; set; }
+
+            /// <summary>
+            /// Descrição da situação tributária relativa ao totalizador parcial, quando houver mais de um com a mesma carga tributária efetiva.
+            /// </summary>
+            [SpedCampos(5, "DESCR_NR_TOT", "C", 0, 0, false)]
+            public string DescrNrTot { get; set; }
+            
+        }
+
+        /// <summary>
+        ///   REGISTRO D370: COMPLEMENTO DOS DOCUMENTOS INFORMADOS (CÓDIGOS 13, 14, 15 e 16 e 2E)
+        /// </summary>
+        public class RegistroD370 : RegistroBaseSped
+        {
+            public RegistroD370()
+            {
+                Reg = "D370";
+            }
+
+            /// <summary>
+            /// Código do município de origem do serviço, conforme a tabela IBGE
+            /// </summary>
+            [SpedCampos(2, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            /// Valor total da prestação de serviço
+            /// </summary>
+            [SpedCampos(3, "VL_SERV", "N", 0, 2, true)]
+            public string VlServ { get; set; }
+
+            /// <summary>
+            /// Quantidade de bilhetes emitidos
+            /// </summary>
+            [SpedCampos(4, "QTD_BILH", "N", 0, 0, true)]
+            public string QtdBilh { get; set; }
+
+            /// <summary>
+            /// Valor total da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(5, "VL_BC_ICMS", "N", 0, 2, false)]
+            public string VlBcIcms { get; set; }
+            
+            /// <summary>
+            /// Valor total do ICMS
+            /// </summary>
+            [SpedCampos(6, "VL_ICMS", "N", 0, 2, false)]
+            public string VlIcms { get; set; }
+
+        }
+
+        /// <summary>
+        ///   REGISTRO  D390:  REGISTRO  ANALÍTICO  DO  MOVIMENTO  DIÁRIO  (CÓDIGOS  13,  14, 15, 16 E 2E).
+        /// </summary>
+        public class RegistroD390 : RegistroBaseSped
+        {
+            public RegistroD390()
+            {
+                Reg = "D390";
+            }
+
+            /// <summary>
+            /// Código   da   Situação   Tributária,   conforme   a Tabela indicada no item 4.3.1.
+            /// </summary>
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            public string CstIcms { get; set; }
+
+            /// <summary>
+            /// Código Fiscal de Operação e Prestação
+            /// </summary>
+            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            public string Cfop { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            public string AliqIcms { get; set; }
+
+            /// <summary>
+            /// Valor da operação correspondente à combinação de CST_ICMS, CFOP, e alíquota do ICMS, incluídas as despesas acessórias e acréscimos 
+            /// </summary>
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            public string VlOpr { get; set; }
+
+            /// <summary>
+            /// Valor da base de cálculo do ISSQN
+            /// </summary>
+            [SpedCampos(6, "VL_BC_ISSQN", "N", 0, 2, false)]
+            public string VlBcIssqn { get; set; }
+
+            /// <summary>
+            /// Alíquota do ISSQN
+            /// </summary>
+            [SpedCampos(7, "ALIQ_ISSQN", "N", 6, 2, false)]
+            public string AliqIssqn { get; set; }
+
+            /// <summary>
+            /// Valor do ISSQN
+            /// </summary>
+            [SpedCampos(8, "VL_ISSQN", "N", 0, 2, false)]
+            public string VlIssqn { get; set; }
+
+            /// <summary>
+            /// Base  de  cálculo  do  ICMS  acumulada  relativa  à alíquota informada
+            /// </summary>
+            [SpedCampos(9, "VL_BC_ICMS", "N", 0, 2, true)]
+            public string VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Valor  do  ICMS  acumulado  relativo  à  alíquota informada
+            /// </summary>
+            [SpedCampos(10, "VL_ICMS", "N", 0, 2, true)]
+            public string VlIcms { get; set; }
+
+            /// <summary>
+            /// Código   da   observação   do   lançamento   fiscal (campo 02 do Registro 0460)
+            /// </summary>
+            [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
+            public string CodObs { get; set; }
+        }
+
+        /// <summary>
+        ///   REGISTRO D400: RESUMO DE MOVIMENTO DIÁRIO - RMD (CÓDIGO 18).
+        /// </summary>
+        public class RegistroD400 : RegistroBaseSped
+        {
+            public RegistroD400()
+            {
+                Reg = "D400";
+            }
+
+            /// <summary>
+            /// Código do participante (campo 02 do Registro 0150):-agência, filial ou posto
+            /// </summary>
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true)]
+            public string CodPart { get; set; }
+
+            /// <summary>
+            /// Código do modelo do documento fiscal, conforme a Tabela 4.1.1 
+            /// </summary>
+            [SpedCampos(3, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            /// Código da situação do documento fiscal, conforme a Tabela 4.1.2
+            /// </summary>
+            [SpedCampos(4, "COD_SIT", "N", 2, 0, true)]
+            public string CodSit { get; set; }
+
+            /// <summary>
+            ///  Série do documento fiscal
+            /// </summary>
+            [SpedCampos(5, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            /// Subsérie do documento fiscal
+            /// </summary>
+            [SpedCampos(6, "SUB", "N", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            /// Número do documento fiscal resumo.
+            /// </summary>
+            [SpedCampos(7, "NUM_DOC", "N", 6, 0, true)]
+            public string NumDoc { get; set; }
+
+            /// <summary>
+            /// Data da emissão do documento fiscal
+            /// </summary>
+            [SpedCampos(8, "DT_DOC", "N", 8, 0, true)]
+            public string DtDoc { get; set; }
+
+            /// <summary>
+            /// Valor total do documento fiscal
+            /// </summary>
+            [SpedCampos(9, "VL_DOC", "N", 0, 2, true)]
+            public string VlDoc { get; set; }
+
+            /// <summary>
+            /// Valor acumulado dos descontos
+            /// </summary>
+            [SpedCampos(10, "VL_DESC", "N", 0, 2, false)]
+            public string VlDesc { get; set; }
+
+            /// <summary>
+            /// Valor acumulado da prestação de serviço
+            /// </summary>
+            [SpedCampos(11, "VL_SERV", "N", 0, 2, true)]
+            public string VlServ { get; set; }
+
+            /// <summary>
+            /// Valor total da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(12, "VL_BC_ICMS", "N", 0, 2, false)]
+            public string VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Valor total do ICMS
+            /// </summary>
+            [SpedCampos(13, "VL_ICMS", "N", 0, 2, false)]
+            public string VlIcms { get; set; }
+
+            /// <summary>
+            /// Valor do PIS
+            /// </summary>
+            [SpedCampos(14, "VL_PIS", "N", 0, 2, false)]
+            public string VlPis { get; set; }
+
+            /// <summary>
+            /// Valor da COFINS
+            /// </summary>
+            [SpedCampos(15, "VL_COFINS", "N", 0, 2, false)]
+            public string VlOfins { get; set; }
+
+            /// <summary>
+            /// Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(16, "COD_CTA", "C", 0, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///   REGISTRO D410: DOCUMENTOS INFORMADOS (CÓDIGOS 13, 14, 15 E 16).
+        /// </summary>
+        public class RegistroD410 : RegistroBaseSped
+        {
+            public RegistroD410()
+            {
+                Reg = "D410";
+            }
+
+            /// <summary>
+            /// Código do modelo do documento fiscal , conforme a Tabela 4.1.1 
+            /// </summary>
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            /// <summary>
+            /// Série do documento fiscal 
+            /// </summary>
+            [SpedCampos(3, "SER", "C", 4, 0, true)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            /// Subsérie do documento fisca
+            /// </summary>
+            [SpedCampos(4, "SUB", "N", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            ///  Número do documento fiscal inicial (mesmo modelo, série e subsérie)
+            /// </summary>
+            [SpedCampos(5, "NUM_DOC_INI", "N", 6, 0, true)]
+            public string NumDocIni { get; set; }
+
+            /// <summary>
+            /// Número do documento fiscal final(mesmo modelo, série e subsérie)
+            /// </summary>
+            [SpedCampos(6, "NUM_DOC_FIN", "N", 0, 0, true)]
+            public string NumDocFin { get; set; }
+
+            /// <summary>
+            /// Data da emissão dos documentos fiscais
+            /// </summary>
+            [SpedCampos(7, "DT_DOC", "N", 8, 0, true)]
+            public string DtDoc { get; set; }
+
+            /// <summary>
+            /// Código da Situação Tributária, conforme a Tabela indicada no item 4.3.1
+            /// </summary>
+            [SpedCampos(8, "CST_ICMS", "N", 3, 0, true)]
+            public string CstIcms { get; set; }
+
+            /// <summary>
+            /// Código Fiscal de Operação e Prestação
+            /// </summary>
+            [SpedCampos(9, "CFOP", "N", 4, 0, true)]
+            public string Cfop { get; set; }
+
+            /// <summary>
+            /// Alíquota do ICMS
+            /// </summary>
+            [SpedCampos(10, "ALIQ_ICMS", "N", 6, 2, false)]
+            public string AliqIcms { get; set; }
+
+            /// <summary>
+            /// Valor total acumulado das operações correspondentes à combinação de CST_ICMS, CFOP e alíquota do ICMS,incluídas as despesas acessórias e acréscimos. 
+            /// </summary>
+            [SpedCampos(11, "VL_OPR", "N", 0, 2, true)]
+            public string VlOpr { get; set; }
+
+            /// <summary>
+            /// Valor acumulado dos descontos
+            /// </summary>
+            [SpedCampos(12, "VL_DESC", "N", 0, 2, false)]
+            public string VlDesc { get; set; }
+
+            /// <summary>
+            /// Valor acumulado da prestação de serviço
+            /// </summary>
+            [SpedCampos(13, "VL_SERV", "N", 0, 2, true)]
+            public string VlServ { get; set; }
+
+            /// <summary>
+            /// Valor acumulado da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(14, "VL_BC_ICMS", "N", 0, 2, true)]
+            public string VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Valor acumulado do ICMS
+            /// </summary>
+            [SpedCampos(15, "VL_ICMS", "N", 0, 2, true)]
+            public string VlIcms { get; set; }
+
+        }
+
+        /// <summary>
+        ///   REGISTRO  D411:  DOCUMENTOS  CANCELADOS  DOS  DOCUMENTOS  INFORMADOS (CÓDIGO 13, 14, 15 e 16).
+        /// </summary>
+        public class RegistroD411 : RegistroBaseSped
+        {
+            public RegistroD411()
+            {
+                Reg = "D411";
+            }
+            
+            /// <summary>
+            /// Número do documento fiscal cancelado
+            /// </summary>
+            [SpedCampos(2, "NUM_DOC_CANC", "N", 0, 0, true)]
+            public string NumDocCanc { get; set; }
+
+        }
+
+        /// <summary>
+        ///   REGISTRO D420: COMPLEMENTO DOS DOCUMENTOS INFORMADOS (CÓDIGO 13, 14,15 e 16).
+        /// </summary>
+        public class RegistroD420 : RegistroBaseSped
+        {
+            public RegistroD420()
+            {
+                Reg = "D420";
+            }
+          
+            /// <summary>
+            /// Código do município de origem do serviço, conforme a tabela IBGE
+            /// </summary>
+            [SpedCampos(2, "COD_MUN_ORIG", "N", 7, 0, true)]
+            public string CodMunOrig { get; set; }
+
+            /// <summary>
+            /// Valor total da prestação de serviço
+            /// </summary>
+            [SpedCampos(3, "VL_SERV", "N", 0, 2, true)]
+            public string VlServ { get; set; }
+
+            /// <summary>
+            /// Valor total da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(4, "VL_BC_ICMS", "N", 0, 2, true)]
+            public string VlBcIcms { get; set; }
+
+            /// <summary>
+            /// Valor total do ICMS
+            /// </summary>
+            [SpedCampos(5, "VL_ICMS", "N", 0, 2, true)]
+            public string VlIcms { get; set; }
+
+        }
+
         /// <summary>
         ///     REGISTRO D500: NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E NOTA FISCAL DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22)
         /// </summary>
