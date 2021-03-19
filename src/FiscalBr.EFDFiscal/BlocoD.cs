@@ -241,12 +241,12 @@ namespace FiscalBr.EFDFiscal
 
             public RegistroD101 RegD101 { get; set; }
             public List<RegistroD110> RegD110 { get; set; }
-            //public List<RegistroD130> RegD130s { get; set; } -> //To do
-            //public List<RegistroD140> RegD140s { get; set; } -> //To do
-            //public List<RegistroD150> RegD150s { get; set; } -> //To do
-            //public List<RegistroD160> RegD160s { get; set; } -> //To do
-            //public List<RegistroD170> RegD170s { get; set; } -> //To do
-            //public List<RegistroD180> RegD180s { get; set; } -> //To do
+            public List<RegistroD130> RegD130s { get; set; }
+            public List<RegistroD140> RegD140s { get; set; }
+            public List<RegistroD150> RegD150s { get; set; }
+            public List<RegistroD160> RegD160s { get; set; }
+            public List<RegistroD170> RegD170s { get; set; }
+            public List<RegistroD180> RegD180s { get; set; }
             public List<RegistroD190> RegD190s { get; set; }
             public List<RegistroD195> RegD195s { get; set; }
         }
