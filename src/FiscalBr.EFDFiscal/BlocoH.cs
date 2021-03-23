@@ -19,6 +19,7 @@ namespace FiscalBr.EFDFiscal
         public class RegistroH001 : RegistroBaseSped
         {
             /// <summary>
+            ///  Inicializa uma nova instância da classe <see cref="RegistroH001" />.
             /// </summary>
             public RegistroH001()
             {
@@ -40,6 +41,7 @@ namespace FiscalBr.EFDFiscal
         public class RegistroH005 : RegistroBaseSped
         {
             /// <summary>
+            ///  Inicializa uma nova instância da classe <see cref="RegistroH005" />.
             /// </summary>
             public RegistroH005()
             {
@@ -78,6 +80,7 @@ namespace FiscalBr.EFDFiscal
         public class RegistroH010 : RegistroBaseSped
         {
             /// <summary>
+            ///  Inicializa uma nova instância da classe <see cref="RegistroH010" />.
             /// </summary>
             public RegistroH010()
             {
@@ -146,6 +149,7 @@ namespace FiscalBr.EFDFiscal
             public decimal VlItemIr { get; set; }
 
             public List<RegistroH020> RegH020s { get; set; }
+            public RegistroH030 RegH030 { get; set; }
         }
 
         /// <summary>
@@ -154,6 +158,7 @@ namespace FiscalBr.EFDFiscal
         public class RegistroH020 : RegistroBaseSped
         {
             /// <summary>
+            ///  Inicializa uma nova instância da classe <see cref="RegistroH020" />.
             /// </summary>
             public RegistroH020()
             {
@@ -180,11 +185,50 @@ namespace FiscalBr.EFDFiscal
         }
 
         /// <summary>
+        ///     REGISTRO H030: 
+        /// </summary>
+        public class RegistroH030 : RegistroBaseSped
+        {
+            /// <summary>
+            ///  Inicializa uma nova instância da classe <see cref="RegistroH030" />.
+            /// </summary>
+            public RegistroH030()
+            {
+                Reg = "H030";
+            }
+
+            /// <summary>
+            ///     Valor médio unitário do ICMS OP
+            /// </summary>
+            [SpedCampos(2, "VL_ICMS_OP", "N", 0, 6, true)]
+            public string VlIcmsOp { get; set; }
+
+            /// <summary>
+            ///     Valor médio unitário da base de cálculo do ICMS ST
+            /// </summary>
+            [SpedCampos(3, "VL_BC_ICMS_ST", "N", 0, 6, true)]
+            public string VlBcIcmsSt { get; set; }
+
+            /// <summary>
+            ///    Valor médio unitário do ICMS ST
+            /// </summary>
+            [SpedCampos(4, "VL_ICMS_ST", "N", 0, 6, true)]
+            public string VlIcmsSt { get; set; }
+
+            /// <summary>
+            ///    Valor médio unitário do FCP
+            /// </summary>
+            [SpedCampos(5, "VL_FCP", "N", 0, 6, true)]
+            public string VlFcp { get; set; }
+        }
+
+        /// <summary>
         ///     REGISTRO H990: ENCERRAMENTO DO BLOCO H.
         /// </summary>
         public class RegistroH990 : RegistroBaseSped
         {
             /// <summary>
+            ///  Inicializa uma nova instância da classe <see cref="RegistroH990" />.
             /// </summary>
             public RegistroH990()
             {
