@@ -28,7 +28,9 @@ namespace FiscalBr.EFDFiscal
             }
 
             /// <summary>
-            ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
+            ///     Indicador de movimento: 
+            ///     0 - Bloco com dados informados; 
+            ///     1 - Bloco sem dados informados.
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
@@ -65,7 +67,7 @@ namespace FiscalBr.EFDFiscal
             public DateTime DtFin { get; set; }
 
             public RegistroE110 RegE110 { get; set; }
-            public List<RegistroE200> RegE200s { get; set; }
+           
         }
 
         /// <summary>
@@ -600,6 +602,9 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true)]
             public decimal VlAjApur { get; set; }
+
+            public List<RegistroE230> RegE230s { get; set; }
+            public List<RegistroE240> RegE240s { get; set; }
         }
 
         /// <summary>

@@ -39,6 +39,8 @@ namespace FiscalBr.EFDFiscal
 
             public Registro1010 Reg1010 { get; set; }
             public List<Registro1100> Reg1100s { get; set; }
+            public List<Registro1200> Reg1200s { get; set; }
+            public List<Registro1250> Reg1250s { get; set; }
             public List<Registro1300> Reg1300s { get; set; }
             public List<Registro1350> Reg1350s { get; set; }
             public List<Registro1390> Reg1390s { get; set; }
@@ -46,8 +48,11 @@ namespace FiscalBr.EFDFiscal
             public List<Registro1500> Reg1500s { get; set; }
             public List<Registro1600> Reg1600s { get; set; }
             public List<Registro1700> Reg1700s { get; set; }
-            public Registro1800 Reg1800  { get; set; }
+            public Registro1800 Reg1800 { get; set; }
             public List<Registro1900> Reg1900s { get; set; }
+            public List<Registro1960> Reg1960s { get; set; }
+            public List<Registro1970> Reg1970s { get; set; }
+            public Registro1980 Reg1980 { get; set; }
         }
 
         /// <summary>
@@ -437,6 +442,102 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(5, "CHV_DOCe", "C", 44, 0, false)]
             public string ChvDocE { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 1250: INFORMAÇÕES CONSOLIDADAS DE SALDOS DE RESTITUIÇÃO, RESSARCIMENTO E COMPLEMENTAÇÃO DO ICMS
+        /// </summary>
+        public class Registro1250 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1250" />.
+            /// </summary>
+            public Registro1250()
+            {
+                Reg = "1250";
+            }
+
+            /// <summary>
+            ///    Informar o valor total do ICMS operação própria que o informante tem direito ao crédito, na forma prevista na legislação, referente às hipóteses de restituição em  que  há previsão deste crédito.
+            /// </summary>
+            [SpedCampos(2, "VL_CREDITO_ICMS_OP", "N", 0, 2, true)]
+            public string VlCreditoIcmsOp { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do ICMS ST que o informante tem direito ao crédito, na forma prevista na legislação, referente às hipóteses de restituição em que há previsão deste crédito.
+            /// </summary>
+            [SpedCampos(3, "VL_ICMS_ST_REST", "N", 0, 2, true)]
+            public decimal VlIcmsStRest { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do FCP_ST agregado ao valor do ICMS ST informado no campo “VL_ICMS_ST_REST”.
+            /// </summary>
+            [SpedCampos(4, "VL_FCP_ST_REST", "N", 0, 2, true)]
+            public decimal VlFcpStRest { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do débito referente ao complemento do imposto, nos casos previstos na legislação.
+            /// </summary>
+            [SpedCampos(5, "VL_ICMS_ST_COMPL", "N", 0, 2, true)]
+            public decimal VlIcmsStCompl { get; set; }
+
+            /// <summary>
+            ///    Informar  o valor total do FCP_ST agregado ao valor informado no campo “VL_ICMS_ST_COMPL"
+            /// </summary>
+            [SpedCampos(6, "VL_FCP_ST_COMPL", "N", 0, 2, true)]
+            public decimal VlFcpStCompl { get; set; }
+
+            public List<Registro1255> Reg1255s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 1255: INFORMAÇÕES CONSOLIDADAS DE SALDOS DE RESTITUIÇÃO,RESSARCIMENTO E COMPLEMENTAÇÃO DO ICMS POR MOTIVO 
+        /// </summary>
+        public class Registro1255 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1255" />.
+            /// </summary>
+            public Registro1255()
+            {
+                Reg = "1255";
+            }
+
+            /// <summary>
+            ///     Código  do  motivo  da restituição  ou  complementação conforme Tabela 5.7
+            /// </summary>
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 2, true)]
+            public string CodMotRestCompl { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do ICMS operação própria que o informante tem direito ao crédito, na forma prevista na legislação, referente às hipóteses de restituição em que há previsão deste crédito, para o mesmo “COD_MOT_REST_COMPL”
+            /// </summary>
+            [SpedCampos(3, "VL_CREDITO_ICMS_OP_MOT", "N", 0, 2, true)]
+            public decimal VlCreditoIcmsOpMot { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do ICMS ST que o informante tem direito ao crédito, na forma prevista na legislação, referente às hipóteses de restituição em que há previsão deste crédito, para o mesmo “COD_MOT_REST_COMPL”
+            /// </summary>
+            [SpedCampos(4, "VL_ICMS_ST_REST_MOT", "N", 0, 2, true)]
+            public decimal VlIcmsStRestMot { get; set; }
+
+            /// <summary>
+            ///     Informar o  alor total do FCP_ST agregado ao valor do ICMS ST informado no campo “VL_ICMS_ST_REST_MOT"
+            /// </summary>
+            [SpedCampos(5, "VL_FCP_ST_REST_MOT", "N", 0, 2, true)]
+            public decimal VlFcpStRestMot { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do débito referente ao complemento do imposto, nos casos previstos na legislação, para o mesmo “COD_MOT_REST_COMPL”
+            /// </summary>
+            [SpedCampos(6, "VL_ICMS_ST_COMPL_MOT", "N", 0, 2, true)]
+            public decimal VlIcmsStComplMot { get; set; }
+
+            /// <summary>
+            ///     Informar o valor total do FCP_ST agregado ao valor informado no campo “VL_ICMS_ST_COMPL_MOT”
+            /// </summary>
+            [SpedCampos(7, "VL_FCP_ST_COMPL_MOT", "N", 0, 2, true)]
+            public decimal VlFcpStComplMot { get; set; }
         }
 
         /// <summary>
@@ -1893,6 +1994,306 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(10, "MES_REF", "MA", 6, 0, true)]
             public DateTime MesRef { get; set; }
         }
+
+        /// <summary>
+        ///     REGISTRO 1960: GIAF 1 - GUIA DE INFORMAÇÃO E APURAÇÃO DE INCENTIVOS FISCAIS E FINANCEIROS: INDÚSTRIA (CRÉDITO PRESUMIDO)
+        /// </summary>
+        public class Registro1960 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1960" />.
+            /// </summary>
+            public Registro1960()
+            {
+                Reg = "1960";
+            }
+
+            /// <summary>
+            ///     Indicador da sub-apuração por tipo de benefício (conforme tabela 4.7.1)
+            /// </summary>
+            [SpedCampos(2, "IND_AP", "N", 2, 0, true)]
+            public int IndAp{ get; set; }
+
+            /// <summary>
+            ///     Percentual de crédito presumido
+            /// </summary>
+            [SpedCampos(3, "G1_01", "N", 0, 2, true)]
+            public int G101 { get; set; }
+
+            /// <summary>
+            ///     Saídas não incentivadas de PI 
+            /// </summary>
+            [SpedCampos(4, "G1_02", "N", 0, 2, true)]
+            public int G102{ get; set; }
+
+            /// <summary>
+            ///     Saídas incentivadas de PI
+            /// </summary>
+            [SpedCampos(5, "G1_03", "N", 0, 2, true)]
+            public int G103 { get; set; }
+
+            /// <summary>
+            ///     Saídas incentivadas de PI para fora do Nordeste
+            /// </summary>
+            [SpedCampos(6, "G1_04", "N", 0, 2, true)]
+            public int G104 { get; set; }
+
+            /// <summary>
+            ///     Saldo devedor do ICMS antes das deduções do incentivo
+            /// </summary>
+            [SpedCampos(7, "G1_05", "N", 0, 2, true)]
+            public int G105 { get; set; }
+
+            /// <summary>
+            ///     Saldo devedor do ICMS relativo à faixa incentivada de PI 
+            /// </summary>
+            [SpedCampos(8, "G1_06", "N", 0, 2, true)]
+            public int G106 { get; set; }
+
+            /// <summary>
+            ///     Crédito presumido nas saídas incentivadas de PI para fora do Nordeste
+            /// </summary>
+            [SpedCampos(9, "G1_07", "N", 0, 2, true)]
+            public int G107 { get; set; }
+
+            /// <summary>
+            ///    Saldo devedor relativo à faixa incentivada de PI após o crédito presumido nas saídas para fora do Nordeste
+            /// </summary>
+            [SpedCampos(10, "G1_08", "N", 0, 2, true)]
+            public int G108 { get; set; }
+
+            /// <summary>
+            ///    Crédito presumido
+            /// </summary>
+            [SpedCampos(11, "G1_09", "N", 0, 2, true)]
+            public int G109 { get; set; }
+
+            /// <summary>
+            ///     Dedução de incentivo da Indústria (crédito presumido)
+            /// </summary>
+            [SpedCampos(12, "G1_10", "N", 0, 2, true)]
+            public int G110 { get; set; }
+
+            /// <summary>
+            ///     Saldo devedor do ICMS após deduções
+            /// </summary>
+            [SpedCampos(13, "G1_11", "N", 0, 2, true)]
+            public int G111 { get; set; }
+
+        }
+
+        /// <summary>
+        ///     REGISTRO 1970: GIAF 3 - GUIA DE INFORMAÇÃO E APURAÇÃO DE INCENTIVOS FISCAIS E FINANCEIROS: IMPORTAÇÃO (DIFERIMENTO NA ENTRADA E CRÉDITO PRESUMIDO NA SAÍDA SUBSEQUENTE)
+        /// </summary>
+        public class Registro1970 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1970" />.
+            /// </summary>
+            public Registro1970()
+            {
+                Reg = "1970";
+            }
+
+            /// <summary>
+            ///     Indicador da sub-apuração por tipo de benefício (conforme tabela 4.7.1)
+            /// </summary>
+            [SpedCampos(2, "IND_AP", "N", 2, 0, true)]
+            public int IndAp { get; set; }
+
+            /// <summary>
+            ///     Importações com ICMS diferido
+            /// </summary>
+            [SpedCampos(3, "G3_01", "N", 0, 2, true)]
+            public int G301 { get; set; }
+
+            /// <summary>
+            ///     ICMS diferido nas importações
+            /// </summary>
+            [SpedCampos(4, "G3_02", "N", 0, 2, true)]
+            public int G302 { get; set; }
+
+            /// <summary>
+            ///    Saídas não incentivadas de PI
+            /// </summary>
+            [SpedCampos(5, "G3_03", "N", 0, 2, true)]
+            public int G303 { get; set; }
+
+            /// <summary>
+            ///   Percentual de incentivo nas saídas para fora do Estado
+            /// </summary>
+            [SpedCampos(6, "G3_04", "N", 0, 2, true)]
+            public int G304 { get; set; }
+
+            /// <summary>
+            ///     Saídas incentivadas de PI para fora do Estado
+            /// </summary>
+            [SpedCampos(7, "G3_05", "N", 0, 2, true)]
+            public int G305 { get; set; }
+
+            /// <summary>
+            ///     ICMS das saídas incentivadas de PI para fora do Estado
+            /// </summary>
+            [SpedCampos(8, "G3_06", "N", 0, 2, true)]
+            public int G306 { get; set; }
+
+            /// <summary>
+            ///     Crédito presumido nas saídas para fora do Estado.
+            /// </summary>
+            [SpedCampos(9, "G3_07", "N", 0, 2, true)]
+            public int G307 { get; set; }
+
+            /// <summary>
+            ///    Dedução de incentivo da Importação (crédito presumido)
+            /// </summary>
+            [SpedCampos(10, "G3_T", "N", 0, 2, true)]
+            public int G3T { get; set; }
+
+            /// <summary>
+            ///    Saldo devedor do ICMS antes das deduções do incentivo
+            /// </summary>
+            [SpedCampos(11, "G3_08", "N", 0, 2, true)]
+            public int G308 { get; set; }
+
+            /// <summary>
+            ///    Saldo devedor do ICMS após deduções do incentivo
+            /// </summary>
+            [SpedCampos(12, "G3_09", "N", 0, 2, true)]
+            public int G309 { get; set; }
+
+            public List<Registro1975> Registro1975s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 1975: GIAF 3 - GUIA DE INFORMAÇÃO E APURAÇÃO DE INCENTIVOS FISCAIS  E  FINANCEIROS: IMPORTAÇÃO (SAÍDAS INTERNAS POR FAIXA  DE ALÍQUOTA)
+        /// </summary>
+        public class Registro1975 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1975" />.
+            /// </summary>
+            public Registro1975()
+            {
+                Reg = "1975";
+            }
+
+            /// <summary>
+            ///     Alíquota incidente sobre as importações-base
+            /// </summary>
+            [SpedCampos(2, "ALIQ_IMP_BASE", "N", 0, 2, true)]
+            public int AliqImpBase { get; set; }
+
+            /// <summary>
+            ///     Saídas incentivadas de PI 
+            /// </summary>
+            [SpedCampos(3, "G3_10", "N", 0, 2, true)]
+            public int G310 { get; set; }
+
+            /// <summary>
+            ///    Importações-base para o crédito presumido 
+            /// </summary>
+            [SpedCampos(4, "G3_11", "N", 0, 2, true)]
+            public int G311 { get; set; }
+
+            /// <summary>
+            ///   Crédito presumido nas saídas internas
+            /// </summary>
+            [SpedCampos(5, "G3_12", "N", 0, 2, true)]
+            public int G312 { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 1980: GIAF 4 GUIA DE INFORMAÇÃO E APURAÇÃO DE  INCENTIVOS FISCAIS E FINANCEIROS: CENTRAL DE DISTRIBUIÇÃO (ENTRADAS/SAÍDAS)
+        /// </summary>
+        public class Registro1980 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1980" />.
+            /// </summary>
+            public Registro1980()
+            {
+                Reg = "1980";
+            }
+
+            /// <summary>
+            ///     Indicador da sub-apuração por tipo de benefício (conforme Tabela 4.7.1)
+            /// </summary>
+            [SpedCampos(2, "IND_AP", "N", 2, 0, true)]
+            public int IndAp { get; set; }
+
+            /// <summary>
+            ///    Entradas (percentual de incentivo)
+            /// </summary>
+            [SpedCampos(3, "G4_01", "N", 0, 2, true)]
+            public int G401 { get; set; }
+
+            /// <summary>
+            ///     Entradas não incentivadas de PI 
+            /// </summary>
+            [SpedCampos(4, "G4_02", "N", 0, 2, true)]
+            public int G402 { get; set; }
+
+            /// <summary>
+            ///   Entradas incentivadas de PI
+            /// </summary>
+            [SpedCampos(5, "G4_03", "N", 0, 2, true)]
+            public int G403 { get; set; }
+
+            /// <summary>
+            ///   Saídas (percentual de incentivo)
+            /// </summary>
+            [SpedCampos(6, "G4_04", "N", 0, 2, true)]
+            public int G404 { get; set; }
+
+            /// <summary>
+            ///     Saídas não incentivadas de PI 
+            /// </summary>
+            [SpedCampos(7, "G4_05", "N", 0, 2, true)]
+            public int G405 { get; set; }
+
+            /// <summary>
+            ///     Saídas incentivadas de P
+            /// </summary>
+            [SpedCampos(8, "G4_06", "N", 0, 2, true)]
+            public int G406 { get; set; }
+
+            /// <summary>
+            ///     Saldo devedor do ICMS antes das deduções do incentivo (PI e itens não incentivados)
+            /// </summary>
+            [SpedCampos(9, "G4_07", "N", 0, 2, true)]
+            public int G407 { get; set; }
+
+            /// <summary>
+            ///    Crédito presumido nas entradas incentivadas de PI 
+            /// </summary>
+            [SpedCampos(10, "G4_08", "N", 0, 2, true)]
+            public int G408 { get; set; }
+
+            /// <summary>
+            ///    Crédito presumido nas saídas incentivadas de PI 
+            /// </summary>
+            [SpedCampos(11, "G4_09", "N", 0, 2, true)]
+            public int G409 { get; set; }
+
+            /// <summary>
+            ///    Dedução de incentivo da Central de Distribuição (entradas/saídas)
+            /// </summary>
+            [SpedCampos(12, "G4_10", "N", 0, 2, true)]
+            public int G410 { get; set; }
+
+            /// <summary>
+            ///    Saldo devedor do ICMS após deduções do incentivo
+            /// </summary>
+            [SpedCampos(13, "G4_11", "N", 0, 2, true)]
+            public int G411 { get; set; }
+
+            /// <summary>
+            ///    Índice de recolhimento da central de distribuição
+            /// </summary>
+            [SpedCampos(14, "G4_12", "N", 0, 2, true)]
+            public int G412 { get; set; }
+        }
+
 
         /// <summary>
         ///     REGISTRO 1990: ENCERRAMENTO DO BLOCO 1
