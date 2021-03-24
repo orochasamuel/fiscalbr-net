@@ -19,20 +19,6 @@ namespace FiscalBr.EFDFiscal
         public BlocoH BlocoH { get; set; }
         public BlocoK BlocoK { get; set; }
 
-        public ArquivoEFDFiscal(string path) : base(path)
-        {
-
-            Bloco1 = new Bloco1();
-            Bloco9 = new Bloco9();
-            BlocoB = new BlocoB();
-            BlocoC = new BlocoC();
-            BlocoD = new BlocoD();
-            BlocoE = new BlocoE();
-            BlocoG = new BlocoG();
-            BlocoH = new BlocoH();
-            BlocoK = new BlocoK();
-        }
-
         public override void Processar()
         {
             base.Processar();
