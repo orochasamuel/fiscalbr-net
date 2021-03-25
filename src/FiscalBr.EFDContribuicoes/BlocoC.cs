@@ -1,11 +1,15 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
 using System;
+using System.Collections.Generic;
 
 namespace FiscalBr.EFDContribuicoes
 {
     public class BlocoC
     {
+        public RegistroC001 RegC001 { get; set; }
+        public RegistroC990 RegC990 { get; set; }
+
         /// <summary>
         ///     ABERTURA DO BLOCO C
         /// </summary>
@@ -21,6 +25,9 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroC010> RegC010s { get; set; }
+
         }
 
         /// <summary>
@@ -49,7 +56,18 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(3, "IND_ESCRI", "C", 1, 0, false)]
             public int IndEscri { get; set; }
-            
+
+            public List<RegistroC100> RegC100s { get; set; }
+            public List<RegistroC180> RegC180s { get; set; }
+            public List<RegistroC190> RegC190s { get; set; }
+            public List<RegistroC380> RegC380s { get; set; }
+            public List<RegistroC395> RegC395s { get; set; }
+            public List<RegistroC400> RegC400s { get; set; }
+            public List<RegistroC490> RegC490s { get; set; }
+            public List<RegistroC500> RegC500s { get; set; }
+            public List<RegistroC600> RegC600s { get; set; }
+            public List<RegistroC800> RegC800s { get; set; }
+            public List<RegistroC860> RegC860s { get; set; }
         }
 
         /// <summary>
@@ -247,6 +265,11 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false)]
             public decimal? VlCofinsSt { get; set; }
 
+            public List<RegistroC110> RegC110s { get; set; }
+            public List<RegistroC111> RegC111s { get; set; }
+            public List<RegistroC120> RegC120s { get; set; }
+            public List<RegistroC170> RegC170s { get; set; }
+            public List<RegistroC175> RegC175s { get; set; }
         }
 
         /// <summary>
@@ -275,6 +298,88 @@ namespace FiscalBr.EFDContribuicoes
             public string TxtCompl { get; set; }
 
         }
+
+        /// <summary>
+        ///     Registro C111: Processo Referenciado
+        /// </summary>
+        public class RegistroC111 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC111" />.
+            /// </summary>
+            public RegistroC111()
+            {
+                Reg = "C111";
+            }
+
+            /// <summary>
+            ///     Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil;
+            ///    9 –Outros
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
+        }
+
+        /// <summary>
+        ///     Registro C120: Complemento do Documento -Operações de Importação (Código 01)
+        /// </summary>
+        public class RegistroC120 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC120" />.
+            /// </summary>
+            public RegistroC120()
+            {
+                Reg = "C120";
+            }
+
+            /// <summary>
+            ///     Documento de importação:
+            ///     0 –Declaração de Importação;
+            ///     1 –Declaração Simplificada de Importação;
+            ///     A partir dos fatos geradores ocorridos em 01/2019:Documento de importação:
+            ///     0 –Declaração de Importação;
+            ///     1 –Declaração Simplificada de Importação;
+            ///     2 –Declaração Única de Importação
+            /// </summary>
+            [SpedCampos(2, "COD_DOC_IMP", "C", 1, 0, true)]
+            public string CodDocImp { get; set; }
+
+            /// <summary>
+            ///    Número do documento de Importação.
+            /// </summary>
+            [SpedCampos(3, "NUM_DOC_IMP", "C", 15, 0, true)]
+            public string NumDocImp { get; set; }
+
+            /// <summary>
+            ///     Valor pago de PIS na importação
+            /// </summary>
+            [SpedCampos(4, "VL_PIS_IMP", "N", 0, 2, false)]
+            public string VlPisImp { get; set; }
+
+            /// <summary>
+            ///     Valor pago de COFINS na importação
+            /// </summary>
+            [SpedCampos(5, "VL_COFINS_IMP", "N", 0, 2, false)]
+            public string VlCofinsImp { get; set; }
+
+            /// <summary>
+            ///    Número do Ato Concessório do regimeDrawback
+            /// </summary>
+            [SpedCampos(6, "NUM_ACDRAW", "C", 20, 0, false)]
+            public string NumAcdraw { get; set; }
+
+        }
+
 
         /// <summary>
         ///     REGISTRO 170: ITENS DO DOCUMENTO (CÓDIGO 01, 1B, 04 e 55)
@@ -665,6 +770,10 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(8, "VL_TOT_ITEM", "N", 0, 2, true)]
             public decimal VlTotItem { get; set; }
 
+            public List<RegistroC181> RegC181s { get; set; }
+            public List<RegistroC185> RegC185s { get; set; }
+            public List<RegistroC188> RegC188s { get; set; }
+
         }
 
         public class RegistroC181 : RegistroBaseSped
@@ -743,6 +852,36 @@ namespace FiscalBr.EFDContribuicoes
             public string CodCta { get; set; }
         }
 
+        /// <summary>
+        ///     Registro C188: Processo Referenciado
+        /// </summary>
+        public class RegistroC188 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC188" />.
+            /// </summary>
+            public RegistroC188()
+            {
+                Reg = "C188";
+            }
+
+            /// <summary>
+            ///     Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil;
+            ///    9 –Outros
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
+        }
+
         public class RegistroC190 : RegistroBaseSped
         {
             public RegistroC190()
@@ -771,6 +910,10 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(8, "VL_TOT_ITEM", "N", 0, 2, true)]
             public decimal VlTotItem { get; set; }
 
+            public List<RegistroC191> RegC191s { get; set; }
+            public List<RegistroC195> RegC195s { get; set; }
+            public List<RegistroC198> RegC198s { get; set; }
+            public List<RegistroC199> RegC199s { get; set; }
         }
 
         public class RegistroC191 : RegistroBaseSped
@@ -855,6 +998,36 @@ namespace FiscalBr.EFDContribuicoes
             public string CodCta { get; set; }
         }
 
+        /// <summary>
+        ///     Registro C198: Processo Referenciado
+        /// </summary>
+        public class RegistroC198 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC198" />.
+            /// </summary>
+            public RegistroC198()
+            {
+                Reg = "C198";
+            }
+
+            /// <summary>
+            ///     Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil;
+            ///    9 –Outros
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
+        }
+
         public class RegistroC199 : RegistroBaseSped
         {
             /// <summary>
@@ -928,6 +1101,9 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(8, "VL_DOC_CANC", "N", 0, 2, false)]
             public decimal VlDocCanc { get; set; }
+
+            public List<RegistroC381> RegC381s { get; set; }
+            public List<RegistroC385> RegC385s { get; set; }
 
         }
 
@@ -1028,6 +1204,8 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(8, "VL_DOC", "N", 0, 2, true)]
             public decimal? VlDoc { get; set; }
+
+            public List<RegistroC396> RegC396s { get; set; }
         }
 
         public class RegistroC396 : RegistroBaseSped
@@ -1095,6 +1273,9 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(5, "ECF_CX", "N", 3, 0, true)]
             public int EcfCx { get; set; }
+
+            public List<RegistroC405> RegC405s { get; set; }
+            public List<RegistroC489> RegC489s { get; set; }
         }
 
         public class RegistroC405 : RegistroBaseSped
@@ -1121,6 +1302,9 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(7, "VL_BRT", "N", 0, 2, true)]
             public decimal VlBrt { get; set; }
+
+            public List<RegistroC481> RegC481s { get; set; }
+            public List<RegistroC485> RegC485s { get; set; }
         }
 
         public class RegistroC481 : RegistroBaseSped
@@ -1191,6 +1375,252 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(10, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     Registro C489: Processo Referenciado
+        /// </summary>
+        public class RegistroC489 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC489" />.
+            /// </summary>
+            public RegistroC489()
+            {
+                Reg = "C489";
+            }
+
+            /// <summary>
+            ///     Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil;
+            ///    9 –Outros
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
+        }
+
+        /// <summary>
+        ///     Registro C490: Consolidação de Documentos Emitidos por ECF (Códigos 02, 2D, 59 e 60)
+        /// </summary>
+        public class RegistroC490 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC490" />.
+            /// </summary>
+            public RegistroC490()
+            {
+                Reg = "C490";
+            }
+
+            /// <summary>
+            ///     Data de Emissão Inicial dos Documentos
+            /// </summary>
+            [SpedCampos(2, "DT_DOC_INI", "N", 8, 0, true)]
+            public DateTime DtDocIni { get; set; }
+
+            /// <summary>
+            ///    Data de Emissão Final dos Document
+            /// </summary>
+            [SpedCampos(3, "DT_DOC_FIN", "N", 8, 0, true)]
+            public DateTime DtDocFin { get; set; }
+
+            /// <summary>
+            ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
+            /// </summary>
+            [SpedCampos(4, "COD_MOD", "C", 2, 0, true)]
+            public string CodMod { get; set; }
+
+            public List<RegistroC491> RegC491s { get; set; }
+            public List<RegistroC495> RegC495s { get; set; }
+            public List<RegistroC499> RegC499s { get; set; }
+        }
+
+        /// <summary>
+        ///   Registro C491: Detalhamento da Consolidação de Documentos Emitidos por ECF (Códigos 02, 2D, 59 e 60) –PIS/Pasep
+        /// </summary>
+        public class RegistroC491 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC491" />.
+            /// </summary>
+            public RegistroC491()
+            {
+                Reg = "C491";
+            }
+
+            /// <summary>
+            ///    Código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///    Código da Situação Tributária referente ao PIS/PASEP
+            /// </summary>
+            [SpedCampos(3, "CST_PIS", "N", 2, 0, true)]
+            public string CstPis { get; set; }
+
+            /// <summary>
+            ///     Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(4, "CFOP", "N", 4, 0, false)]
+            public string Cfop { get; set; }
+
+            /// <summary>
+            ///     Valor total dos itens
+            /// </summary>
+            [SpedCampos(5, "VL_ITEM", "N", 0, 2, true)]
+            public string VlItem { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo do PIS/PASEP
+            /// </summary>
+            [SpedCampos(6, "VL_BC_PIS", "N", 0, 2, false)]
+            public string VlBcPis { get; set; }
+
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em percentual)
+            /// </summary>
+            [SpedCampos(7, "ALIQ_PIS", "N", 8, 4, false)]
+            public string AliqPis { get; set; }
+
+            /// <summary>
+            ///    Quantidade –Base de cálculo PIS/PASEP
+            /// </summary>
+            [SpedCampos(8, "QUANT_BC_PIS", "N", 0, 3, false)]
+            public string QuantBcPis{ get; set; }
+
+            /// <summary>
+            ///    Alíquota do PIS/PASEP (em reais)
+            /// </summary>
+            [SpedCampos(9, "ALIQ_PIS_QUANT", "N", 0, 4, false)]
+            public string AliqPisQuant { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS/PASEP
+            /// </summary>
+            [SpedCampos(10, "VL_PIS", "N", 0, 2, false)]
+            public decimal? VlPis { get; set; }
+
+            /// <summary>
+            ///    Código da conta analítica contábil debitada/creditada 
+            /// </summary>
+            [SpedCampos(11, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
+
+        }
+
+        /// <summary>
+        ///     Registro C495:  Detalhamento da Consolidação de Documentos Emitidos por ECF (Códigos 02, 2D, 59 e 60) –Cofins
+        /// </summary>
+        public class RegistroC495 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC495" />.
+            /// </summary>
+            public RegistroC495()
+            {
+                Reg = "C495";
+            }
+
+            /// <summary>
+            ///    Código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///   Código da Situação Tributária referente a COFINS.
+            /// </summary>
+            [SpedCampos(3, "CST_COFINS", "N", 2, 0, true)]
+            public string CstCofins { get; set; }
+
+            /// <summary>
+            ///     Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(4, "CFOP", "N", 4, 0, false)]
+            public string Cfop { get; set; }
+
+            /// <summary>
+            ///     Valor total dos itens
+            /// </summary>
+            [SpedCampos(5, "VL_ITEM", "N", 0, 2, true)]
+            public string VlItem { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo da COFINS
+            /// </summary>
+            [SpedCampos(6, "VL_BC_COFINS", "N", 0, 2, false)]
+            public string VlBcCofins { get; set; }
+
+            /// <summary>
+            ///    Alíquota da COFINS (em percentual)
+            /// </summary>
+            [SpedCampos(7, "ALIQ_COFINS", "N", 8, 4, false)]
+            public string AliqCofins { get; set; }
+
+            /// <summary>
+            ///    Quantidade –Base de cálculo da COFINS
+            /// </summary>
+            [SpedCampos(8, "QUANT_BC_COFINS", "N", 0, 3, false)]
+            public string QuantBcCofins { get; set; }
+
+            /// <summary>
+            ///   Alíquota da COFINS (em reais)
+            /// </summary>
+            [SpedCampos(9, "ALIQ_COFINS_QUANT", "N", 0, 4, false)]
+            public string AliqCofinsQuant { get; set; }
+
+            /// <summary>
+            ///    Valor da COFINS
+            /// </summary>
+            [SpedCampos(10, "VL_COFINS", "N", 0, 2, false)]
+            public string VlCofins { get; set; }
+
+            /// <summary>
+            ///    Código da conta analítica contábil debitada/creditada 
+            /// </summary>
+            [SpedCampos(11, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
+
+        }
+
+        /// <summary>
+        ///     Registro C499: Processo Referenciado
+        /// </summary>
+        public class RegistroC499 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC499" />.
+            /// </summary>
+            public RegistroC499()
+            {
+                Reg = "C499";
+            }
+
+            /// <summary>
+            ///     Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil;
+            ///    9 –Outros
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
         }
 
         public class RegistroC500 : RegistroBaseSped
@@ -1284,6 +1714,10 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(14, "VL_COFINS", "N", 0, 2, false)]
             public decimal? VlCofins { get; set; }
+
+            public List<RegistroC501> RegC501s { get; set; }
+            public List<RegistroC505> RegC505s { get; set; }
+            public List<RegistroC509> RegC509s { get; set; }
         }
         
         public class RegistroC501 : RegistroBaseSped
@@ -1345,6 +1779,631 @@ namespace FiscalBr.EFDContribuicoes
         }
 
         /// <summary>
+        ///     Registro C509: Processo Referenciado
+        /// </summary>
+        public class RegistroC509 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC509" />.
+            /// </summary>
+            public RegistroC509()
+            {
+                Reg = "C509";
+            }
+
+            /// <summary>
+            ///     Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil;
+            ///    9 –Outros
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
+        }
+
+        /// <summary>
+        ///     Registro C600: Consolidação Diária de Notas Fiscais/Contas Emitidas de Energia Elétrica (Código 06), Nota Fiscal de Energia Elétrica Eletrônica 
+        ///     –NF3e (Código 66), Nota Fiscal/Conta de Fornecimento D'água Canalizada (Código 29) e Nota Fiscal/Conta de Fornecimento de Gás (Código 28) 
+        ///     (Empresas Obrigadas ou não Obrigadas ao Convenio ICMS  115/03) –Documentos de Saída
+        /// </summary>
+        public class RegistroC600 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC600" />.
+            /// </summary>
+            public RegistroC600()
+            {
+                Reg = "C600";
+            }
+
+            /// <summary>
+            ///     Código  do  modelo  do  documento  fiscal,  conforme  a Tabela 4.1.1
+            /// </summary>
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            public int CodMod { get; set; }
+
+            /// <summary>
+            ///    Código do município dos pontos de consumo, conforme a tabela IBGE
+            /// </summary>
+            [SpedCampos(3, "COD_MUN", "N", 7, 0, false)]
+            public string CodMun { get; set; }
+
+            /// <summary>
+            ///    Série do documento fiscal
+            /// </summary>
+            [SpedCampos(4, "SER", "C", 4, 0, false)]
+            public string Ser { get; set; }
+
+            /// <summary>
+            ///    Subsérie do documento fisca
+            /// </summary>
+            [SpedCampos(5, "SUB", "N", 3, 0, false)]
+            public string Sub { get; set; }
+
+            /// <summary>
+            ///   Código de classe de consumo de energia elétrica, conforme a Tabela 4.4.5, ou Código de Consumo de Fornecimento D ́água –Tabela 4.4.2 ou Código da classe de consumo de gás canalizado conforme Tabela 4.4.3.
+            /// </summary>
+            [SpedCampos(6, "COD_CONS", "N", 2, 0, false)]
+            public string CodCons{ get; set; }
+
+            /// <summary>
+            ///     Quantidade de documentos consolidados neste registro
+            /// </summary>
+            [SpedCampos(7, "QTD_CONS", "N", 0, 0, true)]
+            public decimal QtdCons { get; set; }
+
+            /// <summary>
+            ///    Quantidade de documentos cancelados
+            /// </summary>
+            [SpedCampos(8, "QTD_CANC", "N", 0, 0, false)]
+            public decimal QtdCanc { get; set; }
+
+            /// <summary>
+            ///     Data dos documentos consolidados
+            /// </remarks>
+            [SpedCampos(9, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
+
+            /// <summary>
+            ///     Valor total dos documentos
+            /// </summary>
+            [SpedCampos(10, "VL_DOC", "N", 0, 2, true)]
+            public int VlDoc { get; set; }
+
+            /// <summary>
+            ///   Valor acumulado dos descontos
+            /// </summary>
+            [SpedCampos(11, "VL_DESC", "N", 0, 2, false)]
+            public int VlDesc { get; set; }
+
+            /// <summary>
+            ///     Consumo total acumulado, em kWh (Código 06)
+            /// </summary>
+            [SpedCampos(12, "CONS", "N", 0, 0, false)]
+            public int Cons { get; set; }
+
+            /// <summary>
+            ///     Valor acumulado do fornecimento
+            /// </summary>
+            [SpedCampos(13, "VL_FORN", "N", 0, 2, false)]
+            public string VlForn { get; set; }
+
+            /// <summary>
+            ///   Valor acumulado dos serviços não-tributados pelo ICMS
+            /// </summary>
+            [SpedCampos(14, "VL_SERV_NT", "N", 0, 2, false)]
+            public decimal VlSerNt { get; set; }
+
+            /// <summary>
+            ///     Valores cobrados em nome de terceiros
+            /// </summary>
+            [SpedCampos(15, "VL_TERC", "N", 0, 2, false)]
+            public decimal VlTerc { get; set; }
+
+            /// <summary>
+            ///    Valor acumulado das despesas acessórias
+            /// </summary>
+            [SpedCampos(16, "VL_DA", "N", 0, 2, false)]
+            public decimal VlDa { get; set; }
+
+            /// <summary>
+            ///   Valor acumulado da base de cálculo do ICMS
+            /// </summary>
+            [SpedCampos(17, "VL_BC_ICMS", "N", 0, 2, false)]
+            public string VlBcIcms { get; set; }
+
+            /// <summary>
+            ///    Valor acumulado do ICMS 
+            /// </summary>
+            [SpedCampos(18, "VL_ICMS", "N", 0, 2, false)]
+            public string VlIcms { get; set; }
+
+            /// <summary>
+            ///    Valor acumulado da base de cálculo do ICMS substituição tributária
+            /// </remarks>
+            [SpedCampos(19, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            public int VlBcIcmsSt { get; set; }
+
+            /// <summary>
+            ///     Valor  acumulado  do  ICMS  retido  por  substituição tributária
+            /// </summary>
+            [SpedCampos(20, "VL_ICMS_ST", "N", 0, 2, false)]
+            public string CstIpi { get; set; }
+
+            /// <summary>
+            ///    Valor acumulado do PIS/PASEP
+            /// </summary>
+            [SpedCampos(21, "VL_PIS", "N", 0, 2, true)]
+            public decimal VlPis { get; set; }
+
+            /// <summary>
+            ///    Valor acumulado da COFINS
+            /// </summary>
+            [SpedCampos(22, "VL_COFINS", "N", 0, 2, true)]
+            public decimal VlCofins { get; set; }
+
+            public List<RegistroC601> RegC601s { get; set; }
+            public List<RegistroC605> RegC605s { get; set; }
+            public List<RegistroC609> RegC609s { get; set; }
+        }
+
+
+        /// <summary>
+        ///     Registro C601: Complemento da Consolidação Diária (Códigos 06, 28 e 29) –Documentos de Saídas -PIS/Pasep
+        /// </summary>
+        public class RegistroC601 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC601" />.
+            /// </summary>
+            public RegistroC601()
+            {
+                Reg = "C601";
+            }
+
+            /// <summary>
+            ///    Código da Situação Tributária referente ao PIS/PASEP
+            /// </summary>
+            [SpedCampos(2, "CST_PIS", "N", 2, 0, true)]
+            public string CstPis { get; set; }
+
+            /// <summary>
+            ///     Valor total dos itens
+            /// </summary>
+            [SpedCampos(3, "VL_ITEM", "N", 0, 2, true)]
+            public string VlItem { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo do PIS/PASEP
+            /// </summary>
+            [SpedCampos(4, "VL_BC_PIS", "N", 0, 2, true)]
+            public string VlBcPis { get; set; }
+
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em percentual)
+            /// </summary>
+            [SpedCampos(5, "ALIQ_PIS", "N", 8, 4, true)]
+            public string AliqPis { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS/PASEP
+            /// </summary>
+            [SpedCampos(6, "VL_PIS", "N", 0, 2, true)]
+            public decimal? VlPis { get; set; }
+
+            /// <summary>
+            ///    Código da conta analítica contábil debitada/creditada 
+            /// </summary>
+            [SpedCampos(7, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     Registro C605: Complemento da Consolidação Diária (Códigos 06, 28 e 29) –Documentos de Saídas –Cofins
+        /// </summary>
+        public class RegistroC605 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC605" />.
+            /// </summary>
+            public RegistroC605()
+            {
+                Reg = "C605";
+            }
+
+            /// <summary>
+            ///   Código da Situação Tributária referente a COFINS.
+            /// </summary>
+            [SpedCampos(2, "CST_COFINS", "N", 2, 0, true)]
+            public string CstCofins { get; set; }
+
+            /// <summary>
+            ///     Valor total dos itens
+            /// </summary>
+            [SpedCampos(3, "VL_ITEM", "N", 0, 2, true)]
+            public string VlItem { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo da COFINS
+            /// </summary>
+            [SpedCampos(4, "VL_BC_COFINS", "N", 0, 2, true)]
+            public string VlBcCofins { get; set; }
+
+            /// <summary>
+            ///    Alíquota da COFINS (em percentual)
+            /// </summary>
+            [SpedCampos(5, "ALIQ_COFINS", "N", 8, 4, true)]
+            public string AliqCofins { get; set; }
+
+            /// <summary>
+            ///    Valor da COFINS
+            /// </summary>
+            [SpedCampos(6, "VL_COFINS", "N", 0, 2, true)]
+            public string VlCofins { get; set; }
+
+            /// <summary>
+            ///    Código da conta analítica contábil debitada/creditada 
+            /// </summary>
+            [SpedCampos(7, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     Registro C609: 
+        /// </summary>
+        public class RegistroC609 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC609" />.
+            /// </summary>
+            public RegistroC609()
+            {
+                Reg = "C609";
+            }
+
+            /// <summary>
+            ///    Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil
+            ///    9 –Outros.
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
+        }
+
+        /// <summary>
+        ///     Registro C800: Cupom Fiscal Eletrônico (Código 59)
+        /// </summary>
+        public class RegistroC800 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC800" />.
+            /// </summary>
+            public RegistroC800()
+            {
+                Reg = "C800";
+            }
+
+            /// <summary>
+            ///     Código  do  modelo  do  documento  fiscal,  conforme  a Tabela 4.1.1
+            /// </summary>
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            public int CodMod { get; set; }
+
+            /// <summary>
+            ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
+            /// </summary>
+            [SpedCampos(3, "COD_SIT", "N", 2, 0, true)]
+            public string CodSit { get; set; }
+
+            /// <summary>
+            ///     Número do Cupom Fiscal Eletrônico
+            /// </summary>
+            [SpedCampos(4, "NUM_CFE", "N", 9, 0, true)]
+            public string NumCfe { get; set; }
+
+            /// <summary>
+            ///     Data da emissão do Cupom Fiscal Eletrônico
+            /// </remarks>
+            [SpedCampos(5, "DT_DOC", "N", 8, 0, true)]
+            public DateTime DtDoc { get; set; }
+
+            /// <summary>
+            ///     Valor total do Cupom Fiscal Eletrônico
+            /// </summary>
+            [SpedCampos(6, "VL_CFE", "N", 0, 2, true)]
+            public int VlCfe { get; set; }
+
+            /// <summary>
+            ///   Valor total do PIS
+            /// </summary>
+            [SpedCampos(7, "VL_PIS", "N", 0, 2, false)]
+            public int VlPis { get; set; }
+
+            /// <summary>
+            ///     Valor da COFINS
+            /// </summary>
+            [SpedCampos(8, "VL_COFINS", "N", 0, 2, false)]
+            public decimal? VlCofins { get; set; }
+
+            /// <summary>
+            ///     CNPJ ou CPF do destinatário
+            /// </summary>
+            [SpedCampos(9, "CNPJ_CPF", "N", 14, 0, false)]
+            public int CnpjCpf { get; set; }
+
+            /// <summary>
+            ///   Número de Série do equipamento SAT
+            /// </summary>
+            [SpedCampos(10, "NR_SAT", "N", 9, 0, false)]
+            public decimal? NtSat { get; set; }
+
+            /// <summary>
+            ///     Chave do Cupom Fiscal Eletrônico
+            /// </summary>
+            [SpedCampos(11, "CHV_CFE", "N", 44, 0, false)]
+            public decimal? ChvCfe { get; set; }
+
+            /// <summary>
+            ///    Valor total do desconto/exclusão sobre item
+            /// </summary>
+            [SpedCampos(12, "VL_DESC", "N", 0, 2, false)]
+            public decimal? VlDesc { get; set; }
+
+            /// <summary>
+            ///     Valor total das mercadorias e serviços
+            /// </summary>
+            [SpedCampos(13, "VL_MERC", "C", 60, 0, false)]
+            public string VlMerc { get; set; }
+
+            /// <summary>
+            ///     Valor de outras desp. Acessórias (acréscimo)
+            /// </summary>
+            [SpedCampos(14, "VL_OUT_DA", "N", 0, 2, false)]
+            public string VlOutDa { get; set; }
+
+            /// <summary>
+            ///     Valor do ICMS
+            /// </summary>
+            [SpedCampos(15, "VL_ICMS", "N", 0, 2, false)]
+            public int VlIcms { get; set; }
+
+            /// <summary>
+            ///     Valor total do PIS retido por subst. trib.
+            /// </summary>
+            [SpedCampos(16, "VL_PIS_ST", "N", 0, 2, false)]
+            public decimal VlPisSt { get; set; }
+
+            /// <summary>
+            ///    Valor total da COFINS retido por subst. trib.
+            /// </summary>
+            [SpedCampos(17, "VL_COFINS_ST", "N", 0, 2, false)]
+            public decimal? VlCofinsSt { get; set; }
+
+            public List<RegistroC810> RegC810s { get; set; }
+            public List<RegistroC820> RegC820s { get; set; }
+            public List<RegistroC830> RegC830s { get; set; }
+
+        }
+
+        /// <summary>
+        ///     Registro C810: 
+        /// </summary>
+        public class RegistroC810 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC810" />.
+            /// </summary>
+            public RegistroC810()
+            {
+                Reg = "C810";
+            }
+
+            /// <summary>
+            ///     Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(2, "CFOP", "N", 4, 0, true)]
+            public string Cfop { get; set; }
+
+            /// <summary>
+            ///     Valor total dos itens
+            /// </summary>
+            [SpedCampos(3, "VL_ITEM", "N", 0, 2, true)]
+            public string VlItem { get; set; }
+
+            /// <summary>
+            ///     Código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente ao PIS/PASEP
+            /// </summary>
+            [SpedCampos(5, "CST_PIS", "N", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo do PIS/PASEP
+            /// </summary>
+            [SpedCampos(6, "VL_BC_PIS", "N", 0, 2, false)]
+            public decimal? VlBcPis { get; set; }
+
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em percentual)
+            /// </summary>
+            [SpedCampos(7, "ALIQ_PIS", "N", 0, 2, false)]
+            public decimal? AliqPis { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS/PASEP
+            /// </summary>
+            [SpedCampos(8, "VL_PIS", "N", 0, 2, false)]
+            public decimal? VlPis { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente a Cofins
+            /// </summary>
+            [SpedCampos(9, "CST_COFINS", "N", 2, 0, true)]
+            public int CstCofins { get; set; }
+
+            /// <summary>
+            ///     Valor da base de cálculo da COFINS
+            /// </summary>
+            [SpedCampos(10, "VL_BC_COFINS", "N", 0, 2, false)]
+            public decimal? VlBcCofins { get; set; }
+
+            /// <summary>
+            ///     Alíquota da COFINS (em percentual)
+            /// </summary>
+            [SpedCampos(11, "ALIQ_COFINS", "N", 0, 2, false)]
+            public decimal? AliqCofins { get; set; }
+
+            /// <summary>
+            ///     Valor da COFINS
+            /// </summary>
+            [SpedCampos(12, "VL_COFINS", "N", 0, 2, false)]
+            public decimal? VlCofins { get; set; }
+
+            /// <summary>
+            ///     Código da conta analítica debitada/creditada
+            /// </summary>
+            [SpedCampos(13, "COD_CTA", "C", 60, 0, false)]
+            public string CodCta { get; set; }
+
+        }
+
+        /// <summary>
+        ///     Registro C820: Detalhamento do Cupom Fiscal Eletrônico (Código 59) –PIS/Pasep e Cofins Apurado por Unidade de Medida de Produto
+        /// </summary>
+        public class RegistroC820 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC820" />.
+            /// </summary>
+            public RegistroC820()
+            {
+                Reg = "C820";
+            }
+
+            /// <summary>
+            ///     Código fiscal de operação e prestação
+            /// </summary>
+            [SpedCampos(2, "CFOP", "N", 4, 0, true)]
+            public string Cfop { get; set; }
+
+            /// <summary>
+            ///     Valor total dos itens
+            /// </summary>
+            [SpedCampos(3, "VL_ITEM", "N", 0, 2, true)]
+            public string VlItem { get; set; }
+
+            /// <summary>
+            ///     Código do item (campo 02 do Registro 0200)
+            /// </summary>
+            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false)]
+            public string CodItem { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente ao PIS/PASEP
+            /// </summary>
+            [SpedCampos(5, "CST_PIS", "N", 2, 0, true)]
+            public int CstPis { get; set; }
+
+            /// <summary>
+            ///     Base de cálculo em quantidade - PIS/PASEP
+            /// </summary>
+            [SpedCampos(6, "QUANT_BC_PIS", "N", 0, 3, false)]
+            public decimal? QuantBcPis { get; set; }
+
+            /// <summary>
+            ///     Alíquota do PIS/PASEP (em reais)
+            /// </summary>
+            [SpedCampos(7, "ALIQ_PIS_QUANT", "N", 0, 4, false)]
+            public decimal? AliqPis { get; set; }
+
+            /// <summary>
+            ///     Valor do PIS/PASEP
+            /// </summary>
+            [SpedCampos(8, "VL_PIS", "N", 0, 2, false)]
+            public decimal? VlPis { get; set; }
+
+            /// <summary>
+            ///     Código da Situação Tributária referente a Cofins
+            /// </summary>
+            [SpedCampos(9, "CST_COFINS", "N", 2, 0, true)]
+            public int CstCofins { get; set; }
+
+            /// <summary>
+            ///    Quantidade –Base de cálculo da COFINS
+            /// </summary>
+            [SpedCampos(10, "QUANT_BC_COFINS", "N", 0, 3, false)]
+            public string QuantBcCofins { get; set; }
+
+            /// <summary>
+            ///   Alíquota da COFINS (em reais)
+            /// </summary>
+            [SpedCampos(11, "ALIQ_COFINS_QUANT", "N", 0, 4, false)]
+            public string AliqCofinsQuant { get; set; }
+
+            /// <summary>
+            ///    Valor da COFINS
+            /// </summary>
+            [SpedCampos(12, "VL_COFINS", "N", 0, 2, false)]
+            public string VlCofins { get; set; }
+
+            /// <summary>
+            ///    Código da conta analítica contábil debitada/creditada 
+            /// </summary>
+            [SpedCampos(13, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
+        }
+
+        /// <summary>
+        ///     Registro C830: 
+        /// </summary>
+        public class RegistroC830 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC830" />.
+            /// </summary>
+            public RegistroC830()
+            {
+                Reg = "C830";
+            }
+
+            /// <summary>
+            ///    Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil
+            ///    9 -Outros.
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
+        }
+
+        /// <summary>
         ///     REGISTRO C860: IDENTIFICAÇÃO DO EQUIPAMENTO SAT-CFE
         /// </summary>
         public class RegistroC860 : RegistroBaseSped
@@ -1386,6 +2445,10 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(4, "DOC_FIM", "N", 9, 0, false)]
             public int? DocFim { get; set; }
+
+            public List<RegistroC870> RegC870s { get; set; }
+            public List<RegistroC880> RegC880s { get; set; }
+            public List<RegistroC890> RegC890s { get; set; }
         }
 
         /// <summary>
@@ -1573,8 +2636,38 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(14, "COD_CTA", "C", 60, 0, false)]
             public string CodCta { get; set; }
-        }              
-        
+        }
+
+        /// <summary>
+        ///     Registro C890: Processo Referenciado
+        /// </summary>
+        public class RegistroC890 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC890" />.
+            /// </summary>
+            public RegistroC890()
+            {
+                Reg = "C890";
+            }
+
+            /// <summary>
+            ///    Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///    Indicador da origem do processo:
+            ///    1 -Justiça Federal;
+            ///    3 –Secretaria da Receita Federal do Brasil
+            ///    9 -Outros.
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+
+        }
+
         public class RegistroC990 : RegistroBaseSped
         {
             public RegistroC990()

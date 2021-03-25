@@ -1,11 +1,15 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
 using System;
+using System.Collections.Generic;
 
 namespace FiscalBr.EFDContribuicoes
 {
     public class BlocoA
     {
+        public RegistroA001 RegA001 { get; set; }
+        public RegistroA990 RegA990 { get; set; }
+
         public class RegistroA001 : RegistroBaseSped
         {
             public RegistroA001()
@@ -15,8 +19,10 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroA010> RegA010s { get; set; }
         }
-        
+
         /// <summary>
         /// IDENTIFICAÇÃO DO ESTABELECIMENTO
         /// </summary>
@@ -30,8 +36,9 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
             public string Cnpj { get; set; }
 
+            public List<RegistroA100> RegA100s { get; set; }
         }
-        
+
         /// <summary>
         /// DOCUMENTO - NOTA FISCAL DE SERVIÇO
         /// </summary>
@@ -170,8 +177,13 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(21, "VL_ISS", "N", 0, 2, false)]
             public decimal? VlIss { get; set; }
+
+            public List<RegistroA110> RegA100s { get; set; }
+            public List<RegistroA111> RegA111s { get; set; }
+            public List<RegistroA120> RegA120s { get; set; }
+            public List<RegistroA170> RegA170s { get; set; }
         }
-        
+
         /// <summary>
         /// COMPLEMENTO DO DOCUMENTO - INFORMAÇÃO COMPLEMENTAR DA NF
         /// </summary>
@@ -188,7 +200,94 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(3, "TXT_COMPL", "C", int.MaxValue, 0, false)]
             public string TxtCompl { get; set; }
         }
-        
+
+        /// <summary>
+        ///    Registro A111: Processo Referenciado
+        /// </summary>
+        public class RegistroA111 : RegistroBaseSped
+        {
+            public RegistroA111()
+            {
+                Reg = "A111";
+            }
+
+            /// <summary>
+            ///  Identificação do processo ou ato concessório
+            /// </summary>
+            [SpedCampos(2, "NUM_PROC", "C", 15, 0, true)]
+            public string NumProc { get; set; }
+
+            /// <summary>
+            ///   Indicador da origem do processo:
+            ///   1 -Justiça Federal;
+            ///   3 –Secretaria da Receita Federal do Brasil
+            ///   9 -Outros.
+            /// </summary>
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            public string IndProc { get; set; }
+        }
+
+        /// <summary>
+        ///    Registro A120: Informação Complementar -Operações de Importação
+        /// </summary>
+        public class RegistroA120 : RegistroBaseSped
+        {
+            public RegistroA120()
+            {
+                Reg = "A120";
+            }
+
+            /// <summary>
+            ///  Valor total do serviço, prestado por pessoa física ou jurídica domiciliada no exterior.
+            /// </summary>
+            [SpedCampos(2, "VL_TOT_SERV", "N", 0, 2, true)]
+            public string VlTotServ { get; set; }
+
+            /// <summary>
+            ///  Valor  da  base  de  cálculo  da  Operação –PIS/PASEP –Importação
+            /// </summary>
+            [SpedCampos(3, "VL_BC_PIS", "N", 0, 2, true)]
+            public string VlBcPis { get; set; }
+
+            /// <summary>
+            ///   Valor pago/recolhido de PIS/PASEP –Importação
+            /// </summary>
+            [SpedCampos(4, "VL_PIS_IMP", "N", int.MaxValue, 2, false)]
+            public string VlPisImp { get; set; }
+
+            /// <summary>
+            ///   Data de pagamento do PIS/PASEP –Importação
+            /// </summary>
+            [SpedCampos(5, "DT_PAG_PIS", "N", 8, 0, false)]
+            public DateTime DataPagPis { get; set; }
+
+            /// <summary>
+            ///   Valor  da  base  de  cálculo  da  Operação –COFINS –Importação
+            /// </summary>
+            [SpedCampos(6, "VL_BC_COFINS", "N", 0, 2, true)]
+            public decimal VlBcCofins { get; set; }
+
+            /// <summary>
+            ///   Valor pago/recolhido de COFINS –Importação
+            /// </summary>
+            [SpedCampos(7, "VL_COFINS_IMP", "N", 0, 2, false)]
+            public string VlCofinsImp { get; set; }
+
+            /// <summary>
+            ///  Data de pagamento do COFINS –Importação
+            /// </summary>
+            [SpedCampos(8, "DT_PAG_COFINS", "N", 8, 0, false)]
+            public DateTime DtPagCofins { get; set; }
+
+            /// <summary>
+            ///   Local da execução do serviço:
+            ///   0 –Executado no País;
+            ///   1 –Executado no Exterior, cujo resultado se verifique no País.
+            /// </summary>
+            [SpedCampos(9, "LOC_EXE_SERV", "C", 1, 0, true)]
+            public int LocExeServ { get; set; }
+        }
+
         /// <summary>
         /// COMPLEMENTO DO DOCUMENTO - ITENS DO DOCUMENTO
         /// </summary>
