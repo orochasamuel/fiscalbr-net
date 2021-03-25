@@ -11,7 +11,7 @@ namespace FiscalBr.EFDFiscal
     public class BlocoK
     {
         public RegistroK001 RegK001 { get; set; }
-        public RegistroK990 RegK990 { get; set; }            
+        public RegistroK990 RegK990 { get; set; }
 
         /// <summary>
         ///     REGISTRO K001: ABERTURA DO BLOCO K
@@ -68,7 +68,7 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroK200> RegK200s { get; set; }
             public List<RegistroK210> RegK210s { get; set; }
             public List<RegistroK220> RegK220s { get; set; }
-            public List<RegistroK230> RegK230s { get; set; }        
+            public List<RegistroK230> RegK230s { get; set; }
             public List<RegistroK250> RegK250s { get; set; }
             public List<RegistroK260> RegK260s { get; set; }
             public List<RegistroK270> RegK270s { get; set; }
@@ -180,7 +180,7 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO K215: DESMONTAGEM DE MERCADORIAS – ITENS DE DESTINO
         /// </summary>
-        public class RegistroK215: RegistroBaseSped
+        public class RegistroK215 : RegistroBaseSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK215" />.
@@ -745,7 +745,7 @@ namespace FiscalBr.EFDFiscal
             ///    Data do reconhecimento da produção ocorrida no terceiro
             /// </summary>
             [SpedCampos(2, "DT_PROD", "N", 8, 0, true)]
-            public DateTime DtProd{ get; set; }
+            public DateTime DtProd { get; set; }
 
             public List<RegistroK301> RegK301s { get; set; }
             public List<RegistroK302> RegK302s { get; set; }

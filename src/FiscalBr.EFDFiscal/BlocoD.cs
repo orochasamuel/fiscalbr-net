@@ -242,10 +242,10 @@ namespace FiscalBr.EFDFiscal
             public RegistroD101 RegD101 { get; set; }
             public List<RegistroD110> RegD110 { get; set; }
             public List<RegistroD130> RegD130s { get; set; }
-            public List<RegistroD140> RegD140s { get; set; }
-            public List<RegistroD150> RegD150s { get; set; }
+            public RegistroD140 RegD140 { get; set; }
+            public RegistroD150 RegD150s { get; set; }
             public List<RegistroD160> RegD160s { get; set; }
-            public List<RegistroD170> RegD170s { get; set; }
+            public RegistroD170 RegD170 { get; set; }
             public List<RegistroD180> RegD180s { get; set; }
             public List<RegistroD190> RegD190s { get; set; }
             public List<RegistroD195> RegD195s { get; set; }
@@ -1488,7 +1488,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(7, "VL_BRT", "N", 0, 2, true)]
             public string VlBrt { get; set; }
 
-            public List<RegistroD360> RegD360s { get; set; }
+            public RegistroD360 RegD360s { get; set; }
             public List<RegistroD365> RegD365s { get; set; }
             public List<RegistroD390> RegD390s { get; set; }
         }
