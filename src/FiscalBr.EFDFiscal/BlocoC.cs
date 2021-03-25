@@ -240,13 +240,13 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false)]
             public decimal? VlCofinsSt { get; set; }
 
-            public List<RegistroC101> RegC101s { get; set; }
-            public List<RegistroC105> RegC105s { get; set; }
+            public RegistroC101 RegistroC101 { get; set; }
+            public RegistroC105 RegistroC105 { get; set; }
             public List<RegistroC110> RegC110s { get; set; }
             public List<RegistroC120> RegC120s { get; set; }
-            public List<RegistroC130> RegC130s { get; set; }
-            public List<RegistroC140> RegC140s { get; set; }
-            public List<RegistroC160> RegC160s { get; set; }
+            public RegistroC130 RegistroC130 { get; set; }
+            public RegistroC140 RegistroC140 { get; set; }
+            public RegistroC160 RegistroC160 { get; set; }
             public List<RegistroC165> RegC165s { get; set; }
             public List<RegistroC170> RegC170s { get; set; }
             public List<RegistroC185> RegC185s { get; set; }
