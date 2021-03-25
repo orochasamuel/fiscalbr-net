@@ -604,7 +604,7 @@ namespace FiscalBr.EFDFiscal
             public string Cest { get; set; }
 
             public List<Registro0205> Reg0205s { get; set; }
-            public List<Registro0206> Reg0206s { get; set; }
+            public Registro0206 Registro0206 { get; set; }
             public List<Registro0210> Reg0210s { get; set; }
             public List<Registro0220> Reg0220s { get; set; }
         }
