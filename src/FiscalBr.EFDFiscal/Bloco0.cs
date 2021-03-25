@@ -781,7 +781,8 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(7, "NR_PARC", "N", 3, 0, false)]
             public int NrParc { get; set; }
 
-            public Registro0305 Reg0305 { get; set; }
+            public Registro0305 Registro0305 { get; set; }
+
         }
 
         /// <summary>
