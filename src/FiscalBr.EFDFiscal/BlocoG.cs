@@ -190,7 +190,7 @@ namespace FiscalBr.EFDFiscal
             public decimal VlParcPass { get; set; }
 
             public List<RegistroG126> RegG126s { get; set; }
-            public List<RegistroG130> RegG305s { get; set; }
+            public List<RegistroG130> RegG130s { get; set; }
         }
 
         /// <summary>
