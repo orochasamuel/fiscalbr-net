@@ -87,39 +87,35 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "0205":
-                        var reg200 = Bloco0.Reg0001.Reg0200s.Last();
+                        var reg0200 = Bloco0.Reg0001.Reg0200s.Last();
 
-                        if (reg200.Reg0205s == null)
-                            reg200.Reg0205s = new List<Bloco0.Registro0205>();
+                        if (reg0200.Reg0205s == null)
+                            reg0200.Reg0205s = new List<Bloco0.Registro0205>();
 
-                        reg200.Reg0205s.Add((Bloco0.Registro0205)registro);
+                        reg0200.Reg0205s.Add((Bloco0.Registro0205)registro);
                         break;
 
                     case "0206":
-                        reg200 = Bloco0.Reg0001.Reg0200s.Last();
-
-                        if (reg200.Reg0206s == null)
-                            reg200.Reg0206s = new List<Bloco0.Registro0206>();
-
-                        reg200.Reg0206s.Add((Bloco0.Registro0206)registro);
+                        reg0200 = Bloco0.Reg0001.Reg0200s.Last();
+                        reg0200.Reg0206 = (Bloco0.Registro0206)registro;
                         break;
 
                     case "0210":
-                        reg200 = Bloco0.Reg0001.Reg0200s.Last();
+                        reg0200 = Bloco0.Reg0001.Reg0200s.Last();
 
-                        if (reg200.Reg0210s == null)
-                            reg200.Reg0210s = new List<Bloco0.Registro0210>();
+                        if (reg0200.Reg0210s == null)
+                            reg0200.Reg0210s = new List<Bloco0.Registro0210>();
 
-                        reg200.Reg0210s.Add((Bloco0.Registro0210)registro);
+                        reg0200.Reg0210s.Add((Bloco0.Registro0210)registro);
                         break;
 
                     case "0220":
-                        reg200 = Bloco0.Reg0001.Reg0200s.Last();
+                        reg0200 = Bloco0.Reg0001.Reg0200s.Last();
 
-                        if (reg200.Reg0220s == null)
-                            reg200.Reg0220s = new List<Bloco0.Registro0220>();
+                        if (reg0200.Reg0220s == null)
+                            reg0200.Reg0220s = new List<Bloco0.Registro0220>();
 
-                        reg200.Reg0220s.Add((Bloco0.Registro0220)registro);
+                        reg0200.Reg0220s.Add((Bloco0.Registro0220)registro);
                         break;
 
                     case "0300":
@@ -129,9 +125,9 @@ namespace FiscalBr.EFDFiscal
                         Bloco0.Reg0001.Reg0300s.Add((Bloco0.Registro0300)registro);
                         break;
 
-                    case "0305":
-                        var reg300 = Bloco0.Reg0001.Reg0300s.Last();
-                        reg300.Registro0305 = (Bloco0.Registro0305)registro;
+                    case "00305":
+                        var reg0300 = Bloco0.Reg0001.Reg0300s.Last();
+                        reg0300.Reg0305 = (Bloco0.Registro0305)registro;
                         break;
 
                     case "0400":
