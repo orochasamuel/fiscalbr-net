@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.EFDFiscal", "Fisca
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.ECF", "FiscalBr.ECF\FiscalBr.ECF.csproj", "{249CEE6E-0C57-467D-8DCB-4D30CE6435EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalBr.Tests", "FiscalBr.Tests\FiscalBr.Tests.csproj", "{F2F1AD76-EEB3-41B1-91B2-50F84CD46101}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Tests", "FiscalBr.Tests\FiscalBr.Tests.csproj", "{F2F1AD76-EEB3-41B1-91B2-50F84CD46101}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FiscalBr.Demo", "FiscalBr.Demo\FiscalBr.Demo.csproj", "{A7064C2D-E347-4012-B0D0-137AB042DC57}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +57,10 @@ Global
 		{F2F1AD76-EEB3-41B1-91B2-50F84CD46101}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F2F1AD76-EEB3-41B1-91B2-50F84CD46101}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F2F1AD76-EEB3-41B1-91B2-50F84CD46101}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A7064C2D-E347-4012-B0D0-137AB042DC57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A7064C2D-E347-4012-B0D0-137AB042DC57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A7064C2D-E347-4012-B0D0-137AB042DC57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A7064C2D-E347-4012-B0D0-137AB042DC57}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

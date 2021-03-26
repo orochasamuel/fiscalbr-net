@@ -55,7 +55,14 @@ namespace FiscalBr.EFDFiscal
                         Bloco0.Reg0001.Reg0015s.Add((Bloco0.Registro0015)registro);
                         break;
 
-                    case "0100": Bloco0.Reg0001.Reg0005 = (Bloco0.Registro0005)registro; break;
+                    case "0100":
+
+                        if (Bloco0.Reg0001.Reg0100s == null)
+                            Bloco0.Reg0001.Reg0100s = new List<Bloco0.Registro0100>();
+
+                        Bloco0.Reg0001.Reg0100s.Add((Bloco0.Registro0100)registro);
+                        break;
+
                     case "0150":
                         if (Bloco0.Reg0001.Reg0150s == null)
                             Bloco0.Reg0001.Reg0150s = new List<Bloco0.Registro0150>();
