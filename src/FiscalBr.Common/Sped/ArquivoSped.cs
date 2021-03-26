@@ -23,7 +23,11 @@ namespace FiscalBr.Common.Sped
 
         public List<string> Linhas { get; private set; }
 
-        public ArquivoSped(string path)
+        public ArquivoSped()
+        {
+        }
+
+        public virtual void Ler(string path)
         {
             Linhas = File.ReadAllLines(path).ToList();
 
@@ -31,7 +35,11 @@ namespace FiscalBr.Common.Sped
             Linhas.RemoveAll(l => string.IsNullOrEmpty(l.Trim()));
         }
 
-        public virtual void Processar()
+        public virtual void Escrever(string path)
+        {
+        }
+
+        public virtual void CalcularBloco9()
         {
         }
 

@@ -974,7 +974,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(22, "DEB_ESP_FCP", "N", 0, 2, true)]
             public decimal DebEspFcp { get; set; }
 
-            public List<RegistroE310> RegE311s { get; set; }
+            public List<RegistroE311> RegE311s { get; set; }
             public List<RegistroE316> RegE316s { get; set; }
         }
 

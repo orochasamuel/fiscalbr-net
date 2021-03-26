@@ -1,11 +1,15 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
 using System;
+using System.Collections.Generic;
 
 namespace FiscalBr.EFDContribuicoes
 {
     public class BlocoM
     {
+        public RegistroM001 RegM001 { get; set; }
+        public RegistroM990 RegM990 { get; set; }
+
         public class RegistroM001 : RegistroBaseSped
         {
             public RegistroM001()
@@ -15,6 +19,16 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<RegistroM100> RegM100s { get; set; }
+            public List<RegistroM200> RegM200s { get; set; }
+            public List<RegistroM300> RegM300s { get; set; }
+            public List<RegistroM350> RegM350s { get; set; }
+            public List<RegistroM400> RegM400s { get; set; }
+            public List<RegistroM500> RegM500s { get; set; }
+            public List<RegistroM600> RegM600s { get; set; }
+            public List<RegistroM700> RegM700s { get; set; }
+            public List<RegistroM800> RegM800s { get; set; }
         }
 
         /// <summary>
@@ -122,6 +136,9 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(15, "VL_CRED_DESC", "N", 0, 2, true)]
             public decimal SldCred { get; set; }
+
+            public List<RegistroM105> RegM105s { get; set; }
+            public List<RegistroM110> RegM110s { get; set; }
         }
 
         /// <summary>
@@ -265,6 +282,8 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
             public DateTime? DtRef { get; set; }
+
+            public List<RegistroM115> RegM115s { get; set; }
         }
 
         /// <summary>
@@ -373,6 +392,9 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(13, "VL_TOT_CONT_REC", "N", 0, 2, true)]
             public decimal VlTotContRec { get; set; }
+
+            public List<RegistroM205> RegM205s { get; set; }
+            public List<RegistroM210> RegM210s { get; set; }
         }
 
         public class RegistroM205 : RegistroBaseSped
@@ -463,6 +485,134 @@ namespace FiscalBr.EFDContribuicoes
                         VlContDiferAnt.GetValueOrDefault();
                 }
             }
+
+            public List<RegistroM211> RegM211s { get; set; }
+            public List<RegistroM215> RegM215s { get; set; }
+            public List<RegistroM220> RegM220s { get; set; }
+            public List<RegistroM230> RegM230s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO M211: Sociedades Cooperativas –Composição da Base de Calculo –PIS/Pasep
+        /// </summary>
+        public class RegistroM211 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma instância da classe <see cref="RegistroM211"/>
+            /// </summary>
+            public RegistroM211()
+            {
+                Reg = "M211";
+            }
+
+            /// <summary>
+            ///     Indicador do Tipo de Sociedade Cooperativa:
+            ///     01 –Cooperativa de Produção Agropecuária;
+            ///     02 –Cooperativa de Consumo;
+            ///     03 –Cooperativa de Crédito;
+            ///     04 –Cooperativa de Eletrificação Rural;
+            ///     05 –Cooperativa de Transporte Rodoviário de Cargas;
+            ///     06 –Cooperativa de Médicos;
+            ///     99 –Outras.
+            /// </summary>
+            [SpedCampos(2, "IND_TIP_COOP", "N", 2, 0, true)]
+            public string IndTipCoop { get; set; }
+
+            /// <summary>
+            ///    Valor  da  Base  de  Cálculo  da  Contribuição, conforme Registros escriturados nos Blocos A, C, D e F, antes das Exclusões das Cooperativas.
+            /// </summary>
+            [SpedCampos(3, "VL_BC_CONT_ANT_EXC_COOP", "N", 0, 2, true)]
+            public string VlBcContAntExcCoop { get; set; }
+
+            /// <summary>
+            ///     Valor de Exclusão Especifica das Cooperativas em Geral,  decorrente  das  Sobras Apuradas  na  DRE, destinadas a constituição do Fundo de Reserva e do FATES.
+            /// </summary>
+            [SpedCampos(4, "VL_EXC_COOP_GER", "N", 0, 2, false)]
+            public string VlExcCoopGer { get; set; }
+
+            /// <summary>
+            ///    Valor das Exclusões da Base de Cálculo Especifica do  Tipo  da  Sociedade  Cooperativa,  conforme Campo 02 (IND_TIP_COOP).
+            /// </summary>
+            [SpedCampos(5, "VL_EXC_ESP_COOP", "N", 0, 2, false)]
+            public string VlExcEspCoop { get; set; }
+
+            /// <summary>
+            ///     Valor  da  Base  de  Cálculo,  Após  as  Exclusões Especificas da Sociedade Cooperativa (04 –05 –06) –Transportar para M210.
+            /// </summary>
+            [SpedCampos(6, "VL_BC_CONT", "N", 0, 2, true)]
+            public string VlBcCont { get; set; }
+
+        }
+
+        /// <summary>
+        ///     REGISTRO M215: Ajustes da Base de Cálculo da Contribuição para o PIS/Pasep Apurada
+        /// </summary>
+        public class RegistroM215 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma instância da classe <see cref="RegistroM215"/>
+            /// </summary>
+            public RegistroM215()
+            {
+                Reg = "M215";
+            }
+
+            /// <summary>
+            ///     Indicador do tipo de ajuste da base de cálculo:
+            ///     0 -Ajuste de redução;
+            ///     1 -Ajuste de acréscimo.
+            /// </summary>
+            [SpedCampos(2, "IND_AJ_BC", "C", 1, 0, true)]
+            public string IndAjBc { get; set; }
+
+            /// <summary>
+            ///    Valor do ajuste de base de cálculo
+            /// </summary>
+            [SpedCampos(3, "VL_AJ_BC", "N", 0, 2, true)]
+            public string VlAjBc { get; set; }
+
+            /// <summary>
+            ///    Código do ajuste, conforme a Tabela indicada no item 4.3.18
+            /// </summary>
+            [SpedCampos(4, "COD_AJ_BC", "C", 2, 0, true)]
+            public string CodAjBc { get; set; }
+
+            /// <summary>
+            ///   Número do processo, documento ou ato concessório ao qual o ajuste está vinculado, se houver.
+            /// </summary>
+            [SpedCampos(5, "NUM_DOC", "C", 0, 0, false)]
+            public string NumDoc { get; set; }
+
+            /// <summary>
+            ///    Descrição resumida do ajuste na base de cálculo.
+            /// </summary>
+            [SpedCampos(6, "DESCR_AJ_BC", "C", 0, 0, false)]
+            public string DescrAjBc { get; set; }
+
+            /// <summary>
+            ///  Data de referência do ajuste (ddmmaaaa)
+            /// </summary>
+            [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
+            public DateTime DtRef { get; set; }
+
+            /// <summary>
+            ///   Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(8, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///   CNPJ do estabelecimento a que se refere o ajuste
+            /// </summary>
+            [SpedCampos(9, "CNPJ", "N", 14, 0, true)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///  Informação complementar do registro
+            /// </summary>
+            [SpedCampos(10, "INFO_COMPL", "C", 0, 0, false)]
+            public string InfoCompl { get; set; }
+
         }
 
         public class RegistroM220 : RegistroBaseSped
@@ -489,6 +639,8 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
             public DateTime? DtRef { get; set; }
+
+            public List<RegistroM225> RegM225s { get; set; }
         }
 
         [SpedRegistros("01/10/2015", null)]
@@ -522,6 +674,57 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(9, "INFO_COMPL", "C", Int16.MaxValue, 0, false)]
             public string InfoCompl { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO M230: Informações Adicionais de Diferimento
+        /// </summary>
+        public class RegistroM230 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma instância da classe <see cref="RegistroM230"/>
+            /// </summary>
+            public RegistroM230()
+            {
+                Reg = "M230";
+            }
+
+            /// <summary>
+            ///   CNPJ da pessoa jurídica de direito público, empresa pública,  sociedade  de  economia  mista  ou  suas subsidiárias.
+            /// </summary>
+            [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///     Valor Total das vendas no período
+            /// </summary>
+            [SpedCampos(3, "VL_VEND", "N", 0, 2, true)]
+            public string VlVend { get; set; }
+
+            /// <summary>
+            ///    Valor Total não recebido no período
+            /// </summary>
+            [SpedCampos(4, "VL_NAO_RECEB", "N", 0, 2, true)]
+            public string VlNaoReceb { get; set; }
+
+            /// <summary>
+            ///    Valor da Contribuição diferida no período
+            /// </summary>
+            [SpedCampos(5, "VL_CONT_DIF", "N", 0, 2, true)]
+            public string VlContDif { get; set; }
+
+            /// <summary>
+            ///    Valor do Crédito diferido no período
+            /// </summary>
+            [SpedCampos(6, "VL_CRED_DIF", "N", 0, 2, false)]
+            public string VlCredDif { get; set; }
+
+            /// <summary>
+            ///    Código  de  Tipo  de  Crédito  diferido  no  período, conforme a Tabela 4.3.6.
+            /// </summary>
+            [SpedCampos(7, "COD_CRED", "C", 3, 0, false)]
+            public string CodCred { get; set; }
+
         }
 
         /// <summary>
@@ -669,6 +872,8 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(4, "DESC_COMPL", "C", int.MaxValue, 0, false)]
             public string DescCompl { get; set; }
+
+            public List<RegistroM410> RegM410s { get; set; }
         }
 
         /// <summary>
@@ -841,6 +1046,9 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(15, "VL_CRED_DESC", "N", 0, 2, true)]
             public decimal SldCred { get; set; }
+
+            public List<RegistroM505> RegM505s { get; set; }
+            public List<RegistroM510> RegM510s { get; set; }
         }
         /// <summary>
         ///     REGISTRO M505: DETALHAMENTO DA BASE DE CALCULO DO CRÉDITO APURADO NO PERÍODO – COFINS
@@ -981,6 +1189,8 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
             public DateTime? DtRef { get; set; }
+
+            public List<RegistroM515> RegM515s { get; set; }
         }
 
         /// <summary>
@@ -1093,6 +1303,9 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(13, "VL_TOT_CONT_REC", "N", 0, 2, true)]
             public decimal VlTotContRec { get; set; }
+
+            public List<RegistroM605> RegM605s { get; set; }
+            public List<RegistroM610> RegM610s { get; set; }
         }
 
         public class RegistroM605 : RegistroBaseSped
@@ -1154,6 +1367,134 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(13, "VL_CONT_PER", "N", 0, 2, true)]
             public decimal VlContPer { get; set; }
+
+            public List<RegistroM611> RegM611s { get; set; }
+            public List<RegistroM615> RegM615s { get; set; }
+            public List<RegistroM620> RegM620s { get; set; }
+            public List<RegistroM630> RegM630s { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO M611: Sociedades Cooperativas –Composição da Base de Calculo –Cofins
+        /// </summary>
+        public class RegistroM611 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma instância da classe <see cref="RegistroM611"/>
+            /// </summary>
+            public RegistroM611()
+            {
+                Reg = "M611";
+            }
+
+            /// <summary>
+            ///     Indicador do Tipo de Sociedade Cooperativa:
+            ///     01 –Cooperativa de Produção Agropecuária;
+            ///     02 –Cooperativa de Consumo;
+            ///     03 –Cooperativa de Crédito;
+            ///     04 –Cooperativa de Eletrificação Rural;
+            ///     05 –Cooperativa de Transporte Rodoviário de Cargas;
+            ///     06 –Cooperativa de Médicos;
+            ///     99 –Outras.
+            /// </summary>
+            [SpedCampos(2, "IND_TIP_COOP", "N", 0, 0, true)]
+            public string IndTipCoop { get; set; }
+
+            /// <summary>
+            ///    Valor da Base de Cálculo da Contribuição, conforme Registros escriturados nos Blocos A, C, D e F, antes das Exclusões das Sociedades Cooperativas.
+            /// </summary>
+            [SpedCampos(3, "VL_BC_CONT_ANT_EXC_COOP", "N", 0, 2, true)]
+            public string VlBcContAntExcCoop { get; set; }
+
+            /// <summary>
+            ///    Valor de Exclusão Especifica das Cooperativas em Geral,  decorrente  das  Sobras  Apuradas  na  DRE, destinadas a constituição do Fundo de Reserva e do FATES.
+            /// </summary>
+            [SpedCampos(4, "VL_EXC_COOP_GER", "N", 0, 2, false)]
+            public string VlExcCoopGer { get; set; }
+
+            /// <summary>
+            ///    Valor das Exclusões da Base de Cálculo Especifica do Tipo da Sociedade Cooperativa, conforme Campo 02 (IND_TIP_COOP).
+            /// </summary>
+            [SpedCampos(5, "VL_EXC_ESP_COOP", "N", 0, 2, false)]
+            public string VlExcEspCoop { get; set; }
+
+            /// <summary>
+            ///    Valor  da  Base  de  Cálculo,  Após  as  Exclusões Especificas da Sociedade Cooperativa (04 –05 –06) –Transportar para M610.
+            /// </summary>
+            [SpedCampos(6, "VL_BC_CONT", "N", 0, 2, true)]
+            public string VlBcCont { get; set; }
+
+        }
+
+        /// <summary>
+        ///     REGISTRO M615: Ajustes da Base de Cálculo da COFINS Apurada 
+        /// </summary>
+        public class RegistroM615 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma instância da classe <see cref="RegistroM615"/>
+            /// </summary>
+            public RegistroM615()
+            {
+                Reg = "M615";
+            }
+
+            /// <summary>
+            ///     Indicador do tipo de ajuste da base de cálculo:
+            ///     0 -Ajuste de redução;
+            ///     1 -Ajuste de acréscimo.
+            /// </summary>
+            [SpedCampos(2, "IND_AJ_BC", "C", 1, 0, true)]
+            public string IndAjBc { get; set; }
+
+            /// <summary>
+            ///    Valor do ajuste de base de cálculo
+            /// </summary>
+            [SpedCampos(3, "VL_AJ_BC", "N", 0, 2, true)]
+            public string VlAjBc { get; set; }
+
+            /// <summary>
+            ///    Código do ajuste, conforme a Tabela indicada no item 4.3.18
+            /// </summary>
+            [SpedCampos(4, "COD_AJ_BC", "C", 2, 0, true)]
+            public string CodAjBc { get; set; }
+
+            /// <summary>
+            ///   Número do processo, documento ou ato concessório ao qual o ajuste está vinculado, se houver.
+            /// </summary>
+            [SpedCampos(5, "NUM_DOC", "C", 0, 0, false)]
+            public string NumDoc { get; set; }
+
+            /// <summary>
+            ///    Descrição resumida do ajuste na base de cálculo.
+            /// </summary>
+            [SpedCampos(6, "DESCR_AJ_BC", "C", 0, 0, false)]
+            public string DescrAjBc { get; set; }
+
+            /// <summary>
+            ///  Data de referência do ajuste (ddmmaaaa)
+            /// </summary>
+            [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
+            public DateTime DtRef { get; set; }
+
+            /// <summary>
+            ///   Código da conta analítica contábil debitada/creditada
+            /// </summary>
+            [SpedCampos(8, "COD_CTA", "C", 255, 0, false)]
+            public string CodCta { get; set; }
+
+            /// <summary>
+            ///   CNPJ do estabelecimento a que se refere o ajuste
+            /// </summary>
+            [SpedCampos(9, "CNPJ", "N", 14, 0, true)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///  Informação complementar do registro
+            /// </summary>
+            [SpedCampos(10, "INFO_COMPL", "C", 0, 0, false)]
+            public string InfoCompl { get; set; }
+
         }
 
         public class RegistroM620 : RegistroBaseSped
@@ -1180,6 +1521,9 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
             public DateTime? DtRef { get; set; }
+
+            public List<RegistroM625> RegM625s { get; set; }
+
         }
 
         [SpedRegistros("01/10/2015", null)]
@@ -1215,6 +1559,56 @@ namespace FiscalBr.EFDContribuicoes
             public string InfoCompl { get; set; }
         }
 
+        /// <summary>
+        ///     REGISTRO M630: Informações Adicionais de Diferimento
+        /// </summary>
+        public class RegistroM630 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma instância da classe <see cref="RegistroM630"/>
+            /// </summary>
+            public RegistroM630()
+            {
+                Reg = "M630";
+            }
+
+            /// <summary>
+            ///   CNPJ da pessoa jurídica de direito público, empresa pública,  sociedade  de  economia  mista  ou  suas subsidiárias.
+            /// </summary>
+            [SpedCampos(2, "CNPJ", "N", 14, 0, true)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///     Valor Total das vendas no período
+            /// </summary>
+            [SpedCampos(3, "VL_VEND", "N", 0, 2, true)]
+            public string VlVend { get; set; }
+
+            /// <summary>
+            ///    Valor Total não recebido no período
+            /// </summary>
+            [SpedCampos(4, "VL_NAO_RECEB", "N", 0, 2, true)]
+            public string VlNaoReceb { get; set; }
+
+            /// <summary>
+            ///    Valor da Contribuição diferida no período
+            /// </summary>
+            [SpedCampos(5, "VL_CONT_DIF", "N", 0, 2, true)]
+            public string VlContDif { get; set; }
+
+            /// <summary>
+            ///    Valor do Crédito diferido no período
+            /// </summary>
+            [SpedCampos(6, "VL_CRED_DIF", "N", 0, 2, false)]
+            public string VlCredDif { get; set; }
+
+            /// <summary>
+            ///    Código  de  Tipo  de  Crédito  diferido  no  período, conforme a Tabela 4.3.6.
+            /// </summary>
+            [SpedCampos(7, "COD_CRED", "C", 3, 0, false)]
+            public string CodCred { get; set; }
+
+        }
 
         /// <summary>
         ///     REGISTRO M700: CONTRIBUIÇÃO DE PIS/PASEP DIFERIDA EM PREIODOS ANTERIORES - 
@@ -1317,6 +1711,8 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(4, "DESC_COMPL", "C", int.MaxValue, 0, false)]
             public string DescCompl { get; set; }
+
+            public List<RegistroM810> RegM810s { get; set; }
         }
 
         /// <summary>

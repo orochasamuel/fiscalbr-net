@@ -32,6 +32,8 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<Registro9900> Reg9900s { get; set; }
         }
 
         /// <summary>
