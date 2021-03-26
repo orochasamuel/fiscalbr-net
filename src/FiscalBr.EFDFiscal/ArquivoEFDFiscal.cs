@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-
+using System.Text;
 using FiscalBr.Common.Sped;
 
 namespace FiscalBr.EFDFiscal
@@ -18,9 +18,9 @@ namespace FiscalBr.EFDFiscal
         public BlocoH BlocoH { get; set; }
         public BlocoK BlocoK { get; set; }
 
-        public override void Ler(string path)
+        public override void Ler(string path, Encoding encoding = null)
         {
-            base.Ler(path);
+            base.Ler(path, encoding);
 
             LerBloco0();
             //LerBloco9();
@@ -361,21 +361,152 @@ namespace FiscalBr.EFDFiscal
 
             Bloco9.Reg9999 = new Bloco9.Registro9999()
             {
-                QtdLin = totalBloco0 + /* totalBloco1 + ... */ Bloco9.Reg9990.QtdLin9 + 1
+                QtdLin = totalBloco0 + /* totalBloco1 + ... */ Bloco9.Reg9990.QtdLin9
             };
             #endregion
         }
 
-        public override void Escrever(string path)
+        public override void GerarLinhas()
         {
-            base.Escrever(path);
+            base.GerarLinhas();
 
-            //EscreverLinha(Bloco0.Reg0000);
-        }
+            #region Bloco 0
+            if (Bloco0 != null)
+            {
+                if (Bloco0.Reg0000 != null)
+                    EscreverLinha(Bloco0.Reg0000);
 
-        public void EscreverBloco0()
-        {
+                if (Bloco0.Reg0001 != null)
+                {
+                    EscreverLinha(Bloco0.Reg0001);
 
-        }
+                    if (Bloco0.Reg0001.Reg0002 != null)
+                        EscreverLinha(Bloco0.Reg0001.Reg0002);
+
+                    if (Bloco0.Reg0001.Reg0005 != null)
+                        EscreverLinha(Bloco0.Reg0001.Reg0005);
+
+                    if (Bloco0.Reg0001.Reg0015s != null)
+                        foreach (var reg in Bloco0.Reg0001.Reg0015s)
+                            EscreverLinha(reg);
+
+                    if (Bloco0.Reg0001.Reg0100s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0100s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0150s != null && Bloco0.Reg0001.Reg0150s.Any())
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0150s)
+                        {
+                            EscreverLinha(reg);
+
+                            if (reg.Reg0175s != null)
+                                foreach (var reg0175 in reg.Reg0175s)
+                                    EscreverLinha(reg0175);
+                        }
+                    }
+
+                    if (Bloco0.Reg0001.Reg0190s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0190s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0200s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0200s)
+                        {
+                            EscreverLinha(reg);
+
+                            if (reg.Reg0205s != null)
+                                foreach (var reg0205 in reg.Reg0205s)
+                                    EscreverLinha(reg0205);
+
+                            if (reg.Reg0206 != null)
+                                EscreverLinha(reg.Reg0206);
+
+                            if (reg.Reg0210s != null)
+                                foreach (var reg0210 in reg.Reg0210s)
+                                    EscreverLinha(reg0210);
+
+                            if (reg.Reg0220s != null)
+                                foreach (var reg0220 in reg.Reg0220s)
+                                    EscreverLinha(reg0220);
+                        }
+                    }
+
+                    if (Bloco0.Reg0001.Reg0300s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0300s)
+                        {
+                            EscreverLinha(reg);
+
+                            if (reg.Reg0305 != null)
+                                EscreverLinha(reg.Reg0305);
+                        }
+                    }
+
+                    if (Bloco0.Reg0001.Reg0400s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0400s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0450s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0450s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0460s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0460s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0500s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0500s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0600s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0600s)
+                            EscreverLinha(reg);
+                    }
+                }
+
+                if (Bloco0.Reg0990 != null)
+                    EscreverLinha(Bloco0.Reg0990);
+            }
+            #endregion
+
+            //Bloco B, C, D, E, G, H, K e 1 
+
+            #region Bloco 9
+            if (Bloco9 != null)
+            {
+                if (Bloco9.Reg9001 != null)
+                {
+                    EscreverLinha(Bloco9.Reg9001);
+
+                    if (Bloco9.Reg9001.Reg9900s != null)
+                    {
+                        foreach (var reg in Bloco9.Reg9001.Reg9900s)
+                            EscreverLinha(reg);
+                    }
+                }
+
+                if (Bloco9.Reg9990 != null)
+                    EscreverLinha(Bloco9.Reg9990);
+
+                if (Bloco9.Reg9999 != null)
+                    EscreverLinha(Bloco9.Reg9999);
+            }
+            #endregion            
+        }        
     }
 }

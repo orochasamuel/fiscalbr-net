@@ -1,6 +1,7 @@
 ﻿using FiscalBr.EFDFiscal;
 using Newtonsoft.Json;
 using System;
+using System.Text;
 
 namespace FiscalBr.Demo
 {
@@ -10,11 +11,13 @@ namespace FiscalBr.Demo
         {
             var sped = new ArquivoEFDFiscal();
             sped.AoLerLinha += Sped_AoLerLinha;
-            sped.Ler(@"c:\temp\sped.txt");
+            sped.Ler(@"c:\temp\sped.txt", Encoding.GetEncoding("iso-8859-1"));
             
             sped.CalcularBloco9();
 
-            string json = JsonConvert.SerializeObject(sped.Bloco9);
+            sped.GerarLinhas();
+
+            sped.Escrever(@"c:\temp\sped2.txt", Encoding.UTF8);
 
             Console.Read();
         }

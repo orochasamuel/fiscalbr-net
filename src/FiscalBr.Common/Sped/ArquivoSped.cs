@@ -28,10 +28,11 @@ namespace FiscalBr.Common.Sped
         {
         }
 
-        public virtual void Ler(string path)
+        public virtual void Ler(string path, Encoding encoding = null)
         {
             Erros = new List<string>();
-            Linhas = File.ReadAllLines(path).ToList();
+
+            Linhas = File.ReadAllLines(path, encoding).ToList();
 
             //Remove linhas em branco
             Linhas.RemoveAll(l => string.IsNullOrEmpty(l.Trim()));
@@ -41,9 +42,14 @@ namespace FiscalBr.Common.Sped
         {
         }
 
-        public virtual void Escrever(string path)
+        public virtual void GerarLinhas()
         {
             Linhas = new List<string>();
+        }
+
+        public void Escrever(string path, Encoding encoding = null)
+        {
+            File.WriteAllLines(path, Linhas.ToArray(), encoding);
         }
 
         protected void EscreverLinha(RegistroBaseSped registro)
