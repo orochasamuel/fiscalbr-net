@@ -245,7 +245,7 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC110> RegC110s { get; set; }
             public List<RegistroC120> RegC120s { get; set; }
             public RegistroC130 RegC130 { get; set; }
-            public RegistroC140 Reg140 { get; set; }
+            public RegistroC140 RegC140 { get; set; }
             public RegistroC160 RegC160 { get; set; }
             public List<RegistroC165> RegC165s { get; set; }
             public List<RegistroC170> RegC170s { get; set; }
