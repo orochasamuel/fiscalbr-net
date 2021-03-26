@@ -1,8 +1,7 @@
-﻿using FiscalBr.Common.Sped;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FiscalBr.Common.Sped;
 
 namespace FiscalBr.EFDFiscal
 {
@@ -19,9 +18,9 @@ namespace FiscalBr.EFDFiscal
         public BlocoH BlocoH { get; set; }
         public BlocoK BlocoK { get; set; }
 
-        public override void Ler(string path)
+        public override void Ler(string path, Encoding encoding = null)
         {
-            base.Ler(path);
+            base.Ler(path, encoding);
 
             LerBloco0();
             LerBloco1();
@@ -191,6 +190,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBloco1()
         {
             Bloco1 = new Bloco1();
@@ -474,6 +474,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBloco9()
         {
             Bloco9 = new Bloco9();
@@ -508,6 +509,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBlocoB()
         {
             BlocoB = new BlocoB();
@@ -606,6 +608,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBlocoC()
         {
             BlocoC = new BlocoC();
@@ -872,6 +875,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBlocoD()
         {
             BlocoD = new BlocoD();
@@ -898,6 +902,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBlocoE()
         {
             BlocoE = new BlocoE();
@@ -924,6 +929,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBlocoG()
         {
             BlocoG = new BlocoG();
@@ -992,6 +998,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBlocoH()
         {
             BlocoH = new BlocoH();
@@ -1047,6 +1054,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
+        
         public void LerBlocoK()
         {
             BlocoK = new BlocoK();
@@ -1072,6 +1080,301 @@ namespace FiscalBr.EFDFiscal
                 };
                 AoLerLinhaRaise(this, args);
             }
+        }
+        
+        public override void CalcularBloco9()
+        {
+            base.CalcularBloco9();
+
+            Bloco9 = new Bloco9();
+            Bloco9.Reg9001 = new Bloco9.Registro9001() { IndMov = Common.IndMovimento.BlocoComDados };
+            Bloco9.Reg9001.Reg9900s = new List<Bloco9.Registro9900>();
+
+            int totalBloco0 = 0; //, totalBloco1 = 0,...
+
+            #region Bloco 0
+            if (Bloco0.Reg0000 != null)
+            {
+                Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0000", QtdRegBlc = 1 });
+                totalBloco0++;
+            }
+
+            if (Bloco0.Reg0001 != null)
+            {
+                Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0001", QtdRegBlc = 1 });
+                totalBloco0++;
+
+                if (Bloco0.Reg0001.Reg0002 != null)
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0002", QtdRegBlc = 1 });
+                    totalBloco0++;
+                }
+
+                if (Bloco0.Reg0001.Reg0005 != null)
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0005", QtdRegBlc = 1 });
+                    totalBloco0++;
+                }
+
+                if (Bloco0.Reg0001.Reg0015s != null && Bloco0.Reg0001.Reg0015s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0015", QtdRegBlc = Bloco0.Reg0001.Reg0015s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0015s.Count;
+                }
+
+                if (Bloco0.Reg0001.Reg0100s != null && Bloco0.Reg0001.Reg0100s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0100", QtdRegBlc = Bloco0.Reg0001.Reg0100s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0100s.Count;
+                }
+
+                if (Bloco0.Reg0001.Reg0150s != null && Bloco0.Reg0001.Reg0150s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0150", QtdRegBlc = Bloco0.Reg0001.Reg0150s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0150s.Count;
+
+                    int quantidade = Bloco0.Reg0001.Reg0150s.Sum(r => r.Reg0175s == null ? 0 : r.Reg0175s.Count());
+                    if (quantidade > 0)
+                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "01750", QtdRegBlc = quantidade });
+                    totalBloco0 += quantidade;
+                }
+
+                if (Bloco0.Reg0001.Reg0190s != null && Bloco0.Reg0001.Reg0190s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0190", QtdRegBlc = Bloco0.Reg0001.Reg0190s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0190s.Count;
+                }
+
+                if (Bloco0.Reg0001.Reg0200s != null && Bloco0.Reg0001.Reg0200s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0200", QtdRegBlc = Bloco0.Reg0001.Reg0200s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0200s.Count;
+
+                    int quantidade = Bloco0.Reg0001.Reg0200s.Sum(r => r.Reg0205s == null ? 0 : r.Reg0205s.Count());
+                    if (quantidade > 0)
+                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0205", QtdRegBlc = quantidade });
+                    totalBloco0 += quantidade;
+
+                    quantidade = Bloco0.Reg0001.Reg0200s.Sum(r => r.Reg0206 == null ? 0 : 1);
+                    if (quantidade > 0)
+                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0206", QtdRegBlc = quantidade });
+                    totalBloco0 += quantidade;
+
+                    quantidade = Bloco0.Reg0001.Reg0200s.Sum(r => r.Reg0210s == null ? 0 : r.Reg0210s.Count());
+                    if (quantidade > 0)
+                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0210", QtdRegBlc = quantidade });
+                    totalBloco0 += quantidade;
+
+                    quantidade = Bloco0.Reg0001.Reg0200s.Sum(r => r.Reg0220s == null ? 0 : r.Reg0220s.Count());
+                    if (quantidade > 0)
+                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0220", QtdRegBlc = quantidade });
+                    totalBloco0 += quantidade;
+                }
+
+                if (Bloco0.Reg0001.Reg0300s != null && Bloco0.Reg0001.Reg0300s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0300", QtdRegBlc = Bloco0.Reg0001.Reg0300s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0300s.Count;
+
+                    int quantidade = Bloco0.Reg0001.Reg0300s.Sum(r => r.Reg0305 == null ? 0 : 1);
+                    if (quantidade > 0)
+                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0305", QtdRegBlc = quantidade });
+                    totalBloco0 += quantidade;
+                }
+
+                if (Bloco0.Reg0001.Reg0400s != null && Bloco0.Reg0001.Reg0400s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0400", QtdRegBlc = Bloco0.Reg0001.Reg0400s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0400s.Count;
+                }
+
+                if (Bloco0.Reg0001.Reg0450s != null && Bloco0.Reg0001.Reg0450s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0450", QtdRegBlc = Bloco0.Reg0001.Reg0450s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0450s.Count;
+                }
+
+                if (Bloco0.Reg0001.Reg0460s != null && Bloco0.Reg0001.Reg0460s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0460", QtdRegBlc = Bloco0.Reg0001.Reg0460s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0460s.Count;
+                }
+
+                if (Bloco0.Reg0001.Reg0500s != null && Bloco0.Reg0001.Reg0500s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0500", QtdRegBlc = Bloco0.Reg0001.Reg0500s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0500s.Count;
+                }
+
+                if (Bloco0.Reg0001.Reg0600s != null && Bloco0.Reg0001.Reg0600s.Any())
+                {
+                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0600", QtdRegBlc = Bloco0.Reg0001.Reg0600s.Count });
+                    totalBloco0 += Bloco0.Reg0001.Reg0600s.Count;
+                }
+
+                Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0990", QtdRegBlc = 1 });
+                totalBloco0++;
+            }
+
+            Bloco0.Reg0990 = new Bloco0.Registro0990() { QtdLin0 = totalBloco0 };
+            #endregion
+
+            //Bloco B, C, D, E, G, H, K e 1 
+
+            #region Bloco 9
+            Bloco9.Reg9990 = new Bloco9.Registro9990()
+            {
+                QtdLin9 = Bloco9.Reg9001.Reg9900s.Count + 3 /* 9001, 9900 e 9990  */
+            };
+
+            Bloco9.Reg9999 = new Bloco9.Registro9999()
+            {
+                QtdLin = totalBloco0 + /* totalBloco1 + ... */ Bloco9.Reg9990.QtdLin9
+            };
+            #endregion
+        }
+
+        public override void GerarLinhas()
+        {
+            base.GerarLinhas();
+
+            #region Bloco 0
+            if (Bloco0 != null)
+            {
+                if (Bloco0.Reg0000 != null)
+                    EscreverLinha(Bloco0.Reg0000);
+
+                if (Bloco0.Reg0001 != null)
+                {
+                    EscreverLinha(Bloco0.Reg0001);
+
+                    if (Bloco0.Reg0001.Reg0002 != null)
+                        EscreverLinha(Bloco0.Reg0001.Reg0002);
+
+                    if (Bloco0.Reg0001.Reg0005 != null)
+                        EscreverLinha(Bloco0.Reg0001.Reg0005);
+
+                    if (Bloco0.Reg0001.Reg0015s != null)
+                        foreach (var reg in Bloco0.Reg0001.Reg0015s)
+                            EscreverLinha(reg);
+
+                    if (Bloco0.Reg0001.Reg0100s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0100s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0150s != null && Bloco0.Reg0001.Reg0150s.Any())
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0150s)
+                        {
+                            EscreverLinha(reg);
+
+                            if (reg.Reg0175s != null)
+                                foreach (var reg0175 in reg.Reg0175s)
+                                    EscreverLinha(reg0175);
+                        }
+                    }
+
+                    if (Bloco0.Reg0001.Reg0190s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0190s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0200s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0200s)
+                        {
+                            EscreverLinha(reg);
+
+                            if (reg.Reg0205s != null)
+                                foreach (var reg0205 in reg.Reg0205s)
+                                    EscreverLinha(reg0205);
+
+                            if (reg.Reg0206 != null)
+                                EscreverLinha(reg.Reg0206);
+
+                            if (reg.Reg0210s != null)
+                                foreach (var reg0210 in reg.Reg0210s)
+                                    EscreverLinha(reg0210);
+
+                            if (reg.Reg0220s != null)
+                                foreach (var reg0220 in reg.Reg0220s)
+                                    EscreverLinha(reg0220);
+                        }
+                    }
+
+                    if (Bloco0.Reg0001.Reg0300s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0300s)
+                        {
+                            EscreverLinha(reg);
+
+                            if (reg.Reg0305 != null)
+                                EscreverLinha(reg.Reg0305);
+                        }
+                    }
+
+                    if (Bloco0.Reg0001.Reg0400s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0400s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0450s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0450s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0460s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0460s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0500s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0500s)
+                            EscreverLinha(reg);
+                    }
+
+                    if (Bloco0.Reg0001.Reg0600s != null)
+                    {
+                        foreach (var reg in Bloco0.Reg0001.Reg0600s)
+                            EscreverLinha(reg);
+                    }
+                }
+
+                if (Bloco0.Reg0990 != null)
+                    EscreverLinha(Bloco0.Reg0990);
+            }
+            #endregion
+
+            //Bloco B, C, D, E, G, H, K e 1 
+
+            #region Bloco 9
+            if (Bloco9 != null)
+            {
+                if (Bloco9.Reg9001 != null)
+                {
+                    EscreverLinha(Bloco9.Reg9001);
+
+                    if (Bloco9.Reg9001.Reg9900s != null)
+                    {
+                        foreach (var reg in Bloco9.Reg9001.Reg9900s)
+                            EscreverLinha(reg);
+                    }
+                }
+
+                if (Bloco9.Reg9990 != null)
+                    EscreverLinha(Bloco9.Reg9990);
+
+                if (Bloco9.Reg9999 != null)
+                    EscreverLinha(Bloco9.Reg9999);
+            }
+            #endregion            
         }
     }
 }
