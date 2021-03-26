@@ -662,7 +662,7 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(22, "INF_COMP", "C", 90, 0, false)]
             public string InfComp { get; set; }
 
-            public List<RegistroF205> RegF205s { get; set; }
+            public RegistroF205 RegF205 { get; set; }
             public List<RegistroF210> RegF210s { get; set; }
             public List<RegistroF211> RegF211s { get; set; }
         }

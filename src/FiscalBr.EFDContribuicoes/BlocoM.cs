@@ -21,12 +21,12 @@ namespace FiscalBr.EFDContribuicoes
             public IndMovimento IndMov { get; set; }
 
             public List<RegistroM100> RegM100s { get; set; }
-            public List<RegistroM200> RegM200s { get; set; }
+            public RegistroM200 RegM200 { get; set; }
             public List<RegistroM300> RegM300s { get; set; }
-            public List<RegistroM350> RegM350s { get; set; }
+            public RegistroM350 RegM350 { get; set; }
             public List<RegistroM400> RegM400s { get; set; }
             public List<RegistroM500> RegM500s { get; set; }
-            public List<RegistroM600> RegM600s { get; set; }
+            public RegistroM600 RegM600 { get; set; }
             public List<RegistroM700> RegM700s { get; set; }
             public List<RegistroM800> RegM800s { get; set; }
         }
@@ -486,7 +486,7 @@ namespace FiscalBr.EFDContribuicoes
                 }
             }
 
-            public List<RegistroM211> RegM211s { get; set; }
+            public RegistroM211 RegM211 { get; set; }
             public List<RegistroM215> RegM215s { get; set; }
             public List<RegistroM220> RegM220s { get; set; }
             public List<RegistroM230> RegM230s { get; set; }
@@ -1368,7 +1368,7 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(13, "VL_CONT_PER", "N", 0, 2, true)]
             public decimal VlContPer { get; set; }
 
-            public List<RegistroM611> RegM611s { get; set; }
+            public RegistroM611 RegM611 { get; set; }
             public List<RegistroM615> RegM615s { get; set; }
             public List<RegistroM620> RegM620s { get; set; }
             public List<RegistroM630> RegM630s { get; set; }

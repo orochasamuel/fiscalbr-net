@@ -11,7 +11,7 @@ namespace FiscalBr.EFDFiscal
     public class BlocoD
     {
         public RegistroD001 RegD001 { get; set; }
-        public RegistroD001 RegD990 { get; set; }
+        public RegistroD990 RegD990 { get; set; }
 
         /// <summary>
         ///     REGISTRO D001: ABERTURA DO BLOCO D

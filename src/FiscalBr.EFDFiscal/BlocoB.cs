@@ -309,6 +309,8 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(12, "CodInfObs", "C", 60, 0, false)]
             public int CodInfObs{ get; set; }
 
+            public List<RegistroB035> RegB035s { get; set; }
+
         }
 
         /// <summary>

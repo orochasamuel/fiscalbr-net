@@ -251,12 +251,12 @@ namespace FiscalBr.EFDContribuicoes
 
             public List<Registro0035> Reg0035s { get; set; }
             public List<Registro0100> Reg0100s { get; set; }
-            public List<Registro0110> Reg0110s { get; set; }
+            public Registro0110 Reg0110 { get; set; }
             public List<Registro0120> Reg0120s { get; set; }
             public List<Registro0140> Reg0140s { get; set; }
             public List<Registro0500> Reg0500s { get; set; }
             public List<Registro0600> Reg0600s { get; set; }
-            public List<Registro0900> Reg0900s { get; set; }
+            public Registro0900 Reg0900 { get; set; }
         }
 
         public class Registro0035 : RegistroBaseSped
@@ -460,7 +460,7 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(9, "SUFRAMA", "C", 9, 0, false)]
             public string Suframa { get; set; }
 
-            public List<Registro0145> Reg0145s { get; set; }
+            public Registro0145 Reg0145 { get; set; }
             public List<Registro0150> Reg0150s { get; set; }
             public List<Registro0190> Reg0190s { get; set; }
             public List<Registro0200> Reg0200s { get; set; }
@@ -709,8 +709,8 @@ namespace FiscalBr.EFDContribuicoes
             public decimal AliqIcms { get; set; }
 
             public List<Registro0205> Reg0205s { get; set; }
-            public List<Registro0206> Reg0206s { get; set; }
-            public List<Registro0208> Reg0208s { get; set; }
+            public Registro0206 Reg0206 { get; set; }
+            public Registro0208 Reg0208 { get; set; }
         }
 
         /// <summary>
