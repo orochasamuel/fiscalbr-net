@@ -1,6 +1,7 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
 using System;
+using System.Collections.Generic;
 
 namespace FiscalBr.EFDContribuicoes
 {
@@ -9,6 +10,9 @@ namespace FiscalBr.EFDContribuicoes
     /// </summary>
     public class Bloco0
     {
+        public Registro0001 Reg0001 { get; set; }
+        public Registro0990 Reg0990 { get; set; }
+
         /// <summary>
         /// REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA PESSOA JURÍDICA
         /// </summary>
@@ -244,10 +248,22 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
+
+            public List<Registro0035> Reg0035s { get; set; }
+            public List<Registro0100> Reg0100s { get; set; }
+            public List<Registro0110> Reg0110s { get; set; }
+            public List<Registro0120> Reg0120s { get; set; }
+            public List<Registro0140> Reg0140s { get; set; }
+            public List<Registro0500> Reg0500s { get; set; }
+            public List<Registro0600> Reg0600s { get; set; }
+            public List<Registro0900> Reg0900s { get; set; }
         }
 
         public class Registro0035 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0035" />.
+            /// </summary>
             public Registro0035()
             {
                 Reg = "0035";
@@ -328,6 +344,8 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(5, "IND_REG_CUM", "BLANK", 1, 0, false)]
             public int? IndRegCum { get; set; }
+
+            public Registro0111 Reg0111 { get; set; }
         }
 
         /// <summary>
@@ -441,6 +459,60 @@ namespace FiscalBr.EFDContribuicoes
 
             [SpedCampos(9, "SUFRAMA", "C", 9, 0, false)]
             public string Suframa { get; set; }
+
+            public List<Registro0145> Reg0145s { get; set; }
+            public List<Registro0150> Reg0150s { get; set; }
+            public List<Registro0190> Reg0190s { get; set; }
+            public List<Registro0200> Reg0200s { get; set; }
+            public List<Registro0400> Reg0400s { get; set; }
+            public List<Registro0450> Reg0450s { get; set; }
+        }
+
+        /// <summary>
+        ///     Registro 0145: Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta
+        /// </summary>
+        public class Registro0145 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0145" />.
+            /// </summary>
+            public Registro0145()
+            {
+                Reg = "0145";
+            }
+
+            /// <summary>
+            ///  Código indicador da incidência tributária no período:
+            ///  1 –Contribuição Previdenciária apurada no período, exclusivamente com base na Receita Bruta;
+            ///  2 –Contribuição Previdenciária apurada no período, com base na Receita Bruta e com base nas Remunerações pagas, na forma dos nos incisos I e III do art. 22 da Lei no8.212, de 1991.   
+            /// </summary>
+            [SpedCampos(2, "COD_INC_TRIB", "N", int.MaxValue, 0, true)]
+            public decimal CodIncTrib { get; set; }
+
+            /// <summary>
+            ///     Valor da Receita Bruta Total da Pessoa Jurídica no Período
+            /// </summary>
+            [SpedCampos(3, "VL_REC_TOT", "N", int.MaxValue, 2, true)]
+            public decimal VlRecTot { get; set; }
+
+            /// <summary>
+            ///    Valor da Receita Bruta da(s) Atividade(s) Sujeita(s) à Contribuição Previdenciária sobre a Receita Bruta
+            /// </summary>
+            [SpedCampos(4, "VL_REC_ATIV", "N", int.MaxValue, 2, true)]
+            public decimal VlRecAtiv { get; set; }
+
+            /// <summary>
+            ///   Valor da Receita Bruta da(s) Atividade(s) não Sujeita(s) à Contribuição Previdenciária sobre a Receita Bruta
+            /// </summary>
+            [SpedCampos(5, "VL_REC_DEMAIS_ATIV", "N", int.MaxValue, 2, false)]
+            public decimal VlRecDemaisAtiv { get; set; }
+
+            /// <summary>
+            ///     Informação complementar
+            /// </summary>
+            [SpedCampos(6, "INFO_COMPL", "C", int.MaxValue, 0, false)]
+            public decimal InfoCompl { get; set; }
+
         }
 
         /// <summary>
@@ -635,6 +707,10 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
             public decimal AliqIcms { get; set; }
+
+            public List<Registro0205> Reg0205s { get; set; }
+            public List<Registro0206> Reg0206s { get; set; }
+            public List<Registro0208> Reg0208s { get; set; }
         }
 
         /// <summary>
@@ -673,6 +749,74 @@ namespace FiscalBr.EFDContribuicoes
             /// </summary>
             [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false)]
             public string CodAntItem { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 0206: Código de Produto Conforme Tabela ANP (Combustíveis)
+        /// </summary>
+        public class Registro0206 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0206" />.
+            /// </summary>
+            public Registro0206()
+            {
+                Reg = "0206";
+            }
+
+            /// <summary>
+            ///     Código do combustível, conforme tabela publicada pela ANP
+            /// </summary>
+            [SpedCampos(2, "COD_COMB", "C", int.MaxValue, 0, true)]
+            public string CodComb { get; set; }
+
+        }
+
+        /// <summary>
+        ///     REGISTRO 0208: Código de Grupos por Marca Comercial –Refri (bebidas frias).
+        /// </summary>
+        public class Registro0208 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0208" />.
+            /// </summary>
+            public Registro0208()
+            {
+                Reg = "0208";
+            }
+
+            /// <summary>
+            ///     Código indicador da Tabela de Incidência, conforme Anexo III do Decreto nº 6.707/08:
+            ///     01 –Tabela I
+            ///     02 –Tabela II
+            ///     03 –Tabela III
+            ///     04 –Tabela IV
+            ///     05 –Tabela V
+            ///     06 –Tabela VI
+            ///     07 –Tabela VII
+            ///     08–Tabela VIII
+            ///     09 –Tabela IX
+            ///     10 –Tabela X
+            ///     11 –Tabela XI
+            ///     12 –Tabela XII
+            ///     A partir de outubro de 2012:
+            ///     13 –Tabela XIII
+            /// </summary>
+            [SpedCampos(2, "COD_TAB", "C", 2, 0, true)]
+            public string CodTab { get; set; }
+
+            /// <summary>
+            ///     Código  do  grupo,  conforme  Anexo  III  do  Decreto  nº 6.707/08.
+            /// </summary>
+            [SpedCampos(3, "COD_GRU", "C", 2, 0, true)]
+            public string CodGru { get; set; }
+
+            /// <summary>
+            ///   Marca Comercial
+            /// </summary>
+            [SpedCampos(4, "MARCA_COM", "C", 60, 0, true)]
+            public string MarcaCom { get; set; }
+
         }
 
         /// <summary>
@@ -849,19 +993,19 @@ namespace FiscalBr.EFDContribuicoes
             {
                 Reg = "0900";
             }
-            
+
             /// <summary>
             ///     Receita total referente aos registros escriturados no Bloco A
             /// </summary>
             [SpedCampos(2, "REC_TOTAL_BLOCO_A", "N", int.MaxValue, 2, true)]
             public decimal RecTotalBlocoA { get; set; }
-            
+
             /// <summary>
             ///     Parcela da receita total escriturada no Bloco A (campo 02), não classificada como receita bruta
             /// </summary>
             [SpedCampos(3, "REC_NRB_BLOCO_A", "N", int.MaxValue, 2, false)]
             public decimal? RecNrbBlocoA { get; set; }
-            
+
             /// <summary>
             ///     Receita total referente aos registros escriturados no Bloco C
             /// </summary>
@@ -930,12 +1074,12 @@ namespace FiscalBr.EFDContribuicoes
             {
                 get
                 {
-                    return 
-                        RecTotalBlocoA + 
-                        RecTotalBlocoC + 
-                        RecTotalBlocoD + 
-                        RecTotalBlocoF + 
-                        RecTotalBlocoI + 
+                    return
+                        RecTotalBlocoA +
+                        RecTotalBlocoC +
+                        RecTotalBlocoD +
+                        RecTotalBlocoF +
+                        RecTotalBlocoI +
                         RecTotalBloco1;
                 }
             }
@@ -948,12 +1092,12 @@ namespace FiscalBr.EFDContribuicoes
             {
                 get
                 {
-                    return 
-                        RecNrbBlocoA.GetValueOrDefault() + 
-                        RecNrbBlocoC.GetValueOrDefault() + 
-                        RecNrbBlocoD.GetValueOrDefault() + 
-                        RecNrbBlocoF.GetValueOrDefault() + 
-                        RecNrbBlocoI.GetValueOrDefault() + 
+                    return
+                        RecNrbBlocoA.GetValueOrDefault() +
+                        RecNrbBlocoC.GetValueOrDefault() +
+                        RecNrbBlocoD.GetValueOrDefault() +
+                        RecNrbBlocoF.GetValueOrDefault() +
+                        RecNrbBlocoI.GetValueOrDefault() +
                         RecNrbBloco1.GetValueOrDefault();
                 }
             }

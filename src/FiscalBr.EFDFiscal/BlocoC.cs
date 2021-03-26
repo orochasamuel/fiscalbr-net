@@ -240,13 +240,13 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false)]
             public decimal? VlCofinsSt { get; set; }
 
-            public List<RegistroC101> RegC101s { get; set; }
-            public List<RegistroC105> RegC105s { get; set; }
+            public RegistroC101 RegC101 { get; set; }
+            public RegistroC105 RegC105 { get; set; }
             public List<RegistroC110> RegC110s { get; set; }
             public List<RegistroC120> RegC120s { get; set; }
-            public List<RegistroC130> RegC130s { get; set; }
-            public List<RegistroC140> RegC140s { get; set; }
-            public List<RegistroC160> RegC160s { get; set; }
+            public RegistroC130 RegC130 { get; set; }
+            public RegistroC140 Reg140 { get; set; }
+            public RegistroC160 RegC160 { get; set; }
             public List<RegistroC165> RegC165s { get; set; }
             public List<RegistroC170> RegC170s { get; set; }
             public List<RegistroC185> RegC185s { get; set; }
@@ -1282,7 +1282,7 @@ namespace FiscalBr.EFDFiscal
             public RegistroC178 RegC178 { get; set; }
             public RegistroC179 RegC179 { get; set; }
             public RegistroC180 RegC180 { get; set; }
-            public List<RegistroC181> RegC181 { get; set; }
+            public List<RegistroC181> RegC181s { get; set; }
         }
 
         /// <summary>
@@ -2452,7 +2452,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(10, "VL_COFINS", "N", 0, 2, false)]
             public decimal VlCofins { get; set; }
 
-            public RegistroC330 RegC1330 { get; set; }
+            public RegistroC330 RegC330 { get; set; }
 
         }
         /// <summary>
@@ -2627,7 +2627,7 @@ namespace FiscalBr.EFDFiscal
             public string CodCta { get; set; }
 
             public List<RegistroC370> RegC370s { get; set; }
-            public List<RegistroC370> RegC390s { get; set; }
+            public List<RegistroC390> RegC390s { get; set; }
         }
 
         /// <summary>
@@ -2940,7 +2940,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(7, "VL_BRT", "N", 0, 2, true)]
             public decimal VlBrt { get; set; }
 
-            public List<RegistroC410> RegC410s { get; set; }
+            public RegistroC410 RegC410 { get; set; }
             public List<RegistroC420> RegC420s { get; set; }
             public List<RegistroC460> RegC460s { get; set; }
             public List<RegistroC490> RegC490s { get; set; }
@@ -3910,7 +3910,7 @@ namespace FiscalBr.EFDFiscal
 
             public List<RegistroC510> RegC510s { get; set; }
             public List<RegistroC590> RegC590s { get; set; }
-            public RegistroC595 RegC595 { get; set; }
+            public List<RegistroC595> RegC595s { get; set; }
         }
 
         /// <summary>
@@ -4138,6 +4138,8 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
             public string CodObs { get; set; }
+
+            public List<RegistroC591> RegC591 { get; set; }
         }
 
         public class RegistroC591 : RegistroBaseSped
@@ -4166,6 +4168,8 @@ namespace FiscalBr.EFDFiscal
 
             [SpedCampos(3, "TXT_COMPL", "C", 100, 0, false)]
             public string TxtCompl { get; set; }
+
+            public List<RegistroC197> RegC197 { get; set; }
         }
 
         public class RegistroC597 : RegistroBaseSped
@@ -5164,7 +5168,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(6, "CFOP", "N", 4, 0, true)]
             public int Cfop { get; set; }
 
-            public RegistroC880 RegC880s { get; set; }
+            public RegistroC880 RegC880 { get; set; }
         }
 
 

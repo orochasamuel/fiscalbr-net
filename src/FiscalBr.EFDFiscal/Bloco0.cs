@@ -143,7 +143,7 @@ namespace FiscalBr.EFDFiscal
             public Registro0002 Reg0002 { get; set; }
             public Registro0005 Reg0005 { get; set; }
             public List<Registro0015> Reg0015s { get; set; }
-            public Registro0100 Reg0100 { get; set; }
+            public List<Registro0100> Reg0100s { get; set; }
             public List<Registro0150> Reg0150s { get; set; }
             public List<Registro0190> Reg0190s { get; set; }
             public List<Registro0200> Reg0200s { get; set; }
@@ -604,7 +604,7 @@ namespace FiscalBr.EFDFiscal
             public string Cest { get; set; }
 
             public List<Registro0205> Reg0205s { get; set; }
-            public List<Registro0206> Reg0206s { get; set; }
+            public Registro0206 Reg0206 { get; set; }
             public List<Registro0210> Reg0210s { get; set; }
             public List<Registro0220> Reg0220s { get; set; }
         }
@@ -782,6 +782,7 @@ namespace FiscalBr.EFDFiscal
             public int NrParc { get; set; }
 
             public Registro0305 Reg0305 { get; set; }
+
         }
 
         /// <summary>
