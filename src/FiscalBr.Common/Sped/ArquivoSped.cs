@@ -14,8 +14,8 @@ namespace FiscalBr.Common.Sped
 
     public abstract class ArquivoSped
     {
-        public event EventHandler<EventArgs> AoLerLinha;
-        protected void AoLerLinhaRaise(object sender, EventArgs e)
+        public event EventHandler<SpedEventArgs> AoLerLinha;
+        protected void AoLerLinhaRaise(object sender, SpedEventArgs e)
         {
             if (AoLerLinha != null)
                 AoLerLinha.Invoke(sender, e);
