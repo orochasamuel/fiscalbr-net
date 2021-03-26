@@ -6,6 +6,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\FiscalBr.Common\FiscalBr.Common.csproj" />
     <ProjectReference Include="..\FiscalBr.EFDContribuicoes\FiscalBr.EFDContribuicoes.csproj" />
     <ProjectReference Include="..\FiscalBr.EFDFiscal\FiscalBr.EFDFiscal.csproj" />
