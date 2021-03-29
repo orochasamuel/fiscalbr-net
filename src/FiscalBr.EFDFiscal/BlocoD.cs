@@ -36,13 +36,13 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
 
-            public List<RegistroD100> RegD100s { get; set; }
-            public List<RegistroD300> RegD300s { get; set; }
-            public List<RegistroD350> RegD350s { get; set; }
-            public List<RegistroD400> RegD400s { get; set; }
-            public List<RegistroD500> RegD500s { get; set; }
-            public List<RegistroD600> RegD600s { get; set; }
-            public List<RegistroD695> RegD695s { get; set; } 
+            public RegistroD100 RegD100 { get; set; }
+            public RegistroD300 RegD300 { get; set; }
+            public RegistroD350 RegD350 { get; set; }
+            public RegistroD400 RegD400 { get; set; }
+            public RegistroD500 RegD500 { get; set; }
+            public RegistroD600 RegD600 { get; set; }
+            public RegistroD695 RegD695 { get; set; } 
         }
 
         /// <summary>
@@ -240,10 +240,10 @@ namespace FiscalBr.EFDFiscal
             public string CodMunDest { get; set; }
 
             public RegistroD101 RegD101 { get; set; }
-            public List<RegistroD110> RegD110 { get; set; }
+            public List<RegistroD110> RegD110s { get; set; }
             public List<RegistroD130> RegD130s { get; set; }
             public RegistroD140 RegD140 { get; set; }
-            public RegistroD150 RegD150s { get; set; }
+            public RegistroD150 RegD150 { get; set; }
             public List<RegistroD160> RegD160s { get; set; }
             public RegistroD170 RegD170 { get; set; }
             public List<RegistroD180> RegD180s { get; set; }
@@ -713,7 +713,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(8, "COD_MUN_DEST", "N", 7, 0, true)]
             public string CodMunDest { get; set; }
 
-            public RegistroD161 RegD161s { get; set; }
+            public RegistroD161 RegD161 { get; set; }
             public List<RegistroD162> RegD162s { get; set; }
         }
 
