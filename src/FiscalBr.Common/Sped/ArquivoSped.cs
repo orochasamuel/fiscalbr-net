@@ -14,14 +14,13 @@ namespace FiscalBr.Common.Sped
 
     public abstract class ArquivoSped
     {
-        public event EventHandler<SpedEventArgs> AoLerLinha;
-        protected void AoLerLinhaRaise(object sender, SpedEventArgs e)
+        public event EventHandler<SpedEventArgs> AoProcessarLinha;
+        protected void AoProcessarLinhaRaise(object sender, SpedEventArgs e)
         {
-            if (AoLerLinha != null)
-                AoLerLinha.Invoke(sender, e);
+            if (AoProcessarLinha != null)
+                AoProcessarLinha.Invoke(sender, e);
         }
 
-        protected int IdxLinha { get; set; }
         public List<string> Linhas { get; private set; }
         public List<string> Erros { get; private set; }
 
@@ -50,21 +49,19 @@ namespace FiscalBr.Common.Sped
             Linhas = new List<string>();
         }
 
-        public void Escrever(string path, Encoding encoding = null)
-        {
-            File.WriteAllLines(path, Linhas.ToArray(), encoding);
-        }
+        public void Escrever(string path, Encoding encoding = null) =>
+            File.WriteAllLines(path, Linhas.ToArray(), encoding ?? Encoding.Default);
 
         protected void EscreverLinha(RegistroBaseSped registro)
         {
-            string erro = string.Empty;
+            string erro;
             string texto = registro.EscreverCampos(out erro, null, true);
 
             if (!string.IsNullOrEmpty(erro))
                 Erros.Add(erro);
 
             Linhas.Add(texto);
-        }
-
+        }      
     }
+
 }

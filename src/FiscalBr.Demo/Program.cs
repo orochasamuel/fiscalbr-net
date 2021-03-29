@@ -10,14 +10,20 @@ namespace FiscalBr.Demo
         static void Main(string[] args)
         {
             var sped = new ArquivoEFDFiscal();
-            sped.AoLerLinha += Sped_AoLerLinha;
+            sped.AoProcessarLinha += Sped_AoLerLinha;
             sped.Ler(@"c:\temp\sped.txt", Encoding.GetEncoding("iso-8859-1"));
 
-            //sped.GerarLinhas();
+            Console.WriteLine("Arquivo lido!");
+            Console.Read();
+
+            //Manuesar, ex: adicionar bloco H
+
+            sped.GerarLinhas();
 
             sped.CalcularBloco9();
 
-            //sped.Escrever(@"c:\temp\sped2.txt", Encoding.UTF8);
+            sped.Escrever(@"c:\temp\sped3.txt");
+            Console.WriteLine("Arquivo salvo!");
 
             Console.Read();
         }

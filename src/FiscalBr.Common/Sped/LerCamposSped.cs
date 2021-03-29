@@ -59,7 +59,12 @@ namespace FiscalBr.Common.Sped
 
                     else if (propType == typeof(DateTime) || propType == typeof(Nullable<DateTime>))
                     {
-                        var dateToConvert = value.ToStringSafe().Insert(2, "/").Insert(5, "/");
+                        var dateToConvert = value.ToStringSafe();
+
+                        if (dateToConvert.Length == 6) //MA -< MM/yyyy, Ex: E250 - MES_REF
+                            dateToConvert = $"01{dateToConvert}";
+
+                        dateToConvert = dateToConvert.Insert(2, "/").Insert(5, "/");
                         DateTime convertedDateTimeValue;
                         conversionResult = DateTime.TryParse(dateToConvert, out convertedDateTimeValue);
                         prop.SetValue(instantiatedObject, convertedDateTimeValue);

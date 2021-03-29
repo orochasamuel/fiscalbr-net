@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +34,7 @@ namespace FiscalBr.EFDFiscal
                     Linha = linha,
                     Registro = registro
                 };
-                AoLerLinhaRaise(this, args);
+                AoProcessarLinhaRaise(this, args);
 
                 if (linha.StartsWith("|0"))
                     LerBloco0(registro);
@@ -1956,7 +1957,7 @@ namespace FiscalBr.EFDFiscal
                     regK300.RegK302s.Add((BlocoK.RegistroK302)registro);
                     break;
 
-                case "k990": BlocoK.RegK990 = (BlocoK.RegistroK990)registro; break;
+                case "K990": BlocoK.RegK990 = (BlocoK.RegistroK990)registro; break;
             }
         }
         #endregion
@@ -1984,16 +1985,61 @@ namespace FiscalBr.EFDFiscal
                 Bloco9.Reg9001.Reg9900s.Add(_9900);
             }
 
+            if (Bloco0 != null)
+                Bloco0.Reg0990 = new Bloco0.Registro0990() { QtdLin0 = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("0") && x.RegBlc != "0990").Sum(x => x.QtdRegBlc) + 1 };
+
+            if (Bloco1 != null)
+                Bloco1.Reg1990 = new Bloco1.Registro1990() { QtdLin1 = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("1") && x.RegBlc != "1990").Sum(x => x.QtdRegBlc) + 1 };
+
+            if (BlocoB != null)
+                BlocoB.RegB990 = new BlocoB.RegistroB990() { QtdLinB = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("B") && x.RegBlc != "B990").Sum(x => x.QtdRegBlc) + 1 };
+
+            if (BlocoC != null)
+                BlocoC.RegC990 = new BlocoC.RegistroC990() { QtdLinC = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("C") && x.RegBlc != "C990").Sum(x => x.QtdRegBlc) + 1 };
+
+            if (BlocoD != null)
+                BlocoD.RegD990 = new BlocoD.RegistroD990() { QtdLinD = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("D") && x.RegBlc != "D990").Sum(x => x.QtdRegBlc) + 1 };
+
+            if (BlocoE != null)
+                BlocoE.RegE990 = new BlocoE.RegistroE990() { QtdLinE = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("E") && x.RegBlc != "E990").Sum(x => x.QtdRegBlc) + 1 };
+
+            if (BlocoG != null)
+                BlocoG.RegG990 = new BlocoG.RegistroG990() { QtdLinG = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("G") && x.RegBlc != "G990").Sum(x => x.QtdRegBlc) + 1 };
+
+            if (BlocoH != null)
+                BlocoH.RegH990 = new BlocoH.RegistroH990() { QtdLinH = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("H") && x.RegBlc != "H990").Sum(x => x.QtdRegBlc) + 1 };
+
+            if (BlocoK != null)
+                BlocoK.RegK990 = new BlocoK.RegistroK990() { QtdLinK = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("K") && x.RegBlc != "K990").Sum(x => x.QtdRegBlc) + 1 };
+
             #region Bloco 9
             Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900()
             {
+                RegBlc = "9001",
+                QtdRegBlc = 1
+            });
+
+            Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900()
+            {
                 RegBlc = "9900",
-                QtdRegBlc = Bloco9.Reg9001.Reg9900s.Count() + 1
+                QtdRegBlc = Bloco9.Reg9001.Reg9900s.Count() + 3 /* 9900, 9990 e 9999*/
+            });
+
+            Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900()
+            {
+                RegBlc = "9990",
+                QtdRegBlc = 1
+            });
+
+            Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900()
+            {
+                RegBlc = "9999",
+                QtdRegBlc = 1
             });
 
             Bloco9.Reg9990 = new Bloco9.Registro9990()
             {
-                QtdLin9 = Bloco9.Reg9001.Reg9900s.Count + 3 /* 9001, 9900 e 9990  */
+                QtdLin9 = Bloco9.Reg9001.Reg9900s.Count + 3 /* 9001, 9990 e 9999 */
             };
 
             Bloco9.Reg9999 = new Bloco9.Registro9999()
@@ -2001,149 +2047,72 @@ namespace FiscalBr.EFDFiscal
                 QtdLin = Linhas.Count
             };
             #endregion          
+
+            //Após calcular o bloco 9, preciso gerar novamente as linhas, porque o arquivo foi alterado
+            GerarLinhas();
         }
 
         public override void GerarLinhas()
         {
             base.GerarLinhas();
 
-            #region Bloco 0
-            if (Bloco0 != null)
+            GerarComFilhos(Bloco0);
+
+            GerarComFilhos(BlocoB);
+
+            GerarComFilhos(BlocoC);
+
+            GerarComFilhos(BlocoD);
+
+            GerarComFilhos(BlocoE);
+
+            GerarComFilhos(BlocoG);
+
+            GerarComFilhos(BlocoH);
+
+            GerarComFilhos(BlocoK);
+
+            GerarComFilhos(Bloco1);
+
+            GerarComFilhos(Bloco9);
+        }
+
+        private void GerarComFilhos(object registro)
+        {
+            if (registro == null)
+                return;
+
+            //Testa antes porque porque pode-se tratar de um bloco
+            if (registro is RegistroBaseSped)
+                EscreverLinha(registro as RegistroBaseSped);
+
+            var tipo = registro.GetType();
+
+            var propriedades = tipo
+                                .GetProperties()
+                                .ToList();
+
+            foreach (var propriedade in propriedades)
             {
-                if (Bloco0.Reg0000 != null)
-                    EscreverLinha(Bloco0.Reg0000);
+                var valor = propriedade.GetValue(registro);
 
-                if (Bloco0.Reg0001 != null)
+                if (valor == null)
+                    continue;
+
+                if (valor is RegistroBaseSped)
+                    GerarComFilhos(valor);
+
+                //Lista de objetos
+                else if (valor is IList)
                 {
-                    EscreverLinha(Bloco0.Reg0001);
+                    var lista = (IList)valor;
 
-                    if (Bloco0.Reg0001.Reg0002 != null)
-                        EscreverLinha(Bloco0.Reg0001.Reg0002);
-
-                    if (Bloco0.Reg0001.Reg0005 != null)
-                        EscreverLinha(Bloco0.Reg0001.Reg0005);
-
-                    if (Bloco0.Reg0001.Reg0015s != null)
-                        foreach (var reg in Bloco0.Reg0001.Reg0015s)
-                            EscreverLinha(reg);
-
-                    if (Bloco0.Reg0001.Reg0100s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0100s)
-                            EscreverLinha(reg);
-                    }
-
-                    if (Bloco0.Reg0001.Reg0150s != null && Bloco0.Reg0001.Reg0150s.Any())
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0150s)
-                        {
-                            EscreverLinha(reg);
-
-                            if (reg.Reg0175s != null)
-                                foreach (var reg0175 in reg.Reg0175s)
-                                    EscreverLinha(reg0175);
-                        }
-                    }
-
-                    if (Bloco0.Reg0001.Reg0190s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0190s)
-                            EscreverLinha(reg);
-                    }
-
-                    if (Bloco0.Reg0001.Reg0200s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0200s)
-                        {
-                            EscreverLinha(reg);
-
-                            if (reg.Reg0205s != null)
-                                foreach (var reg0205 in reg.Reg0205s)
-                                    EscreverLinha(reg0205);
-
-                            if (reg.Reg0206 != null)
-                                EscreverLinha(reg.Reg0206);
-
-                            if (reg.Reg0210s != null)
-                                foreach (var reg0210 in reg.Reg0210s)
-                                    EscreverLinha(reg0210);
-
-                            if (reg.Reg0220s != null)
-                                foreach (var reg0220 in reg.Reg0220s)
-                                    EscreverLinha(reg0220);
-                        }
-                    }
-
-                    if (Bloco0.Reg0001.Reg0300s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0300s)
-                        {
-                            EscreverLinha(reg);
-
-                            if (reg.Reg0305 != null)
-                                EscreverLinha(reg.Reg0305);
-                        }
-                    }
-
-                    if (Bloco0.Reg0001.Reg0400s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0400s)
-                            EscreverLinha(reg);
-                    }
-
-                    if (Bloco0.Reg0001.Reg0450s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0450s)
-                            EscreverLinha(reg);
-                    }
-
-                    if (Bloco0.Reg0001.Reg0460s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0460s)
-                            EscreverLinha(reg);
-                    }
-
-                    if (Bloco0.Reg0001.Reg0500s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0500s)
-                            EscreverLinha(reg);
-                    }
-
-                    if (Bloco0.Reg0001.Reg0600s != null)
-                    {
-                        foreach (var reg in Bloco0.Reg0001.Reg0600s)
-                            EscreverLinha(reg);
-                    }
+                    foreach (var item in lista)
+                        GerarComFilhos(item);
                 }
 
-                if (Bloco0.Reg0990 != null)
-                    EscreverLinha(Bloco0.Reg0990);
             }
-            #endregion
 
-            //Bloco B, C, D, E, G, H, K e 1 
-
-            #region Bloco 9
-            if (Bloco9 != null)
-            {
-                if (Bloco9.Reg9001 != null)
-                {
-                    EscreverLinha(Bloco9.Reg9001);
-
-                    if (Bloco9.Reg9001.Reg9900s != null)
-                    {
-                        foreach (var reg in Bloco9.Reg9001.Reg9900s)
-                            EscreverLinha(reg);
-                    }
-                }
-
-                if (Bloco9.Reg9990 != null)
-                    EscreverLinha(Bloco9.Reg9990);
-
-                if (Bloco9.Reg9999 != null)
-                    EscreverLinha(Bloco9.Reg9999);
-            }
-            #endregion            
         }
     }
 }
