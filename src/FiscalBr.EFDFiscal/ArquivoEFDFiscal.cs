@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -1964,142 +1965,34 @@ namespace FiscalBr.EFDFiscal
         {
             base.CalcularBloco9();
 
-            Bloco9 = new Bloco9();
-            Bloco9.Reg9001 = new Bloco9.Registro9001() { IndMov = Common.IndMovimento.BlocoComDados };
             Bloco9.Reg9001.Reg9900s = new List<Bloco9.Registro9900>();
 
-            int totalBloco0 = 0; //, totalBloco1 = 0,...
+            var var1 = Linhas.Where(x => x.Length > 6);
 
-            #region Bloco 0
-            if (Bloco0.Reg0000 != null)
+            var var2 = var1.Select(x => x.Substring(1, 4));
+
+            var var3 = var2.Where(x => x != null && !x.StartsWith("9"));
+
+            var diferentes = var3.Distinct();
+
+            foreach (var registro in diferentes)
             {
-                Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0000", QtdRegBlc = 1 });
-                totalBloco0++;
+                var _9900 = new Bloco9.Registro9900()
+                {
+                    RegBlc = registro,
+                    QtdRegBlc = Linhas.Where(x => x.StartsWith($"|{registro}|")).Count()
+                };
+
+                Bloco9.Reg9001.Reg9900s.Add(_9900);
             }
-
-            if (Bloco0.Reg0001 != null)
-            {
-                Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0001", QtdRegBlc = 1 });
-                totalBloco0++;
-
-                if (Bloco0.Reg0001.Reg0002 != null)
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0002", QtdRegBlc = 1 });
-                    totalBloco0++;
-                }
-
-                if (Bloco0.Reg0001.Reg0005 != null)
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0005", QtdRegBlc = 1 });
-                    totalBloco0++;
-                }
-
-                if (Bloco0.Reg0001.Reg0015s != null && Bloco0.Reg0001.Reg0015s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0015", QtdRegBlc = Bloco0.Reg0001.Reg0015s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0015s.Count;
-                }
-
-                if (Bloco0.Reg0001.Reg0100s != null && Bloco0.Reg0001.Reg0100s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0100", QtdRegBlc = Bloco0.Reg0001.Reg0100s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0100s.Count;
-                }
-
-                if (Bloco0.Reg0001.Reg0150s != null && Bloco0.Reg0001.Reg0150s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0150", QtdRegBlc = Bloco0.Reg0001.Reg0150s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0150s.Count;
-
-                    int quantidade = Bloco0.Reg0001.Reg0150s.Sum(r => r.Reg0175s == null ? 0 : r.Reg0175s.Count());
-                    if (quantidade > 0)
-                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "01750", QtdRegBlc = quantidade });
-                    totalBloco0 += quantidade;
-                }
-
-                if (Bloco0.Reg0001.Reg0190s != null && Bloco0.Reg0001.Reg0190s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0190", QtdRegBlc = Bloco0.Reg0001.Reg0190s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0190s.Count;
-                }
-
-                if (Bloco0.Reg0001.Reg0200s != null && Bloco0.Reg0001.Reg0200s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0200", QtdRegBlc = Bloco0.Reg0001.Reg0200s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0200s.Count;
-
-                    int quantidade = Bloco0.Reg0001.Reg0200s.Sum(r => r.Reg0205s == null ? 0 : r.Reg0205s.Count());
-                    if (quantidade > 0)
-                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0205", QtdRegBlc = quantidade });
-                    totalBloco0 += quantidade;
-
-                    quantidade = Bloco0.Reg0001.Reg0200s.Sum(r => r.Reg0206 == null ? 0 : 1);
-                    if (quantidade > 0)
-                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0206", QtdRegBlc = quantidade });
-                    totalBloco0 += quantidade;
-
-                    quantidade = Bloco0.Reg0001.Reg0200s.Sum(r => r.Reg0210s == null ? 0 : r.Reg0210s.Count());
-                    if (quantidade > 0)
-                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0210", QtdRegBlc = quantidade });
-                    totalBloco0 += quantidade;
-
-                    quantidade = Bloco0.Reg0001.Reg0200s.Sum(r => r.Reg0220s == null ? 0 : r.Reg0220s.Count());
-                    if (quantidade > 0)
-                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0220", QtdRegBlc = quantidade });
-                    totalBloco0 += quantidade;
-                }
-
-                if (Bloco0.Reg0001.Reg0300s != null && Bloco0.Reg0001.Reg0300s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0300", QtdRegBlc = Bloco0.Reg0001.Reg0300s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0300s.Count;
-
-                    int quantidade = Bloco0.Reg0001.Reg0300s.Sum(r => r.Reg0305 == null ? 0 : 1);
-                    if (quantidade > 0)
-                        Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0305", QtdRegBlc = quantidade });
-                    totalBloco0 += quantidade;
-                }
-
-                if (Bloco0.Reg0001.Reg0400s != null && Bloco0.Reg0001.Reg0400s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0400", QtdRegBlc = Bloco0.Reg0001.Reg0400s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0400s.Count;
-                }
-
-                if (Bloco0.Reg0001.Reg0450s != null && Bloco0.Reg0001.Reg0450s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0450", QtdRegBlc = Bloco0.Reg0001.Reg0450s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0450s.Count;
-                }
-
-                if (Bloco0.Reg0001.Reg0460s != null && Bloco0.Reg0001.Reg0460s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0460", QtdRegBlc = Bloco0.Reg0001.Reg0460s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0460s.Count;
-                }
-
-                if (Bloco0.Reg0001.Reg0500s != null && Bloco0.Reg0001.Reg0500s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0500", QtdRegBlc = Bloco0.Reg0001.Reg0500s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0500s.Count;
-                }
-
-                if (Bloco0.Reg0001.Reg0600s != null && Bloco0.Reg0001.Reg0600s.Any())
-                {
-                    Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0600", QtdRegBlc = Bloco0.Reg0001.Reg0600s.Count });
-                    totalBloco0 += Bloco0.Reg0001.Reg0600s.Count;
-                }
-
-                Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900() { RegBlc = "0990", QtdRegBlc = 1 });
-                totalBloco0++;
-            }
-
-            Bloco0.Reg0990 = new Bloco0.Registro0990() { QtdLin0 = totalBloco0 };
-            #endregion
-
-            //Bloco B, C, D, E, G, H, K e 1 
 
             #region Bloco 9
+            Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900()
+            {
+                RegBlc = "9900",
+                QtdRegBlc = Bloco9.Reg9001.Reg9900s.Count() + 1
+            });
+
             Bloco9.Reg9990 = new Bloco9.Registro9990()
             {
                 QtdLin9 = Bloco9.Reg9001.Reg9900s.Count + 3 /* 9001, 9900 e 9990  */
@@ -2107,7 +2000,7 @@ namespace FiscalBr.EFDFiscal
 
             Bloco9.Reg9999 = new Bloco9.Registro9999()
             {
-                QtdLin = totalBloco0 + /* totalBloco1 + ... */ Bloco9.Reg9990.QtdLin9
+                QtdLin = Linhas.Count
             };
             #endregion
         }

@@ -41,6 +41,8 @@ namespace FiscalBr.Common.Sped
 
         public virtual void CalcularBloco9()
         {
+            if (Linhas == null || !Linhas.Any())
+                throw new Exception("Não é possível calcular o bloco 9 sem as linhas. Chame a função \"GerarLinhas()\" ou leia um arquivo pra fazer o calculo");
         }
 
         public virtual void GerarLinhas()

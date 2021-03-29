@@ -12,10 +12,10 @@ namespace FiscalBr.Demo
             var sped = new ArquivoEFDFiscal();
             sped.AoLerLinha += Sped_AoLerLinha;
             sped.Ler(@"c:\temp\sped.txt", Encoding.GetEncoding("iso-8859-1"));
-            
-            //sped.CalcularBloco9();
 
             //sped.GerarLinhas();
+
+            sped.CalcularBloco9();
 
             //sped.Escrever(@"c:\temp\sped2.txt", Encoding.UTF8);
 
