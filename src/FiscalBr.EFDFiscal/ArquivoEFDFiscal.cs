@@ -190,7 +190,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBloco1()
         {
             Bloco1 = new Bloco1();
@@ -474,7 +474,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBloco9()
         {
             Bloco9 = new Bloco9();
@@ -509,7 +509,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBlocoB()
         {
             BlocoB = new BlocoB();
@@ -608,7 +608,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBlocoC()
         {
             BlocoC = new BlocoC();
@@ -623,19 +623,12 @@ namespace FiscalBr.EFDFiscal
                 switch (registro.Reg)
                 {
                     case "C001": BlocoC.RegC001 = (BlocoC.RegistroC001)registro; break;
-
-                    case "C100":
-                        if (BlocoC.RegC001.RegC100s == null)
-                            BlocoC.RegC001.RegC100s = new List<BlocoC.RegistroC100>();
-
-                        BlocoC.RegC001.RegC100s.Add((BlocoC.RegistroC100)registro);
-                        break;
-
-                    case "C101": var regC100 = BlocoC.RegC001.RegC100s.Last(); regC100.RegC101 = (BlocoC.RegistroC101)registro; break;
-                    case "C105": regC100 = BlocoC.RegC001.RegC100s.Last(); regC100.RegC105 = (BlocoC.RegistroC105)registro; break;
+                    case "C100": BlocoC.RegC001.RegC100 = (BlocoC.RegistroC100)registro; break;
+                    case "C101": var regC100 = BlocoC.RegC001.RegC100; regC100.RegC101 = (BlocoC.RegistroC101)registro; break;
+                    case "C105": regC100 = BlocoC.RegC001.RegC100; regC100.RegC105 = (BlocoC.RegistroC105)registro; break;
 
                     case "C110":
-                        regC100 = BlocoC.RegC001.RegC100s.Last();
+                        regC100 = BlocoC.RegC001.RegC100;
 
                         if (regC100.RegC110s == null)
                             regC100.RegC110s = new List<BlocoC.RegistroC110>();
@@ -644,7 +637,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C111":
-                        var regC110 = BlocoC.RegC001.RegC100s.Last().RegC110s.Last();
+                        var regC110 = BlocoC.RegC001.RegC100.RegC110s.Last();
 
                         if (regC110.RegC111s == null)
                             regC110.RegC111s = new List<BlocoC.RegistroC111>();
@@ -653,7 +646,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C112":
-                        regC110 = BlocoC.RegC001.RegC100s.Last().RegC110s.Last();
+                        regC110 = BlocoC.RegC001.RegC100.RegC110s.Last();
 
                         if (regC110.RegC112s == null)
                             regC110.RegC112s = new List<BlocoC.RegistroC112>();
@@ -662,7 +655,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C113":
-                        regC110 = BlocoC.RegC001.RegC100s.Last().RegC110s.Last();
+                        regC110 = BlocoC.RegC001.RegC100.RegC110s.Last();
 
                         if (regC110.RegC113s == null)
                             regC110.RegC113s = new List<BlocoC.RegistroC113>();
@@ -671,7 +664,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C114":
-                        regC110 = BlocoC.RegC001.RegC100s.Last().RegC110s.Last();
+                        regC110 = BlocoC.RegC001.RegC100.RegC110s.Last();
 
                         if (regC110.RegC114s == null)
                             regC110.RegC114s = new List<BlocoC.RegistroC114>();
@@ -680,7 +673,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C115":
-                        regC110 = BlocoC.RegC001.RegC100s.Last().RegC110s.Last();
+                        regC110 = BlocoC.RegC001.RegC100.RegC110s.Last();
 
                         if (regC110.RegC115s == null)
                             regC110.RegC115s = new List<BlocoC.RegistroC115>();
@@ -689,7 +682,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C116":
-                        regC110 = BlocoC.RegC001.RegC100s.Last().RegC110s.Last();
+                        regC110 = BlocoC.RegC001.RegC100.RegC110s.Last();
 
                         if (regC110.RegC116s == null)
                             regC110.RegC116s = new List<BlocoC.RegistroC116>();
@@ -698,7 +691,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C120":
-                        regC100 = BlocoC.RegC001.RegC100s.Last();
+                        regC100 = BlocoC.RegC001.RegC100;
 
                         if (regC100.RegC120s == null)
                             regC100.RegC120s = new List<BlocoC.RegistroC120>();
@@ -706,11 +699,11 @@ namespace FiscalBr.EFDFiscal
                         regC100.RegC120s.Add((BlocoC.RegistroC120)registro);
                         break;
 
-                    case "C130": regC100 = BlocoC.RegC001.RegC100s.Last(); regC100.RegC130 = (BlocoC.RegistroC130)registro; break;
-                    case "C140": regC100 = BlocoC.RegC001.RegC100s.Last(); regC100.RegC140 = (BlocoC.RegistroC140)registro; break;
+                    case "C130": regC100 = BlocoC.RegC001.RegC100; regC100.RegC130 = (BlocoC.RegistroC130)registro; break;
+                    case "C140": regC100 = BlocoC.RegC001.RegC100; regC100.RegC140 = (BlocoC.RegistroC140)registro; break;
 
                     case "C141":
-                        var regC140 = BlocoC.RegC001.RegC100s.Last().RegC140;
+                        var regC140 = BlocoC.RegC001.RegC100.RegC140;
 
                         if (regC140.RegC141s == null)
                             regC140.RegC141s = new List<BlocoC.RegistroC141>();
@@ -718,10 +711,10 @@ namespace FiscalBr.EFDFiscal
                         regC140.RegC141s.Add((BlocoC.RegistroC141)registro);
                         break;
 
-                    case "C160": regC100 = BlocoC.RegC001.RegC100s.Last(); regC100.RegC160 = (BlocoC.RegistroC160)registro; break;
+                    case "C160": regC100 = BlocoC.RegC001.RegC100; regC100.RegC160 = (BlocoC.RegistroC160)registro; break;
 
                     case "C165":
-                        regC100 = BlocoC.RegC001.RegC100s.Last();
+                        regC100 = BlocoC.RegC001.RegC100;
 
                         if (regC100.RegC165s == null)
                             regC100.RegC165s = new List<BlocoC.RegistroC165>();
@@ -730,7 +723,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C170":
-                        regC100 = BlocoC.RegC001.RegC100s.Last();
+                        regC100 = BlocoC.RegC001.RegC100;
                         if (regC100.RegC170s == null)
                             regC100.RegC170s = new List<BlocoC.RegistroC170>();
 
@@ -738,17 +731,17 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C171":
-                        var regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last();
+                        var regC170 = BlocoC.RegC001.RegC100.RegC170s.Last();
                         if (regC170.RegC171s == null)
                             regC170.RegC171s = new List<BlocoC.RegistroC171>();
 
                         regC170.RegC171s.Add((BlocoC.RegistroC171)registro);
                         break;
 
-                    case "C172": regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last(); regC170.RegC172 = (BlocoC.RegistroC172)registro; break;
+                    case "C172": regC170 = BlocoC.RegC001.RegC100.RegC170s.Last(); regC170.RegC172 = (BlocoC.RegistroC172)registro; break;
 
                     case "C173":
-                        regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last();
+                        regC170 = BlocoC.RegC001.RegC100.RegC170s.Last();
                         if (regC170.RegC173s == null)
                             regC170.RegC173s = new List<BlocoC.RegistroC173>();
 
@@ -756,7 +749,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C174":
-                        regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last();
+                        regC170 = BlocoC.RegC001.RegC100.RegC170s.Last();
                         if (regC170.RegC174s == null)
                             regC170.RegC174s = new List<BlocoC.RegistroC174>();
 
@@ -764,7 +757,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C175":
-                        regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last();
+                        regC170 = BlocoC.RegC001.RegC100.RegC170s.Last();
                         if (regC170.RegC175s == null)
                             regC170.RegC175s = new List<BlocoC.RegistroC175>();
 
@@ -772,20 +765,20 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C176":
-                        regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last();
+                        regC170 = BlocoC.RegC001.RegC100.RegC170s.Last();
                         if (regC170.RegC176s == null)
                             regC170.RegC176s = new List<BlocoC.RegistroC176>();
 
                         regC170.RegC176s.Add((BlocoC.RegistroC176)registro);
                         break;
 
-                    case "C177": regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last(); regC170.RegC177 = (BlocoC.RegistroC177)registro; break;
-                    case "C178": regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last(); regC170.RegC178 = (BlocoC.RegistroC178)registro; break;
-                    case "C179": regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last(); regC170.RegC179 = (BlocoC.RegistroC179)registro; break;
-                    case "C180": regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last(); regC170.RegC180 = (BlocoC.RegistroC180)registro; break;
+                    case "C177": regC170 = BlocoC.RegC001.RegC100.RegC170s.Last(); regC170.RegC177 = (BlocoC.RegistroC177)registro; break;
+                    case "C178": regC170 = BlocoC.RegC001.RegC100.RegC170s.Last(); regC170.RegC178 = (BlocoC.RegistroC178)registro; break;
+                    case "C179": regC170 = BlocoC.RegC001.RegC100.RegC170s.Last(); regC170.RegC179 = (BlocoC.RegistroC179)registro; break;
+                    case "C180": regC170 = BlocoC.RegC001.RegC100.RegC170s.Last(); regC170.RegC180 = (BlocoC.RegistroC180)registro; break;
 
                     case "C181":
-                        regC170 = BlocoC.RegC001.RegC100s.Last().RegC170s.Last();
+                        regC170 = BlocoC.RegC001.RegC100.RegC170s.Last();
                         if (regC170.RegC181s == null)
                             regC170.RegC181s = new List<BlocoC.RegistroC181>();
 
@@ -793,7 +786,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C185":
-                        regC100 = BlocoC.RegC001.RegC100s.Last();
+                        regC100 = BlocoC.RegC001.RegC100;
 
                         if (regC100.RegC185s == null)
                             regC100.RegC185s = new List<BlocoC.RegistroC185>();
@@ -802,7 +795,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C186":
-                        regC100 = BlocoC.RegC001.RegC100s.Last();
+                        regC100 = BlocoC.RegC001.RegC100;
 
                         if (regC100.RegC186s == null)
                             regC100.RegC186s = new List<BlocoC.RegistroC186>();
@@ -811,7 +804,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C190":
-                        regC100 = BlocoC.RegC001.RegC100s.Last();
+                        regC100 = BlocoC.RegC001.RegC100;
 
                         if (regC100.RegC190s == null)
                             regC100.RegC190s = new List<BlocoC.RegistroC190>();
@@ -819,10 +812,10 @@ namespace FiscalBr.EFDFiscal
                         regC100.RegC190s.Add((BlocoC.RegistroC190)registro);
                         break;
 
-                    case "C191": var regC190 = BlocoC.RegC001.RegC100s.Last().RegC190s.Last(); regC190.RegC191 = (BlocoC.RegistroC191)registro; break;
+                    case "C191": var regC190 = BlocoC.RegC001.RegC100.RegC190s.Last(); regC190.RegC191 = (BlocoC.RegistroC191)registro; break;
 
                     case "C195":
-                        regC100 = BlocoC.RegC001.RegC100s.Last();
+                        regC100 = BlocoC.RegC001.RegC100;
 
                         if (regC100.RegC195s == null)
                             regC100.RegC195s = new List<BlocoC.RegistroC195>();
@@ -831,7 +824,7 @@ namespace FiscalBr.EFDFiscal
                         break;
 
                     case "C197":
-                        var regC195 = BlocoC.RegC001.RegC100s.Last().RegC195s.Last();
+                        var regC195 = BlocoC.RegC001.RegC100.RegC195s.Last();
 
                         if (regC195.RegC197s == null)
                             regC195.RegC197s = new List<BlocoC.RegistroC197>();
@@ -839,30 +832,262 @@ namespace FiscalBr.EFDFiscal
                         regC195.RegC197s.Add((BlocoC.RegistroC197)registro);
                         break;
 
-                    case "C300":
+                    case "C300": BlocoC.RegC001.RegC300 = (BlocoC.RegistroC300)registro; break;
+
                     case "C310":
+                        var regC300 = BlocoC.RegC001.RegC300;
+
+                        if (regC300.RegC310s == null)
+                            regC300.RegC310s = new List<BlocoC.RegistroC310>();
+
+                        regC300.RegC310s.Add((BlocoC.RegistroC310)registro);
+                        break;
+
                     case "C320":
+                        regC300 = BlocoC.RegC001.RegC300;
+
+                        if (regC300.RegC320s == null)
+                            regC300.RegC320s = new List<BlocoC.RegistroC320>();
+
+                        regC300.RegC320s.Add((BlocoC.RegistroC320)registro);
+                        break;
+
                     case "C321":
-                    case "C330":
-                    case "C350":
+                        var regC320 = BlocoC.RegC001.RegC300.RegC320s.Last();
+
+                        if (regC320.RegC321s == null)
+                            regC320.RegC321s = new List<BlocoC.RegistroC321>();
+
+                        regC320.RegC321s.Add((BlocoC.RegistroC321)registro);
+                        break;
+
+                    case "C330": var regC321 = BlocoC.RegC001.RegC300.RegC320s.Last().RegC321s.Last(); regC321.RegC330 = (BlocoC.RegistroC330)registro; break;
+                    case "C350": BlocoC.RegC001.RegC350 = (BlocoC.RegistroC350)registro; break;
+
                     case "C370":
-                    case "C380":
+                        var regC350 = BlocoC.RegC001.RegC350;
+
+                        if (regC350.RegC370s == null)
+                            regC350.RegC370s = new List<BlocoC.RegistroC370>();
+
+                        regC350.RegC370s.Add((BlocoC.RegistroC370)registro);
+                        break;
+
+                    case "C380": var regC370 = BlocoC.RegC001.RegC350.RegC370s.Last(); regC370.RegC380 = (BlocoC.RegistroC380)registro; break;
+
                     case "C390":
-                    case "C400":
+                        regC350 = BlocoC.RegC001.RegC350;
+
+                        if (regC350.RegC390s == null)
+                            regC350.RegC390s = new List<BlocoC.RegistroC390>();
+
+                        regC350.RegC390s.Add((BlocoC.RegistroC390)registro);
+                        break;
+
+                    case "C400": BlocoC.RegC001.RegC400 = (BlocoC.RegistroC400)registro; break;
+
                     case "C405":
-                    case "C410":
+                        var regC400 = BlocoC.RegC001.RegC400;
+
+                        if (regC400.RegC405s == null)
+                            regC400.RegC405s = new List<BlocoC.RegistroC405>();
+
+                        regC400.RegC405s.Add((BlocoC.RegistroC405)registro);
+                        break;
+
+                    case "C410": var regC405 = BlocoC.RegC001.RegC400.RegC405s.Last(); regC405.RegC410 = (BlocoC.RegistroC410)registro; break;
+
                     case "C420":
+                        regC405 = BlocoC.RegC001.RegC400.RegC405s.Last();
+
+                        if (regC405.RegC420s == null)
+                            regC405.RegC420s = new List<BlocoC.RegistroC420>();
+
+                        regC405.RegC420s.Add((BlocoC.RegistroC420)registro);
+                        break;
+
                     case "C425":
+                        var regC420 = BlocoC.RegC001.RegC400.RegC405s.Last().RegC420s.Last();
+
+                        if (regC420.RegC425s == null)
+                            regC420.RegC425s = new List<BlocoC.RegistroC425>();
+
+                        regC420.RegC425s.Add((BlocoC.RegistroC425)registro);
+                        break;
+
                     case "C430":
+                        var regC425 = BlocoC.RegC001.RegC400.RegC405s.Last().RegC420s.Last().RegC425s.Last();
+
+                        if (regC425.RegC430 == null)
+                            regC425.RegC430 = new List<BlocoC.RegistroC430>();
+
+                        regC425.RegC430.Add((BlocoC.RegistroC430)registro);
+                        break;
+
                     case "C460":
-                    case "C465":
+                        regC405 = BlocoC.RegC001.RegC400.RegC405s.Last();
+
+                        if (regC405.RegC460s == null)
+                            regC405.RegC460s = new List<BlocoC.RegistroC460>();
+
+                        regC405.RegC460s.Add((BlocoC.RegistroC460)registro);
+                        break;
+
+                    case "C465": var regC460 = BlocoC.RegC001.RegC400.RegC405s.Last().RegC460s.Last(); regC460.RegC465 = (BlocoC.RegistroC465)registro; break;
+
                     case "C470":
-                    case "C480":
+                        regC460 = BlocoC.RegC001.RegC400.RegC405s.Last().RegC460s.Last();
+
+                        if (regC460.RegC470s == null)
+                            regC460.RegC470s = new List<BlocoC.RegistroC470>();
+
+                        regC460.RegC470s.Add((BlocoC.RegistroC470)registro);
+                        break;
+
+                    case "C480": var regC470 = BlocoC.RegC001.RegC400.RegC405s.Last().RegC460s.Last().RegC470s.Last(); regC470.RegC480 = (BlocoC.RegistroC480)registro; break;
+
                     case "C490":
-                    case "C495":
-                    case "C500":
+                        regC405 = BlocoC.RegC001.RegC400.RegC405s.Last();
+
+                        if (regC405.RegC490s == null)
+                            regC405.RegC490s = new List<BlocoC.RegistroC490>();
+
+                        regC405.RegC490s.Add((BlocoC.RegistroC490)registro);
+                        break;
+
+                    case "C495": BlocoC.RegC001.RegC495 = (BlocoC.RegistroC495)registro; break;
+                    case "C500": BlocoC.RegC001.RegC500 = (BlocoC.RegistroC500)registro; break;
+
                     case "C510":
+                        var regC500 = BlocoC.RegC001.RegC500;
+
+                        if (regC500.RegC510s == null)
+                            regC500.RegC510s = new List<BlocoC.RegistroC510>();
+
+                        regC500.RegC510s.Add((BlocoC.RegistroC510)registro);
+                        break;
+
                     case "C590":
+                        regC500 = BlocoC.RegC001.RegC500;
+
+                        if (regC500.RegC590s == null)
+                            regC500.RegC590s = new List<BlocoC.RegistroC590>();
+
+                        regC500.RegC590s.Add((BlocoC.RegistroC590)registro);
+                        break;
+
+                    case "C591": var regC590 = BlocoC.RegC001.RegC500.RegC590s.Last(); regC590.RegC591 = (BlocoC.RegistroC591)registro; break;
+
+                    case "C595":
+                        regC500 = BlocoC.RegC001.RegC500;
+
+                        if (regC500.RegC595s == null)
+                            regC500.RegC595s = new List<BlocoC.RegistroC595>();
+
+                        regC500.RegC595s.Add((BlocoC.RegistroC595)registro);
+                        break;
+
+                    case "C597":
+                        var regC595 = BlocoC.RegC001.RegC500.RegC595s.Last();
+
+                        if (regC595.RegC597s == null)
+                            regC595.RegC597s = new List<BlocoC.RegistroC597>();
+
+                        regC595.RegC597s.Add((BlocoC.RegistroC597)registro);
+                        break;
+
+                    case "C600": BlocoC.RegC001.RegC600 = (BlocoC.RegistroC600)registro; break;
+
+                    case "C601":
+                        var regC600 = BlocoC.RegC001.RegC600;
+
+                        if (regC600.RegC601s == null)
+                            regC600.RegC601s = new List<BlocoC.RegistroC601>();
+
+                        regC600.RegC601s.Add((BlocoC.RegistroC601)registro);
+                        break;
+
+                    case "C610":
+                        regC600 = BlocoC.RegC001.RegC600;
+
+                        if (regC600.RegC610s == null)
+                            regC600.RegC610s = new List<BlocoC.RegistroC610>();
+
+                        regC600.RegC610s.Add((BlocoC.RegistroC610)registro);
+                        break;
+
+                    case "C690":
+                        regC600 = BlocoC.RegC001.RegC600;
+
+                        if (regC600.RegC690s == null)
+                            regC600.RegC690s = new List<BlocoC.RegistroC690>();
+
+                        regC600.RegC690s.Add((BlocoC.RegistroC690)registro);
+                        break;
+
+                    case "C700": BlocoC.RegC001.RegC700 = (BlocoC.RegistroC700)registro; break;
+
+                    case "C790":
+                        var regC700 = BlocoC.RegC001.RegC700;
+
+                        if (regC700.RegC790s == null)
+                            regC700.RegC790s = new List<BlocoC.RegistroC790>();
+
+                        regC700.RegC790s.Add((BlocoC.RegistroC790)registro);
+                        break;
+
+                    case "C791":
+                        var regC790 = BlocoC.RegC001.RegC700.RegC790s.Last();
+
+                        if (regC790.RegC791s == null)
+                            regC790.RegC791s = new List<BlocoC.RegistroC791>();
+
+                        regC790.RegC791s.Add((BlocoC.RegistroC791)registro);
+                        break;
+
+                    case "C800": BlocoC.RegC001.RegC800 = (BlocoC.RegistroC800)registro; break;
+
+                    case "C810":
+                        var regC800 = BlocoC.RegC001.RegC800;
+
+                        if (regC800.RegC810s == null)
+                            regC800.RegC810s = new List<BlocoC.RegistroC810>();
+
+                        regC800.RegC810s.Add((BlocoC.RegistroC810)registro);
+                        break;
+
+                    case "C815": var regC810 = BlocoC.RegC001.RegC800.RegC810s.Last(); regC810.RegC815s = (BlocoC.RegistroC815)registro; break;
+
+                    case "C850":
+                         regC800 = BlocoC.RegC001.RegC800;
+
+                        if (regC800.RegC850s == null)
+                            regC800.RegC850s = new List<BlocoC.RegistroC850>();
+
+                        regC800.RegC850s.Add((BlocoC.RegistroC850)registro);
+                        break;
+
+                    case "C860": BlocoC.RegC001.RegC860 = (BlocoC.RegistroC860)registro; break;
+
+                    case "C870":
+                        var regC860 = BlocoC.RegC001.RegC860;
+
+                        if (regC860.RegC870s == null)
+                            regC860.RegC870s = new List<BlocoC.RegistroC870>();
+
+                        regC860.RegC870s.Add((BlocoC.RegistroC870)registro);
+                        break;
+
+                    case "C880": var regC870 = BlocoC.RegC001.RegC860.RegC870s.Last(); regC870.RegC880 = (BlocoC.RegistroC880)registro; break;
+
+                    case "C890":
+                        regC860 = BlocoC.RegC001.RegC860;
+
+                        if (regC860.RegC890s == null)
+                            regC860.RegC890s = new List<BlocoC.RegistroC890>();
+
+                        regC860.RegC890s.Add((BlocoC.RegistroC890)registro);
+                        break;
 
                     case "C990": BlocoC.RegC990 = (BlocoC.RegistroC990)registro; break;
                 }
@@ -875,7 +1100,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBlocoD()
         {
             BlocoD = new BlocoD();
@@ -890,6 +1115,254 @@ namespace FiscalBr.EFDFiscal
                 switch (registro.Reg)
                 {
                     case "D001": BlocoD.RegD001 = (BlocoD.RegistroD001)registro; break;
+                    case "D100": BlocoD.RegD001.RegD100 = (BlocoD.RegistroD100)registro; break;
+                    case "D101": BlocoD.RegD001.RegD100.RegD101 = (BlocoD.RegistroD101)registro; break;
+
+                    case "D110":
+                        var regD100 = BlocoD.RegD001.RegD100;
+
+                        if (regD100.RegD110s == null)
+                            regD100.RegD110s = new List<BlocoD.RegistroD110>();
+
+                        regD100.RegD110s.Add((BlocoD.RegistroD110)registro);
+                        break;
+
+                    case "D120":
+                        var regD110 = BlocoD.RegD001.RegD100.RegD110s.Last();
+
+                        if (regD110.RegD120s == null)
+                            regD110.RegD120s = new List<BlocoD.RegistroD120>();
+
+                        regD110.RegD120s.Add((BlocoD.RegistroD120)registro);
+                        break;
+
+                    case "D130":
+                        regD100 = BlocoD.RegD001.RegD100;
+
+                        if (regD100.RegD130s == null)
+                            regD100.RegD130s = new List<BlocoD.RegistroD130>();
+
+                        regD100.RegD130s.Add((BlocoD.RegistroD130)registro);
+                        break;
+
+                    case "D140": regD100 = BlocoD.RegD001.RegD100; regD100.RegD140 = (BlocoD.RegistroD140)registro; break;
+                    case "D150": regD100 = BlocoD.RegD001.RegD100; regD100.RegD150 = (BlocoD.RegistroD150)registro; break;
+
+                    case "D160":
+                        regD100 = BlocoD.RegD001.RegD100;
+
+                        if (regD100.RegD160s == null)
+                            regD100.RegD160s = new List<BlocoD.RegistroD160>();
+
+                        regD100.RegD160s.Add((BlocoD.RegistroD160)registro);
+                        break;
+
+                    case "D161": var regD160 = BlocoD.RegD001.RegD100.RegD160s.Last(); regD160.RegD161 = (BlocoD.RegistroD161)registro; break;
+
+                    case "D162":
+                        regD160 = BlocoD.RegD001.RegD100.RegD160s.Last();
+
+                        if (regD160.RegD162s == null)
+                            regD160.RegD162s = new List<BlocoD.RegistroD162>();
+
+                        regD160.RegD162s.Add((BlocoD.RegistroD162)registro);
+                        break;
+
+                    case "D170": regD100 = BlocoD.RegD001.RegD100; regD100.RegD170 = (BlocoD.RegistroD170)registro; break;
+
+                    case "D180":
+                        regD100 = BlocoD.RegD001.RegD100;
+
+                        if (regD100.RegD180s == null)
+                            regD100.RegD180s = new List<BlocoD.RegistroD180>();
+
+                        regD100.RegD180s.Add((BlocoD.RegistroD180)registro);
+                        break;
+
+                    case "D190":
+                        regD100 = BlocoD.RegD001.RegD100;
+
+                        if (regD100.RegD190s == null)
+                            regD100.RegD190s = new List<BlocoD.RegistroD190>();
+
+                        regD100.RegD190s.Add((BlocoD.RegistroD190)registro);
+                        break;
+
+                    case "D195":
+                        regD100 = BlocoD.RegD001.RegD100;
+
+                        if (regD100.RegD195s == null)
+                            regD100.RegD195s = new List<BlocoD.RegistroD195>();
+
+                        regD100.RegD195s.Add((BlocoD.RegistroD195)registro);
+                        break;
+
+                    case "D197":
+                        var regD195 = BlocoD.RegD001.RegD100.RegD195s.Last();
+
+                        if (regD195.RegD197s == null)
+                            regD195.RegD197s = new List<BlocoD.RegistroD197>();
+
+                        regD195.RegD197s.Add((BlocoD.RegistroD197)registro);
+                        break;
+
+                    case "D300": BlocoD.RegD001.RegD300 = (BlocoD.RegistroD300)registro; break;
+
+                    case "D301":
+                        var regD300 = BlocoD.RegD001.RegD300;
+
+                        if (regD300.RegD301s == null)
+                            regD300.RegD301s = new List<BlocoD.RegistroD301>();
+
+                        regD300.RegD301s.Add((BlocoD.RegistroD301)registro);
+                        break;
+
+                    case "D310":
+                        regD300 = BlocoD.RegD001.RegD300;
+
+                        if (regD300.RegD310s == null)
+                            regD300.RegD310s = new List<BlocoD.RegistroD310>();
+
+                        regD300.RegD310s.Add((BlocoD.RegistroD310)registro);
+                        break;
+
+                    case "D350": BlocoD.RegD001.RegD350 = (BlocoD.RegistroD350)registro; break;
+
+                    case "D355":
+                        var regD350 = BlocoD.RegD001.RegD350;
+
+                        if (regD350.RegD355s == null)
+                            regD350.RegD355s = new List<BlocoD.RegistroD355>();
+
+                        regD350.RegD355s.Add((BlocoD.RegistroD355)registro);
+                        break;
+
+                    case "D360": var regD355 = BlocoD.RegD001.RegD350.RegD355s.Last(); regD355.RegD360s = (BlocoD.RegistroD360)registro; break;
+
+                    case "D365":
+                        regD355 = BlocoD.RegD001.RegD350.RegD355s.Last();
+
+                        if (regD355.RegD365s == null)
+                            regD355.RegD365s = new List<BlocoD.RegistroD365>();
+
+                        regD355.RegD365s.Add((BlocoD.RegistroD365)registro);
+                        break;
+
+                    case "D370":
+                        var regD365 = BlocoD.RegD001.RegD350.RegD355s.Last().RegD365s.Last();
+
+                        if (regD365.RegD370s == null)
+                            regD365.RegD370s = new List<BlocoD.RegistroD370>();
+
+                        regD365.RegD370s.Add((BlocoD.RegistroD370)registro);
+                        break;
+
+                    case "D390":
+                        regD355 = BlocoD.RegD001.RegD350.RegD355s.Last();
+
+                        if (regD355.RegD390s == null)
+                            regD355.RegD390s = new List<BlocoD.RegistroD390>();
+
+                        regD355.RegD390s.Add((BlocoD.RegistroD390)registro);
+                        break;
+
+                    case "D400": BlocoD.RegD001.RegD400 = (BlocoD.RegistroD400)registro; break;
+
+                    case "D410":
+                        var regD400 = BlocoD.RegD001.RegD400;
+
+                        if (regD400.RegD410s == null)
+                            regD400.RegD410s = new List<BlocoD.RegistroD410>();
+
+                        regD400.RegD410s.Add((BlocoD.RegistroD410)registro);
+                        break;
+
+                    case "D411":
+                        var regD410 = BlocoD.RegD001.RegD400.RegD410s.Last();
+
+                        if (regD410.RegD411s == null)
+                            regD410.RegD411s = new List<BlocoD.RegistroD411>();
+
+                        regD410.RegD411s.Add((BlocoD.RegistroD411)registro);
+                        break;
+
+                    case "D420":
+                        regD400 = BlocoD.RegD001.RegD400;
+
+                        if (regD400.RegD420s == null)
+                            regD400.RegD420s = new List<BlocoD.RegistroD420>();
+
+                        regD400.RegD420s.Add((BlocoD.RegistroD420)registro);
+                        break;
+
+                    case "D500": BlocoD.RegD001.RegD500 = (BlocoD.RegistroD500)registro; break;
+
+                    case "D510":
+                        var regD500 = BlocoD.RegD001.RegD500;
+
+                        if (regD500.RegD510s == null)
+                            regD500.RegD510s = new List<BlocoD.RegistroD510>();
+
+                        regD500.RegD510s.Add((BlocoD.RegistroD510)registro);
+                        break;
+
+                    case "D530":
+                        regD500 = BlocoD.RegD001.RegD500;
+
+                        if (regD500.RegD530s == null)
+                            regD500.RegD530s = new List<BlocoD.RegistroD530>();
+
+                        regD500.RegD530s.Add((BlocoD.RegistroD530)registro);
+                        break;
+
+                    case "D590":
+                        regD500 = BlocoD.RegD001.RegD500;
+
+                        if (regD500.RegD590s == null)
+                            regD500.RegD590s = new List<BlocoD.RegistroD590>();
+
+                        regD500.RegD590s.Add((BlocoD.RegistroD590)registro);
+                        break;
+
+                    case "D600": BlocoD.RegD001.RegD600 = (BlocoD.RegistroD600)registro; break;
+
+                    case "D610":
+                        var regD600 = BlocoD.RegD001.RegD600;
+
+                        if (regD600.RegD610s == null)
+                            regD600.RegD610s = new List<BlocoD.RegistroD610>();
+
+                        regD600.RegD610s.Add((BlocoD.RegistroD610)registro);
+                        break;
+
+                    case "D690":
+                        regD600 = BlocoD.RegD001.RegD600;
+
+                        if (regD600.RegD690s == null)
+                            regD600.RegD690s = new List<BlocoD.RegistroD690>();
+
+                        regD600.RegD690s.Add((BlocoD.RegistroD690)registro);
+                        break;
+
+                    case "D695": BlocoD.RegD001.RegD695 = (BlocoD.RegistroD695)registro; break;
+
+                    case "D696":
+                        var regD695 = BlocoD.RegD001.RegD695;
+
+                        if (regD695.RegD696s == null)
+                            regD695.RegD696s = new List<BlocoD.RegistroD696>();
+
+                        regD695.RegD696s.Add((BlocoD.RegistroD696)registro);
+                        break;
+
+                    case "D697":
+                        var regD696 = BlocoD.RegD001.RegD695.RegD696s.Last();
+
+                        if (regD696.RegD697s == null)
+                            regD696.RegD697s = new List<BlocoD.RegistroD697>();
+
+                        regD696.RegD697s.Add((BlocoD.RegistroD697)registro);
+                        break;
 
                     case "D990": BlocoD.RegD990 = (BlocoD.RegistroD990)registro; break;
                 }
@@ -902,7 +1375,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBlocoE()
         {
             BlocoE = new BlocoE();
@@ -917,6 +1390,167 @@ namespace FiscalBr.EFDFiscal
                 switch (registro.Reg)
                 {
                     case "E001": BlocoE.RegE001 = (BlocoE.RegistroE001)registro; break;
+                    case "E100": BlocoE.RegE001.RegE100 = (BlocoE.RegistroE100)registro; break;
+                    case "E110":var regE100 = BlocoE.RegE001.RegE100; regE100.RegE110 = (BlocoE.RegistroE110)registro; break;
+
+                    case "E111":
+                        var regE110 = BlocoE.RegE001.RegE100.RegE110;
+
+                        if (regE110.RegE111s == null)
+                            regE110.RegE111s = new List<BlocoE.RegistroE111>();
+
+                        regE110.RegE111s.Add((BlocoE.RegistroE111)registro);
+                        break;
+
+                    case "E112":
+                        var regE111 = BlocoE.RegE001.RegE100.RegE110.RegE111s.Last();
+
+                        if (regE111.RegE112s == null)
+                            regE111.RegE112s = new List<BlocoE.RegistroE112>();
+
+                        regE111.RegE112s.Add((BlocoE.RegistroE112)registro);
+                        break;
+
+                    case "E113":
+                        regE111 = BlocoE.RegE001.RegE100.RegE110.RegE111s.Last();
+
+                        if (regE111.RegE113s == null)
+                            regE111.RegE113s = new List<BlocoE.RegistroE113>();
+
+                        regE111.RegE113s.Add((BlocoE.RegistroE113)registro);
+                        break;
+
+                    case "E115":
+                        regE110 = BlocoE.RegE001.RegE100.RegE110;
+
+                        if (regE110.RegE115s == null)
+                            regE110.RegE115s = new List<BlocoE.RegistroE115>();
+
+                        regE110.RegE115s.Add((BlocoE.RegistroE115)registro);
+                        break;
+
+                    case "E116":
+                        regE110 = BlocoE.RegE001.RegE100.RegE110;
+
+                        if (regE110.RegE116s == null)
+                            regE110.RegE116s = new List<BlocoE.RegistroE116>();
+
+                        regE110.RegE116s.Add((BlocoE.RegistroE116)registro);
+                        break;
+
+                    case "E200": BlocoE.RegE001.RegE200 = (BlocoE.RegistroE200)registro; break;
+                    case "E210": var regE200 = BlocoE.RegE001.RegE200; regE200.RegE210 = (BlocoE.RegistroE210)registro; break;
+
+                    case "E220":
+                        var regE210 = BlocoE.RegE001.RegE200.RegE210;
+
+                        if (regE210.RegE220s == null)
+                            regE210.RegE220s = new List<BlocoE.RegistroE220>();
+
+                        regE210.RegE220s.Add((BlocoE.RegistroE220)registro);
+                        break;
+
+                    case "E230":
+                        var regE220 = BlocoE.RegE001.RegE200.RegE210.RegE220s.Last();
+
+                        if (regE220.RegE230s == null)
+                            regE220.RegE230s = new List<BlocoE.RegistroE230>();
+
+                        regE220.RegE230s.Add((BlocoE.RegistroE230)registro);
+                        break;
+
+                    case "E240":
+                        regE220 = BlocoE.RegE001.RegE200.RegE210.RegE220s.Last();
+
+                        if (regE220.RegE240s == null)
+                            regE220.RegE240s = new List<BlocoE.RegistroE240>();
+
+                        regE220.RegE240s.Add((BlocoE.RegistroE240)registro);
+                        break;
+                    case "E250":
+                        regE210 = BlocoE.RegE001.RegE200.RegE210;
+
+                        if (regE210.RegE250s == null)
+                            regE210.RegE250s = new List<BlocoE.RegistroE250>();
+
+                        regE210.RegE250s.Add((BlocoE.RegistroE250)registro);
+                        break;
+
+                    case "E300":
+                        if (BlocoE.RegE001.RegE300s == null)
+                            BlocoE.RegE001.RegE300s = new List<BlocoE.RegistroE300>();
+
+                        BlocoE.RegE001.RegE300s.Add((BlocoE.RegistroE300)registro);
+                        break;
+
+                    case "E310": var regE300 = BlocoE.RegE001.RegE300s.Last(); regE300.RegE310 = (BlocoE.RegistroE310)registro; break;
+
+                    case "E311":
+                        var regE310 = BlocoE.RegE001.RegE300s.Last().RegE310;
+
+                        if (regE310.RegE311s == null)
+                            regE310.RegE311s = new List<BlocoE.RegistroE311>();
+
+                        regE310.RegE311s.Add((BlocoE.RegistroE311)registro);
+                        break;
+
+                    case "E312":
+                        var regE311 = BlocoE.RegE001.RegE300s.Last().RegE310.RegE311s.Last();
+
+                        if (regE311.RegE312s == null)
+                            regE311.RegE312s = new List<BlocoE.RegistroE312>();
+
+                        regE311.RegE312s.Add((BlocoE.RegistroE312)registro);
+                        break;
+
+                    case "E313":
+                        regE311 = BlocoE.RegE001.RegE300s.Last().RegE310.RegE311s.Last();
+
+                        if (regE311.RegE313s == null)
+                            regE311.RegE313s = new List<BlocoE.RegistroE313>();
+
+                        regE311.RegE313s.Add((BlocoE.RegistroE313)registro);
+                        break;
+
+                    case "E316":
+                        regE310 = BlocoE.RegE001.RegE300s.Last().RegE310;
+
+                        if (regE310.RegE316s == null)
+                            regE310.RegE316s = new List<BlocoE.RegistroE316>();
+
+                        regE310.RegE316s.Add((BlocoE.RegistroE316)registro);
+                        break;
+
+                    case "E500": BlocoE.RegE001.RegE500 = (BlocoE.RegistroE500)registro; break;
+
+                    case "E510":
+                        var regE500 = BlocoE.RegE001.RegE500;
+
+                        if (regE500.RegE510s == null)
+                            regE500.RegE510s = new List<BlocoE.RegistroE510>();
+
+                        regE500.RegE510s.Add((BlocoE.RegistroE510)registro);
+                        break;
+
+                    case "E520": regE500 = BlocoE.RegE001.RegE500; regE500.RegE520 = (BlocoE.RegistroE520)registro; break;
+
+                    case "E530":
+                        var regE520 = BlocoE.RegE001.RegE500.RegE520;
+
+                        if (regE520.RegE530s == null)
+                            regE520.RegE530s = new List<BlocoE.RegistroE530>();
+
+                        regE520.RegE530s.Add((BlocoE.RegistroE530)registro);
+                        break;
+
+                    case "E531":
+                        var regE530 = BlocoE.RegE001.RegE500.RegE520.RegE530s.Last();
+
+                        if (regE530.RegE531s == null)
+                            regE530.RegE531s = new List<BlocoE.RegistroE531>();
+
+                        regE530.RegE531s.Add((BlocoE.RegistroE531)registro);
+                        break;
 
                     case "E990": BlocoE.RegE990 = (BlocoE.RegistroE990)registro; break;
                 }
@@ -929,7 +1563,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBlocoG()
         {
             BlocoG = new BlocoG();
@@ -998,7 +1632,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBlocoH()
         {
             BlocoH = new BlocoH();
@@ -1054,7 +1688,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public void LerBlocoK()
         {
             BlocoK = new BlocoK();
@@ -1069,6 +1703,178 @@ namespace FiscalBr.EFDFiscal
                 switch (registro.Reg)
                 {
                     case "K001": BlocoK.RegK001 = (BlocoK.RegistroK001)registro; break;
+                    case "K100": BlocoK.RegK001.RegK100 = (BlocoK.RegistroK100)registro; break;
+
+                    case "K200":
+                        var regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK200s == null)
+                            regK100.RegK200s = new List<BlocoK.RegistroK200>();
+
+                        regK100.RegK200s.Add((BlocoK.RegistroK200)registro);
+                        break;
+
+                    case "K210":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK210s == null)
+                            regK100.RegK210s = new List<BlocoK.RegistroK210>();
+
+                        regK100.RegK210s.Add((BlocoK.RegistroK210)registro);
+                        break;
+
+                    case "K215":
+                        var regK210 = BlocoK.RegK001.RegK100.RegK210s.Last();
+
+                        if (regK210.RegK215s == null)
+                            regK210.RegK215s = new List<BlocoK.RegistroK215>();
+
+                        regK210.RegK215s.Add((BlocoK.RegistroK215)registro);
+                        break;
+
+                    case "K220":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK220s == null)
+                            regK100.RegK220s = new List<BlocoK.RegistroK220>();
+
+                        regK100.RegK220s.Add((BlocoK.RegistroK220)registro);
+                        break;
+
+                    case "K230":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK230s == null)
+                            regK100.RegK230s = new List<BlocoK.RegistroK230>();
+
+                        regK100.RegK230s.Add((BlocoK.RegistroK230)registro);
+                        break;
+
+                    case "K235":
+                        var regK230 = BlocoK.RegK001.RegK100.RegK230s.Last();
+
+                        if (regK230.RegK235s == null)
+                            regK230.RegK235s = new List<BlocoK.RegistroK235>();
+
+                        regK230.RegK235s.Add((BlocoK.RegistroK235)registro);
+                        break;
+
+                    case "K250":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK250s == null)
+                            regK100.RegK250s = new List<BlocoK.RegistroK250>();
+
+                        regK100.RegK250s.Add((BlocoK.RegistroK250)registro);
+                        break;
+
+                    case "K255":
+                        var regK250 = BlocoK.RegK001.RegK100.RegK250s.Last();
+
+                        if (regK250.RegK255s == null)
+                            regK250.RegK255s = new List<BlocoK.RegistroK255>();
+
+                        regK250.RegK255s.Add((BlocoK.RegistroK255)registro);
+                        break;
+
+                    case "K260":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK260s == null)
+                            regK100.RegK260s = new List<BlocoK.RegistroK260>();
+
+                        regK100.RegK260s.Add((BlocoK.RegistroK260)registro);
+                        break;
+
+                    case "K265":
+                        var regK260 = BlocoK.RegK001.RegK100.RegK260s.Last();
+
+                        if (regK260.RegK265s == null)
+                            regK260.RegK265s = new List<BlocoK.RegistroK265>();
+
+                        regK260.RegK265s.Add((BlocoK.RegistroK265)registro);
+                        break;
+
+                    case "K270":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK270s == null)
+                            regK100.RegK270s = new List<BlocoK.RegistroK270>();
+
+                        regK100.RegK270s.Add((BlocoK.RegistroK270)registro);
+                        break;
+
+                    case "K275":
+                        var regK270 = BlocoK.RegK001.RegK100.RegK270s.Last();
+
+                        if (regK270.RegK275s == null)
+                            regK270.RegK275s = new List<BlocoK.RegistroK275>();
+
+                        regK270.RegK275s.Add((BlocoK.RegistroK275)registro);
+                        break;
+
+                    case "K280":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK280s == null)
+                            regK100.RegK280s = new List<BlocoK.RegistroK280>();
+
+                        regK100.RegK280s.Add((BlocoK.RegistroK280)registro);
+                        break;
+
+                    case "K290":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK290s == null)
+                            regK100.RegK290s = new List<BlocoK.RegistroK290>();
+
+                        regK100.RegK290s.Add((BlocoK.RegistroK290)registro);
+                        break;
+
+                    case "K291":
+                        var regK290 = BlocoK.RegK001.RegK100.RegK290s.Last();
+
+                        if (regK290.RegK291s == null)
+                            regK290.RegK291s = new List<BlocoK.RegistroK291>();
+
+                        regK290.RegK291s.Add((BlocoK.RegistroK291)registro);
+                        break;
+
+                    case "K292":
+                        regK290 = BlocoK.RegK001.RegK100.RegK290s.Last();
+
+                        if (regK290.RegK292s == null)
+                            regK290.RegK292s = new List<BlocoK.RegistroK292>();
+
+                        regK290.RegK292s.Add((BlocoK.RegistroK292)registro);
+                        break;
+
+                    case "K300":
+                        regK100 = BlocoK.RegK001.RegK100;
+
+                        if (regK100.RegK300s == null)
+                            regK100.RegK300s = new List<BlocoK.RegistroK300>();
+
+                        regK100.RegK300s.Add((BlocoK.RegistroK300)registro);
+                        break;
+
+                    case "K301":
+                        var regK300 = BlocoK.RegK001.RegK100.RegK300s.Last();
+
+                        if (regK300.RegK301s == null)
+                            regK300.RegK301s = new List<BlocoK.RegistroK301>();
+
+                        regK300.RegK301s.Add((BlocoK.RegistroK301)registro);
+                        break;
+
+                    case "K302":
+                        regK300 = BlocoK.RegK001.RegK100.RegK300s.Last();
+
+                        if (regK300.RegK302s == null)
+                            regK300.RegK302s = new List<BlocoK.RegistroK302>();
+
+                        regK300.RegK302s.Add((BlocoK.RegistroK302)registro);
+                        break;
 
                     case "k990": BlocoK.RegK990 = (BlocoK.RegistroK990)registro; break;
                 }
@@ -1081,7 +1887,7 @@ namespace FiscalBr.EFDFiscal
                 AoLerLinhaRaise(this, args);
             }
         }
-        
+
         public override void CalcularBloco9()
         {
             base.CalcularBloco9();

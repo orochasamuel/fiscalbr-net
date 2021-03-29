@@ -32,16 +32,16 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
 
-            public List<RegistroC100> RegC100s { get; set; }
-            public List<RegistroC300> RegC300s { get; set; }
-            public List<RegistroC350> RegC350s { get; set; }
-            public List<RegistroC400> RegC400s { get; set; }
-            public List<RegistroC495> RegC495s { get; set; }
-            public List<RegistroC500> RegC500s { get; set; }
-            public List<RegistroC600> RegC600s { get; set; }
-            public List<RegistroC700> RegC700s { get; set; }
-            public List<RegistroC800> RegC800s { get; set; }
-            public List<RegistroC860> RegC860s { get; set; }
+            public RegistroC100 RegC100 { get; set; }
+            public RegistroC300 RegC300 { get; set; }
+            public RegistroC350 RegC350 { get; set; }
+            public RegistroC400 RegC400 { get; set; }
+            public RegistroC495 RegC495 { get; set; }
+            public RegistroC500 RegC500 { get; set; }
+            public RegistroC600 RegC600 { get; set; }
+            public RegistroC700 RegC700 { get; set; }
+            public RegistroC800 RegC800 { get; set; }
+            public RegistroC860 RegC860 { get; set; }
         }
 
         /// <summary>
@@ -4139,7 +4139,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
             public string CodObs { get; set; }
 
-            public List<RegistroC591> RegC591 { get; set; }
+            public RegistroC591 RegC591 { get; set; }
         }
 
         public class RegistroC591 : RegistroBaseSped
@@ -4169,7 +4169,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(3, "TXT_COMPL", "C", 100, 0, false)]
             public string TxtCompl { get; set; }
 
-            public List<RegistroC197> RegC197 { get; set; }
+            public List<RegistroC597> RegC597s { get; set; }
         }
 
         public class RegistroC597 : RegistroBaseSped
@@ -4873,19 +4873,19 @@ namespace FiscalBr.EFDFiscal
             ///    Número do item no documento fiscal
             /// </summary>
             [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
-            public string NumItem { get; set; }
+            public int NumItem { get; set; }
 
             /// <summary>
             ///    Código do item (campo 02 do Registro 0200)
             /// </summary>
             [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
-            public string CodItem { get; set; }
+            public int CodItem { get; set; }
 
             // <summary>
             ///     Quantidade do item
             /// </summary>
             [SpedCampos(4, "QTD", "N", 0, 5, true)]
-            public int Qtd { get; set; }
+            public Decimal Qtd { get; set; }
 
             /// <summary>
             ///    Unidade do item (Campo 02 do registro 0190)
@@ -4897,7 +4897,7 @@ namespace FiscalBr.EFDFiscal
             ///     Valor total do item(mercadorias ou serviços)
             /// </summary>
             [SpedCampos(6, "VL_ITEM", "N", 0, 2, true)]
-            public int VlItem { get; set; }
+            public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
@@ -5148,13 +5148,13 @@ namespace FiscalBr.EFDFiscal
             ///     Quantidade do item
             /// </summary>
             [SpedCampos(3, "QTD", "N", 0, 5, true)]
-            public int Qtd { get; set; }
+            public Decimal Qtd { get; set; }
 
             /// <summary>
             ///    Unidade do item (Campo 02 do registro 0190)
             /// </summary>
             [SpedCampos(4, "UNID", "C", 6, 0, true)]
-            public int Unid { get; set; }
+            public string Unid { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
