@@ -11,7 +11,7 @@ namespace FiscalBr.EFDFiscal
     public class BlocoD
     {
         public RegistroD001 RegD001 { get; set; }
-        public RegistroD001 RegD990 { get; set; }
+        public RegistroD990 RegD990 { get; set; }
 
         /// <summary>
         ///     REGISTRO D001: ABERTURA DO BLOCO D
@@ -35,7 +35,7 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
-
+            
             public List<RegistroD100> RegD100s { get; set; }
             public List<RegistroD300> RegD300s { get; set; }
             public List<RegistroD350> RegD350s { get; set; }
@@ -240,12 +240,12 @@ namespace FiscalBr.EFDFiscal
             public string CodMunDest { get; set; }
 
             public RegistroD101 RegD101 { get; set; }
-            public List<RegistroD110> RegD110 { get; set; }
+            public List<RegistroD110> RegD110s { get; set; }
             public List<RegistroD130> RegD130s { get; set; }
-            public List<RegistroD140> RegD140s { get; set; }
-            public List<RegistroD150> RegD150s { get; set; }
+            public RegistroD140 RegD140 { get; set; }
+            public RegistroD150 RegD150 { get; set; }
             public List<RegistroD160> RegD160s { get; set; }
-            public List<RegistroD170> RegD170s { get; set; }
+            public RegistroD170 RegD170 { get; set; }
             public List<RegistroD180> RegD180s { get; set; }
             public List<RegistroD190> RegD190s { get; set; }
             public List<RegistroD195> RegD195s { get; set; }
@@ -713,7 +713,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(8, "COD_MUN_DEST", "N", 7, 0, true)]
             public string CodMunDest { get; set; }
 
-            public RegistroD161 RegD161s { get; set; }
+            public RegistroD161 RegD161 { get; set; }
             public List<RegistroD162> RegD162s { get; set; }
         }
 
@@ -1488,7 +1488,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(7, "VL_BRT", "N", 0, 2, true)]
             public string VlBrt { get; set; }
 
-            public List<RegistroD360> RegD360s { get; set; }
+            public RegistroD360 RegD360s { get; set; }
             public List<RegistroD365> RegD365s { get; set; }
             public List<RegistroD390> RegD390s { get; set; }
         }

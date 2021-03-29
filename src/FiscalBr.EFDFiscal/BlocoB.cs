@@ -32,12 +32,12 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(2, "IND_DAD", "C", 1, 0, true)]
             public int IndDad { get; set; }
 
-            public RegistroB020 RegB020 { get; set; }
-            public RegistroB030 RegB030 { get; set; }
-            public RegistroB350 RegB350 { get; set; }
-            public RegistroB420 RegB420 { get; set; }
-            public RegistroB440 RegB440 { get; set; }
-            public RegistroB460 RegB460 { get; set; }
+            public List<RegistroB020> RegB020s { get; set; }
+            public List<RegistroB030> RegB030s { get; set; }
+            public List<RegistroB350> RegB350s { get; set; }
+            public List<RegistroB420> RegB420s { get; set; }
+            public List<RegistroB440> RegB440s { get; set; }
+            public List<RegistroB460> RegB460s { get; set; }
             public RegistroB470 RegB470 { get; set; }
             public RegistroB500 RegB500 { get; set; }
            
@@ -308,6 +308,8 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(12, "CodInfObs", "C", 60, 0, false)]
             public int CodInfObs{ get; set; }
+
+            public List<RegistroB035> RegB035s { get; set; }
 
         }
 
@@ -733,7 +735,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(4, "VL_OR", "N", 0, 2, true)]
             public int VlOr { get; set; }
 
-            public RegistroB510 RegB510 { get; set; }
+            public List<RegistroB510> RegB510s { get; set; }
 
         }
 

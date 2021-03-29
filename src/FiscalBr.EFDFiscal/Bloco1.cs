@@ -40,7 +40,7 @@ namespace FiscalBr.EFDFiscal
             public Registro1010 Reg1010 { get; set; }
             public List<Registro1100> Reg1100s { get; set; }
             public List<Registro1200> Reg1200s { get; set; }
-            public List<Registro1250> Reg1250s { get; set; }
+            public Registro1250 Reg1250 { get; set; }
             public List<Registro1300> Reg1300s { get; set; }
             public List<Registro1350> Reg1350s { get; set; }
             public List<Registro1390> Reg1390s { get; set; }
@@ -798,7 +798,7 @@ namespace FiscalBr.EFDFiscal
             public string TipoMedicao { get; set; }
 
             public List<Registro1360> Reg1360s { get; set; }
-            public List<Registro1360> Reg1370s { get; set; }
+            public List<Registro1370> Reg1370s { get; set; }
         }
 
         /// <summary>
@@ -2161,7 +2161,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(12, "G3_09", "N", 0, 2, true)]
             public int G309 { get; set; }
 
-            public List<Registro1975> Registro1975s { get; set; }
+            public List<Registro1975> Reg1975s { get; set; }
         }
 
         /// <summary>
