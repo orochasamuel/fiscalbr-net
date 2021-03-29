@@ -35,10 +35,10 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
 
-            public RegistroE100 RegE100 { get; set; }
-            public RegistroE200 RegE200 { get; set; }
+            public List<RegistroE100> RegE100s { get; set; }
+            public List<RegistroE200> RegE200s { get; set; }
             public List<RegistroE300> RegE300s { get; set; }
-            public RegistroE500 RegE500 { get; set; }
+            public List<RegistroE500> RegE500s { get; set; }
         }
 
         /// <summary>

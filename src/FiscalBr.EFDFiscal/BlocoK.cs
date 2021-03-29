@@ -37,7 +37,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
 
-            public RegistroK100 RegK100 { get; set; }
+            public List<RegistroK100> RegK100s { get; set; }
         }
 
         /// <summary>

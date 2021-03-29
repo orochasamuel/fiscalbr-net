@@ -32,16 +32,16 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
             public IndMovimento IndMov { get; set; }
 
-            public RegistroC100 RegC100 { get; set; }
-            public RegistroC300 RegC300 { get; set; }
-            public RegistroC350 RegC350 { get; set; }
-            public RegistroC400 RegC400 { get; set; }
-            public RegistroC495 RegC495 { get; set; }
-            public RegistroC500 RegC500 { get; set; }
-            public RegistroC600 RegC600 { get; set; }
-            public RegistroC700 RegC700 { get; set; }
-            public RegistroC800 RegC800 { get; set; }
-            public RegistroC860 RegC860 { get; set; }
+            public List<RegistroC100> RegC100s { get; set; }
+            public List<RegistroC300> RegC300s { get; set; }
+            public List<RegistroC350> RegC350s { get; set; }
+            public List<RegistroC400> RegC400s { get; set; }
+            public List<RegistroC495> RegC495s { get; set; }
+            public List<RegistroC500> RegC500s { get; set; }
+            public List<RegistroC600> RegC600s { get; set; }
+            public List<RegistroC700> RegC700s { get; set; }
+            public List<RegistroC800> RegC800s { get; set; }
+            public List<RegistroC860> RegC860s { get; set; }
         }
 
         /// <summary>
@@ -4879,7 +4879,7 @@ namespace FiscalBr.EFDFiscal
             ///    Código do item (campo 02 do Registro 0200)
             /// </summary>
             [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
-            public int CodItem { get; set; }
+            public string CodItem { get; set; }
 
             // <summary>
             ///     Quantidade do item
