@@ -1967,13 +1967,11 @@ namespace FiscalBr.EFDFiscal
 
             Bloco9.Reg9001.Reg9900s = new List<Bloco9.Registro9900>();
 
-            var var1 = Linhas.Where(x => x.Length > 6);
-
-            var var2 = var1.Select(x => x.Substring(1, 4));
-
-            var var3 = var2.Where(x => x != null && !x.StartsWith("9"));
-
-            var diferentes = var3.Distinct();
+            var diferentes = Linhas
+                .Where(x => x.Length > 6)
+                .Select(x => x.Substring(1, 4))
+                .Where(x => x != null && !x.StartsWith("9"))
+                .Distinct();
 
             foreach (var registro in diferentes)
             {
@@ -2002,7 +2000,7 @@ namespace FiscalBr.EFDFiscal
             {
                 QtdLin = Linhas.Count
             };
-            #endregion
+            #endregion          
         }
 
         public override void GerarLinhas()
