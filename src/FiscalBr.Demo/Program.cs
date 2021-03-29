@@ -13,11 +13,11 @@ namespace FiscalBr.Demo
             sped.AoLerLinha += Sped_AoLerLinha;
             sped.Ler(@"c:\temp\sped.txt", Encoding.GetEncoding("iso-8859-1"));
             
-            sped.CalcularBloco9();
+            //sped.CalcularBloco9();
 
-            sped.GerarLinhas();
+            //sped.GerarLinhas();
 
-            sped.Escrever(@"c:\temp\sped2.txt", Encoding.UTF8);
+            //sped.Escrever(@"c:\temp\sped2.txt", Encoding.UTF8);
 
             Console.Read();
         }

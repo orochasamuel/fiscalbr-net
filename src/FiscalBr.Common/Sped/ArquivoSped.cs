@@ -8,7 +8,7 @@ namespace FiscalBr.Common.Sped
 {
     public sealed class SpedEventArgs : EventArgs
     {
-        public string Linha { get; set; }
+        public string Linha { get; set; }        
         public RegistroBaseSped Registro { get; set; }
     }
 
@@ -21,6 +21,7 @@ namespace FiscalBr.Common.Sped
                 AoLerLinha.Invoke(sender, e);
         }
 
+        protected int IdxLinha { get; set; }
         public List<string> Linhas { get; private set; }
         public List<string> Erros { get; private set; }
 
