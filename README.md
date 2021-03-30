@@ -8,7 +8,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2019 - para gera
 
 - [ ] Implementar Factory Pattern.
 - [ ] Mapear enums restantes do SPED.
-- [ ] Implementar leitura dos layouts.
+- [ ] Implementar leitura dos layouts. (Implementado completamente SPED Fiscal e Contribuições em andamento)
 - [ ] Melhorar performance na geração das linhas.
 
 ## Apoiadores [![Donate](https://img.shields.io/badge/apoia.se-FiscalBr-green)](https://apoia.se/fiscalbr)
@@ -34,6 +34,20 @@ Se as bibliotecas lhe ajudaram ou contribuiram de alguma forma, apoie. :D Ajude 
 - [x] SINTEGRA
 
 ## Exemplos
+
+###### EFD ICMS IPI
+
+- Exemplo de leitura, manuseio, recalculo do bloco 9 e escrita do arquivo:
+```
+var sped = new ArquivoEFDFiscal();
+sped.Ler(camiho_do_arquivo_original, encoding_do_arquivo);
+
+//Manuesar, ex: adicionar Bloco H
+
+sped.GerarLinhas();
+sped.CalcularBloco9();
+sped.Escrever(camiho_do_arquivo_modificado);
+```
 
 ###### EFD Contribuições
 
