@@ -245,7 +245,7 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC110> RegC110s { get; set; }
             public List<RegistroC120> RegC120s { get; set; }
             public RegistroC130 RegC130 { get; set; }
-            public RegistroC140 Reg140 { get; set; }
+            public RegistroC140 RegC140 { get; set; }
             public RegistroC160 RegC160 { get; set; }
             public List<RegistroC165> RegC165s { get; set; }
             public List<RegistroC170> RegC170s { get; set; }
@@ -4139,7 +4139,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
             public string CodObs { get; set; }
 
-            public List<RegistroC591> RegC591 { get; set; }
+            public RegistroC591 RegC591 { get; set; }
         }
 
         public class RegistroC591 : RegistroBaseSped
@@ -4169,7 +4169,7 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(3, "TXT_COMPL", "C", 100, 0, false)]
             public string TxtCompl { get; set; }
 
-            public List<RegistroC197> RegC197 { get; set; }
+            public List<RegistroC597> RegC597s { get; set; }
         }
 
         public class RegistroC597 : RegistroBaseSped
@@ -4873,7 +4873,7 @@ namespace FiscalBr.EFDFiscal
             ///    Número do item no documento fiscal
             /// </summary>
             [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
-            public string NumItem { get; set; }
+            public int NumItem { get; set; }
 
             /// <summary>
             ///    Código do item (campo 02 do Registro 0200)
@@ -4885,7 +4885,7 @@ namespace FiscalBr.EFDFiscal
             ///     Quantidade do item
             /// </summary>
             [SpedCampos(4, "QTD", "N", 0, 5, true)]
-            public int Qtd { get; set; }
+            public Decimal Qtd { get; set; }
 
             /// <summary>
             ///    Unidade do item (Campo 02 do registro 0190)
@@ -4897,7 +4897,7 @@ namespace FiscalBr.EFDFiscal
             ///     Valor total do item(mercadorias ou serviços)
             /// </summary>
             [SpedCampos(6, "VL_ITEM", "N", 0, 2, true)]
-            public int VlItem { get; set; }
+            public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
@@ -5148,13 +5148,13 @@ namespace FiscalBr.EFDFiscal
             ///     Quantidade do item
             /// </summary>
             [SpedCampos(3, "QTD", "N", 0, 5, true)]
-            public int Qtd { get; set; }
+            public Decimal Qtd { get; set; }
 
             /// <summary>
             ///    Unidade do item (Campo 02 do registro 0190)
             /// </summary>
             [SpedCampos(4, "UNID", "C", 6, 0, true)]
-            public int Unid { get; set; }
+            public string Unid { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS

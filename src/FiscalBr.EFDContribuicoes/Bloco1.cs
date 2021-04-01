@@ -693,7 +693,7 @@ namespace FiscalBr.EFDContribuicoes
             public string Cnpj { get; set; }
 
 
-            public List<Registro1102> Reg1102s { get; set; }
+            public Registro1102 Reg1102 { get; set; }
         }
 
         /// <summary>
@@ -1257,7 +1257,7 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(22, "CNPJ", "N", 14, 0, true)]
             public string Cnpj { get; set; }
 
-            public List<Registro1502> Reg1502s { get; set; }
+            public Registro1502 Reg1502 { get; set; }
         }
 
         /// <summary>

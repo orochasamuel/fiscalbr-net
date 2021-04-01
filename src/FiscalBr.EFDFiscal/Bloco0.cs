@@ -94,7 +94,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Inscrição Municipal da entidade.
             /// </summary>
-            [SpedCampos(12, "IM", "C", 0, 0, false)]
+            [SpedCampos(12, "IM", "C", int.MaxValue, 0, false)]
             public string Im { get; set; }
 
             /// <summary>
@@ -593,7 +593,7 @@ namespace FiscalBr.EFDFiscal
             ///     Alíquota de ICMS aplicável ao item nas operações internas.
             /// </summary>
             [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
-            public decimal AliqIcms { get; set; }
+            public decimal? AliqIcms { get; set; }
 
             /// <summary>
             ///     Código Especificador da Substituição Tributária
