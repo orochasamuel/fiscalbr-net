@@ -48,7 +48,7 @@ namespace FiscalBr.EFDFiscal
             public List<Registro1500> Reg1500s { get; set; }
             public List<Registro1600> Reg1600s { get; set; }
             public List<Registro1700> Reg1700s { get; set; }
-            public List<Registro1800> Reg1800 { get; set; }
+            public Registro1800 Reg1800 { get; set; }
             public List<Registro1900> Reg1900s { get; set; }
             public List<Registro1960> Reg1960s { get; set; }
             public List<Registro1970> Reg1970s { get; set; }
