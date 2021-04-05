@@ -1966,7 +1966,16 @@ namespace FiscalBr.EFDFiscal
         {
             base.CalcularBloco9();
 
-            Bloco9.Reg9001.Reg9900s = new List<Bloco9.Registro9900>();
+            Bloco9 = new Bloco9()
+            {
+                Reg9001 = new Bloco9.Registro9001()
+                {
+                    IndMov = Common.IndMovimento.BlocoComDados,
+                    Reg9900s = new List<Bloco9.Registro9900>()
+                },
+                Reg9990 = new Bloco9.Registro9990(),
+                Reg9999 = new Bloco9.Registro9999()
+            };
 
             var diferentes = Linhas
                 .Where(x => x.Length > 6)
