@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -2095,44 +2093,6 @@ namespace FiscalBr.EFDFiscal
             GerarComFilhos(Bloco1);
 
             GerarComFilhos(Bloco9);
-        }
-
-        private void GerarComFilhos(object registro)
-        {
-            if (registro == null)
-                return;
-
-            //Testa antes porque porque pode-se tratar de um bloco
-            if (registro is RegistroBaseSped)
-                EscreverLinha(registro as RegistroBaseSped);
-
-            var tipo = registro.GetType();
-
-            var propriedades = tipo
-                                .GetProperties()
-                                .ToList();
-
-            foreach (var propriedade in propriedades)
-            {
-                var valor = propriedade.GetValue(registro);
-
-                if (valor == null)
-                    continue;
-
-                if (valor is RegistroBaseSped)
-                    GerarComFilhos(valor);
-
-                //Lista de objetos
-                else if (valor is IList)
-                {
-                    var lista = (IList)valor;
-
-                    foreach (var item in lista)
-                        GerarComFilhos(item);
-                }
-
-            }
-
         }
     }
 }
