@@ -1962,17 +1962,66 @@ namespace FiscalBr.EFDFiscal
         }
         #endregion
 
-        public override void CalcularBloco9()
+        public override void CalcularBloco9(bool totalizarblocos = true)
         {
-            base.CalcularBloco9();
+            base.CalcularBloco9(totalizarblocos);
 
-            Bloco9.Reg9001.Reg9900s = new List<Bloco9.Registro9900>();
+            #region Totalizar blocos
+            if (totalizarblocos) //Calcula os X990 de todos os blocos e readiciona as linhas de totalização -> |X990|
+            {
+                var registros = Linhas
+                    .Where(x => x.Length > 6 && x.Substring(2, 3) != "990") // Pega só as linhas que não se tratam de totalizadores
+                    .Select(x => x.Substring(1, 4));
+
+                if (Bloco0 != null)
+                    Bloco0.Reg0990 = new Bloco0.Registro0990() { QtdLin0 = registros.Where(x => x.StartsWith("0")).Count() + 1 };
+
+                if (Bloco1 != null)
+                    Bloco1.Reg1990 = new Bloco1.Registro1990() { QtdLin1 = registros.Where(x => x.StartsWith("1")).Count() + 1 };
+
+                if (BlocoB != null)
+                    BlocoB.RegB990 = new BlocoB.RegistroB990() { QtdLinB = registros.Where(x => x.StartsWith("B")).Count() + 1 };
+
+                if (BlocoC != null)
+                    BlocoC.RegC990 = new BlocoC.RegistroC990() { QtdLinC = registros.Where(x => x.StartsWith("C")).Count() + 1 };
+
+                if (BlocoD != null)
+                    BlocoD.RegD990 = new BlocoD.RegistroD990() { QtdLinD = registros.Where(x => x.StartsWith("D")).Count() + 1 };
+
+                if (BlocoE != null)
+                    BlocoE.RegE990 = new BlocoE.RegistroE990() { QtdLinE = registros.Where(x => x.StartsWith("E")).Count() + 1 };
+
+                if (BlocoG != null)
+                    BlocoG.RegG990 = new BlocoG.RegistroG990() { QtdLinG = registros.Where(x => x.StartsWith("G")).Count() + 1 };
+
+                if (BlocoH != null)
+                    BlocoH.RegH990 = new BlocoH.RegistroH990() { QtdLinH = registros.Where(x => x.StartsWith("H")).Count() + 1 };
+
+                if (BlocoK != null)
+                    BlocoK.RegK990 = new BlocoK.RegistroK990() { QtdLinK = registros.Where(x => x.StartsWith("K")).Count() + 1 };
+
+                GerarLinhas(); //Gera as linhas novamente com os totalizadores calculados
+            }
+            #endregion
+
+            #region Bloco 9
+            Linhas.RemoveAll(x => x.Length > 6 && x[1] == '9'); //Remove todas as linhas do Bloco 9, as linhas serão readicionadas posteriormente
+
+            Bloco9 = new Bloco9()
+            {
+                Reg9001 = new Bloco9.Registro9001()
+                {
+                    IndMov = Common.IndMovimento.BlocoComDados,
+                    Reg9900s = new List<Bloco9.Registro9900>()
+                },
+                Reg9990 = new Bloco9.Registro9990(),
+                Reg9999 = new Bloco9.Registro9999()
+            };
 
             var diferentes = Linhas
-                .Where(x => x.Length > 6)
-                .Select(x => x.Substring(1, 4))
-                .Where(x => x != null && !x.StartsWith("9"))
-                .Distinct();
+                    .Where(x => x.Length > 6)
+                    .Select(x => x.Substring(1, 4))
+                    .Distinct();
 
             foreach (var registro in diferentes)
             {
@@ -1985,34 +2034,6 @@ namespace FiscalBr.EFDFiscal
                 Bloco9.Reg9001.Reg9900s.Add(_9900);
             }
 
-            if (Bloco0 != null)
-                Bloco0.Reg0990 = new Bloco0.Registro0990() { QtdLin0 = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("0") && x.RegBlc != "0990").Sum(x => x.QtdRegBlc) + 1 };
-
-            if (Bloco1 != null)
-                Bloco1.Reg1990 = new Bloco1.Registro1990() { QtdLin1 = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("1") && x.RegBlc != "1990").Sum(x => x.QtdRegBlc) + 1 };
-
-            if (BlocoB != null)
-                BlocoB.RegB990 = new BlocoB.RegistroB990() { QtdLinB = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("B") && x.RegBlc != "B990").Sum(x => x.QtdRegBlc) + 1 };
-
-            if (BlocoC != null)
-                BlocoC.RegC990 = new BlocoC.RegistroC990() { QtdLinC = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("C") && x.RegBlc != "C990").Sum(x => x.QtdRegBlc) + 1 };
-
-            if (BlocoD != null)
-                BlocoD.RegD990 = new BlocoD.RegistroD990() { QtdLinD = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("D") && x.RegBlc != "D990").Sum(x => x.QtdRegBlc) + 1 };
-
-            if (BlocoE != null)
-                BlocoE.RegE990 = new BlocoE.RegistroE990() { QtdLinE = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("E") && x.RegBlc != "E990").Sum(x => x.QtdRegBlc) + 1 };
-
-            if (BlocoG != null)
-                BlocoG.RegG990 = new BlocoG.RegistroG990() { QtdLinG = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("G") && x.RegBlc != "G990").Sum(x => x.QtdRegBlc) + 1 };
-
-            if (BlocoH != null)
-                BlocoH.RegH990 = new BlocoH.RegistroH990() { QtdLinH = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("H") && x.RegBlc != "H990").Sum(x => x.QtdRegBlc) + 1 };
-
-            if (BlocoK != null)
-                BlocoK.RegK990 = new BlocoK.RegistroK990() { QtdLinK = Bloco9.Reg9001.Reg9900s.Where(x => x.RegBlc.StartsWith("K") && x.RegBlc != "K990").Sum(x => x.QtdRegBlc) + 1 };
-
-            #region Bloco 9
             Bloco9.Reg9001.Reg9900s.Add(new Bloco9.Registro9900()
             {
                 RegBlc = "9001",
@@ -2044,12 +2065,11 @@ namespace FiscalBr.EFDFiscal
 
             Bloco9.Reg9999 = new Bloco9.Registro9999()
             {
-                QtdLin = Linhas.Count
+                QtdLin = Linhas.Count + Bloco9.Reg9001.Reg9900s.Count + 3 /*9001, 9990 e 9999*/
             };
-            #endregion          
 
-            //Após calcular o bloco 9, preciso gerar novamente as linhas, porque o arquivo foi alterado
-            GerarLinhas();
+            GerarComFilhos(Bloco9);
+            #endregion
         }
 
         public override void GerarLinhas()
