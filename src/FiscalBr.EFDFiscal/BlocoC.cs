@@ -1156,7 +1156,7 @@ namespace FiscalBr.EFDFiscal
             ///     1 - Decendial
             /// </remarks>
             [SpedCampos(19, "IND_APUR", "C", 1, 0, false)]
-            public IndPeriodoApuracaoIpi IndApur { get; set; }
+            public IndPeriodoApuracaoIpi? IndApur { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao IPI

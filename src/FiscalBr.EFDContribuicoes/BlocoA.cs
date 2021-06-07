@@ -178,7 +178,7 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(21, "VL_ISS", "N", 0, 2, false)]
             public decimal? VlIss { get; set; }
 
-            public List<RegistroA110> RegA100s { get; set; }
+            public List<RegistroA110> RegA110s { get; set; }
             public List<RegistroA111> RegA111s { get; set; }
             public List<RegistroA120> RegA120s { get; set; }
             public List<RegistroA170> RegA170s { get; set; }
