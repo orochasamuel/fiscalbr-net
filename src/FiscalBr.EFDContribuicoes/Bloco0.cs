@@ -10,6 +10,7 @@ namespace FiscalBr.EFDContribuicoes
     /// </summary>
     public class Bloco0
     {
+        public Registro0000 Reg0000 { get; set; }
         public Registro0001 Reg0001 { get; set; }
         public Registro0990 Reg0990 { get; set; }
 
@@ -304,7 +305,7 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(7, "END", "C", 60, 0, false)]
             public string End { get; set; }
 
-            [SpedCampos(8, "NUM", "C", 0, 0, false)]
+            [SpedCampos(8, "NUM", "C", int.MaxValue, 0, false)]
             public string Num { get; set; }
 
             [SpedCampos(9, "COMPL", "C", 60, 0, false)]
@@ -319,7 +320,7 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(12, "FAX", "C", 11, 0, false)]
             public string Fax { get; set; }
 
-            [SpedCampos(13, "EMAIL", "C", 0, 0, false)]
+            [SpedCampos(13, "EMAIL", "C", int.MaxValue, 0, false)]
             public string Email { get; set; }
 
             [SpedCampos(14, "COD_MUN", "N", 7, 0, false)]
@@ -1130,7 +1131,7 @@ namespace FiscalBr.EFDContribuicoes
             ///     Quantidade total de linhas do Bloco 0
             /// </summary>
             [SpedCampos(2, "QTD_LIN_0", "N", int.MaxValue, 0, true)]
-            public int QtdLin0 { get; private set; }
+            public int QtdLin0 { get; set; }
         }
     }
 }

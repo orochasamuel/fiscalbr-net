@@ -12,6 +12,7 @@ namespace FiscalBr.EFDContribuicoes
     {
         public Registro9001 Reg9001 { get; set; }
         public Registro9990 Reg9990 { get; set; }
+        public Registro9999 Reg9999 { get; set; }
         
         /// <summary>
         ///     REGISTRO 9001: ABERTURA DO BLOCO 9

@@ -81,6 +81,43 @@ namespace FiscalBr.Common.Sped
 
             Linhas.Add(texto);
         }
+
+        protected virtual void GerarComFilhos(object registro)
+        {
+            if (registro == null)
+                return;
+
+            //Testa antes porque porque pode-se tratar de um bloco
+            if (registro is RegistroBaseSped)
+                EscreverLinha(registro as RegistroBaseSped);
+
+            var tipo = registro.GetType();
+
+            var propriedades = tipo
+                                .GetProperties()
+                                .ToList();
+
+            foreach (var propriedade in propriedades)
+            {
+                var valor = propriedade.GetValue(registro);
+
+                if (valor == null)
+                    continue;
+
+                if (valor is RegistroBaseSped)
+                    GerarComFilhos(valor);
+
+                //Lista de objetos
+                else if (valor is System.Collections.IList)
+                {
+                    var lista = (System.Collections.IList)valor;
+
+                    foreach (var item in lista)
+                        GerarComFilhos(item);
+                }
+            }
+
+        }
     }
 
 }
