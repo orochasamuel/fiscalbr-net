@@ -76,8 +76,8 @@ foreach (var objContrato in listaContratos) {
 
 ## Dúvidas?
 
-Abra um issue na página do projeto no GitHub ou [clique aqui](https://github.com/osamueloliveira/FiscalBr.NET/issues).
+Abra um issue na página do projeto no GitHub ou [clique aqui](https://github.com/orochasamuel/FiscalBr.NET/issues).
 
 ## Licença
 
-[MIT](https://github.com/osamueloliveira/FiscalBr.NET/blob/master/LICENSE)
+[MIT](https://github.com/orochasamuel/FiscalBr.NET/blob/master/LICENSE)
