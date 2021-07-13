@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.1;netstandard2.0;net48;net472;net461;net46;net452;net451;net45</TargetFrameworks>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Authors>osamueloliveira sroliveira</Authors>
-    <Company>osamueloliveira sroliveira</Company>
-    <PackageProjectUrl>https://github.com/osamueloliveira/FiscalBr.NET</PackageProjectUrl>
+    <Authors>orochasamuel sroliveira</Authors>
+    <Company>orochasamuel sroliveira</Company>
+    <PackageProjectUrl>https://github.com/orochasamuel/fiscalbr.net</PackageProjectUrl>
     <SignAssembly>false</SignAssembly>
     <PackageTags>fiscalbr dimob</PackageTags>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <Copyright>Copyright ₢ 2020 Samuel Rocha de Oliveira</Copyright>
+    <Copyright>Copyright ₢ 2021 Samuel Rocha de Oliveira</Copyright>
     <Product>FiscalBr Dimob</Product>
     <Description>Biblioteca para geração do arquivo DIMOB</Description>
-    <Version>1.0.3</Version>
-    <PackageReleaseNotes>- Alteração no Header e no Trailer para incluir os espaços em branco.</PackageReleaseNotes>
+    <Version>2.0.0</Version>
+    <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
