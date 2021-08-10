@@ -7,19 +7,19 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{5C2A527E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{735BA9C1-6C1A-46C1-A778-C0EDF3CB7B24}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Dimob", "FiscalBr.Dimob\FiscalBr.Dimob.csproj", "{DC44AD0F-11C3-4A89-BF61-978D736AE6D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Dimob", "src\FiscalBr.Dimob\FiscalBr.Dimob.csproj", "{DC44AD0F-11C3-4A89-BF61-978D736AE6D7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Common", "FiscalBr.Common\FiscalBr.Common.csproj", "{894EE71E-A312-4829-A577-2C67F1807F11}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Common", "src\FiscalBr.Common\FiscalBr.Common.csproj", "{894EE71E-A312-4829-A577-2C67F1807F11}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Sintegra", "FiscalBr.Sintegra\FiscalBr.Sintegra.csproj", "{79DF89B3-4320-4EBD-8CE0-CA71DDAADD71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Sintegra", "src\FiscalBr.Sintegra\FiscalBr.Sintegra.csproj", "{79DF89B3-4320-4EBD-8CE0-CA71DDAADD71}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.EFDContribuicoes", "FiscalBr.EFDContribuicoes\FiscalBr.EFDContribuicoes.csproj", "{39E2E5E4-9E1F-4851-9C3D-3682F5745B0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.EFDContribuicoes", "src\FiscalBr.EFDContribuicoes\FiscalBr.EFDContribuicoes.csproj", "{39E2E5E4-9E1F-4851-9C3D-3682F5745B0A}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.EFDFiscal", "FiscalBr.EFDFiscal\FiscalBr.EFDFiscal.csproj", "{364FF184-CB48-4B25-8509-0A309EF3D3AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.EFDFiscal", "src\FiscalBr.EFDFiscal\FiscalBr.EFDFiscal.csproj", "{364FF184-CB48-4B25-8509-0A309EF3D3AF}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.ECF", "FiscalBr.ECF\FiscalBr.ECF.csproj", "{249CEE6E-0C57-467D-8DCB-4D30CE6435EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.ECF", "src\FiscalBr.ECF\FiscalBr.ECF.csproj", "{249CEE6E-0C57-467D-8DCB-4D30CE6435EE}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Tests", "FiscalBr.Tests\FiscalBr.Tests.csproj", "{F2F1AD76-EEB3-41B1-91B2-50F84CD46101}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FiscalBr.Tests", "src\FiscalBr.Tests\FiscalBr.Tests.csproj", "{F2F1AD76-EEB3-41B1-91B2-50F84CD46101}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
