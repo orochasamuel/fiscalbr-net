@@ -8,7 +8,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2019 - para gera
 
 - [ ] Implementar Factory Pattern.
 - [ ] Mapear enums restantes do SPED.
-- [ ] Implementar leitura dos layouts. (Implementado completamente SPED Fiscal e Contribuições)
+- [x] Implementar leitura dos layouts. (Implementado completamente SPED Fiscal e Contribuições)
 - [ ] Melhorar performance na geração das linhas.
 
 ## Apoiadores [![Donate](https://img.shields.io/badge/apoia.se-FiscalBr-green)](https://apoia.se/fiscalbr)
