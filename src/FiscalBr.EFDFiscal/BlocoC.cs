@@ -29,7 +29,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
-            [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 15)]
             public IndMovimento IndMov { get; set; }
 
             public List<RegistroC100> RegC100s { get; set; }
@@ -62,7 +62,7 @@ namespace FiscalBr.EFDFiscal
             ///     0 - Entrada;
             ///     1 - Saída.
             /// </summary>
-            [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 15)]
             public int IndOper { get; set; }
 
             /// <summary>
@@ -70,7 +70,7 @@ namespace FiscalBr.EFDFiscal
             ///     0 - Emissão própria;
             ///     1 - Terceiros;
             /// </summary>
-            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 15)]
             public int IndEmit { get; set; }
 
             /// <summary>
@@ -78,55 +78,55 @@ namespace FiscalBr.EFDFiscal
             ///     - do emitente do documento ou do remetente das mercadorias, no caso de entradas;
             ///     - do adquirente, no caso de saídas.
             /// </summary>
-            [SpedCampos(4, "COD_PART", "C", 60, 0, false)]
+            [SpedCampos(4, "COD_PART", "C", 60, 0, false, 15)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
             /// </summary>
-            [SpedCampos(5, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
-            [SpedCampos(6, "COD_SIT", "N", 2, 0, true)]
+            [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 15)]
             public int CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(7, "SER", "C", 3, 0, false)]
+            [SpedCampos(7, "SER", "C", 3, 0, false, 15)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
             /// </summary>
-            [SpedCampos(8, "NUM_DOC", "N", 9, 0, true)]
+            [SpedCampos(8, "NUM_DOC", "N", 9, 0, true, 15)]
             public string NumDoc { get; set; }
 
             /// <summary>
             ///     Chave da nota fiscal eletrônica
             /// </summary>
-            [SpedCampos(9, "CHV_NFE", "N", 44, 0, false)]
+            [SpedCampos(9, "CHV_NFE", "N", 44, 0, false, 15)]
             public string ChvNfe { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(10, "DT_DOC", "N", 8, 0, false)]
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, false, 15)]
             public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada ou da saída
             /// </summary>
-            [SpedCampos(11, "DT_E_S", "N", 8, 0, false)]
+            [SpedCampos(11, "DT_E_S", "N", 8, 0, false, 15)]
             public DateTime? DtEs { get; set; }
 
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(12, "VL_DOC", "N", 0, 2, false)]
+            [SpedCampos(12, "VL_DOC", "N", 0, 2, false, 15)]
             public decimal? VlDoc { get; set; }
 
             /// <summary>
@@ -136,26 +136,26 @@ namespace FiscalBr.EFDFiscal
             ///     2 - Outros (a partir de 01/07/2012).
             ///     9 - Sem pagamento (até 30/06/2012).
             /// </summary>
-            [SpedCampos(13, "IND_PGTO", "C", 1, 0, false)]
+            [SpedCampos(13, "IND_PGTO", "C", 1, 0, false, 15)]
             public int? IndPgto { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(14, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal? VlDesc { get; set; }
 
             /// <summary>
             ///     Abatimento não tributado e não comercial.
             ///     Ex.: desconto ICMS nas remessas para ZFM.
             /// </summary>
-            [SpedCampos(15, "VL_ABAT_NT", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_ABAT_NT", "N", 0, 2, false, 15)]
             public decimal? VlAbatNt { get; set; }
 
             /// <summary>
             ///     Valor total das mercadorias e serviços
             /// </summary>
-            [SpedCampos(16, "VL_MERC", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_MERC", "N", 0, 2, false, 15)]
             public decimal? VlMerc { get; set; }
 
             /// <summary>
@@ -165,79 +165,79 @@ namespace FiscalBr.EFDFiscal
             ///     2 - Por conta de terceiros;
             ///     9 - Sem cobrança de frete.
             /// </summary>
-            [SpedCampos(17, "IND_FRT", "C", 1, 0, false)]
+            [SpedCampos(17, "IND_FRT", "C", 1, 0, false, 15)]
             public int? IndFrt { get; set; }
 
             /// <summary>
             ///     Valor do frete indicado no documento fiscal
             /// </summary>
-            [SpedCampos(18, "VL_FRT", "N", 0, 2, false)]
+            [SpedCampos(18, "VL_FRT", "N", 0, 2, false, 15)]
             public decimal? VlFrt { get; set; }
 
             /// <summary>
             ///     Valor do seguro indicado no documento fiscal
             /// </summary>
-            [SpedCampos(19, "VL_SEG", "N", 0, 2, false)]
+            [SpedCampos(19, "VL_SEG", "N", 0, 2, false, 15)]
             public decimal? VlSeg { get; set; }
 
             /// <summary>
             ///     Valor de outras despesas acessórias
             /// </summary>
-            [SpedCampos(20, "VL_OUT_DA", "N", 0, 2, false)]
+            [SpedCampos(20, "VL_OUT_DA", "N", 0, 2, false, 15)]
             public decimal? VlOutDa { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(21, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(21, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal? VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS
             /// </summary>
-            [SpedCampos(22, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(22, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal? VlIcms { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(23, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(23, "VL_BC_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal? VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS retido por substituição tributária
             /// </summary>
-            [SpedCampos(24, "VL_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(24, "VL_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal? VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor total do IPI
             /// </summary>
-            [SpedCampos(25, "VL_IPI", "N", 0, 2, false)]
+            [SpedCampos(25, "VL_IPI", "N", 0, 2, false, 15)]
             public decimal? VlIpi { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
-            [SpedCampos(26, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(26, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
-            [SpedCampos(27, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(27, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Valor total do PIS retido por substituição tributária
             /// </summary>
-            [SpedCampos(28, "VL_PIS_ST", "N", 0, 2, false)]
+            [SpedCampos(28, "VL_PIS_ST", "N", 0, 2, false, 15)]
             public decimal? VlPisSt { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS retido por substituição tributária
             /// </summary>
-            [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false)]
+            [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false, 15)]
             public decimal? VlCofinsSt { get; set; }
 
             public RegistroC101 RegC101 { get; set; }
@@ -272,19 +272,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total relativo ao Fundo de Combate à Pobreza (FCP) da UF de destino
             /// </summary>
-            [SpedCampos(2, "VL_FCP_UF_DEST", "N", 0, 2, true)]
+            [SpedCampos(2, "VL_FCP_UF_DEST", "N", 0, 2, true, 15)]
             public decimal VlFcpUfDest { get; set; }
 
             /// <summary>
             ///     Valor total do ICMS Interestadual para a UF de destino
             /// </summary>
-            [SpedCampos(3, "VL_ICMS_UF_DEST", "N", 0, 2, true)]
+            [SpedCampos(3, "VL_ICMS_UF_DEST", "N", 0, 2, true, 15)]
             public decimal VlIcmsUfDest { get; set; }
 
             /// <summary>
             ///     Valor total do ICMS Interestadual para a UF do remetente
             /// </summary>
-            [SpedCampos(4, "VL_ICMS_UF_REM", "N", 0, 2, true)]
+            [SpedCampos(4, "VL_ICMS_UF_REM", "N", 0, 2, true, 15)]
             public decimal VlIcmsUfRem { get; set; }
         }
 
@@ -309,13 +309,13 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Leasing de veículos ou faturamento direto.
             /// </remarks>
-            [SpedCampos(2, "OPER", "N", 1, 0, true)]
+            [SpedCampos(2, "OPER", "N", 1, 0, true, 15)]
             public IndTipoOperacaoStUfDiversa Oper { get; set; }
 
             /// <summary>
             ///     Sigla da UF de destino do ICMS_ST
             /// </summary>
-            [SpedCampos(3, "UF", "C", 2, 0, true)]
+            [SpedCampos(3, "UF", "C", 2, 0, true, 15)]
             public string Uf { get; set; }
         }
 
@@ -335,13 +335,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da informação complementar do documento fiscal (campo 02 do Registro 0450)
             /// </summary>
-            [SpedCampos(2, "COD_INF", "C", 6, 0, true)]
+            [SpedCampos(2, "COD_INF", "C", 6, 0, true, 15)]
             public string CodInf { get; set; }
 
             /// <summary>
             ///     Descrição complementar do código de referência
             /// </summary>
-            [SpedCampos(3, "TXT_COMPL", "C", 999, 0, false)]
+            [SpedCampos(3, "TXT_COMPL", "C", 999, 0, false, 15)]
             public string TxtCompl { get; set; }
 
             public List<RegistroC111> RegC111s { get; set; }
@@ -368,7 +368,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Identificação do processo ou ato concessório.
             /// </summary>
-            [SpedCampos(2, "NUM_PROC", "C", 15, 0, true)]
+            [SpedCampos(2, "NUM_PROC", "C", 15, 0, true, 15)]
             public string NumProc { get; set; }
 
             /// <summary>
@@ -379,7 +379,7 @@ namespace FiscalBr.EFDFiscal
             ///     3 - SECEX/SRF;
             ///     9 - Outros.
             /// </summary>
-            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true, 15)]
             public int IndProc { get; set; }
         }
 
@@ -401,43 +401,43 @@ namespace FiscalBr.EFDFiscal
             ///     0 - documento estadual de arrecadação
             ///     1 - GNRE
             /// </summary>
-            [SpedCampos(2, "COD_DA", "C", 1, 0, true)]
+            [SpedCampos(2, "COD_DA", "C", 1, 0, true, 15)]
             public int CodDa { get; set; }
 
             /// <summary>
             ///     Unidade federada beneficiária do recolhimento
             /// </summary>
-            [SpedCampos(3, "UF", "C", 2, 0, true)]
+            [SpedCampos(3, "UF", "C", 2, 0, true, 15)]
             public string Uf { get; set; }
 
             /// <summary>
             ///     Número do documento de arrecadação
             /// </summary>
-            [SpedCampos(4, "NUM_DA", "C", 999, 0, false)]
+            [SpedCampos(4, "NUM_DA", "C", 999, 0, false, 15)]
             public string NumDa { get; set; }
 
             /// <summary>
             ///     Código completo da autenticação bancária
             /// </summary>
-            [SpedCampos(5, "COD_AUT", "C", 999, 0, false)]
+            [SpedCampos(5, "COD_AUT", "C", 999, 0, false, 15)]
             public string Cod_Aut { get; set; }
 
             /// <summary>
             ///     Valor do total do documento de arrecadação (principal, atualização monetária, juros e multa)
             /// </summary>
-            [SpedCampos(6, "VL_DA", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_DA", "N", 0, 2, true, 15)]
             public decimal VlDa { get; set; }
 
             /// <summary>
             ///     Data de vencimento do documento de arrecadação
             /// </summary>
-            [SpedCampos(6, "DT_VCTO", "N", 8, 0, true)]
+            [SpedCampos(6, "DT_VCTO", "N", 8, 0, true, 15)]
             public DateTime DtVcto { get; set; }
 
             /// <summary>
             ///     Data de pagamento do documento de arrecadação ou data do vencimento, no caso de ICMS antecipado a recolher.
             /// </summary>
-            [SpedCampos(7, "DT_PGTO", "N", 8, 0, true)]
+            [SpedCampos(7, "DT_PGTO", "N", 8, 0, true, 15)]
             public DateTime DtPgto { get; set; }
         }
 
@@ -459,7 +459,7 @@ namespace FiscalBr.EFDFiscal
             ///     0 - Entrada/aquisição
             ///     1 - Saída/prestação
             /// </summary>
-            [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 15)]
             public int IndOper { get; set; }
 
             /// <summary>
@@ -467,49 +467,49 @@ namespace FiscalBr.EFDFiscal
             ///     0 - Emissão própria
             ///     1 - Terceiros
             /// </summary>
-            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 15)]
             public int IndEmit { get; set; }
 
             /// <summary>
             ///     Código do participante emitente do documento referenciado
             /// </summary>
-            [SpedCampos(4, "COD_PART", "C", 60, 0, true)]
+            [SpedCampos(4, "COD_PART", "C", 60, 0, true, 15)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Código do documento fiscal
             /// </summary>
-            [SpedCampos(5, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(6, "SER", "C", 4, 0, false)]
+            [SpedCampos(6, "SER", "C", 4, 0, false, 15)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Subsérie do documento fiscal
             /// </summary>
-            [SpedCampos(7, "SUB", "C", 3, 0, false)]
+            [SpedCampos(7, "SUB", "C", 3, 0, false, 15)]
             public string Sub { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
             /// </summary>
-            [SpedCampos(8, "NUM_DOC", "N", 9, 0, true)]
+            [SpedCampos(8, "NUM_DOC", "N", 9, 0, true, 15)]
             public string NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(9, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(9, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Chave de acesso do documento fiscal
             /// </summary>
-            [SpedCampos(10, "CHV_DOCe", "C", 44, 0, false)]
+            [SpedCampos(10, "CHV_DOCe", "C", 44, 0, false, 15)]
             public string ChvDoc { get; set; }
 
 
@@ -531,31 +531,31 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Número de série de fabricação do ECF
             /// </summary>
-            [SpedCampos(3, "ECF_FAB", "C", 21, 0, true)]
+            [SpedCampos(3, "ECF_FAB", "C", 21, 0, true, 15)]
             public string EcfFab { get; set; }
 
             /// <summary>
             ///     Número do caixa atribuído ao ECF
             /// </summary>
-            [SpedCampos(4, "ECF_CX", "N", 3, 0, true)]
+            [SpedCampos(4, "ECF_CX", "N", 3, 0, true, 15)]
             public int EcfCx { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
             /// </summary>
-            [SpedCampos(5, "NUM_DOC", "N", 9, 0, true)]
+            [SpedCampos(5, "NUM_DOC", "N", 9, 0, true, 15)]
             public string NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(6, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(6, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
         }
 
@@ -584,55 +584,55 @@ namespace FiscalBr.EFDFiscal
             ///     5 - Aéreo;
             ///     9 - Outros.
             /// </remarks>
-            [SpedCampos(2, "IND_CARGA", "N", 1, 0, true)]
+            [SpedCampos(2, "IND_CARGA", "N", 1, 0, true, 15)]
             public IndTipoTransporte IndCarga { get; set; }
 
             /// <summary>
             ///     Número do CNPJ do contribuinte do local de coleta
             /// </summary>
-            [SpedCampos(3, "CNPJ_COL", "N", 14, 0, false)]
+            [SpedCampos(3, "CNPJ_COL", "N", 14, 0, false, 15)]
             public string CnpjCol { get; set; }
 
             /// <summary>
             ///     Inscrição estadual do contribuinte do local de coleta
             /// </summary>
-            [SpedCampos(4, "IE_COL", "C", 14, 0, false)]
+            [SpedCampos(4, "IE_COL", "C", 14, 0, false, 15)]
             public string IeCol { get; set; }
 
             /// <summary>
             ///     CPF do contribuinte do local de coleta das mercadorias
             /// </summary>
-            [SpedCampos(5, "CPF_COL", "N", 11, 0, false)]
+            [SpedCampos(5, "CPF_COL", "N", 11, 0, false, 15)]
             public string CpfCol { get; set; }
 
             /// <summary>
             ///     Código do município do local de coleta
             /// </summary>
-            [SpedCampos(6, "COD_MUN_COL", "N", 7, 0, false)]
+            [SpedCampos(6, "COD_MUN_COL", "N", 7, 0, false, 15)]
             public string CodMunCol { get; set; }
 
             /// <summary>
             ///     Número do CNPJ do contribuinte do local de entrega
             /// </summary>
-            [SpedCampos(7, "CNPJ_ENTG", "N", 14, 0, false)]
+            [SpedCampos(7, "CNPJ_ENTG", "N", 14, 0, false, 15)]
             public string CnpjEntg { get; set; }
 
             /// <summary>
             ///     Inscrição estadual do contribuinte do local de entrega
             /// </summary>
-            [SpedCampos(8, "IE_ENTG", "C", 14, 0, false)]
+            [SpedCampos(8, "IE_ENTG", "C", 14, 0, false, 15)]
             public string IeEntg { get; set; }
 
             /// <summary>
             ///     CPF do contribuinte do local de entrega
             /// </summary>
-            [SpedCampos(9, "CPF_ENTG", "N", 11, 0, false)]
+            [SpedCampos(9, "CPF_ENTG", "N", 11, 0, false, 15)]
             public string CpfEntg { get; set; }
 
             /// <summary>
             ///     Código do município do local de entrega
             /// </summary>
-            [SpedCampos(10, "COD_MUN_ENTG", "N", 7, 0, false)]
+            [SpedCampos(10, "COD_MUN_ENTG", "N", 7, 0, false, 15)]
             public string CodMunEntg { get; set; }
         }
 
@@ -655,25 +655,25 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     Preenchimento: Deve corresponder ao código do Cupom Fiscal Eletrônico (59).
             /// </remarks>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Número de série do equipamento SAT
             /// </summary>
-            [SpedCampos(3, "NR_SAT", "N", 9, 0, true)]
+            [SpedCampos(3, "NR_SAT", "N", 9, 0, true, 15)]
             public string NrSat { get; set; }
 
             /// <summary>
             ///     Chave do cupom fiscal eletrônico
             /// </summary>
-            [SpedCampos(4, "CHV_CFE", "N", 44, 0, true)]
+            [SpedCampos(4, "CHV_CFE", "N", 44, 0, true, 15)]
             public string ChvCfe { get; set; }
 
             /// <summary>
             ///     Número do cupom fiscal eletrônico
             /// </summary>
-            [SpedCampos(5, "NUM_CFE", "N", 6, 0, true)]
+            [SpedCampos(5, "NUM_CFE", "N", 6, 0, true, 15)]
             public int NumCfe { get; set; }
 
             /// <summary>
@@ -682,7 +682,7 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     Preenchimento: Informar a data de emissão do documento, no formato "ddmmaaaa".
             /// </remarks>
-            [SpedCampos(6, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(6, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
         }
 
@@ -707,31 +707,31 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Declaração Simplificada de Importação
             /// </remarks>
-            [SpedCampos(2, "COD_DOC_IMP", "C", 1, 0, true)]
+            [SpedCampos(2, "COD_DOC_IMP", "C", 1, 0, true, 15)]
             public int CodDocImp { get; set; }
 
             /// <summary>
             ///     Número do documento de importação
             /// </summary>
-            [SpedCampos(3, "NUM_DOC_IMP", "C", 12, 0, true)]
+            [SpedCampos(3, "NUM_DOC_IMP", "C", 12, 0, true, 15)]
             public string NumDocImp { get; set; }
 
             /// <summary>
             ///     Valor pago de PIS na importação
             /// </summary>
-            [SpedCampos(4, "PIS_IMP", "N", 0, 2, false)]
+            [SpedCampos(4, "PIS_IMP", "N", 0, 2, false, 15)]
             public decimal PisImp { get; set; }
 
             /// <summary>
             ///     Valor pago de COFINS na importação
             /// </summary>
-            [SpedCampos(5, "COFINS_IMP", "N", 0, 2, false)]
+            [SpedCampos(5, "COFINS_IMP", "N", 0, 2, false, 15)]
             public decimal CofinsImp { get; set; }
 
             /// <summary>
             ///     Número do Ato Concessório do regime Drawback
             /// </summary>
-            [SpedCampos(6, "NUM_ACDRAW", "C", 20, 0, false)]
+            [SpedCampos(6, "NUM_ACDRAW", "C", 20, 0, false, 15)]
             public string NumAcDraw { get; set; }
         }
 
@@ -751,43 +751,43 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor dos serviços sob não-incidência ou não tributados pelo ICMS
             /// </summary>
-            [SpedCampos(2, "VL_SERV_NT", "N", 0, 2, true)]
+            [SpedCampos(2, "VL_SERV_NT", "N", 0, 2, true, 15)]
             public decimal VlServNt { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ISSQN
             /// </summary>
-            [SpedCampos(3, "VL_BC_ISSQN", "N", 0, 2, true)]
+            [SpedCampos(3, "VL_BC_ISSQN", "N", 0, 2, true, 15)]
             public decimal VlBcIssqn { get; set; }
 
             /// <summary>
             ///     Valor do ISSQN
             /// </summary>
-            [SpedCampos(4, "VL_ISSQN", "N", 0, 2, false)]
+            [SpedCampos(4, "VL_ISSQN", "N", 0, 2, false, 15)]
             public decimal VlIssqn { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do imposto de renda retido na fonte
             /// </summary>
-            [SpedCampos(5, "VL_BC_IRRF", "N", 0, 2, false)]
+            [SpedCampos(5, "VL_BC_IRRF", "N", 0, 2, false, 15)]
             public decimal VlBcIrrf { get; set; }
 
             /// <summary>
             ///     Valor do imposto de renda retido na fonte
             /// </summary>
-            [SpedCampos(6, "VL_IRRF", "N", 0, 2, false)]
+            [SpedCampos(6, "VL_IRRF", "N", 0, 2, false, 15)]
             public decimal VlIrrf { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo de retenção da previdência social
             /// </summary>
-            [SpedCampos(7, "VL_BC_PREV", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_BC_PREV", "N", 0, 2, false, 15)]
             public decimal VlBcPrev { get; set; }
 
             /// <summary>
             ///     Valor destacado para retenção da previdência social
             /// </summary>
-            [SpedCampos(8, "VL_PREV", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_PREV", "N", 0, 2, false, 15)]
             public decimal VlPrev { get; set; }
         }
 
@@ -812,7 +812,7 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Terceiros.
             /// </remarks>
-            [SpedCampos(2, "IND_EMIT", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_EMIT", "C", 1, 0, true, 15)]
             public int IndEmit { get; set; }
 
             /// <summary>
@@ -829,31 +829,31 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     99 - Outros (descrever)
             /// </remarks>
-            [SpedCampos(3, "IND_TIT", "C", 2, 0, true)]
+            [SpedCampos(3, "IND_TIT", "C", 2, 0, true, 15)]
             public int IndTit { get; set; }
 
             /// <summary>
             ///     Descrição complementar do título de crédito
             /// </summary>
-            [SpedCampos(4, "DESC_TIT", "C", 999, 0, false)]
+            [SpedCampos(4, "DESC_TIT", "C", 999, 0, false, 15)]
             public string DescTit { get; set; }
 
             /// <summary>
             ///     Número ou código identificador do título de crédito
             /// </summary>
-            [SpedCampos(5, "NUM_TIT", "C", 999, 0, true)]
+            [SpedCampos(5, "NUM_TIT", "C", 999, 0, true, 15)]
             public string NumTit { get; set; }
 
             /// <summary>
             ///     Quantidade de parcelas a receber/pagar
             /// </summary>
-            [SpedCampos(6, "QTD_PARC", "N", 2, 0, true)]
+            [SpedCampos(6, "QTD_PARC", "N", 2, 0, true, 15)]
             public int QtdParc { get; set; }
 
             /// <summary>
             ///     Valor total dos títulos de créditos
             /// </summary>
-            [SpedCampos(7, "VL_TIT", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_TIT", "N", 0, 2, true, 15)]
             public decimal VlTit { get; set; }
 
             public List<RegistroC141> RegC141s { get; set; }
@@ -875,19 +875,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número da parcela a receber/pagar
             /// </summary>
-            [SpedCampos(2, "NUM_PARC", "N", 2, 0, true)]
+            [SpedCampos(2, "NUM_PARC", "N", 2, 0, true, 15)]
             public int NumParc { get; set; }
 
             /// <summary>
             ///     Data de vencimento da parcela
             /// </summary>
-            [SpedCampos(3, "DT_VCTO", "N", 8, 0, true)]
+            [SpedCampos(3, "DT_VCTO", "N", 8, 0, true, 15)]
             public DateTime DtVcto { get; set; }
 
             /// <summary>
             ///     Valor da parcela a receber/pagar
             /// </summary>
-            [SpedCampos(4, "VL_PARC", "N", 0, 2, true)]
+            [SpedCampos(4, "VL_PARC", "N", 0, 2, true, 15)]
             public decimal VlParc { get; set; }
         }
 
@@ -907,37 +907,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do participante transportador, se houver
             /// </summary>
-            [SpedCampos(2, "COD_PART", "C", 60, 0, false)]
+            [SpedCampos(2, "COD_PART", "C", 60, 0, false, 15)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Placa de identificação do veículo automotor
             /// </summary>
-            [SpedCampos(3, "VEIC_ID", "C", 7, 0, false)]
+            [SpedCampos(3, "VEIC_ID", "C", 7, 0, false, 15)]
             public string VeicId { get; set; }
 
             /// <summary>
             ///     Quantidade de volumes transportados
             /// </summary>
-            [SpedCampos(4, "QTD_VOL", "N", int.MaxValue, 0, true)]
+            [SpedCampos(4, "QTD_VOL", "N", int.MaxValue, 0, true, 15)]
             public int QtdVol { get; set; }
 
             /// <summary>
             ///     Peso bruto dos volumes transportados (em Kg)
             /// </summary>
-            [SpedCampos(5, "PESO_BRT", "N", 0, 2, true)]
+            [SpedCampos(5, "PESO_BRT", "N", 0, 2, true, 15)]
             public decimal PesoBrt { get; set; }
 
             /// <summary>
             ///     Peso líquido dos volumes transportados (em Kg)
             /// </summary>
-            [SpedCampos(6, "PESO_LIQ", "N", 0, 2, true)]
+            [SpedCampos(6, "PESO_LIQ", "N", 0, 2, true, 15)]
             public decimal PesoLiq { get; set; }
 
             /// <summary>
             ///     Sigla da UF da placa do veículo
             /// </summary>
-            [SpedCampos(7, "UF_ID", "C", 2, 0, false)]
+            [SpedCampos(7, "UF_ID", "C", 2, 0, false, 15)]
             public string UfId { get; set; }
         }
 
@@ -957,73 +957,73 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do participante transportador, se houver
             /// </summary>
-            [SpedCampos(2, "COD_PART", "C", 60, 0, false)]
+            [SpedCampos(2, "COD_PART", "C", 60, 0, false, 15)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Placa de identificação do veículo
             /// </summary>
-            [SpedCampos(3, "VEIC_ID", "C", 7, 0, true)]
+            [SpedCampos(3, "VEIC_ID", "C", 7, 0, true, 15)]
             public string VeicId { get; set; }
 
             /// <summary>
             ///     Código de autorização fornecido pela SEFAZ (combustíveis)
             /// </summary>
-            [SpedCampos(4, "COD_AUT", "C", 999, 0, false)]
+            [SpedCampos(4, "COD_AUT", "C", 999, 0, false, 15)]
             public string CodAut { get; set; }
 
             /// <summary>
             ///     Número do passe fiscal
             /// </summary>
-            [SpedCampos(5, "NR_PASSE", "C", 999, 0, false)]
+            [SpedCampos(5, "NR_PASSE", "C", 999, 0, false, 15)]
             public string NrPasse { get; set; }
 
             /// <summary>
             ///     Hora da saída das mercadorias
             /// </summary>
-            [SpedCampos(6, "HORA", "H", 6, 0, true)]
+            [SpedCampos(6, "HORA", "H", 6, 0, true, 15)]
             public DateTime Hora { get; set; }
 
             /// <summary>
             ///     Temperatura em graus Celsius utilizada para quantificação do volume de combustível
             /// </summary>
-            [SpedCampos(7, "TEMPER", "N", 0, 1, false)]
+            [SpedCampos(7, "TEMPER", "N", 0, 1, false, 15)]
             public decimal Temper { get; set; }
 
             /// <summary>
             ///     Quantidade de volumes transportados
             /// </summary>
-            [SpedCampos(8, "QTD_VOL", "N", 0, 0, true)]
+            [SpedCampos(8, "QTD_VOL", "N", 0, 0, true, 15)]
             public int QtdVol { get; set; }
 
             /// <summary>
             ///     Peso bruto dos volumes transportados (em Kg)
             /// </summary>
-            [SpedCampos(9, "PESO_BRT", "N", 0, 2, true)]
+            [SpedCampos(9, "PESO_BRT", "N", 0, 2, true, 15)]
             public decimal PesoBrt { get; set; }
 
             /// <summary>
             ///     Peso líquido dos volumes transportados (em Kg)
             /// </summary>
-            [SpedCampos(10, "PESO_LIQ", "N", 0, 2, true)]
+            [SpedCampos(10, "PESO_LIQ", "N", 0, 2, true, 15)]
             public decimal PesoLiq { get; set; }
 
             /// <summary>
             ///     Nome do motorista
             /// </summary>
-            [SpedCampos(11, "NOM_MOT", "C", 60, 0, false)]
+            [SpedCampos(11, "NOM_MOT", "C", 60, 0, false, 15)]
             public string NomMot { get; set; }
 
             /// <summary>
             ///     CPF do motorista
             /// </summary>
-            [SpedCampos(12, "CPF", "N", 11, 0, false)]
+            [SpedCampos(12, "CPF", "N", 11, 0, false, 15)]
             public string Cpf { get; set; }
 
             /// <summary>
             ///     Sigla da UF da placa do veículo
             /// </summary>
-            [SpedCampos(13, "UF_ID", "C", 2, 0, false)]
+            [SpedCampos(13, "UF_ID", "C", 2, 0, false, 15)]
             public string UfId { get; set; }
         }
 
@@ -1043,43 +1043,43 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número sequencial do item no documento fiscal
             /// </summary>
-            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 15)]
             public int NumItem { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Descrição complementar do item como adotado no documento fiscal
             /// </summary>
-            [SpedCampos(4, "DESCR_COMPL", "C", 999, 0, false)]
+            [SpedCampos(4, "DESCR_COMPL", "C", 999, 0, false, 15)]
             public string DescrCompl { get; set; }
 
             /// <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(5, "QTD", "N", 0, 5, true)]
+            [SpedCampos(5, "QTD", "N", 0, 5, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(6, "UNID", "C", 6, 0, true)]
+            [SpedCampos(6, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor total do item (mercadorias ou serviços)
             /// </summary>
-            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Valor do desconto comercial
             /// </summary>
-            [SpedCampos(8, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
@@ -1090,61 +1090,61 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Não
             /// </remarks>
-            [SpedCampos(9, "IND_MOV", "C", 1, 0, true)]
+            [SpedCampos(9, "IND_MOV", "C", 1, 0, true, 15)]
             public IndMovFisicaItem IndMov { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
             /// </summary>
-            [SpedCampos(10, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(10, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação
             /// </summary>
-            [SpedCampos(11, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(11, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Código da natureza da operação
             /// </summary>
-            [SpedCampos(12, "COD_NAT", "C", 10, 0, false)]
+            [SpedCampos(12, "COD_NAT", "C", 10, 0, false, 15)]
             public string CodNat { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(13, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(13, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(14, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(14, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS creditado/debitado
             /// </summary>
-            [SpedCampos(15, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo referente à substituição tributária
             /// </summary>
-            [SpedCampos(16, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_BC_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS da substituição tributária na unidade da federação de destino
             /// </summary>
-            [SpedCampos(17, "ALIQ_ST", "N", 0, 2, false)]
+            [SpedCampos(17, "ALIQ_ST", "N", 0, 2, false, 15)]
             public decimal AliqSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS referente à substituição tributária
             /// </summary>
-            [SpedCampos(18, "VL_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(18, "VL_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
@@ -1155,121 +1155,121 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Decendial
             /// </remarks>
-            [SpedCampos(19, "IND_APUR", "C", 1, 0, false)]
+            [SpedCampos(19, "IND_APUR", "C", 1, 0, false, 15)]
             public IndPeriodoApuracaoIpi? IndApur { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao IPI
             /// </summary>
-            [SpedCampos(20, "CST_IPI", "C", 2, 0, false)]
+            [SpedCampos(20, "CST_IPI", "C", 2, 0, false, 15)]
             public string CstIpi { get; set; }
 
             /// <summary>
             ///     Código de enquadramento legal do IPI
             /// </summary>
-            [SpedCampos(21, "COD_ENQ", "C", 3, 0, false)]
+            [SpedCampos(21, "COD_ENQ", "C", 3, 0, false, 15)]
             public string CodEnq { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do IPI
             /// </summary>
-            [SpedCampos(22, "VL_BC_IPI", "N", 0, 2, false)]
+            [SpedCampos(22, "VL_BC_IPI", "N", 0, 2, false, 15)]
             public decimal? VlBcIpi { get; set; }
 
             /// <summary>
             ///     Alíquota do IPI
             /// </summary>
-            [SpedCampos(23, "ALIQ_IPI", "N", 6, 2, false)]
+            [SpedCampos(23, "ALIQ_IPI", "N", 6, 2, false, 15)]
             public decimal? AliqIpi { get; set; }
 
             /// <summary>
             ///     Valor do IPI creditado/debitado
             /// </summary>
-            [SpedCampos(24, "VL_IPI", "N", 0, 2, false)]
+            [SpedCampos(24, "VL_IPI", "N", 0, 2, false, 15)]
             public decimal? VlIpi { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao PIS
             /// </summary>
-            [SpedCampos(25, "CST_PIS", "N", 2, 0, false)]
+            [SpedCampos(25, "CST_PIS", "N", 2, 0, false, 15)]
             public int? CstPis { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do PIS
             /// </summary>
-            [SpedCampos(26, "VL_BC_PIS", "N", 0, 2, false)]
+            [SpedCampos(26, "VL_BC_PIS", "N", 0, 2, false, 15)]
             public decimal? VlBcPis { get; set; }
 
             /// <summary>
             ///     Alíquota do PIS (em percentual)
             /// </summary>
-            [SpedCampos(27, "ALIQ_PIS", "N", 8, 4, false)]
+            [SpedCampos(27, "ALIQ_PIS", "N", 8, 4, false, 15)]
             public decimal? AliqPis { get; set; }
 
             /// <summary>
             ///     Quantidade - Base de cálculo PIS
             /// </summary>
-            [SpedCampos(28, "QUANT_BC_PIS", "N", 0, 3, false)]
+            [SpedCampos(28, "QUANT_BC_PIS", "N", 0, 3, false, 15)]
             public decimal? QuantBcPis { get; set; }
 
             /// <summary>
             ///     Alíquota do PIS (em reais)
             /// </summary>
-            [SpedCampos(29, "ALIQ_PIS", "N", 0, 4, false)]
+            [SpedCampos(29, "ALIQ_PIS", "N", 0, 4, false, 15)]
             public decimal? AliqPisReais { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(30, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(30, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao COFINS
             /// </summary>
-            [SpedCampos(31, "CST_COFINS", "N", 2, 0, false)]
+            [SpedCampos(31, "CST_COFINS", "N", 2, 0, false, 15)]
             public int? CstCofins { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo da COFINS
             /// </summary>
-            [SpedCampos(32, "VL_BC_COFINS", "N", 0, 2, false)]
+            [SpedCampos(32, "VL_BC_COFINS", "N", 0, 2, false, 15)]
             public decimal? VlBcCofins { get; set; }
 
             /// <summary>
             ///     Alíquota do COFINS (em percentual)
             /// </summary>
-            [SpedCampos(33, "ALIQ_COFINS", "N", 8, 4, false)]
+            [SpedCampos(33, "ALIQ_COFINS", "N", 8, 4, false, 15)]
             public decimal? AliqCofins { get; set; }
 
             /// <summary>
             ///     Quantidade - Base de cálculo COFINS
             /// </summary>
-            [SpedCampos(34, "QUANT_BC_COFINS", "N", 0, 3, false)]
+            [SpedCampos(34, "QUANT_BC_COFINS", "N", 0, 3, false, 15)]
             public decimal? QuantBcCofins { get; set; }
 
             /// <summary>
             ///     Alíquota da COFINS (em reais)
             /// </summary>
-            [SpedCampos(35, "ALIQ_COFINS", "N", 0, 4, false)]
+            [SpedCampos(35, "ALIQ_COFINS", "N", 0, 4, false, 15)]
             public decimal? AliqCofinsReais { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
-            [SpedCampos(36, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(36, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Código da conta analítica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(37, "COD_CTA", "C", 999, 0, false)]
+            [SpedCampos(37, "COD_CTA", "C", 999, 0, false, 15)]
             public string CodCta { get; set; }
 
             /// <summary>
             ///     Valor do abatimento não tributado e não comercial
             /// </summary>
-            [SpedCampos(38, "VL_ABAT_NT", "N", 0, 2, false)]
+            [SpedCampos(38, "VL_ABAT_NT", "N", 0, 2, false, 15)]
             public decimal? VlAbatNt { get; set; }
 
             public List<RegistroC171> RegC171s { get; set; }
@@ -1301,13 +1301,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Tanque onde foi armazenda o combustível
             /// </summary>
-            [SpedCampos(2, "NUM_TANQUE", "C", 3, 0, true)]
+            [SpedCampos(2, "NUM_TANQUE", "C", 3, 0, true, 15)]
             public string NumTanque { get; set; }
 
             /// <summary>
             ///     Quantidade ou volume armazenado
             /// </summary>
-            [SpedCampos(3, "QTDE", "N", 0, 3, true)]
+            [SpedCampos(3, "QTDE", "N", 0, 3, true, 15)]
             public decimal Qtde { get; set; }
         }
 
@@ -1327,19 +1327,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor da base de cálculo do ISSQN
             /// </summary>
-            [SpedCampos(2, "VL_BC_ISSQN", "N", 0, 2, true)]
+            [SpedCampos(2, "VL_BC_ISSQN", "N", 0, 2, true, 15)]
             public decimal VlBcIssqn { get; set; }
 
             /// <summary>
             ///     Alíquota do ISSQN
             /// </summary>
-            [SpedCampos(3, "ALIQ_ISSQN", "N", 6, 2, true)]
+            [SpedCampos(3, "ALIQ_ISSQN", "N", 6, 2, true, 15)]
             public decimal AliqIssqn { get; set; }
 
             /// <summary>
             ///     Valor do ISSQN
             /// </summary>
-            [SpedCampos(4, "VL_ISSQN", "N", 0, 2, true)]
+            [SpedCampos(4, "VL_ISSQN", "N", 0, 2, true, 15)]
             public decimal VlIssqn { get; set; }
         }
 
@@ -1359,25 +1359,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número do lote de fabricação do medicamento
             /// </summary>
-            [SpedCampos(4, "LOTE_MED", "C", 1024, 0, true)]
+            [SpedCampos(4, "LOTE_MED", "C", 1024, 0, true, 15)]
             public string LoteMed { get; set; }
 
             /// <summary>
             ///     Quantidade de item por lote
             /// </summary>
-            [SpedCampos(4, "QTD_ITEM", "N", 0, 3, true)]
+            [SpedCampos(4, "QTD_ITEM", "N", 0, 3, true, 15)]
             public decimal QtdItem { get; set; }
 
             /// <summary>
             ///     Data de fabricação do medicamento
             /// </summary>
-            [SpedCampos(4, "DT_FAB", "N", 8, 0, true)]
+            [SpedCampos(4, "DT_FAB", "N", 8, 0, true, 15)]
             public DateTime DtFab { get; set; }
 
             /// <summary>
             ///     Data de expiração da validade do medicamento
             /// </summary>
-            [SpedCampos(4, "DT_VAL", "N", 8, 0, true)]
+            [SpedCampos(4, "DT_VAL", "N", 8, 0, true, 15)]
             public DateTime DtVal { get; set; }
 
             /// <summary>
@@ -1390,7 +1390,7 @@ namespace FiscalBr.EFDFiscal
             ///     3 - Base de cálculo referente à Lista Positiva
             ///     4 - Base de cálculo referente à Lista Neutra
             /// </remarks>
-            [SpedCampos(4, "IND_MED", "C", 1, 0, true)]
+            [SpedCampos(4, "IND_MED", "C", 1, 0, true, 15)]
             public int IndMed { get; set; }
 
             /// <summary>
@@ -1401,13 +1401,13 @@ namespace FiscalBr.EFDFiscal
             ///     1 - Genérico
             ///     2 - Ético ou de marca
             /// </remarks>
-            [SpedCampos(4, "TP_PROD", "C", 1, 0, true)]
+            [SpedCampos(4, "TP_PROD", "C", 1, 0, true, 15)]
             public int TpProd { get; set; }
 
             /// <summary>
             ///     Valor do preço tabelado ou valor do preço máximo
             /// </summary>
-            [SpedCampos(4, "VL_TAB_MAX", "N", 0, 2, true)]
+            [SpedCampos(4, "VL_TAB_MAX", "N", 0, 2, true, 15)]
             public decimal VlTabMax { get; set; }
         }
 
@@ -1431,13 +1431,13 @@ namespace FiscalBr.EFDFiscal
             ///     0 - Uso permitido
             ///     1 - Uso restrito
             /// </remarks>
-            [SpedCampos(2, "IND_ARM", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_ARM", "C", 1, 0, true, 15)]
             public int IndArm { get; set; }
 
             /// <summary>
             ///     Numeração de série de fabricação da arma
             /// </summary>
-            [SpedCampos(3, "NUM_ARM", "C", 1024, 0, true)]
+            [SpedCampos(3, "NUM_ARM", "C", 1024, 0, true, 15)]
             public string NumArm { get; set; }
 
             /// <summary>
@@ -1445,7 +1445,7 @@ namespace FiscalBr.EFDFiscal
             ///     quantidade de canos, comprimento, tipo de alma, quantidade e sentido das raias e demais elementos que permitam sua
             ///     perfeita identificação
             /// </summary>
-            [SpedCampos(4, "DESCR_COMPL", "C", 1024, 0, true)]
+            [SpedCampos(4, "DESCR_COMPL", "C", 1024, 0, true, 15)]
             public string DescrCompl { get; set; }
         }
 
@@ -1472,25 +1472,25 @@ namespace FiscalBr.EFDFiscal
             ///     3 - Venda da concessionária
             ///     9 - Outros
             /// </remarks>
-            [SpedCampos(2, "IND_VEIC_OPER", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_VEIC_OPER", "C", 1, 0, true, 15)]
             public int IndVeicOper { get; set; }
 
             /// <summary>
             ///     CNPJ da concessionária
             /// </summary>
-            [SpedCampos(3, "CNPJ", "N", 14, 0, false)]
+            [SpedCampos(3, "CNPJ", "N", 14, 0, false, 15)]
             public string Cnpj { get; set; }
 
             /// <summary>
             ///     Sigla da unidade da federação da concessionária
             /// </summary>
-            [SpedCampos(4, "UF", "C", 2, 0, false)]
+            [SpedCampos(4, "UF", "C", 2, 0, false, 15)]
             public string Uf { get; set; }
 
             /// <summary>
             ///     Chassi do veículo
             /// </summary>
-            [SpedCampos(5, "CHASSI_VEIC", "C", 17, 0, true)]
+            [SpedCampos(5, "CHASSI_VEIC", "C", 17, 0, true, 15)]
             public string ChassiVeic { get; set; }
         }
 
@@ -1510,49 +1510,49 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal relativa a última entrada
             /// </summary>
-            [SpedCampos(2, "COD_MOD_ULT_E", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD_ULT_E", "C", 2, 0, true, 15)]
             public string CodModUltE { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal relativa a última entrada
             /// </summary>
-            [SpedCampos(3, "NUM_DOC_ULT_E", "N", 9, 0, true)]
+            [SpedCampos(3, "NUM_DOC_ULT_E", "N", 9, 0, true, 15)]
             public long NumDocUltE { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal relativa a última entrada
             /// </summary>
-            [SpedCampos(4, "SER_ULT_E", "C", 3, 0, false)]
+            [SpedCampos(4, "SER_ULT_E", "C", 3, 0, false, 15)]
             public string SerUltE { get; set; }
 
             /// <summary>
             ///     Data relativa a última entrada da mercadoria
             /// </summary>
-            [SpedCampos(5, "DT_ULT_E", "N", 8, 0, true)]
+            [SpedCampos(5, "DT_ULT_E", "N", 8, 0, true, 15)]
             public DateTime DtUltE { get; set; }
 
             /// <summary>
             ///     Código do participante (do emitente do documento relativa a última entrada)
             /// </summary>
-            [SpedCampos(6, "COD_PART_ULT_E", "C", 60, 0, true)]
+            [SpedCampos(6, "COD_PART_ULT_E", "C", 60, 0, true, 15)]
             public string CodPartUltE { get; set; }
 
             /// <summary>
             ///     Quantidade do item relativa a última entrada
             /// </summary>
-            [SpedCampos(7, "QUANT_ULT_E", "N", 0, 3, true)]
+            [SpedCampos(7, "QUANT_ULT_E", "N", 0, 3, true, 15)]
             public decimal QuantUltE { get; set; }
 
             /// <summary>
             ///     Valor unitário da mercadoria constante na NF relativa a última entrada inclusive despesas acessórias
             /// </summary>
-            [SpedCampos(8, "VL_UNIT_ULT_E", "N", 0, 3, true)]
+            [SpedCampos(8, "VL_UNIT_ULT_E", "N", 0, 3, true, 15)]
             public decimal VlUnitUltE { get; set; }
 
             /// <summary>
             ///     Valor unitário da base de cálculo do imposto pago por substituição
             /// </summary>
-            [SpedCampos(9, "VL_UNIT_BC_ST", "N", 0, 3, true)]
+            [SpedCampos(9, "VL_UNIT_BC_ST", "N", 0, 3, true, 15)]
             public decimal VlUnitBcSt { get; set; }
         }
 
@@ -1572,13 +1572,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do selo de controle do IPI
             /// </summary>
-            [SpedCampos(2, "COD_SELO_IPI", "C", 6, 0, true)]
+            [SpedCampos(2, "COD_SELO_IPI", "C", 6, 0, true, 15)]
             public string CodSeloIpi { get; set; }
 
             /// <summary>
             ///     Quantidade de selo de controle de IPI aplicada
             /// </summary>
-            [SpedCampos(3, "QT_SELO_IPI", "N", 12, 0, true)]
+            [SpedCampos(3, "QT_SELO_IPI", "N", 12, 0, true, 15)]
             public double QtSeloIpi { get; set; }
         }
 
@@ -1598,19 +1598,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da classe de enquadramento do IPI
             /// </summary>
-            [SpedCampos(2, "CL_ENQ", "C", 5, 0, true)]
+            [SpedCampos(2, "CL_ENQ", "C", 5, 0, true, 15)]
             public string ClEnq { get; set; }
 
             /// <summary>
             ///     Valor por unidade padrão de tributação
             /// </summary>
-            [SpedCampos(3, "VL_UNID", "N", 0, 2, true)]
+            [SpedCampos(3, "VL_UNID", "N", 0, 2, true, 15)]
             public decimal VlUnid { get; set; }
 
             /// <summary>
             ///     Quantidade total de produtos na unidade padrão de tributação
             /// </summary>
-            [SpedCampos(4, "QUANT_PAD", "N", 0, 3, true)]
+            [SpedCampos(4, "QUANT_PAD", "N", 0, 3, true, 15)]
             public decimal QuantPad { get; set; }
         }
 
@@ -1630,31 +1630,31 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor da base de cálculo ST na origem/destino em operações interestaduais
             /// </summary>
-            [SpedCampos(2, "BC_ST_ORIG_DEST", "N", 0, 2, true)]
+            [SpedCampos(2, "BC_ST_ORIG_DEST", "N", 0, 2, true, 15)]
             public decimal BcStOrigDest { get; set; }
 
             /// <summary>
             ///     Valor do ICMS-ST a repassar/deduzir em operações interestaduais
             /// </summary>
-            [SpedCampos(3, "ICMS_ST_REP", "N", 0, 2, true)]
+            [SpedCampos(3, "ICMS_ST_REP", "N", 0, 2, true, 15)]
             public decimal IcmsStRep { get; set; }
 
             /// <summary>
             ///     Valor do ICMS-ST a complementar à UF de destino
             /// </summary>
-            [SpedCampos(4, "ICMS_ST_COMPL", "N", 0, 2, false)]
+            [SpedCampos(4, "ICMS_ST_COMPL", "N", 0, 2, false, 15)]
             public decimal IcmsStCompl { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo de retenção em remessa promovida por substituído intermediário
             /// </summary>
-            [SpedCampos(5, "BC_RET", "N", 0, 2, false)]
+            [SpedCampos(5, "BC_RET", "N", 0, 2, false, 15)]
             public decimal BcRet { get; set; }
 
             /// <summary>
             ///     Valor da parcela do imposto retido em remessa promovida por substituído intermediário
             /// </summary>
-            [SpedCampos(6, "ICMS_RET", "N", 0, 2, false)]
+            [SpedCampos(6, "ICMS_RET", "N", 0, 2, false, 15)]
             public decimal IcmsRet { get; set; }
         }
 
@@ -1665,34 +1665,34 @@ namespace FiscalBr.EFDFiscal
                 Reg = "C180";
             }
 
-            [SpedCampos(2, "COD_RESP_RET", "N", 1, 0, true)]
+            [SpedCampos(2, "COD_RESP_RET", "N", 1, 0, true, 15)]
             public int CodRespRet { get; set; }
 
-            [SpedCampos(3, "QUANT_CONV", "N", 9, 6, true)]
+            [SpedCampos(3, "QUANT_CONV", "N", 9, 6, true, 15)]
             public decimal QuantConv { get; set; }
 
-            [SpedCampos(4, "UNID", "C", 100, 0, true)]
+            [SpedCampos(4, "UNID", "C", 100, 0, true, 15)]
             public string Unid { get; set; }
 
-            [SpedCampos(5, "VL_UNIT_CONV", "N", 9, 6, true)]
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 9, 6, true, 15)]
             public decimal VlUnitConv { get; set; }
 
-            [SpedCampos(6, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, true)]
+            [SpedCampos(6, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, true, 15)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
-            [SpedCampos(7, "VL_UNIT_BC_ICMS_ST_CONV", "N", 9, 6, true)]
+            [SpedCampos(7, "VL_UNIT_BC_ICMS_ST_CONV", "N", 9, 6, true, 15)]
             public decimal VlUnitBcIcmsStConv { get; set; }
 
-            [SpedCampos(8, "VL_UNIT_ICMS_ST_CONV", "N", 9, 6, true)]
+            [SpedCampos(8, "VL_UNIT_ICMS_ST_CONV", "N", 9, 6, true, 15)]
             public decimal VlUnitIcmsStConv { get; set; }
 
-            [SpedCampos(9, "VL_UNIT_FCP_ST_CONV", "N", 9, 6, false)]
+            [SpedCampos(9, "VL_UNIT_FCP_ST_CONV", "N", 9, 6, false, 15)]
             public decimal VlUnitFcpStConv { get; set; }
 
-            [SpedCampos(10, "COD_DA", "C", 100, 0, false)]
+            [SpedCampos(10, "COD_DA", "C", 100, 0, false, 15)]
             public int CodDa { get; set; }
 
-            [SpedCampos(11, "NUM_DA", "C", 100, 0, false)]
+            [SpedCampos(11, "NUM_DA", "C", 100, 0, false, 15)]
             public string NumDa { get; set; }
         }
 
@@ -1712,121 +1712,121 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do motivo da restituição ou complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true)]
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true, 15)]
             public int CodMotRestCompl { get; set; }
 
             /// <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true)]
+            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true, 15)]
             public int QuantConv { get; set; }
 
             /// <summary>
             ///    Unidade adotada para informar o campo QUANT_CONV.
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public int Unid { get; set; }
 
             /// <summary>
             ///     Código do modelo do documento fiscal de saída, conforme a tabela indicada no item 4.1.1 
             /// </summary>
-            [SpedCampos(5, "COD_MOD_SAIDA", "C", 2, 0, true)]
+            [SpedCampos(5, "COD_MOD_SAIDA", "C", 2, 0, true, 15)]
             public int CodModSaida { get; set; }
 
             /// <summary>
             ///     Número de série do documento de saída em papel 
             /// </summary>
-            [SpedCampos(6, "SERIE_SAIDA", "C", 3, 0, false)]
+            [SpedCampos(6, "SERIE_SAIDA", "C", 3, 0, false, 15)]
             public int SerieSaida { get; set; }
 
             /// <summary>
             ///    Número de série de fabricação do equipamento ECF 
             /// </summary>
-            [SpedCampos(7, "ECF_FAB_SAIDA", "C", 21, 0, false)]
+            [SpedCampos(7, "ECF_FAB_SAIDA", "C", 21, 0, false, 15)]
             public int EcfFabSaida { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal de saída
             /// </summary>
-            [SpedCampos(8, "NUM_DOC_SAIDA", "N", 9, 0, false)]
+            [SpedCampos(8, "NUM_DOC_SAIDA", "N", 9, 0, false, 15)]
             public int NumDocSaida { get; set; }
 
             /// <summary>
             ///    Chave do documento fiscal eletrônico de saída  
             /// </summary>
-            [SpedCampos(9, "CHV_DFE_SAIDA", "N", 44, 0, false)]
+            [SpedCampos(9, "CHV_DFE_SAIDA", "N", 44, 0, false, 15)]
             public int ChvDfeSaida { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal de saída
             /// </summary>
-            [SpedCampos(10, "DT_DOC_SAIDA", "N", 8, 0, true)]
+            [SpedCampos(10, "DT_DOC_SAIDA", "N", 8, 0, true, 15)]
             public int DtDocSaida { get; set; }
 
             /// <summary>
             ///    Número do item em que foi escriturada a saída em um registro C185, C380, C480 ou C815 quando o contribuinte informar a saída em um arquivo de perfil A.
             /// </summary>
-            [SpedCampos(11, "NUM_ITEM_SAIDA", "N", 3, 0, false)]
+            [SpedCampos(11, "NUM_ITEM_SAIDA", "N", 3, 0, false, 15)]
             public int NumItemSaida { get; set; }
 
             /// <summary>
             ///    Valor unitário da mercadoria, considerando a unidade utilizada para informar o campo “QUANT_CONV”, correspondente ao valor do campo VL_UNIT_CONV, preenchido na ocasião da saída
             /// </summary>
-            [SpedCampos(12, "VL_UNIT_CONV_SAIDA", "N", 0, 6, false)]
+            [SpedCampos(12, "VL_UNIT_CONV_SAIDA", "N", 0, 6, false, 15)]
             public int VlUnitConvSaida { get; set; }
 
             /// <summary>
             ///     Valor médio unitário do ICMS OP, das mercadorias em estoque, correspondente ao valor do campo VL_UNIT_ICMS_OP_ESTOQUE_CONV, preenchido na ocasião da saída
             /// </summary>
-            [SpedCampos(13, "VL_UNIT_ICMS_OP_ESTOQUE_CONV_SAIDA", "N", 0, 6, false)]
+            [SpedCampos(13, "VL_UNIT_ICMS_OP_ESTOQUE_CONV_SAIDA", "N", 0, 6, false, 15)]
             public int VlUnitIcmsOpEstoqueConvSaida { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS ST, incluindo FCP ST, das mercadorias em estoque, correspondente ao valor do campo VL_UNIT_ICMS_ST_ESTOQUE_CONV, preenchido na ocasião da saída
             /// </summary>
-            [SpedCampos(14, "VL_UNIT_ICMS_ST_ESTOQUE_CONV_SAIDA", "N", 0, 6, false)]
+            [SpedCampos(14, "VL_UNIT_ICMS_ST_ESTOQUE_CONV_SAIDA", "N", 0, 6, false, 15)]
             public int VlUnitIcmsStEstoqueConvSaida { get; set; }
 
             /// <summary>
             ///     Valor médio unitário do FCP ST agregado ao ICMS das mercadorias em estoque, correspondente ao valor do campo VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV, preenchido na ocasião da saída
             /// </summary>
-            [SpedCampos(15, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV_SAIDA", "N", 0, 6, false)]
+            [SpedCampos(15, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV_SAIDA", "N", 0, 6, false, 15)]
             public int VlUnitFcpIcmsStEstoqueConvSaida { get; set; }
 
             /// <summary>
             ///     Valor unitário para o ICMS na operação, correspondente ao valor do campo VL_UNIT_ICMS_NA_OPERACAO_CONV, preenchido na ocasião da saída
             /// </summary>
-            [SpedCampos(16, "VL_UNIT_ICMS_NA_OPERACAO_CONV_SAIDA", "N", 0, 6, false)]
+            [SpedCampos(16, "VL_UNIT_ICMS_NA_OPERACAO_CONV_SAIDA", "N", 0, 6, false, 15)]
             public int VlUnitIcmsNaOperacaoConvSaida { get; set; }
 
             /// <summary>
             ///     Valor unitário do ICMS correspondente ao valor do campo VL_UNIT_ICMS_OP_CONV, preenchido na ocasião da saída
             /// </summary>
-            [SpedCampos(17, "VL_UNIT_ICMS_OP_CONV_SAIDA", "N", 0, 6, false)]
+            [SpedCampos(17, "VL_UNIT_ICMS_OP_CONV_SAIDA", "N", 0, 6, false, 15)]
             public int VlUnitIcmsOpConvSaida { get; set; }
 
             /// <summary>
             ///    Valor unitário do total do ICMS ST, incluindo FCP ST, a ser restituído/ressarcido, correspondente ao estorno do complemento apurado na operação de saída.
             /// </summary>
-            [SpedCampos(18, "VL_UNIT_ICMS_ST_CONV_SAIDA", "N", 0, 6, false)]
+            [SpedCampos(18, "VL_UNIT_ICMS_ST_CONV_SAIDA", "N", 0, 6, false, 15)]
             public int VlUnitIcmsStConvSaida { get; set; }
 
             /// <summary>
             ///     Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_REST”, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(19, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(19, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false, 15)]
             public int VlUnitFcpStConvRest { get; set; }
 
             /// <summary>
             ///    Valor unitário do estorno do ressarcimento/restituição, incluindo FCP ST, apurado na operação de saída.
             /// </summary>
-            [SpedCampos(20, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(20, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public int VlUnitIcmsStConvCompl { get; set; }
 
             /// <summary>
             ///   Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_COMPL”, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(21, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(21, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public int VlUnitFcpStConvCompl { get; set; }
         }
 
@@ -1843,55 +1843,55 @@ namespace FiscalBr.EFDFiscal
                 Reg = "C185";
             }
 
-            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 15)]
             public int NumItem { get; set; }
 
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
-            [SpedCampos(4, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(4, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
-            [SpedCampos(5, "CFOP", "C", 4, 0, true)]
+            [SpedCampos(5, "CFOP", "C", 4, 0, true, 15)]
             public string Cfop { get; set; }
 
-            [SpedCampos(6, "COD_MOT_REST_COMPL", "C", 5, 0, true)]
+            [SpedCampos(6, "COD_MOT_REST_COMPL", "C", 5, 0, true, 15)]
             public string CodMotRestCompl { get; set; }
 
-            [SpedCampos(7, "QUANT_CONV", "N", 9, 6, true)]
+            [SpedCampos(7, "QUANT_CONV", "N", 9, 6, true, 15)]
             public decimal QuantConv { get; set; }
 
-            [SpedCampos(8, "UNID", "C", 100, 0, true)]
+            [SpedCampos(8, "UNID", "C", 100, 0, true, 15)]
             public string Unid { get; set; }
 
-            [SpedCampos(9, "VL_UNIT_CONV", "N", 9, 6, true)]
+            [SpedCampos(9, "VL_UNIT_CONV", "N", 9, 6, true, 15)]
             public decimal VlUnitConv { get; set; }
 
-            [SpedCampos(10, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 9, 6, false)]
+            [SpedCampos(10, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 9, 6, false, 15)]
             public decimal VlUnitIcmsNaOperacaoConv { get; set; }
 
-            [SpedCampos(11, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, false)]
+            [SpedCampos(11, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, false, 15)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
-            [SpedCampos(12, "VL_UNIT_BC_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false)]
+            [SpedCampos(12, "VL_UNIT_BC_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false, 15)]
             public decimal VlUnitBcIcmsStEstoqueConv { get; set; }
 
-            [SpedCampos(13, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false)]
+            [SpedCampos(13, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false, 15)]
             public decimal VlUnitIcmsStEstoqueConv { get; set; }
 
-            [SpedCampos(14, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false)]
+            [SpedCampos(14, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false, 15)]
             public decimal VlUnitFcpIcmsStEstoqueConv { get; set; }
 
-            [SpedCampos(15, "VL_UNIT_ICMS_ST_CONV_REST", "N", 9, 6, false)]
+            [SpedCampos(15, "VL_UNIT_ICMS_ST_CONV_REST", "N", 9, 6, false, 15)]
             public decimal VlUnitIcmsStConvRest { get; set; }
 
-            [SpedCampos(16, "VL_UNIT_FCP_ST_CONV_REST", "N", 9, 6, false)]
+            [SpedCampos(16, "VL_UNIT_FCP_ST_CONV_REST", "N", 9, 6, false, 15)]
             public decimal VlUnitFcpStConvRest { get; set; }
 
-            [SpedCampos(17, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 9, 6, false)]
+            [SpedCampos(17, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 9, 6, false, 15)]
             public decimal VlUnitIcmsStConvCompl { get; set; }
 
-            [SpedCampos(18, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 9, 6, false)]
+            [SpedCampos(18, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 9, 6, false, 15)]
             public decimal VlUnitFcpStConvCompl { get; set; }
 
         }
@@ -1911,109 +1911,109 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Número  sequencial do item no documento fiscal de saída
             /// </summary>
-            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 15)]
             public int NumItem { get; set; }
 
             /// <summary>
             ///     Código  do  item  (campo  02  do  Registro 0200)
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public int CodItem { get; set; }
 
             /// <summary>
             ///     Código da Situação Tributária referente ao ICMS no documento fiscal de saída
             /// </summary>
-            [SpedCampos(4, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(4, "CST_ICMS", "N", 3, 0, true, 15)]
             public string CstIcms { get; set; }
 
             /// <summary>
             ///    Código  Fiscal  de  Operação  e  Prestação  no documento fiscal de saída
             /// </summary>
-            [SpedCampos(5, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(5, "CFOP", "N", 4, 0, true, 15)]
             public string Cfop { get; set; }
 
             /// <summary>
             ///     Código do motivo da  restituição ou complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(6, "COD_MOT_REST_COMPL", "C", 5, 0, true)]
+            [SpedCampos(6, "COD_MOT_REST_COMPL", "C", 5, 0, true, 15)]
             public string CodMotRestCompl { get; set; }
 
             /// <summary>
             ///    Quantidade do item no documento fiscal de saída de acordo com as instruções de preenchimento.
             /// </summary>
-            [SpedCampos(7, "QUANT_CONV", "N", 0, 6, true)]
+            [SpedCampos(7, "QUANT_CONV", "N", 0, 6, true, 15)]
             public decimal QuantConv { get; set; }
 
             /// <summary>
             ///     Unidade adotada para informar o campo QUANT_CONV.
             /// </summary>
-            [SpedCampos(8, "UNID", "C", 6, 0, true)]
+            [SpedCampos(8, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Código do modelo do documento fiscal de entrada, conforme a tabela indicada no item 4.1.1 
             /// </summary>
-            [SpedCampos(9, "COD_MOD_ENTRADA", "C", 2, 0, true)]
+            [SpedCampos(9, "COD_MOD_ENTRADA", "C", 2, 0, true, 15)]
             public string CodModEntrada { get; set; }
 
             /// <summary>
             ///    Número de série do documento de entrada em papel
             /// </summary>
-            [SpedCampos(10, "SERIE_ENTRADA", "C", 3, 0, false)]
+            [SpedCampos(10, "SERIE_ENTRADA", "C", 3, 0, false, 15)]
             public string SerieEntrada { get; set; }
 
             /// <summary>
             ///    Número do documento fiscal de entrada
             /// </summary>
-            [SpedCampos(11, "NUM_DOC_ENTRADA", "N", 9, 0, false)]
+            [SpedCampos(11, "NUM_DOC_ENTRADA", "N", 9, 0, false, 15)]
             public decimal NumDocEntrada { get; set; }
 
             /// <summary>
             ///     Chave do documento fiscal eletrônico de entrada 
             /// </summary>
-            [SpedCampos(12, "CHV_DFE_ENTRADA", "N", 44, 0, false)]
+            [SpedCampos(12, "CHV_DFE_ENTRADA", "N", 44, 0, false, 15)]
             public string ChvDfeEntrada { get; set; }
 
             /// <summary>
             ///   Data da emissão do documento fiscal de entrada
             /// </summary>
-            [SpedCampos(13, "DT_DOC_ENTRADA", "N", 8, 0, true)]
+            [SpedCampos(13, "DT_DOC_ENTRADA", "N", 8, 0, true, 15)]
             public string DtDocEntrada { get; set; }
 
             /// <summary>
             ///   Item do documento fiscal de entrada
             /// </summary>
-            [SpedCampos(14, "NUM_ITEM_ENTRADA", "N", 3, 0, true)]
+            [SpedCampos(14, "NUM_ITEM_ENTRADA", "N", 3, 0, true, 15)]
             public string NumItemEntrada { get; set; }
 
             /// <summary>
             ///    Valor unitário da mercadoria, considerando a unidade utilizada para informar o campo “QUANT_CONV”, correspondente ao valor do campo VL_UNIT_CONV, preenchido na ocasião da entrada
             /// </summary>
-            [SpedCampos(15, "VL_UNIT_CONV_ENTRADA", "N", 0, 6, false)]
+            [SpedCampos(15, "VL_UNIT_CONV_ENTRADA", "N", 0, 6, false, 15)]
             public string VlUnitConvEntrada { get; set; }
 
             /// <summary>
             ///   Valor unitário do ICMS correspondente ao valor do campo VL_UNIT_ICMS_OP_CONV,  preenchido na ocasião da entrada
             /// </summary>
-            [SpedCampos(16, "VL_UNIT_ICMS_OP_CONV_ENTRADA", "N", 0, 6, false)]
+            [SpedCampos(16, "VL_UNIT_ICMS_OP_CONV_ENTRADA", "N", 0, 6, false, 15)]
             public string VlUnitIcmsOpConvEntrada { get; set; }
 
             /// <summary>
             ///    Valor unitário da base de cálculo doimposto pago ou retido anteriormentepor substituição, correspondente ao valor do campo VL_UNIT_BC_ICMS_ST_CONV, preenchido na ocasião da entrada
             /// </summary>
-            [SpedCampos(17, "VL_UNIT_BC_ICMS_ST_CONV_ENTRADA", "N", 0, 6, false)]
+            [SpedCampos(17, "VL_UNIT_BC_ICMS_ST_CONV_ENTRADA", "N", 0, 6, false, 15)]
             public string VlUnitBcIcmsStConvEntrada { get; set; }
 
             /// <summary>
             ///    Valor unitário do imposto pago ou retido anteriormente por substituição, inclusive FCP se devido, correspondente ao valor do campo VL_UNIT_ICMS_ST_CONV, preenchido na ocasião da entrada
             /// </summary>
-            [SpedCampos(18, "VL_UNIT_ICMS_ST_CONV_ENTRADA", "N", 0, 6, false)]
+            [SpedCampos(18, "VL_UNIT_ICMS_ST_CONV_ENTRADA", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStConvEntrada { get; set; }
 
             /// <summary>
             ///   Valor unitário do FCP_ST, correspondente ao valor do campo VL_UNIT_FCP_ST_CONV, preenchido na ocasião da entrada
             /// </summary>
-            [SpedCampos(19, "VL_UNIT_FCP_ST_CONV_ENTRADA", "N", 0, 6, false)]
+            [SpedCampos(19, "VL_UNIT_FCP_ST_CONV_ENTRADA", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvEntrada { get; set; }
         }
 
@@ -2033,19 +2033,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária do ICMS
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação do agrupamento de itens
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, true)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, true, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
@@ -2053,54 +2053,54 @@ namespace FiscalBr.EFDFiscal
             ///     correspondente ao somatório do valor das mercadorias, despesas acessórias
             ///     (frete, seguros e outras despesas acessórias), ICMS_ST e IPI.
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor da base de cálculo do ICMS" referente à
             ///     combinação de CST_ICMS, CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS,
             ///     CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor da base de cálculo do ICMS" da substituição
             ///     tributária referente à combinação de CST_ICMS, CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(8, "VL_BC_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_BC_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao valor creditado/debitado do ICMS da substituição
             ///     tributária, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(9, "VL_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(9, "VL_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor não tributado em função da redução da base de cálculo do ICMS, referente
             ///     à combinação de CST_ICMS, CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true)]
+            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true, 15)]
             public decimal VlRedBc { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor do IPI" referente à combinação CST_ICMS, CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(11, "VL_IPI", "N", 0, 2, true)]
+            [SpedCampos(11, "VL_IPI", "N", 0, 2, true, 15)]
             public decimal VlIpi { get; set; }
 
             /// <summary>
             ///     Código da observação do lançamento fiscal
             /// </summary>
-            [SpedCampos(12, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(12, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
 
             public RegistroC191 RegC191 { get; set; }
@@ -2122,19 +2122,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Valor do Fundo de Combate à Pobreza (FCP) vinculado à operação própria, na combinação de CST_ICMS, CFOP ealíquota do ICMS
             /// </summary>
-            [SpedCampos(2, "VL_FCP_OP", "N", 0, 2, false)]
+            [SpedCampos(2, "VL_FCP_OP", "N", 0, 2, false, 15)]
             public decimal VlFcpOp { get; set; }
 
             /// <summary>
             ///    Valor do Fundo de Combate à Pobreza (FCP) vinculado à operação de substituição tributária, na combinação de CST_ICMS, CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(3, "VL_FCP_ST", "N", 0, 2, false)]
+            [SpedCampos(3, "VL_FCP_ST", "N", 0, 2, false, 15)]
             public decimal VlFcpSt { get; set; }
 
             /// <summary>
             ///   Valor relativo ao Fundo de Combate à Pobreza (FCP) retido anteriormente nas operações com SubstituiçãoTributárias, na combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "VL_FCP_RET", "N", 0, 2, false)]
+            [SpedCampos(4, "VL_FCP_RET", "N", 0, 2, false, 15)]
             public decimal VlFcpRet { get; set; }
         }
 
@@ -2154,13 +2154,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da observação do lançamento fiscal
             /// </summary>
-            [SpedCampos(2, "COD_OBS", "C", 6, 0, true)]
+            [SpedCampos(2, "COD_OBS", "C", 6, 0, true, 15)]
             public string CodObs { get; set; }
 
             /// <summary>
             ///     Descrição complementar do código de observação
             /// </summary>
-            [SpedCampos(3, "TXT_COMPL", "C", 999, 0, false)]
+            [SpedCampos(3, "TXT_COMPL", "C", 999, 0, false, 15)]
             public string TxtCompl { get; set; }
 
             public List<RegistroC197> RegC197s { get; set; }
@@ -2182,43 +2182,43 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do ajuste/benefício/incentivo
             /// </summary>
-            [SpedCampos(2, "COD_AJ", "C", 10, 0, true)]
+            [SpedCampos(2, "COD_AJ", "C", 10, 0, true, 15)]
             public string CodAj { get; set; }
 
             /// <summary>
             ///     Descrição complementar do ajuste do documento fiscal
             /// </summary>
-            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 999, 0, false)]
+            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 999, 0, false, 15)]
             public string DescrComplAj { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false)]
+            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Base de cálculo do ICMS ou do ICMS ST
             /// </summary>
-            [SpedCampos(5, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(5, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS ou do ICMS ST
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Outros valores
             /// </summary>
-            [SpedCampos(8, "VL_OUTROS", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_OUTROS", "N", 0, 2, false, 15)]
             public decimal VlOutros { get; set; }
         }
 
@@ -2238,61 +2238,61 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do docuemnto fiscal
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public int CodMod { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(3, "SER", "C", 4, 0, true)]
+            [SpedCampos(3, "SER", "C", 4, 0, true, 15)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Subsérie do documento fiscal
             /// </summary>
-            [SpedCampos(4, "SUB", "C", 3, 0, false)]
+            [SpedCampos(4, "SUB", "C", 3, 0, false, 15)]
             public string Sub { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal inicial
             /// </summary>
-            [SpedCampos(5, "NUM_DOC_INI", "N", 6, 0, true)]
+            [SpedCampos(5, "NUM_DOC_INI", "N", 6, 0, true, 15)]
             public int NumDocIni { get; set; }
 
             /// <summary>
             ///     Número do documento fical final
             /// </summary>
-            [SpedCampos(6, "NUM_DOC_FIN", "N", 6, 0, true)]
+            [SpedCampos(6, "NUM_DOC_FIN", "N", 6, 0, true, 15)]
             public int NumDocFin { get; set; }
 
             /// <summary>
             ///     Data da emissão dos documentos fiscais
             /// </summary>
-            [SpedCampos(7, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(7, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Valor total dos documentos
             /// </summary>
-            [SpedCampos(8, "VL_DOC", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_DOC", "N", 0, 2, true, 15)]
             public decimal VlDoc { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
-            [SpedCampos(9, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(9, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
-            [SpedCampos(10, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(10, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             /// <summary>
             ///     Código da conta analítica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(11, "COD_CTA", "C", 999, 0, false)]
+            [SpedCampos(11, "COD_CTA", "C", 999, 0, false, 15)]
             public string CodCta { get; set; }
 
             public List<RegistroC310> RegC310s { get; set; }
@@ -2315,7 +2315,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número do documento fiscal cancelado
             /// </summary>
-            [SpedCampos(2, "NUM_DOC_CANC", "N", 999, 0, true)]
+            [SpedCampos(2, "NUM_DOC_CANC", "N", 999, 0, true, 15)]
             public int NumDocCanc { get; set; }
         }
 
@@ -2335,51 +2335,51 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária referente  ao ICMS
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal da operação e prestação
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor total acumulado das operações correspondentes à combinação de CST_ICMS, CFOP e alíquota do ICMS, incluídas as
             ///     despesas acessórias e acréscimos
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP, alíquota do ICMS
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor não tributado em função da redução da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP, e
             ///     alíquota do ICMS
             /// </summary>
-            [SpedCampos(8, "VL_RED_BC", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_RED_BC", "N", 0, 2, true, 15)]
             public decimal VlRedBc { get; set; }
 
             /// <summary>
             ///     Código da observação do lançamento fiscal
             /// </summary>
-            [SpedCampos(9, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(9, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
 
             public List<RegistroC321> RegC321s { get; set; }
@@ -2401,55 +2401,55 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade acumulada do item
             /// </summary>
-            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            [SpedCampos(3, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor acumulado do item
             /// </summary>
-            [SpedCampos(5, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Valor do desconto acumulado
             /// </summary>
-            [SpedCampos(6, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(6, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(7, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS debitado
             /// </summary>
-            [SpedCampos(8, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do PIS
             /// </summary>
-            [SpedCampos(9, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(9, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor acumulado da COFINS
             /// </summary>
-            [SpedCampos(10, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(10, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             public RegistroC330 RegC330 { get; set; }
@@ -2471,79 +2471,79 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Código do motivo  da restituição ou complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true)]
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true, 15)]
             public int CodMotRestCompl { get; set; }
 
             /// <summary>
             ///   Quantidade do item 
             /// </summary>
-            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true)]
+            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true, 15)]
             public int QuantConv { get; set; }
 
             /// <summary>
             ///    Unidade adotada para informar o campo QUANT_CONV.
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///    Valor unitário da mercadoria, considerando a  unidade  utilizada  para  informar  o  campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true)]
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true, 15)]
             public string VlUnitConv { get; set; }
 
             /// <summary>
             ///     Valor unitário para o ICMS na operação, caso não houvesse a ST, considerando unidade utilizada para informar o campo “QUANT_CONV”, aplicando-se a mesma redução da base de cálculo do ICMS ST na tributação, se houver.
             /// </summary>
-            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false)]
+            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsNaOperacaoConv { get; set; }
 
             /// <summary>
             ///   Valor unitário do ICMS OP calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”, utilizado para cálculo de ressarcimento/restituição de ST, no desfazimento da substituição tributária, quando se utiliza a fórmula descrita nas instruções de preenchimento do campo 11, no item a1).
             /// </summary>
-            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false)]
+            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS que o contribuinte teria se creditado referente à operação de entrada das mercadorias em estoque caso estivesse submetida ao regime comum de tributação, calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsOpEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS ST, incluindo FCP ST, das mercadorias em estoque, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do FCP ST agregado ao ICMS das mercadorias em estoque, considerando unidade utilizada parainformar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitFcpIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor unitário do total do ICMS ST, incluindo FCP ST, a ser restituído/ressarcido, calculado conforme a legislação de cada  UF,  considerando  a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsStConvRest { get; set; }
 
             /// <summary>
             ///    Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_REST”, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvRest { get; set; }
 
             /// <summary>
             ///   Valor unitário do complemento do ICMS, incluindo FCP ST, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStConvCompl { get; set; }
 
             /// <summary>
             ///   Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_COMPL”, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvCompl { get; set; }
         }
 
@@ -2563,67 +2563,67 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(2, "SER", "C", 4, 0, false)]
+            [SpedCampos(2, "SER", "C", 4, 0, false, 15)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Subsérie do documento fiscal
             /// </summary>
-            [SpedCampos(3, "SUB_SER", "C", 3, 0, false)]
+            [SpedCampos(3, "SUB_SER", "C", 3, 0, false, 15)]
             public string SubSer { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
             /// </summary>
-            [SpedCampos(4, "NUM_DOC", "C", 3, 0, true)]
+            [SpedCampos(4, "NUM_DOC", "C", 3, 0, true, 15)]
             public int NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(5, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(5, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     CNPJ ou CPF do destinatário
             /// </summary>
-            [SpedCampos(6, "CNPJ_CPF", "N", 14, 0, false)]
+            [SpedCampos(6, "CNPJ_CPF", "N", 14, 0, false, 15)]
             public string CnpjCpf { get; set; }
 
             /// <summary>
             ///     Valor das mercadorias constatnes no documento fiscal
             /// </summary>
-            [SpedCampos(7, "VL_MERC", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_MERC", "N", 0, 2, true, 15)]
             public decimal VlMerc { get; set; }
 
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(8, "VL_DOC", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_DOC", "N", 0, 2, true, 15)]
             public decimal VlDoc { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(9, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(9, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
-            [SpedCampos(10, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(10, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
-            [SpedCampos(11, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(11, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             /// <summary>
             ///     Código da conta analítica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(12, "COD_CTA", "C", 999, 0, false)]
+            [SpedCampos(12, "COD_CTA", "C", 999, 0, false, 15)]
             public string CodCta { get; set; }
 
             public List<RegistroC370> RegC370s { get; set; }
@@ -2646,37 +2646,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número sequencial do item no documento fiscal
             /// </summary>
-            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 15)]
             public int NumItem { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 3, true)]
+            [SpedCampos(4, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(5, "UNID", "C", 6, 0, true)]
+            [SpedCampos(5, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor total do item
             /// </summary>
-            [SpedCampos(6, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Valor total do desconto no item
             /// </summary>
-            [SpedCampos(7, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             public RegistroC380 RegC380 { get; set; }
@@ -2699,91 +2699,91 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Código do motivo  da restituição ou complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true)]
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true, 15)]
             public int CodMotRestCompl { get; set; }
 
             /// <summary>
             ///   Quantidade do item 
             /// </summary>
-            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true)]
+            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true, 15)]
             public int QuantConv { get; set; }
 
             /// <summary>
             ///    Unidade adotada para informar o campo QUANT_CONV.
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///    Valor unitário da mercadoria, considerando a  unidade  utilizada  para  informar  o  campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true)]
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true, 15)]
             public string VlUnitConv { get; set; }
 
             /// <summary>
             ///     Valor unitário para o ICMS na operação, caso não houvesse a ST, considerando unidade utilizada para informar o campo “QUANT_CONV”, aplicando-se a mesma redução da base de cálculo do ICMS ST na tributação, se houver.
             /// </summary>
-            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false)]
+            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsNaOperacaoConv { get; set; }
 
             /// <summary>
             ///   Valor unitário do ICMS OP calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”, utilizado para cálculo de ressarcimento/restituição de ST, no desfazimento da substituição tributária, quando se utiliza a fórmula descrita nas instruções de preenchimento do campo 11, no item a1).
             /// </summary>
-            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false)]
+            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS que o contribuinte teria se creditado referente à operação de entrada das mercadorias em estoque caso estivesse submetida ao regime comum de tributação, calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsOpEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS ST, incluindo FCP ST, das mercadorias em estoque, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do FCP ST agregado ao ICMS das mercadorias em estoque, considerando unidade utilizada parainformar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitFcpIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor unitário do total do ICMS ST, incluindo FCP ST, a ser restituído/ressarcido, calculado conforme a legislação de cada  UF,  considerando  a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsStConvRest { get; set; }
 
             /// <summary>
             ///    Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_REST”, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvRest { get; set; }
 
             /// <summary>
             ///   Valor unitário do complemento do ICMS, incluindo FCP ST, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStConvCompl { get; set; }
 
             /// <summary>
             ///   Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_COMPL”, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvCompl { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
             /// </summary>
-            [SpedCampos(15, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(15, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal da operação e prestação
             /// </summary>
-            [SpedCampos(16, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(16, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
         }
 
@@ -2803,51 +2803,51 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal da operação e prestação
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor total acumulado das operações correspondentes à combinação de CST_ICMS, CFOP e alíquota do ICMS, incluídas as
             ///     despesas acessórias e acréscimos
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor não tributado em função da redução da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP e
             ///     alíquota do ICMS
             /// </summary>
-            [SpedCampos(8, "VL_RED_BC", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_RED_BC", "N", 0, 2, false, 15)]
             public decimal VlRedBc { get; set; }
 
             /// <summary>
             ///     Código da observação do lançamento fiscal
             /// </summary>
-            [SpedCampos(9, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(9, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
         }
 
@@ -2867,25 +2867,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Modelo do equipamento
             /// </summary>
-            [SpedCampos(3, "ECF_MOD", "C", 20, 0, true)]
+            [SpedCampos(3, "ECF_MOD", "C", 20, 0, true, 15)]
             public string EcfMod { get; set; }
 
             /// <summary>
             ///     Número de série de fabricação do ECF
             /// </summary>
-            [SpedCampos(4, "ECF_FAB", "C", 21, 0, true)]
+            [SpedCampos(4, "ECF_FAB", "C", 21, 0, true, 15)]
             public string EcfFab { get; set; }
 
             /// <summary>
             ///     Número de caixa atribuído ao ECF
             /// </summary>
-            [SpedCampos(5, "ECF_CX", "N", 3, 0, true)]
+            [SpedCampos(5, "ECF_CX", "N", 3, 0, true, 15)]
             public int EcfCx { get; set; }
 
             public List<RegistroC405> RegC405s { get; set; }
@@ -2907,37 +2907,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data do movimento a que se refere a redução Z
             /// </summary>
-            [SpedCampos(2, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Posição do Contador de Reinício de Operação
             /// </summary>
-            [SpedCampos(3, "CRO", "N", 3, 0, true)]
+            [SpedCampos(3, "CRO", "N", 3, 0, true, 15)]
             public int Cro { get; set; }
 
             /// <summary>
             ///     Posição do Contador de Redução Z
             /// </summary>
-            [SpedCampos(4, "CRZ", "N", 6, 0, true)]
+            [SpedCampos(4, "CRZ", "N", 6, 0, true, 15)]
             public int Crz { get; set; }
 
             /// <summary>
             ///     Número do Contador de Ordem de Operação do último documento emitido no dia (Número do COO na Redução Z)
             /// </summary>
-            [SpedCampos(5, "NUM_COO_FIN", "N", 9, 0, true)]
+            [SpedCampos(5, "NUM_COO_FIN", "N", 9, 0, true, 15)]
             public double NumCoofin { get; set; }
 
             /// <summary>
             ///     Valor do Grante Total Final
             /// </summary>
-            [SpedCampos(6, "GT_FIN", "N", 0, 2, true)]
+            [SpedCampos(6, "GT_FIN", "N", 0, 2, true, 15)]
             public decimal GtFin { get; set; }
 
             /// <summary>
             ///     Valor da venda bruta
             /// </summary>
-            [SpedCampos(7, "VL_BRT", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_BRT", "N", 0, 2, true, 15)]
             public decimal VlBrt { get; set; }
 
             public RegistroC410 RegC410 { get; set; }
@@ -2962,13 +2962,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
-            [SpedCampos(2, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(2, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
-            [SpedCampos(3, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(3, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
         }
 
@@ -2988,26 +2988,26 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do totalizador
             /// </summary>
-            [SpedCampos(2, "COD_TOT_PAR", "C", 7, 0, true)]
+            [SpedCampos(2, "COD_TOT_PAR", "C", 7, 0, true, 15)]
             public string CodTotPar { get; set; }
 
             /// <summary>
             ///     Valor acumulado no totalizador, relativo à respectiva Redução Z
             /// </summary>
-            [SpedCampos(3, "VLR_ACUM_TOT", "N", 0, 2, true)]
+            [SpedCampos(3, "VLR_ACUM_TOT", "N", 0, 2, true, 15)]
             public decimal VlrAcumTot { get; set; }
 
             /// <summary>
             ///     Número do totalizador quando ocorrer mais de uma situação com a mesma carga tributária efetiva
             /// </summary>
-            [SpedCampos(4, "NR_TOT", "BLANK", 2, 0, false)]
+            [SpedCampos(4, "NR_TOT", "BLANK", 2, 0, false, 15)]
             public int? NrTot { get; set; }
 
             /// <summary>
             ///     Descrição da situação tributária relativa ao totalizador parcial, quando houver mais de um com a mesma carga
             ///     tributária efetiva
             /// </summary>
-            [SpedCampos(5, "DESCR_NR_TOT", "C", 999, 0, false)]
+            [SpedCampos(5, "DESCR_NR_TOT", "C", 999, 0, false, 15)]
             public string DescrNrTot { get; set; }
 
             public List<RegistroC425> RegC425s { get; set; }
@@ -3029,37 +3029,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade acumulada do item
             /// </summary>
-            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            [SpedCampos(3, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor acumulado do item
             /// </summary>
-            [SpedCampos(5, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(6, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(6, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Vaor da COFINS
             /// </summary>
-            [SpedCampos(7, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             public List<RegistroC430> RegC430 { get; set; }
@@ -3082,91 +3082,91 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Código do motivo  da restituição ou complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true)]
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true, 15)]
             public int CodMotRestCompl { get; set; }
 
             /// <summary>
             ///   Quantidade do item 
             /// </summary>
-            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true)]
+            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true, 15)]
             public int QuantConv { get; set; }
 
             /// <summary>
             ///    Unidade adotada para informar o campo QUANT_CONV.
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///    Valor unitário da mercadoria, considerando a  unidade  utilizada  para  informar  o  campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true)]
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true, 15)]
             public string VlUnitConv { get; set; }
 
             /// <summary>
             ///     Valor unitário para o ICMS na operação, caso não houvesse a ST, considerando unidade utilizada para informar o campo “QUANT_CONV”, aplicando-se a mesma redução da base de cálculo do ICMS ST na tributação, se houver.
             /// </summary>
-            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false)]
+            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsNaOperacaoConv { get; set; }
 
             /// <summary>
             ///   Valor unitário do ICMS OP calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”, utilizado para cálculo de ressarcimento/restituição de ST, no desfazimento da substituição tributária, quando se utiliza a fórmula descrita nas instruções de preenchimento do campo 11, no item a1).
             /// </summary>
-            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false)]
+            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS que o contribuinte teria se creditado referente à operação de entrada das mercadorias em estoque caso estivesse submetida ao regime comum de tributação, calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsOpEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS ST, incluindo FCP ST, das mercadorias em estoque, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do FCP ST agregado ao ICMS das mercadorias em estoque, considerando unidade utilizada parainformar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitFcpIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor unitário do total do ICMS ST, incluindo FCP ST, a ser restituído/ressarcido, calculado conforme a legislação de cada  UF,  considerando  a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsStConvRest { get; set; }
 
             /// <summary>
             ///    Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_REST”, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvRest { get; set; }
 
             /// <summary>
             ///   Valor unitário do complemento do ICMS, incluindo FCP ST, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStConvCompl { get; set; }
 
             /// <summary>
             ///   Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_COMPL”, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvCompl { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
             /// </summary>
-            [SpedCampos(15, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(15, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal da operação e prestação
             /// </summary>
-            [SpedCampos(16, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(16, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
         }
 
@@ -3186,55 +3186,55 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Código de situação do documento fiscal
             /// </summary>
-            [SpedCampos(3, "COD_SIT", "N", 2, 0, true)]
+            [SpedCampos(3, "COD_SIT", "N", 2, 0, true, 15)]
             public int CodSit { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal (COO)
             /// </summary>
-            [SpedCampos(4, "NUM_DOC", "N", 9, 0, true)]
+            [SpedCampos(4, "NUM_DOC", "N", 9, 0, true, 15)]
             public double NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(5, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(5, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(6, "VL_DOC", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_DOC", "N", 0, 2, true, 15)]
             public decimal VlDoc { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(7, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
-            [SpedCampos(8, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             /// <summary>
             ///     CPF ou CNPJ do adquirente
             /// </summary>
-            [SpedCampos(9, "CPF_CNPJ", "N", 14, 0, false)]
+            [SpedCampos(9, "CPF_CNPJ", "N", 14, 0, false, 15)]
             public string CpfCnpj { get; set; }
 
             /// <summary>
             ///     Nome do adquirente
             /// </summary>
-            [SpedCampos(10, "NOM_ADQ", "C", 60, 0, false)]
+            [SpedCampos(10, "NOM_ADQ", "C", 60, 0, false, 15)]
             public string NomeAdq { get; set; }
 
             public RegistroC465 RegC465 { get; set; }
@@ -3257,13 +3257,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Chave do cupom fiscal eletrônico
             /// </summary>
-            [SpedCampos(2, "CHV_CFE", "N", 44, 0, true)]
+            [SpedCampos(2, "CHV_CFE", "N", 44, 0, true, 15)]
             public string ChvCfe { get; set; }
 
             /// <summary>
             ///     Número do contador de cupom fiscal
             /// </summary>
-            [SpedCampos(3, "NUM_CCF", "N", 9, 0, true)]
+            [SpedCampos(3, "NUM_CCF", "N", 9, 0, true, 15)]
             public double NumCcf { get; set; }
         }
 
@@ -3283,61 +3283,61 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            [SpedCampos(3, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Quantidade cancelada, no caso de cancelamento parcial do item
             /// </summary>
-            [SpedCampos(4, "QTD_CANC", "N", 0, 3, false)]
+            [SpedCampos(4, "QTD_CANC", "N", 0, 3, false, 15)]
             public decimal QtdCanc { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(5, "UNID", "C", 6, 0, true)]
+            [SpedCampos(5, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor total do item
             /// </summary>
-            [SpedCampos(6, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(7, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(7, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação
             /// </summary>
-            [SpedCampos(8, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(8, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS - carga tributária efetiva em percentual
             /// </summary>
-            [SpedCampos(9, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(9, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(10, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(10, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
-            [SpedCampos(11, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(11, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             public RegistroC480 RegC480 { get; set; }
@@ -3359,91 +3359,91 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Código do motivo  da restituição ou complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true)]
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 0, true, 15)]
             public int CodMotRestCompl { get; set; }
 
             /// <summary>
             ///   Quantidade do item 
             /// </summary>
-            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true)]
+            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true, 15)]
             public int QuantConv { get; set; }
 
             /// <summary>
             ///    Unidade adotada para informar o campo QUANT_CONV.
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///    Valor unitário da mercadoria, considerando a  unidade  utilizada  para  informar  o  campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true)]
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true, 15)]
             public string VlUnitConv { get; set; }
 
             /// <summary>
             ///     Valor unitário para o ICMS na operação, caso não houvesse a ST, considerando unidade utilizada para informar o campo “QUANT_CONV”, aplicando-se a mesma redução da base de cálculo do ICMS ST na tributação, se houver.
             /// </summary>
-            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false)]
+            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsNaOperacaoConv { get; set; }
 
             /// <summary>
             ///   Valor unitário do ICMS OP calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”, utilizado para cálculo de ressarcimento/restituição de ST, no desfazimento da substituição tributária, quando se utiliza a fórmula descrita nas instruções de preenchimento do campo 11, no item a1).
             /// </summary>
-            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false)]
+            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS que o contribuinte teria se creditado referente à operação de entrada das mercadorias em estoque caso estivesse submetida ao regime comum de tributação, calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsOpEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS ST, incluindo FCP ST, das mercadorias em estoque, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do FCP ST agregado ao ICMS das mercadorias em estoque, considerando unidade utilizada parainformar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitFcpIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor unitário do total do ICMS ST, incluindo FCP ST, a ser restituído/ressarcido, calculado conforme a legislação de cada  UF,  considerando  a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsStConvRest { get; set; }
 
             /// <summary>
             ///    Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_REST”, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvRest { get; set; }
 
             /// <summary>
             ///   Valor unitário do complemento do ICMS, incluindo FCP ST, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStConvCompl { get; set; }
 
             /// <summary>
             ///   Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_COMPL”, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvCompl { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
             /// </summary>
-            [SpedCampos(15, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(15, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal da operação e prestação
             /// </summary>
-            [SpedCampos(16, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(16, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
         }
 
@@ -3463,44 +3463,44 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor da operação correspondente à combinação de CST_ICMS, CFOP e alíquota do ICMS, incluídas as despesas
             ///     acessórias e acréscimos
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Código da observação do lançamento fiscal
             /// </summary>
-            [SpedCampos(8, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(8, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
         }
 
@@ -3520,85 +3520,85 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(2, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(2, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade acumulada do item
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 3, true)]
+            [SpedCampos(4, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Quantidade cancelada acumulada, no caso de cancelamento parcial do item
             /// </summary>
-            [SpedCampos(5, "QTD_CANC", "N", 0, 3, false)]
+            [SpedCampos(5, "QTD_CANC", "N", 0, 3, false, 15)]
             public decimal QtdCanc { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(6, "UNID", "C", 6, 0, true)]
+            [SpedCampos(6, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor acumulado do item
             /// </summary>
-            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Valor acumulado dos descontos
             /// </summary>
-            [SpedCampos(8, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Valor acumulado dos cancelamentos
             /// </summary>
-            [SpedCampos(9, "VL_CANC", "N", 0, 2, false)]
+            [SpedCampos(9, "VL_CANC", "N", 0, 2, false, 15)]
             public decimal VlCanc { get; set; }
 
             /// <summary>
             ///     Valor acumulado dos acréscimos
             /// </summary>
-            [SpedCampos(10, "VL_ACMO", "N", 0, 2, false)]
+            [SpedCampos(10, "VL_ACMO", "N", 0, 2, false, 15)]
             public decimal VlAcmo { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS
             /// </summary>
-            [SpedCampos(12, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(12, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor das saídas isentas do ICMS
             /// </summary>
-            [SpedCampos(13, "VL_ISEN", "N", 0, 2, false)]
+            [SpedCampos(13, "VL_ISEN", "N", 0, 2, false, 15)]
             public decimal VlIsen { get; set; }
 
             /// <summary>
             ///     Valor das saídas sob não-incidência ou não-tributadas pelo ICMS
             /// </summary>
-            [SpedCampos(14, "VL_NT", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_NT", "N", 0, 2, false, 15)]
             public decimal VlNt { get; set; }
 
             /// <summary>
             ///     Valor das aídas de mercadorias adquiridas com substituição tributária do ICMS
             /// </summary>
-            [SpedCampos(15, "VL_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlIcmsSt { get; set; }
         }
 
@@ -3652,7 +3652,7 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Saída
             /// </remarks>
-            [SpedCampos(2, "IND_OPER", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 15)]
             public IndTipoOperacaoProduto IndOper { get; set; }
 
             /// <summary>
@@ -3663,7 +3663,7 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Terceiros
             /// </remarks>
-            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true)]
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 15)]
             public IndEmitente IndEmit { get; set; }
 
             /// <summary>
@@ -3674,31 +3674,31 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     - do fornecedor no caso de entradas
             /// </remarks>
-            [SpedCampos(4, "COD_PART", "C", 60, 0, true)]
+            [SpedCampos(4, "COD_PART", "C", 60, 0, true, 15)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(5, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal
             /// </summary>
-            [SpedCampos(6, "COD_SIT", "N", 2, 0, true)]
+            [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 15)]
             public IndCodSitDoc CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(7, "SER", "C", 4, 0, false)]
+            [SpedCampos(7, "SER", "C", 4, 0, false, 15)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Subsérie do documento fiscal
             /// </summary>
-            [SpedCampos(8, "SUB", "N", 3, 0, false)]
+            [SpedCampos(8, "SUB", "N", 3, 0, false, 15)]
             public string Sub { get; set; }
 
             /// <summary>
@@ -3723,103 +3723,103 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     - Código de classe de consumo de fornecimento d'água
             /// </remarks>
-            [SpedCampos(9, "COD_CONS", "C", 2, 0, true)]
+            [SpedCampos(9, "COD_CONS", "C", 2, 0, true, 15)]
             public int CodCons { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
             /// </summary>
-            [SpedCampos(10, "NUM_DOC", "N", 9, 0, true)]
+            [SpedCampos(10, "NUM_DOC", "N", 9, 0, true, 15)]
             public long NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(11, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(11, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada ou da saída
             /// </summary>
-            [SpedCampos(12, "DT_E_S", "N", 8, 0, true)]
+            [SpedCampos(12, "DT_E_S", "N", 8, 0, true, 15)]
             public DateTime DtEs { get; set; }
 
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(13, "VL_DOC", "N", 0, 2, true)]
+            [SpedCampos(13, "VL_DOC", "N", 0, 2, true, 15)]
             public decimal VlDoc { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(14, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Valor total fornecido/consumido
             /// </summary>
-            [SpedCampos(15, "VL_FORN", "N", 0, 2, true)]
+            [SpedCampos(15, "VL_FORN", "N", 0, 2, true, 15)]
             public decimal VlForn { get; set; }
 
             /// <summary>
             ///     Valor total dos serviços não-tributados pelo ICMS
             /// </summary>
-            [SpedCampos(16, "VL_SERV_NT", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_SERV_NT", "N", 0, 2, false, 15)]
             public decimal VlServNt { get; set; }
 
             /// <summary>
             ///     Valor total cobrado em nome de terceiros
             /// </summary>
-            [SpedCampos(17, "VL_TERC", "N", 0, 2, false)]
+            [SpedCampos(17, "VL_TERC", "N", 0, 2, false, 15)]
             public decimal VlTerc { get; set; }
 
             /// <summary>
             ///     Valor total das despesas acessórias indicadas no documento fiscal
             /// </summary>
-            [SpedCampos(18, "VL_DA", "N", 0, 2, false)]
+            [SpedCampos(18, "VL_DA", "N", 0, 2, false, 15)]
             public decimal VlDa { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(19, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(19, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS
             /// </summary>
-            [SpedCampos(20, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(20, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(21, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(21, "VL_BC_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS retido por substituição tributária
             /// </summary>
-            [SpedCampos(22, "VL_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(22, "VL_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Código da informação complementar do documento fiscal
             /// </summary>
-            [SpedCampos(23, "COD_INF", "C", 6, 0, false)]
+            [SpedCampos(23, "COD_INF", "C", 6, 0, false, 15)]
             public string CodInf { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(24, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(24, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
-            [SpedCampos(25, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(25, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal? VlCofins { get; set; }
 
             /// <summary>
@@ -3832,7 +3832,7 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     3 - Trifásico
             /// </remarks>
-            [SpedCampos(26, "TP_LIGACAO", "C", 1, 0, false)]
+            [SpedCampos(26, "TP_LIGACAO", "C", 1, 0, false, 15)]
             public int? TpLigacao { get; set; }
 
             /// <summary>
@@ -3859,13 +3859,13 @@ namespace FiscalBr.EFDFiscal
             ///     13 - B4a - Iluminação pública - rede de distribuição
             ///     14 - B4b - Iluminação pública - bulbo de lâmpada
             /// </remarks>
-            [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false)]
+            [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false, 15)]
             public int? CodGrupoTensao { get; set; }
 
             /// <summary>
             ///     Chave da Nota Fiscal de Energia Elétrica Eletrônica
             /// </summary>
-            [SpedCampos(28, "CHV_DOCe", "C", 44, 0, false)]
+            [SpedCampos(28, "CHV_DOCe", "C", 44, 0, false, 15)]
             public string ChvDoce { get; set; }
 
             /// <summary>
@@ -3876,13 +3876,13 @@ namespace FiscalBr.EFDFiscal
             ///     2 – Substituição
             ///     3 – Normal com ajuste
             /// </remarks>
-            [SpedCampos(29, "FIN_DOCe", "C", 1, 0, false)]
+            [SpedCampos(29, "FIN_DOCe", "C", 1, 0, false, 15)]
             public string FinDoce { get; set; }
 
             /// <summary>
             ///     Chave da nota referenciada, substituída.
             /// </summary>
-            [SpedCampos(30, "CHV_DOCe_REF ", "C", 44, 0, false)]
+            [SpedCampos(30, "CHV_DOCe_REF ", "C", 44, 0, false, 15)]
             public string ChvDoceRef { get; set; }
 
             /// <summary>
@@ -3893,19 +3893,19 @@ namespace FiscalBr.EFDFiscal
             ///     2 – Contribuinte Isento de Inscrição no Cadastro de Contribuintes do ICMS;
             ///     9 – Não Contribuinte
             /// </remarks>
-            [SpedCampos(31, "IND_DEST", "C", 1, 0, false)]
+            [SpedCampos(31, "IND_DEST", "C", 1, 0, false, 15)]
             public string IndDest { get; set; }
 
             /// <summary>
             ///     Código do município do destinatário conforme a tabela do IBGE.
             /// </summary>
-            [SpedCampos(32, "COD_MUN_DEST", "C", 7, 0, false)]
+            [SpedCampos(32, "COD_MUN_DEST", "C", 7, 0, false, 15)]
             public string CodMunDest { get; set; }
 
             /// <summary>
             ///     Código da conta analíica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(33, "COD_CTA", "C", 99, 0, false)]
+            [SpedCampos(33, "COD_CTA", "C", 99, 0, false, 15)]
             public string CodCta { get; set; }
 
             public List<RegistroC510> RegC510s { get; set; }
@@ -3931,91 +3931,91 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número sequencial do item no documento fiscal
             /// </summary>
-            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 15)]
             public int NumItem { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Código de classificação do item de energia elétrica
             /// </summary>
-            [SpedCampos(4, "COD_CLASS", "N", 4, 0, false)]
+            [SpedCampos(4, "COD_CLASS", "N", 4, 0, false, 15)]
             public int CodClass { get; set; }
 
             /// <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(5, "QTD", "N", 0, 3, false)]
+            [SpedCampos(5, "QTD", "N", 0, 3, false, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(6, "UNID", "C", 6, 0, false)]
+            [SpedCampos(6, "UNID", "C", 6, 0, false, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor do item
             /// </summary>
-            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(8, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(9, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(9, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação
             /// </summary>
-            [SpedCampos(10, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(10, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS creditado/debitado
             /// </summary>
-            [SpedCampos(13, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(13, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo referente à substituição tributária
             /// </summary>
-            [SpedCampos(14, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_BC_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS da substituição tributária na unidade da federação de destino
             /// </summary>
-            [SpedCampos(15, "ALIQ_ST", "N", 6, 2, false)]
+            [SpedCampos(15, "ALIQ_ST", "N", 6, 2, false, 15)]
             public decimal AliqSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS referente à substituição tributária
             /// </summary>
-            [SpedCampos(16, "VL_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
@@ -4026,31 +4026,31 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Receita de terceiros
             /// </remarks>
-            [SpedCampos(17, "IND_REC", "C", 1, 0, true)]
+            [SpedCampos(17, "IND_REC", "C", 1, 0, true, 15)]
             public int IndRec { get; set; }
 
             /// <summary>
             ///     Código do participante receptor da receita
             /// </summary>
-            [SpedCampos(18, "COD_PART", "C", 60, 0, false)]
+            [SpedCampos(18, "COD_PART", "C", 60, 0, false, 15)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(19, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(19, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor do COFINS
             /// </summary>
-            [SpedCampos(20, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(20, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             /// <summary>
             ///     Código da conta analíica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(21, "COD_CTA", "C", 99, 0, false)]
+            [SpedCampos(21, "COD_CTA", "C", 99, 0, false, 15)]
             public string CodCta { get; set; }
         }
 
@@ -4073,26 +4073,26 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestaçaõ do agrupamento de itens
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor da operação correspondete à combinação de
             ///     CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
@@ -4100,14 +4100,14 @@ namespace FiscalBr.EFDFiscal
             ///     do ICMS" referente à combinação de CST_ICMS, CFOP e
             ///     alíquota do ICMS
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Parcela corresponde ao "Valor do ICMS" referente à
             ///     combinação de CST_ICMS, CFOP e alíquoa do ICMS
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
@@ -4115,7 +4115,7 @@ namespace FiscalBr.EFDFiscal
             ///     ICMS" da substituição tributária referente à combinação
             ///     de CST_ICMS, CFOP alíquota do ICMS.
             /// </summary>
-            [SpedCampos(8, "VL_BC_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_BC_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
@@ -4123,20 +4123,20 @@ namespace FiscalBr.EFDFiscal
             ///     da substituição tributária, referente à combinação de CST_ICMS,
             ///     CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(9, "VL_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(9, "VL_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor não tributado em função da redução da base de cálculo do
             ///     ICMS, referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true)]
+            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true, 15)]
             public decimal VlRedBc { get; set; }
 
             /// <summary>
             ///     Código da observação do lançamento fiscal
             /// </summary>
-            [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(11, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
 
             public RegistroC591 RegC591 { get; set; }
@@ -4149,10 +4149,10 @@ namespace FiscalBr.EFDFiscal
                 Reg = "C591";
             }
 
-            [SpedCampos(2, "VL_FCP_OP", "N", 12, 2, false)]
+            [SpedCampos(2, "VL_FCP_OP", "N", 12, 2, false, 15)]
             public decimal VlFcpOp { get; set; }
 
-            [SpedCampos(3, "VL_FCP_ST", "N", 12, 2, false)]
+            [SpedCampos(3, "VL_FCP_ST", "N", 12, 2, false, 15)]
             public decimal VlFcpSt { get; set; }
         }
 
@@ -4163,10 +4163,10 @@ namespace FiscalBr.EFDFiscal
                 Reg = "C595";
             }
 
-            [SpedCampos(2, "COD_OBS", "C", 6, 0, true)]
+            [SpedCampos(2, "COD_OBS", "C", 6, 0, true, 15)]
             public string CodObs { get; set; }
 
-            [SpedCampos(3, "TXT_COMPL", "C", 100, 0, false)]
+            [SpedCampos(3, "TXT_COMPL", "C", 100, 0, false, 15)]
             public string TxtCompl { get; set; }
 
             public List<RegistroC597> RegC597s { get; set; }
@@ -4179,25 +4179,25 @@ namespace FiscalBr.EFDFiscal
                 Reg = "C597";
             }
 
-            [SpedCampos(2, "COD_AJ", "C", 10, 0, true)]
+            [SpedCampos(2, "COD_AJ", "C", 10, 0, true, 15)]
             public string CodAj { get; set; }
 
-            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 100, 0, false)]
+            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 100, 0, false, 15)]
             public string DescrComplAj { get; set; }
 
-            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false)]
+            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false, 15)]
             public string CodItem { get; set; }
 
-            [SpedCampos(5, "VL_BC_ICMS", "N", 12, 2, false)]
+            [SpedCampos(5, "VL_BC_ICMS", "N", 12, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
-            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
-            [SpedCampos(7, "VL_ICMS", "N", 12, 2, false)]
+            [SpedCampos(7, "VL_ICMS", "N", 12, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
-            [SpedCampos(8, "VL_OUTROS", "N", 12, 2, false)]
+            [SpedCampos(8, "VL_OUTROS", "N", 12, 2, false, 15)]
             public decimal VlOutros { get; set; }
         }
 
@@ -4217,25 +4217,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Código do município dos pontos de consumo, conforme a tabela IBGE
             /// </summary>
-            [SpedCampos(3, "COD_MUN", "N", 7, 0, true)]
+            [SpedCampos(3, "COD_MUN", "N", 7, 0, true, 15)]
             public int CodMun { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(4, "SER", "C", 4, 0, false)]
+            [SpedCampos(4, "SER", "C", 4, 0, false, 15)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Subsérie do documento fiscal
             /// </summary>
-            [SpedCampos(5, "SUB", "N", 3, 0, false)]
+            [SpedCampos(5, "SUB", "N", 3, 0, false, 15)]
             public int Sub { get; set; }
 
             /// <summary>
@@ -4252,103 +4252,103 @@ namespace FiscalBr.EFDFiscal
             ///     08 - Serviço público
             ///     - Código de classe de consumo de fornecimento d'água
             /// </remarks>
-            [SpedCampos(6, "COD_CONS", "C", 2, 0, true)]
+            [SpedCampos(6, "COD_CONS", "C", 2, 0, true, 15)]
             public int CodCons { get; set; }
 
             /// <summary>
             ///     Quantidade de documentos consolidados neste registro
             /// </summary>
-            [SpedCampos(7, "QTD_CONS", "N", int.MaxValue, 0, true)]
+            [SpedCampos(7, "QTD_CONS", "N", int.MaxValue, 0, true, 15)]
             public int QtdCons { get; set; }
 
             /// <summary>
             ///     Quantidade de documentos cancelados
             /// </summary>
-            [SpedCampos(8, "QTD_CANC", "N", int.MaxValue, 0, false)]
+            [SpedCampos(8, "QTD_CANC", "N", int.MaxValue, 0, false, 15)]
             public int QtdCanc { get; set; }
 
             /// <summary>
             ///     Data dos documentos consolidados
             /// </summary>
-            [SpedCampos(9, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(9, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Valor total dos documentos
             /// </summary>
-            [SpedCampos(10, "VL_DOC", "N", 0, 2, true)]
+            [SpedCampos(10, "VL_DOC", "N", 0, 2, true, 15)]
             public decimal VlDoc { get; set; }
 
             /// <summary>
             ///     Valor acumulado dos descontos
             /// </summary>
-            [SpedCampos(11, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(11, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Consumo total acumulado, em kWh (Código 06)
             /// </summary>
-            [SpedCampos(12, "CONS", "N", int.MaxValue, 2, false)]
+            [SpedCampos(12, "CONS", "N", int.MaxValue, 2, false, 15)]
             public double Cons { get; set; }
 
             /// <summary>
             ///     Valor acumulado do fornecimento
             /// </summary>
-            [SpedCampos(13, "VL_FORN", "N", 0, 2, false)]
+            [SpedCampos(13, "VL_FORN", "N", 0, 2, false, 15)]
             public decimal VlForn { get; set; }
 
             /// <summary>
             ///     Valor acumulado dos serviços não-tributados pelo ICMS
             /// </summary>
-            [SpedCampos(14, "VL_SERV_NT", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_SERV_NT", "N", 0, 2, false, 15)]
             public decimal VlServNt { get; set; }
 
             /// <summary>
             ///     Valores cobrados em nome de terceiros
             /// </summary>
-            [SpedCampos(15, "VL_TERC", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_TERC", "N", 0, 2, false, 15)]
             public decimal VlTerc { get; set; }
 
             /// <summary>
             ///     Valor acumulado das despesas acessórias
             /// </summary>
-            [SpedCampos(16, "VL_DA", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_DA", "N", 0, 2, false, 15)]
             public decimal VlDa { get; set; }
 
             /// <summary>
             ///     Valor acumulados da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(17, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(17, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS
             /// </summary>
-            [SpedCampos(18, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(18, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(19, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(19, "VL_BC_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS retido por substituição tributária
             /// </summary>
-            [SpedCampos(20, "VL_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(20, "VL_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor acumulado do PIS
             /// </summary>
-            [SpedCampos(21, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(21, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor acumulado do COFINS
             /// </summary>
-            [SpedCampos(22, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(22, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             public List<RegistroC601> RegC601s { get; set; }
@@ -4372,7 +4372,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número do documento fiscal cancelado
             /// </summary>
-            [SpedCampos(2, "NUM_DOC_CANC", "N", 9, 0, true)]
+            [SpedCampos(2, "NUM_DOC_CANC", "N", 9, 0, true, 15)]
             public double NumDocCanc { get; set; }
         }
 
@@ -4392,97 +4392,97 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código de classificação do item de energia elétrica
             /// </summary>
-            [SpedCampos(2, "COD_CLASS", "N", 4, 0, false)]
+            [SpedCampos(2, "COD_CLASS", "N", 4, 0, false, 15)]
             public int CodClass { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade acumulada do item
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 3, true)]
+            [SpedCampos(4, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(5, "UNID", "C", 6, 0, true)]
+            [SpedCampos(5, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor acumulado do item
             /// </summary>
-            [SpedCampos(6, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Valor acumulado dos descontos
             /// </summary>
-            [SpedCampos(7, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(8, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(8, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação
             /// </summary>
-            [SpedCampos(9, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(9, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(10, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(10, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false)]
+            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS debitado
             /// </summary>
-            [SpedCampos(12, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(12, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(13, "VL_BC_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(13, "VL_BC_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS retido por substituição tributária
             /// </summary>
-            [SpedCampos(14, "VL_ICMS_ST", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_ICMS_ST", "N", 0, 2, false, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(15, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
-            [SpedCampos(16, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal VlCofins { get; set; }
 
             /// <summary>
             ///     Código da conta analítica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(17, "COD_CTA", "N", 99, 0, false)]
+            [SpedCampos(17, "COD_CTA", "N", 99, 0, false, 15)]
             public string CodCta { get; set; }
         }
 
@@ -4502,64 +4502,64 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operaçaõ e prestação
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor da operação correspondente à combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor da base de cálculo do ICMS"
             ///     referente à combinação CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor do ICMS" referente à
             ///     combinação CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor não tributado em função da redução da base de cálculo do ICMS, referente
             ///     à combinaçaõ de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(8, "VL_RED_BC", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_RED_BC", "N", 0, 2, true, 15)]
             public decimal VlRedBc { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(9, "VC_BC_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(9, "VC_BC_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS retido por substituição tributária
             /// </summary>
-            [SpedCampos(10, "VL_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(10, "VL_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Código da observação do lançamento fiscal
             /// </summary>
-            [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(11, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
         }
 
@@ -4580,51 +4580,51 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(3, "SER", "C", 4, 0, false)]
+            [SpedCampos(3, "SER", "C", 4, 0, false, 15)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Número de ordem inicial
             /// </summary>
-            [SpedCampos(4, "NRO_ORD_INI", "N", 9, 0, true)]
+            [SpedCampos(4, "NRO_ORD_INI", "N", 9, 0, true, 15)]
             public double NroOrdIni { get; set; }
 
             /// <summary>
             ///     Número de ordem final
             /// </summary>
-            [SpedCampos(5, "NRO_ORD_FIN", "N", 9, 0, true)]
+            [SpedCampos(5, "NRO_ORD_FIN", "N", 9, 0, true, 15)]
             public double NroOrdFin { get; set; }
 
             /// <summary>
             ///     Data de emissão inicial dos documentos /
             ///     Data inicial de vencimento da fatura
             /// </summary>
-            [SpedCampos(6, "DT_DOC_INI", "N", 8, 0, true)]
+            [SpedCampos(6, "DT_DOC_INI", "N", 8, 0, true, 15)]
             public DateTime DtDocIni { get; set; }
 
             /// <summary>
             ///     Data de emissão final dos documentos /
             ///     Data final do vencimento da fatura
             /// </summary>
-            [SpedCampos(7, "DT_DOC_FIN", "N", 8, 0, true)]
+            [SpedCampos(7, "DT_DOC_FIN", "N", 8, 0, true, 15)]
             public DateTime DtDocFin { get; set; }
 
             /// <summary>
             ///     Nome do arquivo mestre do documento fiscal
             /// </summary>
-            [SpedCampos(8, "NOM_MEST", "C", 15, 0, true)]
+            [SpedCampos(8, "NOM_MEST", "C", 15, 0, true, 15)]
             public string Nom_Mest { get; set; }
 
             /// <summary>
             ///     Chave de codificação digital do arquivo mestre de documento fiscal
             /// </summary>
-            [SpedCampos(9, "CHV_COD_DIG", "C", 32, 0, true)]
+            [SpedCampos(9, "CHV_COD_DIG", "C", 32, 0, true, 15)]
             public string ChvCodDig { get; set; }
 
             public List<RegistroC790> RegC790s { get; set; }
@@ -4646,26 +4646,26 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operaçaõ e prestação
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor da operação correspondente à combinação
             ///     de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
@@ -4673,39 +4673,39 @@ namespace FiscalBr.EFDFiscal
             ///     do ICMS" referente à combinação CST_ICMS, CFOP e
             ///     alíquota do ICMS
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor do ICMS" referente
             ///     à combinação CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(8, "VL_BC_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_BC_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS retido por substituição tributária
             /// </summary>
-            [SpedCampos(9, "VL_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(9, "VL_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor não tributado em função da redução da base de cálculo do ICMS,
             ///     referente à combinação de CST_ICMS, CFOP e alíquota do ICMS
             /// </summary>
-            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true)]
+            [SpedCampos(10, "VL_RED_BC", "N", 0, 2, true, 15)]
             public decimal VlRedBc { get; set; }
 
             /// <summary>
             ///     Código da observação do lançamento fiscal
             /// </summary>
-            [SpedCampos(11, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(11, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
 
             public List<RegistroC791> RegC791s { get; set; }
@@ -4727,19 +4727,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Sigla da unidade da federaçaõ a que se refere a retenção ST
             /// </summary>
-            [SpedCampos(2, "UF", "C", 2, 0, true)]
+            [SpedCampos(2, "UF", "C", 2, 0, true, 15)]
             public string Uf { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(3, "VL_BC_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(3, "VL_BC_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS retido por substituição tributária
             /// </summary>
-            [SpedCampos(4, "VL_ICMS_ST", "N", 0, 2, true)]
+            [SpedCampos(4, "VL_ICMS_ST", "N", 0, 2, true, 15)]
             public decimal VlIcmsSt { get; set; }
         }
 
@@ -4759,97 +4759,97 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
-            [SpedCampos(3, "COD_SIT", "N", 2, 0, true)]
+            [SpedCampos(3, "COD_SIT", "N", 2, 0, true, 15)]
             public int CodSit { get; set; }
 
             /// <summary>
             ///     Número do Cupom Fiscal Eletrônico
             /// </summary>
-            [SpedCampos(4, "NUM_CFE", "N", 6, 0, true)]
+            [SpedCampos(4, "NUM_CFE", "N", 6, 0, true, 15)]
             public int NumCfe { get; set; }
 
             /// <summary>
             ///     Data da emissão do Cupom Fiscal Eletrônico
             /// </summary>
-            [SpedCampos(5, "DT_DOC", "N", 8, 0, false)]
+            [SpedCampos(5, "DT_DOC", "N", 8, 0, false, 15)]
             public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Valor total do Cupom Fiscal Eletrônico
             /// </summary>
-            [SpedCampos(6, "VL_CFE", "N", 0, 2, false)]
+            [SpedCampos(6, "VL_CFE", "N", 0, 2, false, 15)]
             public decimal? VlCfe { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
-            [SpedCampos(7, "VL_PIS", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_PIS", "N", 0, 2, false, 15)]
             public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
-            [SpedCampos(8, "VL_COFINS", "N", 0, 2, false)]
+            [SpedCampos(8, "VL_COFINS", "N", 0, 2, false, 15)]
             public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     CNPJ ou CPF do destinatário
             /// </summary>
-            [SpedCampos(9, "CNPJ_CPF", "N", 14, 0, false)]
+            [SpedCampos(9, "CNPJ_CPF", "N", 14, 0, false, 15)]
             public string CnpjCpf { get; set; }
 
             /// <summary>
             ///     Número de série do equipamento SAT
             /// </summary>
-            [SpedCampos(10, "NR_SAT", "N", 9, 0, true)]
+            [SpedCampos(10, "NR_SAT", "N", 9, 0, true, 15)]
             public string NrSat { get; set; }
 
             /// <summary>
             ///     Chave da Cupom Fiscal Eletrônico
             /// </summary>
-            [SpedCampos(11, "CHV_CFE", "N", 44, 0, true)]
+            [SpedCampos(11, "CHV_CFE", "N", 44, 0, true, 15)]
             public string ChvCfe { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(12, "VL_DESC", "N", 0, 2, false)]
+            [SpedCampos(12, "VL_DESC", "N", 0, 2, false, 15)]
             public decimal? VlDesc { get; set; }
 
             /// <summary>
             ///     Valor total das mercadorias e serviços
             /// </summary>
-            [SpedCampos(13, "VL_MERC", "N", 0, 2, false)]
+            [SpedCampos(13, "VL_MERC", "N", 0, 2, false, 15)]
             public decimal? VlMerc { get; set; }
 
             /// <summary>
             ///     Valor de outras despesas acessórias
             /// </summary>
-            [SpedCampos(14, "VL_OUT_DA", "N", 0, 2, false)]
+            [SpedCampos(14, "VL_OUT_DA", "N", 0, 2, false, 15)]
             public decimal? VlOutDa { get; set; }
 
             /// <summary>
             ///     Valor do ICMS 
             /// </summary>
-            [SpedCampos(15, "VL_ICMS", "N", 0, 2, false)]
+            [SpedCampos(15, "VL_ICMS", "N", 0, 2, false, 15)]
             public decimal? VlIcms { get; set; }
 
             /// <summary>
             ///     Valor total do PIS retido por substituição tributária
             /// </summary>
-            [SpedCampos(16, "VL_PIS_ST", "N", 0, 2, false)]
+            [SpedCampos(16, "VL_PIS_ST", "N", 0, 2, false, 15)]
             public decimal? VlPisSt { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS retido por substituição tributária
             /// </summary>
-            [SpedCampos(17, "VL_COFINS_ST", "N", 0, 2, false)]
+            [SpedCampos(17, "VL_COFINS_ST", "N", 0, 2, false, 15)]
             public decimal? VlCofinsSt { get; set; }
 
             public List<RegistroC810> RegC810s { get; set; }
@@ -4872,43 +4872,43 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Número do item no documento fiscal
             /// </summary>
-            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true)]
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 15)]
             public int NumItem { get; set; }
 
             /// <summary>
             ///    Código do item (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             // <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 5, true)]
+            [SpedCampos(4, "QTD", "N", 0, 5, true, 15)]
             public Decimal Qtd { get; set; }
 
             /// <summary>
             ///    Unidade do item (Campo 02 do registro 0190)
             /// </summary>
-            [SpedCampos(5, "UNID", "C", 6, 0, true)]
+            [SpedCampos(5, "UNID", "C", 6, 0, true, 15)]
             public int Unid { get; set; }
 
             /// <summary>
             ///     Valor total do item(mercadorias ou serviços)
             /// </summary>
-            [SpedCampos(6, "VL_ITEM", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_ITEM", "N", 0, 2, true, 15)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
             /// </summary>
-            [SpedCampos(7, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(7, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal da operação e prestação
             /// </summary>
-            [SpedCampos(8, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(8, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
             
             public RegistroC815 RegC815s { get; set; }
@@ -4930,79 +4930,79 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///  Código   do   motivo   da   restituição   ou complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(2, "COD_MOT_REST_COMPL", "N", 5, 0, true)]
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "N", 5, 0, true, 15)]
             public int CodMotRestCompl { get; set; }
 
             /// <summary>
             ///   Quantidade do item 
             /// </summary>
-            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true)]
+            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true, 15)]
             public int QuantConv { get; set; }
 
             /// <summary>
             ///    Unidade adotada para informar o campo QUANT_CONV.
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///    Valor unitário da mercadoria, considerando a  unidade  utilizada  para  informar  o  campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true)]
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 6, true, 15)]
             public string VlUnitConv { get; set; }
 
             /// <summary>
             ///     Valor unitário para o ICMS na operação, caso não houvesse a ST, considerando unidade utilizada para informar o campo “QUANT_CONV”, aplicando-se a mesma redução da base de cálculo do ICMS ST na tributação, se houver.
             /// </summary>
-            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false)]
+            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsNaOperacaoConv { get; set; }
 
             /// <summary>
             ///   Valor unitário do ICMS OP calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”, utilizado para cálculo de ressarcimento/restituição de ST, no desfazimento da substituição tributária, quando se utiliza a fórmula descrita nas instruções de preenchimento do campo 11, no item a1).
             /// </summary>
-            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false)]
+            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS que o contribuinte teria se creditado referente à operação de entrada das mercadorias em estoque caso estivesse submetida ao regime comum de tributação, calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsOpEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS ST, incluindo FCP ST, das mercadorias em estoque, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do FCP ST agregado ao ICMS das mercadorias em estoque, considerando unidade utilizada parainformar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false)]
+            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 6, false, 15)]
             public string VlUnitFcpIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor unitário do total do ICMS ST, incluindo FCP ST, a ser restituído/ressarcido, calculado conforme a legislação de cada  UF,  considerando  a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsStConvRest { get; set; }
 
             /// <summary>
             ///    Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_REST”, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false)]
+            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvRest { get; set; }
 
             /// <summary>
             ///   Valor unitário do complemento do ICMS, incluindo FCP ST, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitIcmsStConvCompl { get; set; }
 
             /// <summary>
             ///   Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_COMPL”, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false)]
+            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 6, false, 15)]
             public string VlUnitFcpStConvCompl { get; set; }
         }
 
@@ -5022,40 +5022,40 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária do ICMS
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação do agrupamento de itens
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor total do CF-E na combinação de CST_ICMS, CFOP e alíquota do ICMS,
             ///     correspondente ao somatório do valor líquido dos itens.
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS referente à
             ///     combinação de CST_ICMS, CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS,
             ///     CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
@@ -5065,7 +5065,7 @@ namespace FiscalBr.EFDFiscal
             ///     Preenchimento: este campo só deve ser informado pelos contribuintes localizados em UF que determine em
             ///     sua legislação o seu preenchimento. Validação: o código informado deve constar do registro 0460.
             /// </remarks>
-            [SpedCampos(8, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(8, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
         }
 
@@ -5085,13 +5085,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Número de série do equipamento SAT
             /// </summary>
-            [SpedCampos(3, "NR_SAT", "N", 9, 0, true)]
+            [SpedCampos(3, "NR_SAT", "N", 9, 0, true, 15)]
             public string NrSat { get; set; }
 
             /// <summary>
@@ -5100,7 +5100,7 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     Preenchimento: Informar a data de emissão do documento, no formato "ddmmaaaa".
             /// </remarks>
-            [SpedCampos(4, "DT_DOC", "N", 8, 0, true)]
+            [SpedCampos(4, "DT_DOC", "N", 8, 0, true, 15)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
@@ -5109,7 +5109,7 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     Preenchimento: informar o número do primeiro CF-e-SAT emitido, mesmo que cancelado, no período, pelo equipamento.
             /// </remarks>
-            [SpedCampos(5, "DOC_INI", "N", 6, 0, true)]
+            [SpedCampos(5, "DOC_INI", "N", 6, 0, true, 15)]
             public int NumDocIni { get; set; }
 
             /// <summary>
@@ -5118,7 +5118,7 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     Preenchimento: informar o número do último CF-e-SAT emitido, mesmo que cancelado, no período, pelo equipamento.
             /// </remarks>
-            [SpedCampos(6, "DOC_FIM", "N", 6, 0, true)]
+            [SpedCampos(6, "DOC_FIM", "N", 6, 0, true, 15)]
             public int NumDocFin { get; set; }
 
             public List<RegistroC870> RegC870s { get; set; }
@@ -5141,31 +5141,31 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Código do item (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             // <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(3, "QTD", "N", 0, 5, true)]
+            [SpedCampos(3, "QTD", "N", 0, 5, true, 15)]
             public Decimal Qtd { get; set; }
 
             /// <summary>
             ///    Unidade do item (Campo 02 do registro 0190)
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
             /// </summary>
-            [SpedCampos(5, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(5, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal da operação e prestação
             /// </summary>
-            [SpedCampos(6, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(6, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             public RegistroC880 RegC880 { get; set; }
@@ -5188,79 +5188,79 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///  Código   do   motivo   da   restituição   ou complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(2, "COD_MOT_REST_COMPL", "N", 5, 0, true)]
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "N", 5, 0, true, 15)]
             public int CodMotRestCompl { get; set; }
 
             /// <summary>
             ///   Quantidade do item 
             /// </summary>
-            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true)]
+            [SpedCampos(3, "QUANT_CONV", "N", 0, 6, true, 15)]
             public int QuantConv { get; set; }
 
             /// <summary>
             ///    Unidade adotada para informar o campo QUANT_CONV.
             /// </summary>
-            [SpedCampos(4, "UNID", "C", 6, 0, true)]
+            [SpedCampos(4, "UNID", "C", 6, 0, true, 15)]
             public string Unid { get; set; }
 
             /// <summary>
             ///    Valor unitário da mercadoria, considerando a  unidade  utilizada  para  informar  o  campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 3, true)]
+            [SpedCampos(5, "VL_UNIT_CONV", "N", 0, 3, true, 15)]
             public string VlUnitConv { get; set; }
 
             /// <summary>
             ///     Valor unitário para o ICMS na operação, caso não houvesse a ST, considerando unidade utilizada para informar o campo “QUANT_CONV”, aplicando-se a mesma redução da base de cálculo do ICMS ST na tributação, se houver.
             /// </summary>
-            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 3, false)]
+            [SpedCampos(6, "VL_UNIT_ICMS_NA_OPERACAO_CONV", "N", 0, 3, false, 15)]
             public string VlUnitIcmsNaOperacaoConv { get; set; }
 
             /// <summary>
             ///   Valor unitário do ICMS OP calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”, utilizado para cálculo de ressarcimento/restituição de ST, no desfazimento da substituição tributária, quando se utiliza a fórmula descrita nas instruções de preenchimento do campo 11, no item a1).
             /// </summary>
-            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false)]
+            [SpedCampos(7, "VL_UNIT_ICMS_OP_CONV", "N", 0, 6, false, 15)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS que o contribuinte teria se creditado referente à operação de entrada das mercadorias em estoque caso estivesse submetida ao regime comum de tributação, calculado conforme a legislação de cada UF,considerando a unidade utilizada para informar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 3, false)]
+            [SpedCampos(8, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 0, 3, false, 15)]
             public string VlUnitIcmsOpEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do ICMS ST, incluindo FCP ST, das mercadorias em estoque, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 3, false)]
+            [SpedCampos(9, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 0, 3, false, 15)]
             public string VlUnitIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor médio unitário do FCP ST agregado ao ICMS das mercadorias em estoque, considerando unidade utilizada parainformar o campo “QUANT_CONV”
             /// </summary>
-            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 3, false)]
+            [SpedCampos(10, "VL_UNIT_FCP_ICMS_ST_ESTOQUE_CONV", "N", 0, 3, false, 15)]
             public string VlUnitFcpIcmsStEstoqueConv { get; set; }
 
             /// <summary>
             ///    Valor unitário do total do ICMS ST, incluindo FCP ST, a ser restituído/ressarcido, calculado conforme a legislação de cada  UF,  considerando  a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 3, false)]
+            [SpedCampos(11, "VL_UNIT_ICMS_ST_CONV_REST", "N", 0, 3, false, 15)]
             public decimal VlUnitIcmsStConvRest { get; set; }
 
             /// <summary>
             ///    Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_REST”, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 3, false)]
+            [SpedCampos(12, "VL_UNIT_FCP_ST_CONV_REST", "N", 0, 3, false, 15)]
             public string VlUnitFcpStConvRest { get; set; }
 
             /// <summary>
             ///   Valor unitário do complemento do ICMS, incluindo FCP ST, considerando a unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 3, false)]
+            [SpedCampos(13, "VL_UNIT_ICMS_ST_CONV_COMPL", "N", 0, 3, false, 15)]
             public string VlUnitIcmsStConvCompl { get; set; }
 
             /// <summary>
             ///   Valor unitário correspondente à parcela de ICMS FCP ST que compõe o campo “VL_UNIT_ICMS_ST_CONV_COMPL”, considerando unidade utilizada para informar o campo “QUANT_CONV”.
             /// </summary>
-            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 3, false)]
+            [SpedCampos(14, "VL_UNIT_FCP_ST_CONV_COMPL", "N", 0, 3, false, 15)]
             public string VlUnitFcpStConvCompl { get; set; }
 
         }
@@ -5281,40 +5281,40 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da situação tributária referente ao ICMS
             /// </summary>
-            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true)]
+            [SpedCampos(2, "CST_ICMS", "N", 3, 0, true, 15)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação
             /// </summary>
-            [SpedCampos(3, "CFOP", "N", 4, 0, true)]
+            [SpedCampos(3, "CFOP", "N", 4, 0, true, 15)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false)]
+            [SpedCampos(4, "ALIQ_ICMS", "N", 6, 2, false, 15)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor total do CF-E na combinação de CST_ICMS, CFOP e alíquota do ICMS,
             ///     correspondente ao somatório do valor líquido dos itens.
             /// </summary>
-            [SpedCampos(5, "VL_OPR", "N", 0, 2, true)]
+            [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 15)]
             public decimal VlOpr { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS referente à
             ///     combinação de CST_ICMS, CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_BC_ICMS", "N", 0, 2, true, 15)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Parcela correspondente ao "Valor do ICMS" referente à combinação de CST_ICMS,
             ///     CFOP e alíquota do ICMS.
             /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true)]
+            [SpedCampos(7, "VL_ICMS", "N", 0, 2, true, 15)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
@@ -5324,7 +5324,7 @@ namespace FiscalBr.EFDFiscal
             ///     Preenchimento: este campo só deve ser informado pelos contribuintes localizados em UF que determine em
             ///     sua legislação o seu preenchimento. Validação: o código informado deve constar do registro 0460.
             /// </remarks>
-            [SpedCampos(8, "COD_OBS", "C", 6, 0, false)]
+            [SpedCampos(8, "COD_OBS", "C", 6, 0, false, 15)]
             public string CodObs { get; set; }
         }
 
@@ -5344,7 +5344,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Quantidade total de linhas do Bloco C
             /// </summary>
-            [SpedCampos(3, "QTD_LIN_C", "N", int.MaxValue, 0, true)]
+            [SpedCampos(3, "QTD_LIN_C", "N", int.MaxValue, 0, true, 15)]
             public int QtdLinC { get; set; }
         }
     }

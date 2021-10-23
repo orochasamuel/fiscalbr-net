@@ -6,7 +6,7 @@ namespace FiscalBr.Common.Sped
 {
     public class RegistroBaseSped
     {
-        [SpedCampos(1, "REG", "C", 4, 0, true)]
+        [SpedCampos(1, "REG", "C", 4, 0, true, 1)]
         public string Reg { get; set; }
 
         public static object GetPropValue(object src, string propName)
@@ -24,6 +24,9 @@ namespace FiscalBr.Common.Sped
 
         public static string IdentifyEnumValueByType(Type type, object valueOfType)
         {
+            if (type == typeof(CodigoVersaoLeiaute))
+                return ((CodigoVersaoLeiaute)valueOfType).ToDefaultValue();
+
             if (type == typeof(SimOuNao))
                 return ((SimOuNao)valueOfType).ToDefaultValue();
 

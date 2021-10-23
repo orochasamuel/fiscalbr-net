@@ -1,13 +1,14 @@
-﻿using FiscalBr.Common;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Globalization;
-using Xunit;
+using FiscalBr.Common;
 
-namespace FiscalBr.Tests.Sped
+namespace TestProject1
 {
-    public class Registro0000
+    [TestClass]
+    public class UnitTest1
     {
-        [Fact]
+        [TestMethod]
         public void Escrever_Registro_0000_EFDFiscal()
         {
             var initialDate = (DateTime.Now.AddDays(-(DateTime.Now.Day - 1))).Date;
@@ -39,7 +40,7 @@ namespace FiscalBr.Tests.Sped
             Assert.Equal(expectedResult, currentResult);
         }
 
-        [Fact]
+        [TestMethod]
         public void Ler_Registro_0000_EFDFiscal()
         {
             var source = @"|0000|015|0|01112020|30112020|BANCO DO BRASIL S.A.|00000000000191||GO|123456789|5204508|||A|1|";
@@ -61,8 +62,10 @@ namespace FiscalBr.Tests.Sped
 
             var currentResult = (EFDFiscal.Bloco0.Registro0000)Common.Sped.LerCamposSped.LerCampos(source);
 
-            Assert.Equal(expectedResult.CodFin, currentResult.CodFin);
-            
+
+
+            Assert.Equal(currentResult, expectedResult);
+            Assert.Same(currentResult, expectedResult);
         }
     }
 }

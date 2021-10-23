@@ -34,7 +34,7 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Bloco sem dados informados
             /// </remarks>
-            [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 15)]
             public IndMovimento IndMov { get; set; }
 
             public List<RegistroK100> RegK100s { get; set; }
@@ -56,13 +56,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data inicial a que a apuração se refere
             /// </summary>
-            [SpedCampos(2, "DT_INI", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_INI", "N", 8, 0, true, 15)]
             public DateTime DtIni { get; set; }
 
             /// <summary>
             ///     Data final a que a apuração se refere
             /// </summary>
-            [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
+            [SpedCampos(3, "DT_FIN", "N", 8, 0, true, 15)]
             public DateTime DtFin { get; set; }
 
             public List<RegistroK200> RegK200s { get; set; }
@@ -93,19 +93,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data do estoque final
             /// </summary>
-            [SpedCampos(2, "DT_EST", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_EST", "N", 8, 0, true, 15)]
             public DateTime DtEst { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade em estoque
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 3, true)]
+            [SpedCampos(4, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
@@ -118,7 +118,7 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     2 - Estoque de propriedade de terceiros e em posse do informante
             /// </remarks>
-            [SpedCampos(5, "IND_EST", "C", 1, 0, true)]
+            [SpedCampos(5, "IND_EST", "C", 1, 0, true, 15)]
             public int IndEst { get; set; }
 
             /// <summary>
@@ -127,7 +127,7 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     - proprietário/possuidor que não seja o informante do arquivo
             /// </remarks>
-            [SpedCampos(6, "COD_PART", "C", 60, 0, false)]
+            [SpedCampos(6, "COD_PART", "C", 60, 0, false, 15)]
             public string CodPart { get; set; }
         }
 
@@ -147,31 +147,31 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data de início da ordem de serviço
             /// </summary>
-            [SpedCampos(2, "DT_INI_OS", "N", 8, 0, false)]
+            [SpedCampos(2, "DT_INI_OS", "N", 8, 0, false, 15)]
             public DateTime? DtIniOS { get; set; }
 
             /// <summary>
             ///     Data de conclusão da ordem de serviço
             /// </summary>
-            [SpedCampos(3, "DT_FIN_OS", "N", 8, 0, false)]
+            [SpedCampos(3, "DT_FIN_OS", "N", 8, 0, false, 15)]
             public DateTime? DtFinOS { get; set; }
 
             /// <summary>
             ///     Código de identificação da ordem de serviço
             /// </summary>
-            [SpedCampos(4, "COD_DOC_OS", "C", 30, 0, false)]
+            [SpedCampos(4, "COD_DOC_OS", "C", 30, 0, false, 15)]
             public string CodDocOS { get; set; }
 
             /// <summary>
             ///     Código do item de origem (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(5, "COD_ITEM_ORI", "C", 60, 0, true)]
+            [SpedCampos(5, "COD_ITEM_ORI", "C", 60, 0, true, 15)]
             public string CodItemOri { get; set; }
 
             /// <summary>
             ///    Quantidade de origem – saída do estoque
             /// </summary>
-            [SpedCampos(6, "QTD_ORI", "N", 0, 3, true)]
+            [SpedCampos(6, "QTD_ORI", "N", 0, 3, true, 15)]
             public decimal QtdOri { get; set; }
 
             public List<RegistroK215> RegK215s { get; set; }
@@ -193,13 +193,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do item de destino (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM_DES", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM_DES", "C", 60, 0, true, 15)]
             public string CodItemDes { get; set; }
 
             /// <summary>
             ///    Quantidade de destino – entrada em estoque
             /// </summary>
-            [SpedCampos(3, "QTD_DES", "N", 0, 3, true)]
+            [SpedCampos(3, "QTD_DES", "N", 0, 3, true, 15)]
             public decimal QtdDes { get; set; }
         }
 
@@ -219,25 +219,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data da movimentação interna
             /// </summary>
-            [SpedCampos(2, "DT_MOV", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_MOV", "N", 8, 0, true, 15)]
             public DateTime DtMov { get; set; }
 
             /// <summary>
             ///     Código do item de origem
             /// </summary>
-            [SpedCampos(3, "COD_ITEM_ORI", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM_ORI", "C", 60, 0, true, 15)]
             public string CodItemOri { get; set; }
 
             /// <summary>
             ///     Código do item de destino
             /// </summary>
-            [SpedCampos(4, "COD_ITEM_DEST", "C", 60, 0, true)]
+            [SpedCampos(4, "COD_ITEM_DEST", "C", 60, 0, true, 15)]
             public string CodItemDest { get; set; }
 
             /// <summary>
             ///     Quantidade movimentada
             /// </summary>
-            [SpedCampos(5, "QTD", "N", 0, 3, true)]
+            [SpedCampos(5, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
@@ -245,7 +245,7 @@ namespace FiscalBr.EFDFiscal
             ///     Guia Prático EFD-ICMS/IPI – Versão 2.0.21
             ///     Atualização: 22/08/2017
             /// </summary>
-            [SpedCampos(6, "QTD_DEST", "N", 3, 0, false)]
+            [SpedCampos(6, "QTD_DEST", "N", 3, 0, false, 15)]
             public string QtdDest { get; set; }
         }
 
@@ -265,31 +265,31 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data de início da ordem de produção
             /// </summary>
-            [SpedCampos(2, "DT_INI_OP", "N", 8, 0, false)]
+            [SpedCampos(2, "DT_INI_OP", "N", 8, 0, false, 15)]
             public DateTime DtIniOp { get; set; }
 
             /// <summary>
             ///     Data de conclusão da ordem de produção
             /// </summary>
-            [SpedCampos(3, "DT_FIN_OP", "N", 8, 0, false)]
+            [SpedCampos(3, "DT_FIN_OP", "N", 8, 0, false, 15)]
             public DateTime? DtFinOp { get; set; }
 
             /// <summary>
             ///     Código de identificação da ordem de produção
             /// </summary>
-            [SpedCampos(4, "COD_DOC_OP", "C", 30, 0, false)]
+            [SpedCampos(4, "COD_DOC_OP", "C", 30, 0, false, 15)]
             public string CodDocOp { get; set; }
 
             /// <summary>
             ///     Código do item produzido
             /// </summary>
-            [SpedCampos(5, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(5, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade de produção acabada
             /// </summary>
-            [SpedCampos(6, "QTD_ENC", "N", 0, 3, true)]
+            [SpedCampos(6, "QTD_ENC", "N", 0, 3, true, 15)]
             public decimal QtdEnc { get; set; }
 
             public List<RegistroK235> RegK235s { get; set; }
@@ -311,25 +311,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data de saída do estoque para alocação ao produto
             /// </summary>
-            [SpedCampos(2, "DT_SAÍDA", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_SAÍDA", "N", 8, 0, true, 15)]
             public DateTime DtSaida { get; set; }
 
             /// <summary>
             ///     Código do item componente/insumo
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade consumida do item
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 3, true)]
+            [SpedCampos(4, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Código do insumo que foi substituído, caso ocorra a substituição
             /// </summary>
-            [SpedCampos(5, "COD_INS_SUBST", "C", 60, 0, false)]
+            [SpedCampos(5, "COD_INS_SUBST", "C", 60, 0, false, 15)]
             public string CodInsSubst { get; set; }
         }
 
@@ -349,19 +349,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data do reconhecimento da produção ocorrida no terceiro
             /// </summary>
-            [SpedCampos(2, "DT_PROD", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_PROD", "N", 8, 0, true, 15)]
             public DateTime DtProd { get; set; }
 
             /// <summary>
             ///     Código do item produzido
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade produzida
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 3, true)]
+            [SpedCampos(4, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             public List<RegistroK255> RegK255s { get; set; }
@@ -383,25 +383,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data do reconhecimento do consumo do insumo referente ao produto informado no campo 04 do Registro K250
             /// </summary>
-            [SpedCampos(2, "DT_CONS", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_CONS", "N", 8, 0, true, 15)]
             public DateTime DtCons { get; set; }
 
             /// <summary>
             ///     Código do insumo
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade de consumo do insumo
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 3, true)]
+            [SpedCampos(4, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Código do insumo que foi substituído, caso ocorra a substituição
             /// </summary>
-            [SpedCampos(5, "COD_INS_SUBST", "C", 60, 0, false)]
+            [SpedCampos(5, "COD_INS_SUBST", "C", 60, 0, false, 15)]
             public string CodInsSubst { get; set; }
         }
 
@@ -421,37 +421,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código de identificação da ordem de produção, no reprocessamento, ou da ordem de serviço, no reparo
             /// </summary>
-            [SpedCampos(2, "COD_OP_OS", "C", 30, 0, false)]
+            [SpedCampos(2, "COD_OP_OS", "C", 30, 0, false, 15)]
             public string CodOpOS { get; set; }
 
             /// <summary>
             ///     Código do produto/insumo a ser reprocessado/reparado ou já reprocessado/reparado(campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Data de saída do estoque
             /// </summary>
-            [SpedCampos(4, "DT_SAiDA", "N", 8, 0, true)]
+            [SpedCampos(4, "DT_SAiDA", "N", 8, 0, true, 15)]
             public DateTime DtSaida { get; set; }
 
             /// <summary>
             ///    Quantidade de saída do estoque
             /// </summary>
-            [SpedCampos(5, "QTD_SAIDA", "N", 0, 3, true)]
+            [SpedCampos(5, "QTD_SAIDA", "N", 0, 3, true, 15)]
             public decimal QtdSaida { get; set; }
 
             /// <summary>
             ///     Data de retorno ao estoque (entrada) 
             /// </summary>
-            [SpedCampos(6, "DT_RET", "N", 8, 0, false)]
+            [SpedCampos(6, "DT_RET", "N", 8, 0, false, 15)]
             public DateTime? DtReg { get; set; }
 
             /// <summary>
             ///    Quantidade de retorno ao estoque (entrada)
             /// </summary>
-            [SpedCampos(7, "QTD_RET", "N", 0, 3, false)]
+            [SpedCampos(7, "QTD_RET", "N", 0, 3, false, 15)]
             public decimal? QtdRet { get; set; }
 
             public List<RegistroK265> RegK265s { get; set; }
@@ -473,19 +473,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da mercadoria (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///    Quantidade consumida – saída do estoque
             /// </summary>
-            [SpedCampos(3, "QTD_CONS", "N", 0, 3, false)]
+            [SpedCampos(3, "QTD_CONS", "N", 0, 3, false, 15)]
             public decimal? QtdCons { get; set; }
 
             /// <summary>
             ///    Quantidade retornada – entrada em estoque
             /// </summary>
-            [SpedCampos(4, "QTD_RET", "N", 0, 3, false)]
+            [SpedCampos(4, "QTD_RET", "N", 0, 3, false, 15)]
             public decimal? QtdRet { get; set; }
         }
 
@@ -505,37 +505,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data inicial do período de apuração em que ocorreu o apontamento que está sendo corrigido
             /// </summary>
-            [SpedCampos(2, "DT_INI_AP", "N", 8, 0, false)]
+            [SpedCampos(2, "DT_INI_AP", "N", 8, 0, false, 15)]
             public DateTime? DtIniAP { get; set; }
 
             /// <summary>
             ///     Data final do período de apuração em que ocorreu o apontamento que está sendo corrigido
             /// </summary>
-            [SpedCampos(3, "DT_FIN_AP", "N", 8, 0, false)]
+            [SpedCampos(3, "DT_FIN_AP", "N", 8, 0, false, 15)]
             public DateTime? DtFinAP { get; set; }
 
             /// <summary>
             ///     Código de identificação da ordem de produção ou da ordem de serviço que está sendo corrigida
             /// </summary>
-            [SpedCampos(4, "COD_OP_OS", "C", 30, 0, false)]
+            [SpedCampos(4, "COD_OP_OS", "C", 30, 0, false, 15)]
             public string CodOpOs { get; set; }
 
             /// <summary>
             ///     Código da mercadoria que está sendo corrigido (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(5, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(5, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade de correção positiva de apontamento ocorrido em período de apuração anterior
             /// </summary>
-            [SpedCampos(6, "QTD_COR_POS", "N", 0, 3, false)]
+            [SpedCampos(6, "QTD_COR_POS", "N", 0, 3, false, 15)]
             public decimal? QtdCorPos { get; set; }
 
             /// <summary>
             ///     Quantidade de correção negativa de apontamento ocorrido em período de apuração anterior
             /// </summary>
-            [SpedCampos(7, "QTD_COR_NEG", "N", 0, 3, false)]
+            [SpedCampos(7, "QTD_COR_NEG", "N", 0, 3, false, 15)]
             public decimal? QtdCorNeg { get; set; }
 
             /// <summary>
@@ -549,7 +549,7 @@ namespace FiscalBr.EFDFiscal
             ///     8 – correção de apontamento de produção relativo ao Registro K301;
             ///     9 – correção de apontamento de consumo relativo ao Registro K302.
             /// </summary>
-            [SpedCampos(8, "ORIGEM", "C", 1, 0, true)]
+            [SpedCampos(8, "ORIGEM", "C", 1, 0, true, 15)]
             public string Origem { get; set; }
 
             public List<RegistroK275> RegK275s { get; set; }
@@ -571,25 +571,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da mercadoria (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///    Quantidade de correção positiva de apontamento ocorrido em período de apuração anterior
             /// </summary>
-            [SpedCampos(3, "QTD_COR_POS", "N", 0, 3, false)]
+            [SpedCampos(3, "QTD_COR_POS", "N", 0, 3, false, 15)]
             public decimal? QtdCorPos { get; set; }
 
             /// <summary>
             ///    Quantidade de correção negativa de apontamento ocorrido em período de apuração anterior
             /// </summary>
-            [SpedCampos(4, "QTD_COR NEG", "N", 0, 3, false)]
+            [SpedCampos(4, "QTD_COR NEG", "N", 0, 3, false, 15)]
             public decimal? QtdCorNeg { get; set; }
 
             /// <summary>
             ///    Código do insumo que foi substituído, caso ocorra a substituição, relativo aos Registros K235/K255
             /// </summary>
-            [SpedCampos(5, "COD_INS_SUBST", "C", 60, 0, false)]
+            [SpedCampos(5, "COD_INS_SUBST", "C", 60, 0, false, 15)]
             public string CodInstSubst { get; set; }
         }
 
@@ -609,19 +609,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da mercadoria (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///    Quantidade de correção positiva de apontamento ocorrido em período de apuração anterior
             /// </summary>
-            [SpedCampos(3, "QTD_COR_POS", "N", 0, 3, false)]
+            [SpedCampos(3, "QTD_COR_POS", "N", 0, 3, false, 15)]
             public decimal? QtdCorPos { get; set; }
 
             /// <summary>
             ///    Quantidade de correção negativa de apontamento ocorrido em período de apuração anterior
             /// </summary>
-            [SpedCampos(4, "QTD_COR NEG", "N", 0, 3, false)]
+            [SpedCampos(4, "QTD_COR NEG", "N", 0, 3, false, 15)]
             public decimal? QtdCorNeg { get; set; }
 
             /// <summary>
@@ -630,14 +630,14 @@ namespace FiscalBr.EFDFiscal
             ///         1 = Estoque de propriedade do informante e em posse de terceiros;
             ///         2 = Estoque de propriedade de terceiros e em posse do informante
             /// </summary>
-            [SpedCampos(5, "IND_EST", "C", 1, 0, true)]
+            [SpedCampos(5, "IND_EST", "C", 1, 0, true, 15)]
             public string IndEst { get; set; }
 
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150):
             ///         - proprietário/possuidor que não seja o informante do arquivo
             /// </summary>
-            [SpedCampos(6, "COD_PART", "C", 60, 0, false)]
+            [SpedCampos(6, "COD_PART", "C", 60, 0, false, 15)]
             public string CodPart { get; set; }
         }
 
@@ -657,19 +657,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data de início da ordem de produção
             /// </summary>
-            [SpedCampos(2, "DT_INI_OP", "N", 8, 0, false)]
+            [SpedCampos(2, "DT_INI_OP", "N", 8, 0, false, 15)]
             public DateTime? DtIniOp { get; set; }
 
             /// <summary>
             ///     Data de conclusão da ordem de produção
             /// </summary>
-            [SpedCampos(3, "DT_FIN_OP", "N", 8, 0, false)]
+            [SpedCampos(3, "DT_FIN_OP", "N", 8, 0, false, 15)]
             public DateTime? DtFinOp { get; set; }
 
             /// <summary>
             ///     Código de identificação da ordem de produção
             /// </summary>
-            [SpedCampos(3, "COD_DOC_OP", "C", 30, 0, false)]
+            [SpedCampos(3, "COD_DOC_OP", "C", 30, 0, false, 15)]
             public string CodDocOp { get; set; }
 
             public List<RegistroK291> RegK291s { get; set; }
@@ -692,13 +692,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do item produzido (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///    Quantidade de produção acabada
             /// </summary>
-            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            [SpedCampos(3, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
         }
 
@@ -718,13 +718,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do insumo/componente consumido (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///    Quantidade consumida
             /// </summary>
-            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            [SpedCampos(3, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
         }
 
@@ -744,7 +744,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Data do reconhecimento da produção ocorrida no terceiro
             /// </summary>
-            [SpedCampos(2, "DT_PROD", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_PROD", "N", 8, 0, true, 15)]
             public DateTime DtProd { get; set; }
 
             public List<RegistroK301> RegK301s { get; set; }
@@ -767,13 +767,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do item produzido (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///    Quantidade produzida
             /// </summary>
-            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            [SpedCampos(3, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
         }
 
@@ -793,13 +793,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do insumo (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///    Quantidade consumida
             /// </summary>
-            [SpedCampos(3, "QTD", "N", 0, 3, true)]
+            [SpedCampos(3, "QTD", "N", 0, 3, true, 15)]
             public decimal Qtd { get; set; }
         }
 
@@ -819,7 +819,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Quantidade total de linhas do Bloco K
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_K", "N", int.MaxValue, 0, true)]
+            [SpedCampos(2, "QTD_LIN_K", "N", int.MaxValue, 0, true, 15)]
             public int QtdLinK { get; set; }
         }
     }

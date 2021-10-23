@@ -178,6 +178,58 @@ namespace FiscalBr.Common
     #endregion ECD
 
 
+    public enum CodigoVersaoLeiaute
+    {
+        /// <summary>
+        /// Código: 14
+        /// Versão: 1.13
+        /// Validade: 01/01/2020 - 31/12/2020
+        /// </summary>
+        [DefaultValue("006")] V6,
+
+        /// <summary>
+        /// Código: 14
+        /// Versão: 1.13
+        /// Validade: 01/01/2020 - 31/12/2020
+        /// </summary>
+        [DefaultValue("010")] V10,
+
+        /// <summary>
+        /// Código: 14
+        /// Versão: 1.13
+        /// Validade: 01/01/2020 - 31/12/2020
+        /// </summary>
+        [DefaultValue("011")] V11,
+
+        /// <summary>
+        /// Código: 14
+        /// Versão: 1.13
+        /// Validade: 01/01/2020 - 31/12/2020
+        /// </summary>
+        [DefaultValue("012")] V12,
+
+        /// <summary>
+        /// Código: 14
+        /// Versão: 1.13
+        /// Validade: 01/01/2020 - 31/12/2020
+        /// </summary>
+        [DefaultValue("013")] V13,
+
+        /// <summary>
+        /// Código: 14
+        /// Versão: 1.13
+        /// Validade: 01/01/2020 - 31/12/2020
+        /// </summary>
+        [DefaultValue("014")] V14,
+
+        /// <summary>
+        /// Código: 15
+        /// Versão: 1.14
+        /// Validade: 01/01/2021 - 31/12/2021?
+        /// </summary>
+        [DefaultValue("015")] V15,
+    }
+
     public enum SimOuNao
     {
         /// <summary>

@@ -4,10 +4,10 @@ using System.Text;
 
 namespace FiscalBr.Common.Sped
 {
-    [AttributeUsage(AttributeTargets.Property)]
+    [AttributeUsage(AttributeTargets.Property, AllowMultiple = true)]
     public class SpedCamposAttribute : Attribute
     {
-        public SpedCamposAttribute(int ordem, string campo, string tipo, int tamanho, int qtdCasasDecimais, bool isObrigatorio)
+        public SpedCamposAttribute(int ordem, string campo, string tipo, int tamanho, int qtdCasasDecimais, bool isObrigatorio, int versao)
         {
             OrdemAtt = ordem;
             CampoAtt = campo;
@@ -15,6 +15,7 @@ namespace FiscalBr.Common.Sped
             TamanhoAtt = tamanho;
             QtdCasasAtt = qtdCasasDecimais;
             IsObrigatorioAtt = isObrigatorio;
+            VersaoAtt = versao;
         }
 
         protected int OrdemAtt;
@@ -74,6 +75,16 @@ namespace FiscalBr.Common.Sped
             get
             {
                 return IsObrigatorioAtt;
+            }
+        }
+
+        protected int VersaoAtt;
+
+        public int Versao
+        {
+            get
+            {
+                return VersaoAtt;
             }
         }
     }

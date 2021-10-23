@@ -13,7 +13,7 @@ namespace FiscalBr.ECF
                 Reg = "9001";
             }
 
-            [SpedCampos(2, "IND_DAD", "N", 1, 0, true)]
+            [SpedCampos(2, "IND_DAD", "N", 1, 0, true, 15)]
             public int IndDad { get; set; }
         }
 
@@ -24,22 +24,22 @@ namespace FiscalBr.ECF
                 Reg = "9100";
             }
 
-            [SpedCampos(2, "NOM_REGRA", "N", 0, 0, true)]
+            [SpedCampos(2, "NOM_REGRA", "N", 0, 0, true, 15)]
             public string NomRegra { get; set; }
 
-            [SpedCampos(3, "MSG_REGRA", "C", 0, 0, false)]
+            [SpedCampos(3, "MSG_REGRA", "C", 0, 0, false, 15)]
             public string MsgRegra { get; set; }
 
-            [SpedCampos(4, "REGISTRO", "C", 4, 0, true)]
+            [SpedCampos(4, "REGISTRO", "C", 4, 0, true, 15)]
             public string Registro { get; set; }
 
-            [SpedCampos(5, "CAMPO", "C", 0, 0, false)]
+            [SpedCampos(5, "CAMPO", "C", 0, 0, false, 15)]
             public string Campo { get; set; }
 
-            [SpedCampos(6, "VALOR_ESPERADO", "NS", 19, 2, false)]
+            [SpedCampos(6, "VALOR_ESPERADO", "NS", 19, 2, false, 15)]
             public decimal? ValorEsperado { get; set; }
 
-            [SpedCampos(7, "CONTEÚDO", "NS", 19, 2, false)]
+            [SpedCampos(7, "CONTEÚDO", "NS", 19, 2, false, 15)]
             public decimal? Conteudo { get; set; }
         }
 
@@ -50,16 +50,16 @@ namespace FiscalBr.ECF
                 Reg = "9900";
             }
 
-            [SpedCampos(2, "REG_BLC", "C", 4, 0, true)]
+            [SpedCampos(2, "REG_BLC", "C", 4, 0, true, 15)]
             public string RegBlc { get; set; }
 
-            [SpedCampos(3, "QTD_REG_BLC", "N", 0, 0, true)]
+            [SpedCampos(3, "QTD_REG_BLC", "N", 0, 0, true, 15)]
             public int QtdRegBlc { get; set; }
 
-            [SpedCampos(4, "VERSAO", "C", 4, 0, false)]
+            [SpedCampos(4, "VERSAO", "C", 4, 0, false, 15)]
             public string Versao { get; set; }
 
-            [SpedCampos(5, "ID_TAB_DIN", "C", 0, 0, false)]
+            [SpedCampos(5, "ID_TAB_DIN", "C", 0, 0, false, 15)]
             public string IdTabDin { get; set; }
         }
 
@@ -70,7 +70,7 @@ namespace FiscalBr.ECF
                 Reg = "9990";
             }
 
-            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true, 15)]
             public int QtdLin { get; set; }
         }
 
@@ -81,7 +81,7 @@ namespace FiscalBr.ECF
                 Reg = "9999";
             }
 
-            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true, 15)]
             public int QtdLin { get; set; }
         }
     }

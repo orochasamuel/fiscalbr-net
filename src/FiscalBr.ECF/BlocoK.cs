@@ -13,7 +13,7 @@ namespace FiscalBr.ECF
                 Reg = "K001";
             }
 
-            [SpedCampos(2, "IND_DAD", "N", 1, 0, true)]
+            [SpedCampos(2, "IND_DAD", "N", 1, 0, true, 15)]
             public int IndDad { get; set; }
         }
 
@@ -24,13 +24,13 @@ namespace FiscalBr.ECF
                 Reg = "K030";
             }
 
-            [SpedCampos(2, "DT_INI", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_INI", "N", 8, 0, true, 15)]
             public DateTime DtIni { get; set; }
 
-            [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
+            [SpedCampos(3, "DT_FIN", "N", 8, 0, true, 15)]
             public DateTime DtFin { get; set; }
 
-            [SpedCampos(4, "PER_APUR", "C", 3, 0, true)]
+            [SpedCampos(4, "PER_APUR", "C", 3, 0, true, 15)]
             public string PerApur { get; set; }
         }
 
@@ -41,28 +41,28 @@ namespace FiscalBr.ECF
                 Reg = "K155";
             }
 
-            [SpedCampos(2, "COD_CTA", "C", 0, 0, true)]
+            [SpedCampos(2, "COD_CTA", "C", 0, 0, true, 15)]
             public string CodCta { get; set; }
 
-            [SpedCampos(3, "COD_CCUS", "C", 0, 0, false)]
+            [SpedCampos(3, "COD_CCUS", "C", 0, 0, false, 15)]
             public string CodCcus { get; set; }
 
-            [SpedCampos(4, "VL_SLD_INI", "N", 19, 2, true)]
+            [SpedCampos(4, "VL_SLD_INI", "N", 19, 2, true, 15)]
             public decimal VlSldIni { get; set; }
 
-            [SpedCampos(5, "IND_VL_SLD_INI", "C", 1, 0, true)]
+            [SpedCampos(5, "IND_VL_SLD_INI", "C", 1, 0, true, 15)]
             public string IndVlSldIni { get; set; }
 
-            [SpedCampos(6, "VL_DEB", "N", 19, 2, true)]
+            [SpedCampos(6, "VL_DEB", "N", 19, 2, true, 15)]
             public decimal VlDeb { get; set; }
 
-            [SpedCampos(7, "VL_CRED", "N", 19, 2, true)]
+            [SpedCampos(7, "VL_CRED", "N", 19, 2, true, 15)]
             public decimal VlCred { get; set; }
 
-            [SpedCampos(8, "VL_SLD_FIN", "N", 19, 2, true)]
+            [SpedCampos(8, "VL_SLD_FIN", "N", 19, 2, true, 15)]
             public decimal VlSldFin { get; set; }
 
-            [SpedCampos(9, "IND_VL_SLD_FIN", "C", 1, 0, true)]
+            [SpedCampos(9, "IND_VL_SLD_FIN", "C", 1, 0, true, 15)]
             public string IndVlSldFin { get; set; }
         }
 
@@ -73,13 +73,13 @@ namespace FiscalBr.ECF
                 Reg = "K156";
             }
 
-            [SpedCampos(2, "COD_CTA_REF", "C", 0, 0, true)]
+            [SpedCampos(2, "COD_CTA_REF", "C", 0, 0, true, 15)]
             public string CodCtaRef { get; set; }
 
-            [SpedCampos(3, "VL_SLD_FIN", "N", 19, 2, true)]
+            [SpedCampos(3, "VL_SLD_FIN", "N", 19, 2, true, 15)]
             public decimal VlSldFin { get; set; }
 
-            [SpedCampos(4, "IND_VL_SLD_FIN", "C", 1, 0, true)]
+            [SpedCampos(4, "IND_VL_SLD_FIN", "C", 1, 0, true, 15)]
             public string IndVlSldFin { get; set; }
         }
 
@@ -90,16 +90,16 @@ namespace FiscalBr.ECF
                 Reg = "K355";
             }
 
-            [SpedCampos(2, "COD_CTA", "C", 0, 0, true)]
+            [SpedCampos(2, "COD_CTA", "C", 0, 0, true, 15)]
             public string CodCta { get; set; }
 
-            [SpedCampos(3, "COD_CCUS", "C", 0, 0, false)]
+            [SpedCampos(3, "COD_CCUS", "C", 0, 0, false, 15)]
             public string CodCcus { get; set; }
 
-            [SpedCampos(4, "VL_SLD_FIN", "N", 19, 2, true)]
+            [SpedCampos(4, "VL_SLD_FIN", "N", 19, 2, true, 15)]
             public decimal VlSldFin { get; set; }
 
-            [SpedCampos(5, "IND_VL_SLD_FIN", "C", 1, 0, true)]
+            [SpedCampos(5, "IND_VL_SLD_FIN", "C", 1, 0, true, 15)]
             public string IndVlSldFin { get; set; }
         }
 
@@ -110,13 +110,13 @@ namespace FiscalBr.ECF
                 Reg = "K356";
             }
 
-            [SpedCampos(2, "COD_CTA_REF", "C", 0, 0, true)]
+            [SpedCampos(2, "COD_CTA_REF", "C", 0, 0, true, 15)]
             public string CodCtaRef { get; set; }
 
-            [SpedCampos(3, "VL_SLD_FIN", "N", 19, 2, true)]
+            [SpedCampos(3, "VL_SLD_FIN", "N", 19, 2, true, 15)]
             public decimal VlSldFin { get; set; }
 
-            [SpedCampos(4, "IND_VL_SLD_FIN", "C", 1, 0, true)]
+            [SpedCampos(4, "IND_VL_SLD_FIN", "C", 1, 0, true, 15)]
             public string IndVlSldFin { get; set; }
         }
 
@@ -127,7 +127,7 @@ namespace FiscalBr.ECF
                 Reg = "K990";
             }
 
-            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true, 15)]
             public int QtdLin { get; set; }
         }
     }

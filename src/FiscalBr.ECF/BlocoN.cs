@@ -13,7 +13,7 @@ namespace FiscalBr.ECF
                 Reg = "N001";
             }
 
-            [SpedCampos(2, "IND_DAD", "N", 1, 0, true)]
+            [SpedCampos(2, "IND_DAD", "N", 1, 0, true, 15)]
             public int IndDad { get; set; }
         }
 
@@ -24,13 +24,13 @@ namespace FiscalBr.ECF
                 Reg = "N030";
             }
 
-            [SpedCampos(2, "DT_INI", "N", 8, 0, true)]
+            [SpedCampos(2, "DT_INI", "N", 8, 0, true, 15)]
             public DateTime DtIni { get; set; }
 
-            [SpedCampos(3, "DT_FIN", "N", 8, 0, true)]
+            [SpedCampos(3, "DT_FIN", "N", 8, 0, true, 15)]
             public DateTime DtFin { get; set; }
 
-            [SpedCampos(4, "PER_APUR", "C", 3, 0, true)]
+            [SpedCampos(4, "PER_APUR", "C", 3, 0, true, 15)]
             public string PerApur { get; set; }
         }
 
@@ -41,13 +41,13 @@ namespace FiscalBr.ECF
                 Reg = "N500";
             }
 
-            [SpedCampos(2, "CODIGO", "C", 0, 0, true)]
+            [SpedCampos(2, "CODIGO", "C", 0, 0, true, 15)]
             public string Codigo { get; set; }
 
-            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false)]
+            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false, 15)]
             public string Descricao { get; set; }
 
-            [SpedCampos(4, "VALOR", "NS", 19, 2, false)]
+            [SpedCampos(4, "VALOR", "NS", 19, 2, false, 15)]
             public decimal? Valor { get; set; }
         }
 
@@ -58,13 +58,13 @@ namespace FiscalBr.ECF
                 Reg = "N600";
             }
 
-            [SpedCampos(2, "CODIGO", "C", 0, 0, true)]
+            [SpedCampos(2, "CODIGO", "C", 0, 0, true, 15)]
             public string Codigo { get; set; }
 
-            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false)]
+            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false, 15)]
             public string Descricao { get; set; }
 
-            [SpedCampos(4, "VALOR", "NS", 19, 2, false)]
+            [SpedCampos(4, "VALOR", "NS", 19, 2, false, 15)]
             public decimal? Valor { get; set; }
         }
 
@@ -75,13 +75,13 @@ namespace FiscalBr.ECF
                 Reg = "N610";
             }
 
-            [SpedCampos(2, "CODIGO", "C", 0, 0, true)]
+            [SpedCampos(2, "CODIGO", "C", 0, 0, true, 15)]
             public string Codigo { get; set; }
 
-            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false)]
+            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false, 15)]
             public string Descricao { get; set; }
 
-            [SpedCampos(4, "VALOR", "NS", 19, 2, false)]
+            [SpedCampos(4, "VALOR", "NS", 19, 2, false, 15)]
             public decimal? Valor { get; set; }
         }
 
@@ -92,22 +92,22 @@ namespace FiscalBr.ECF
                 Reg = "N615";
             }
 
-            [SpedCampos(2, "BASE_CALC", "N", 19, 2, true)]
+            [SpedCampos(2, "BASE_CALC", "N", 19, 2, true, 15)]
             public decimal BaseCalc { get; set; }
 
-            [SpedCampos(3, "PER_INCEN_ FINOR", "N", 8, 1, true)]
+            [SpedCampos(3, "PER_INCEN_ FINOR", "N", 8, 1, true, 15)]
             public decimal PerIncenFinor { get; set; }
 
-            [SpedCampos(4, "VL_LIQ_INCEN_ FINOR", "NS", 19, 2, true)]
+            [SpedCampos(4, "VL_LIQ_INCEN_ FINOR", "NS", 19, 2, true, 15)]
             public decimal VlLiqIncenFinor { get; set; }
 
-            [SpedCampos(5, "PER_INCEN_ FINAM", "N", 8, 4, true)]
+            [SpedCampos(5, "PER_INCEN_ FINAM", "N", 8, 4, true, 15)]
             public decimal PerIncenFinam { get; set; }
 
-            [SpedCampos(6, "VL_LIQ_INCEN_FINAM", "NS", 19, 2, true)]
+            [SpedCampos(6, "VL_LIQ_INCEN_FINAM", "NS", 19, 2, true, 15)]
             public decimal VlLiqIncenFinam { get; set; }
 
-            [SpedCampos(7, "VL_TOTAL", "NS", 19, 2, true)]
+            [SpedCampos(7, "VL_TOTAL", "NS", 19, 2, true, 15)]
             public decimal VlTotal { get; set; }
         }
 
@@ -118,13 +118,13 @@ namespace FiscalBr.ECF
                 Reg = "N620";
             }
 
-            [SpedCampos(2, "CODIGO", "C", 0, 0, true)]
+            [SpedCampos(2, "CODIGO", "C", 0, 0, true, 15)]
             public string Codigo { get; set; }
 
-            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false)]
+            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false, 15)]
             public string Descricao { get; set; }
 
-            [SpedCampos(4, "VALOR", "NS", 19, 2, false)]
+            [SpedCampos(4, "VALOR", "NS", 19, 2, false, 15)]
             public decimal? Valor { get; set; }
         }
 
@@ -135,13 +135,13 @@ namespace FiscalBr.ECF
                 Reg = "N630";
             }
 
-            [SpedCampos(2, "CODIGO", "C", 0, 0, true)]
+            [SpedCampos(2, "CODIGO", "C", 0, 0, true, 15)]
             public string Codigo { get; set; }
 
-            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false)]
+            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false, 15)]
             public string Descricao { get; set; }
 
-            [SpedCampos(4, "VALOR", "NS", 19, 2, false)]
+            [SpedCampos(4, "VALOR", "NS", 19, 2, false, 15)]
             public decimal? Valor { get; set; }
         }
 
@@ -152,13 +152,13 @@ namespace FiscalBr.ECF
                 Reg = "N650";
             }
 
-            [SpedCampos(2, "CODIGO", "C", 0, 0, true)]
+            [SpedCampos(2, "CODIGO", "C", 0, 0, true, 15)]
             public string Codigo { get; set; }
 
-            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false)]
+            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false, 15)]
             public string Descricao { get; set; }
 
-            [SpedCampos(4, "VALOR", "NS", 19, 2, false)]
+            [SpedCampos(4, "VALOR", "NS", 19, 2, false, 15)]
             public decimal? Valor { get; set; }
         }
 
@@ -169,13 +169,13 @@ namespace FiscalBr.ECF
                 Reg = "N660";
             }
 
-            [SpedCampos(2, "CODIGO", "C", 0, 0, true)]
+            [SpedCampos(2, "CODIGO", "C", 0, 0, true, 15)]
             public string Codigo { get; set; }
 
-            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false)]
+            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false, 15)]
             public string Descricao { get; set; }
 
-            [SpedCampos(4, "VALOR", "NS", 19, 2, false)]
+            [SpedCampos(4, "VALOR", "NS", 19, 2, false, 15)]
             public decimal? Valor { get; set; }
         }
 
@@ -186,13 +186,13 @@ namespace FiscalBr.ECF
                 Reg = "N670";
             }
 
-            [SpedCampos(2, "CODIGO", "C", 0, 0, true)]
+            [SpedCampos(2, "CODIGO", "C", 0, 0, true, 15)]
             public string Codigo { get; set; }
 
-            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false)]
+            [SpedCampos(3, "DESCRICAO", "C", 0, 0, false, 15)]
             public string Descricao { get; set; }
 
-            [SpedCampos(4, "VALOR", "NS", 19, 2, false)]
+            [SpedCampos(4, "VALOR", "NS", 19, 2, false, 15)]
             public decimal? Valor { get; set; }
         }
 
@@ -203,7 +203,7 @@ namespace FiscalBr.ECF
                 Reg = "N990";
             }
 
-            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true)]
+            [SpedCampos(2, "QTD_LIN", "N", 0, 0, true, 15)]
             public int QtdLin { get; set; }
         }
     }

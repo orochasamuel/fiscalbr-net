@@ -17,7 +17,7 @@ namespace FiscalBr.EFDContribuicoes
                 Reg = "P001";
             }
 
-            [SpedCampos(2, "IND_MOV", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 15)]
             public IndMovimento IndMov { get; set; }
 
             public List<RegistroP010> RegP010s { get; set; }
@@ -37,7 +37,7 @@ namespace FiscalBr.EFDContribuicoes
                 Reg = "P010";
             }
 
-            [SpedCampos(3, "CNPJ", "N", 14, 0, true)]
+            [SpedCampos(3, "CNPJ", "N", 14, 0, true, 15)]
             public int Cnpj { get; set; }
 
             public List<RegistroP100> RegP100s { get; set; }
@@ -59,67 +59,67 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Data inicial a que a apuração se refere
             /// </summary>
-            [SpedCampos(2, "DT_INI", "C", 8, 0, true)]
+            [SpedCampos(2, "DT_INI", "C", 8, 0, true, 15)]
             public DateTime DtIni { get; set; }
 
             /// <summary>
             ///    Data final a que a apuração se refere
             /// </summary>
-            [SpedCampos(3, "DT_FIN", "C", 8, 0, true)]
+            [SpedCampos(3, "DT_FIN", "C", 8, 0, true, 15)]
             public DateTime DtFin { get; set; }
 
             /// <summary>
             ///    Valor da Receita Bruta Total do Estabelecimento no Período
             /// </summary>
-            [SpedCampos(4, "VL_REC_TOT_EST", "N", 0, 2, true)]
+            [SpedCampos(4, "VL_REC_TOT_EST", "N", 0, 2, true, 15)]
             public decimal VlRecTotEst { get; set; }
 
             /// <summary>
             ///     Código indicador correspondente à atividade sujeita a incidência da Contribuição Previdenciária sobre a Receita Bruta, conforme Tabela 5.1.1.
             /// </summary>
-            [SpedCampos(5, "COD_ATIV_ECON", "C", 8, 0, true)]
+            [SpedCampos(5, "COD_ATIV_ECON", "C", 8, 0, true, 15)]
             public decimal CodAtivEcon { get; set; }
 
             /// <summary>
             ///     Valor da Receita Bruta do Estabelecimento, correspondente às atividades/produtos referidos no Campo 05 (COD_ATIV_ECON)
             /// </summary>
-            [SpedCampos(6, "VL_REC_ATIV_ESTAB", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_REC_ATIV_ESTAB", "N", 0, 2, true, 15)]
             public decimal VlBcMenEst { get; set; }
 
             /// <summary>
             ///     Valor das Exclusões da Receita Bruta informada no Campo 06
             /// </summary>
-            [SpedCampos(7, "VL_EXC", "N", 0, 2, false)]
+            [SpedCampos(7, "VL_EXC", "N", 0, 2, false, 15)]
             public int VlExc { get; set; }
 
             /// <summary>
             ///     Valor da Base de Cálculo da Contribuição Previdenciária sobre a Receita Bruta(Campo 08 = Campo 06 –Campo 07)
             /// </summary>
-            [SpedCampos(8, "VL_BC_CONT", "N", 0, 2, true)]
+            [SpedCampos(8, "VL_BC_CONT", "N", 0, 2, true, 15)]
             public decimal VlBcCont { get; set; }
 
             /// <summary>
             ///     Alíquota da Contribuição Previdenciária sobre a Receita Bruta
             /// </summary>
-            [SpedCampos(9, "ALIQ_CONT", "N", 8, 4, true)]
+            [SpedCampos(9, "ALIQ_CONT", "N", 8, 4, true, 15)]
             public decimal AliqCont { get; set; }
 
             /// <summary>
             ///     Valor da Contribuição Previdenciária Apurada sobre a Receita Bruta
             /// </summary>
-            [SpedCampos(10, "VL_CONT_APU", "N", 0, 2, true)]
+            [SpedCampos(10, "VL_CONT_APU", "N", 0, 2, true, 15)]
             public decimal VlContApu { get; set; }
 
             /// <summary>
             ///     Código da conta analítica contábil referente à Contribuição Previdenciária sobre a Receita Bruta
             /// </summary>
-            [SpedCampos(11, "COD_CTA", "C", 255, 0, false)]
+            [SpedCampos(11, "COD_CTA", "C", 255, 0, false, 15)]
             public decimal CodCta { get; set; }
 
             /// <summary>
             ///    Informação complementar do registro
             /// </summary>
-            [SpedCampos(12, "INFO_COMPL", "C",0, 0, false)]
+            [SpedCampos(12, "INFO_COMPL", "C",0, 0, false, 15)]
             public decimal InfoCompl { get; set; }
 
             public List<RegistroP110> RegP110s { get; set; }
@@ -142,25 +142,25 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Informar  o  número  do  campo  do  registro “P100”, objeto de detalhamento neste registro
             /// </summary>
-            [SpedCampos(2, "NUM_CAMPO", "C", 2, 0, true)]
+            [SpedCampos(2, "NUM_CAMPO", "C", 2, 0, true, 15)]
             public string NumCampo { get; set; }
 
             /// <summary>
             ///    Código  do  tipo  de  detalhamento,  conforme Tabela 5.1.2
             /// </summary>
-            [SpedCampos(3, "COD_DET", "C", 8, 0, false)]
+            [SpedCampos(3, "COD_DET", "C", 8, 0, false, 15)]
             public string CodDet { get; set; }
 
             /// <summary>
             ///    Valor detalhado referente ao campo 02 deste registro
             /// </summary>
-            [SpedCampos(4, "DET_VALOR", "N", 0, 2, true)]
+            [SpedCampos(4, "DET_VALOR", "N", 0, 2, true, 15)]
             public decimal DetValor { get; set; }
 
             /// <summary>
             ///     Informação complementar do detalhamento.
             /// </summary>
-            [SpedCampos(5, "INF_COMPL", "C", 0, 0, false)]
+            [SpedCampos(5, "INF_COMPL", "C", 0, 0, false, 15)]
             public decimal InfCompl { get; set; }
         }
 
@@ -180,7 +180,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Identificação do processo ou ato concessório
             /// </summary>
-            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true)]
+            [SpedCampos(2, "NUM_PROC", "C", 20, 0, true, 15)]
             public string NumProc { get; set; }
 
             /// <summary>
@@ -189,7 +189,7 @@ namespace FiscalBr.EFDContribuicoes
             ///    3 –Secretaria da Receita Federal do Brasil;
             ///    9 –Outros
             /// </summary>
-            [SpedCampos(3, "IND_PROC", "C", 1, 0, true)]
+            [SpedCampos(3, "IND_PROC", "C", 1, 0, true, 15)]
             public string IndProc { get; set; }
 
         }
@@ -210,37 +210,37 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///    Período de referencia da escrituração (MMAAAA) 
             /// </summary>
-            [SpedCampos(2, "PER_REF", "N", 6, 0, true)]
+            [SpedCampos(2, "PER_REF", "N", 6, 0, true, 15)]
             public string PerRef { get; set; }
 
             /// <summary>
             ///   V alor total apurado da Contribuição Previdenciária sobre a Receita Bruta (Somatório do Campo 10 “VL_CONT_APU“, do(s) Registro(s) P100)
             /// </summary>
-            [SpedCampos(3, "VL_TOT_CONT_APU", "N", 0, 2, true)]
+            [SpedCampos(3, "VL_TOT_CONT_APU", "N", 0, 2, true, 15)]
             public string VlTotContApu { get; set; }
 
             /// <summary>
             ///    Valor total de “Ajustes de redução” (Registro P210, Campo 03, quando Campo 02 = “0”)
             /// </summary>
-            [SpedCampos(4, "VL_TOT_AJ_REDUC", "N", 0, 2, false)]
+            [SpedCampos(4, "VL_TOT_AJ_REDUC", "N", 0, 2, false, 15)]
             public decimal VlTotAjuReduc { get; set; }
 
             /// <summary>
             ///     Valor total de “Ajustes de acréscimo” (Registro P210, Campo 03, quando Campo 02 = “1”)
             /// </summary>
-            [SpedCampos(5, "VL_TOT_AJ_ACRES", "N", 0, 2, false)]
+            [SpedCampos(5, "VL_TOT_AJ_ACRES", "N", 0, 2, false, 15)]
             public decimal VlTotAjAcres { get; set; }
 
             /// <summary>
             ///     Valor total da Contribuição Previdenciária sobre a Receita Bruta a recolher (Campo 03 –Campo 04 + Campo 05)
             /// </summary>
-            [SpedCampos(6, "VL_TOT_CONT_DEV", "N", 0, 2, true)]
+            [SpedCampos(6, "VL_TOT_CONT_DEV", "N", 0, 2, true, 15)]
             public decimal VlTotContDev { get; set; }
 
             /// <summary>
             ///     Código de Receita referente à Contribuição Previdenciária, conforme informado em DCTF
             /// </summary>
-            [SpedCampos(7, "COD_REC", "C", 6, 0, true)]
+            [SpedCampos(7, "COD_REC", "C", 6, 0, true, 15)]
             public int CodRec { get; set; }
 
             public List<RegistroP210> RegP210s { get; set; }
@@ -264,37 +264,37 @@ namespace FiscalBr.EFDContribuicoes
             ///    0-Ajuste de redução;
             ///    1-Ajuste de acréscimo. 
             /// </summary>
-            [SpedCampos(2, "IND_AJ", "C", 1, 0, true)]
+            [SpedCampos(2, "IND_AJ", "C", 1, 0, true, 15)]
             public string IndAj { get; set; }
 
             /// <summary>
             ///    Valor do ajuste
             /// </summary>
-            [SpedCampos(3, "VL_AJ", "N", 0, 2, true)]
+            [SpedCampos(3, "VL_AJ", "N", 0, 2, true, 15)]
             public string VlAj { get; set; }
 
             /// <summary>
             ///    Código do ajuste, conforme a Tabela indicada no item 4.3.8., versão 1.01
             /// </summary>
-            [SpedCampos(4, "COD_AJ", "C", 2, 0, true)]
+            [SpedCampos(4, "COD_AJ", "C", 2, 0, true, 15)]
             public decimal CodAj { get; set; }
 
             /// <summary>
             ///     Número do processo, documento ou ato concessório ao qual o ajuste está vinculado, se houver.
             /// </summary>
-            [SpedCampos(5, "NUM_DOC", "C", 0, 0,false)]
+            [SpedCampos(5, "NUM_DOC", "C", 0, 0,false, 15)]
             public decimal NumDoc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do ajuste.
             /// </summary>
-            [SpedCampos(6, "DESCR_AJ", "N", 8, 0, false)]
+            [SpedCampos(6, "DESCR_AJ", "N", 8, 0, false, 15)]
             public decimal DescrAj { get; set; }
 
             /// <summary>
             ///     Data de referência do ajuste (ddmmaaaa)
             /// </summary>
-            [SpedCampos(7, "DT_REF", "N", 8, 0, false)]
+            [SpedCampos(7, "DT_REF", "N", 8, 0, false, 15)]
             public DateTime DtRef { get; set; }
         }
 
@@ -305,7 +305,7 @@ namespace FiscalBr.EFDContribuicoes
                 Reg = "P990";
             }
 
-            [SpedCampos(3, "QTD_LIN_P", "N", int.MaxValue, 0, true)]
+            [SpedCampos(3, "QTD_LIN_P", "N", int.MaxValue, 0, true, 15)]
             public int QtdLinP { get; set; }
         }
     }
