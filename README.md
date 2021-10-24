@@ -11,7 +11,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2019 - para gera
 - [x] Implementar leitura dos layouts. (Implementado completamente SPED Fiscal e Contribuições)
 - [ ] Melhorar performance na geração das linhas.
 
-## Apoiadores [![Donate](https://img.shields.io/badge/apoia.se-FiscalBr-green)](https://apoia.se/fiscalbr)
+## Apoiadores [![Donate](https://img.shields.io/badge/apoia.se-FiscalBr-green)](https://apoia.se/fiscalbr) [![Coffee](https://img.shields.io/badge/buy%20me%20a-coffee-yellow)](https://www.buymeacoffee.com/orochasamuel)
 
 Se as bibliotecas lhe ajudaram ou contribuiram de alguma forma, apoie. :D Ajude a dar continuidade nesse projeto.
 
