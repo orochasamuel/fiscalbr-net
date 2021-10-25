@@ -29,7 +29,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
-            [SpedCampos(2, "IND_DAD", "C", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_DAD", "C", 1, 0, true, 2)]
             public int IndDad { get; set; }
 
             public List<RegistroB020> RegB020s { get; set; }
@@ -59,121 +59,121 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Indicador do tipo de operação: 0 - Aquisição; 1 - Prestação.
             /// </summary>
-            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 2)]
             public int IndOper { get; set; }
 
             /// <summary>
             ///   Indicador do emitente do documento fiscal: 0 - Emissão própria;1 -Terceiros
             /// </summary>
-            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 15)]
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 2)]
             public int IndEmit { get; set; }
 
             /// <summary>
             ///   Código do participante (campo 02 do Registro 0150):-do prestador, no caso de declarante na condição de tomador;- do tomador, no caso de declarante na condição de prestador
             /// </summary>
-            [SpedCampos(4, "IND_PART", "C", 1, 60, false, 15)]
+            [SpedCampos(4, "IND_PART", "C", 1, 60, false, 2)]
             public int IndPart { get; set; }
 
             /// <summary>
             ///   Código do modelo do documento fiscal, conforme a Tabela 4.1.3
             /// </summary>
-            [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 15)]
+            [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 2)]
             public int CodMod { get; set; }
 
             /// <summary>
             ///    Código   da   situação   do   documento conforme tabela 4.1.2
             /// </summary>
-            [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 15)]
+            [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 2)]
             public int CodSit { get; set; }
 
             /// <summary>
             ///    Série do documento fiscal
             /// </summary>
-            [SpedCampos(7, "SER", "C", 3, 0, false, 15)]
+            [SpedCampos(7, "SER", "C", 3, 0, false, 2)]
             public int Ser { get; set; }
 
             /// <summary>
             ///    Número do documento fiscal
             /// </summary>
-            [SpedCampos(8, "NUM_DOC", "N", 9, 0, true, 15)]
+            [SpedCampos(8, "NUM_DOC", "N", 9, 0, true, 2)]
             public int NumDoc { get; set; }
 
             /// <summary>
             ///    Chave da Nota Fiscal Eletrônica
             /// </summary>
-            [SpedCampos(9, "CHV_NFE", "N", 44, 0, false, 15)]
+            [SpedCampos(9, "CHV_NFE", "N", 44, 0, false, 2)]
             public int ChvNfe { get; set; }
 
             /// <summary>
             ///    Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(10, "DT_DOC", "N", 8, 0, true, 15)]
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, true, 2)]
             public int DtDoc { get; set; }
 
             /// <summary>
             ///    Código do município onde o serviço foi prestado, conforme a tabela IBGE.
             /// </summary>
-            [SpedCampos(11, "COD_MUN_SERV", "C", 7, 0, true, 15)]
+            [SpedCampos(11, "COD_MUN_SERV", "C", 7, 0, true, 2)]
             public int CodMunServ { get; set; }
 
             /// <summary>
             ///    Valor contábil (valor total do documento)
             /// </summary>
-            [SpedCampos(12, "VL_CONT", "N", 2, 0, true, 15)]
+            [SpedCampos(12, "VL_CONT", "N", 2, 0, true, 2)]
             public int VlCont { get; set; }
 
             /// <summary>
             ///   Valor do material fornecido por terceiros na prestação do serviço
             /// </summary>
-            [SpedCampos(13, "VL_MAT_TERC", "N", 0, 2, true, 15)]
+            [SpedCampos(13, "VL_MAT_TERC", "N", 0, 2, true, 2)]
             public int VlMatTerc { get; set; }
 
             /// <summary>
             ///    Valor da subempreitada
             /// </summary>
-            [SpedCampos(14, "VL_SUB", "N", 0, 2, true, 15)]
+            [SpedCampos(14, "VL_SUB", "N", 0, 2, true, 2)]
             public int VlSub { get; set; }
 
             /// <summary>
             ///    Valor das operações  isentas  ou  não-tributadas pelo ISS
             /// </summary>
-            [SpedCampos(15, "VL_ISNT_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(15, "VL_ISNT_ISS", "N", 0, 2, true, 2)]
             public int VlIsntIss { get; set; }
 
             /// <summary>
             ///    Valor da dedução da base de cálculo
             /// </summary>
-            [SpedCampos(16, "VL_DED_BC", "N", 0, 2, true, 15)]
+            [SpedCampos(16, "VL_DED_BC", "N", 0, 2, true, 2)]
             public int VlDedBc { get; set; }
 
             /// <summary>
             ///    Valor da base de cálculo do ISS
             /// </summary>
-            [SpedCampos(17, "VL_BC_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(17, "VL_BC_ISS", "N", 0, 2, true, 2)]
             public int VlBcIss { get; set; }
 
             /// <summary>
             ///    Valor da base de cálculo de retenção do ISS
             /// </summary>
-            [SpedCampos(18, "VL_BC_ISS_RT", "N", 0, 2, true, 15)]
+            [SpedCampos(18, "VL_BC_ISS_RT", "N", 0, 2, true, 2)]
             public int VlBcIssRt { get; set; }
 
             /// <summary>
             ///    Valor do ISS retido pelo tomador
             /// </summary>
-            [SpedCampos(19, "VL_ISS_RT", "N", 0, 2, true, 15)]
+            [SpedCampos(19, "VL_ISS_RT", "N", 0, 2, true, 2)]
             public int VlIssRt { get; set; }
 
             /// <summary>
             ///    Valor do ISS destacado
             /// </summary>
-            [SpedCampos(20, "VL_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(20, "VL_ISS", "N", 0, 2, true, 2)]
             public int VlIss { get; set; }
 
             /// <summary>
             ///    Código da observação do lançamento   fiscal (campo 02 do Registro 0460)
             /// </summary>
-            [SpedCampos(21, "COD_INF_OBS", "C", 60, 0, false, 15)]
+            [SpedCampos(21, "COD_INF_OBS", "C", 60, 0, false, 2)]
             public int CodInfObs { get; set; }
 
             public List<RegistroB025> RegB025 { get; set; }
@@ -195,37 +195,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///   Parcela  correspondente  ao  “Valor Contábil”  referente  à  combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(2, "VL_CONT_P", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "VL_CONT_P", "N", 0, 2, true, 2)]
             public int VlContP { get; set; }
 
             /// <summary>
             ///   Parcela correspondente ao “Valor da base de cálculo do ISS” referente à combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(3, "VL_BC_ISS_P", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_BC_ISS_P", "N", 0, 2, true, 2)]
             public int VlBcIssP { get; set; }
 
             /// <summary>
             ///   Alíquota do ISS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "ALIQ_ISS", "N", 0, 2, true, 2)]
             public int AliqIss { get; set; }
 
             /// <summary>
             ///   Parcela correspondente  ao  “Valor do ISS” referente à combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(5, "VL_ISS_P", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "VL_ISS_P", "N", 0, 2, true, 2)]
             public int VlIssP { get; set; }
 
             /// <summary>
             ///    Parcela correspondente ao “Valor das operações isentas ou não-tributadas pelo ISS” referente à combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(6, "VL_ISNT_ISS_P", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_ISNT_ISS_P", "N", 0, 2, true, 2)]
             public int VlIsntIssP { get; set; }
 
             /// <summary>
             ///    Item da lista de serviços, conforme Tabela 4.6.3
             /// </summary>
-            [SpedCampos(7, "COD_SERV", "C", 4, 0, true, 15)]
+            [SpedCampos(7, "COD_SERV", "C", 4, 0, true, 2)]
             public int CodServ { get; set; }
 
         }
@@ -246,67 +246,67 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Código do modelo do documento fiscal, conforme a Tabela 4.1.3
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 2)]
             public int CodMod { get; set; }
 
             /// <summary>
             ///  Série do documento fiscal
             /// </summary>
-            [SpedCampos(3, "SER", "C", 3, 0, false, 15)]
+            [SpedCampos(3, "SER", "C", 3, 0, false, 2)]
             public int Ser { get; set; }
 
             /// <summary>
             ///   Número do primeiro documento fiscal emitido no dia
             /// </summary>
-            [SpedCampos(4, "NUM_DOC_INI", "N", 9, 0, true, 15)]
+            [SpedCampos(4, "NUM_DOC_INI", "N", 9, 0, true, 2)]
             public int NumDocIni { get; set; }
 
             /// <summary>
             ///   Número  do  último  documento  fiscal emitido no dia
             /// </summary>
-            [SpedCampos(5, "NUM_DOC_FIN", "N", 9, 0, true, 15)]
+            [SpedCampos(5, "NUM_DOC_FIN", "N", 9, 0, true, 2)]
             public int NumDocFin { get; set; }
 
             /// <summary>
             ///   Data   da   emissão   dos   documentos fiscais
             /// </summary>
-            [SpedCampos(6, "DT_DOC", "N", 8, 0, true, 15)]
+            [SpedCampos(6, "DT_DOC", "N", 8, 0, true, 2)]
             public int DtDoc { get; set; }
 
             /// <summary>
             ///   Quantidade de documentos cancelados
             /// </summary>
-            [SpedCampos(7, "QTD_DOC", "N", 0, 0, true, 15)]
+            [SpedCampos(7, "QTD_DOC", "N", 0, 0, true, 2)]
             public int QtdDoc { get; set; }
 
             /// <summary>
             ///   Valor contábil (valor total acumulado dos documentos)
             /// </summary>
-            [SpedCampos(8, "VL_CONT", "N", 0, 2, true, 15)]
+            [SpedCampos(8, "VL_CONT", "N", 0, 2, true, 2)]
             public int VlCont { get; set; }
 
             /// <summary>
             ///   Valor acumulado das operações isentas ou não-tributadas pelo ISS
             /// </summary>
-            [SpedCampos(9, "VL_ISNT_ISS", "N", 0, 0, true, 15)]
+            [SpedCampos(9, "VL_ISNT_ISS", "N", 0, 0, true, 2)]
             public int VlIsntIss { get; set; }
 
             /// <summary>
             ///    Valor acumulado da base de cálculo do ISS
             /// </summary>
-            [SpedCampos(10, "VL_BC_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(10, "VL_BC_ISS", "N", 0, 2, true, 2)]
             public int VlBcIss { get; set; }
 
             /// <summary>
             ///    Valor acumulado do ISS destacado
             /// </summary>
-            [SpedCampos(11, "VL_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(11, "VL_ISS", "N", 0, 2, true, 2)]
             public int VlIss { get; set; }
 
             /// <summary>
             ///   Código da observação do lançamento fiscal (campo 02 do Registro 0460)
             /// </summary>
-            [SpedCampos(12, "CodInfObs", "C", 60, 0, false, 15)]
+            [SpedCampos(12, "CodInfObs", "C", 60, 0, false, 2)]
             public int CodInfObs{ get; set; }
 
             public List<RegistroB035> RegB035s { get; set; }
@@ -329,37 +329,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///   Parcela correspondente ao “Valor Contábil” referente  à combinação  da  alíquota e item da lista
             /// </summary>
-            [SpedCampos(2, "VL_CONT_P", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "VL_CONT_P", "N", 0, 2, true, 2)]
             public int VlContP { get; set; }
 
             /// <summary>
             ///  Parcela correspondente ao “Valor  da  base  de  cálculo  do ISS”  referente  à  combinação  da alíquota e item da lista
             /// </summary>
-            [SpedCampos(3, "VL_BC_ISS_P", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_BC_ISS_P", "N", 0, 2, true, 2)]
             public int VlBcIssP { get; set; }
 
             /// <summary>
             ///   Alíquota do ISS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "ALIQ_ISS", "N", 0, 2, true, 2)]
             public int AlinqIss { get; set; }
 
             /// <summary>
             ///   Parcela correspondente ao “Valor do ISS” referente à combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(5, "VL_ISS_P", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "VL_ISS_P", "N", 0, 2, true, 2)]
             public int VlIssP { get; set; }
 
             /// <summary>
             ///   Parcela correspondente ao “Valor  das operações isentas  ou não-tributadas pelo ISS” referente  à  combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(6, "VL_ISNT_ISS_P", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_ISNT_ISS_P", "N", 0, 2, true, 2)]
             public int VlIsntIssP { get; set; }
 
             /// <summary>
             ///   Item  da lista de serviços, conforme Tabela 4.6.3.
             /// </summary>
-            [SpedCampos(7, "COD_SERV", "C", 4, 0, true, 15)]
+            [SpedCampos(7, "COD_SERV", "C", 4, 0, true, 2)]
             public int CodServ { get; set; }
 
         }
@@ -380,61 +380,61 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Código da conta do plano de contas
             /// </summary>
-            [SpedCampos(2, "COD_CTD", "C", 0, 0, true, 15)]
+            [SpedCampos(2, "COD_CTD", "C", 0, 0, true, 2)]
             public int CodCtd { get; set; }
 
             /// <summary>
             ///  Descrição da conta no plano de contas
             /// </summary>
-            [SpedCampos(3, "CTA_ISS", "C", 0, 0, true, 15)]
+            [SpedCampos(3, "CTA_ISS", "C", 0, 0, true, 2)]
             public int CtaIss { get; set; }
 
             /// <summary>
             ///   Código COSIF a que está subordinada a conta do ISS das instituições financeiras
             /// </summary>
-            [SpedCampos(4, "CTA_COSIF", "N", 8, 0, true, 15)]
+            [SpedCampos(4, "CTA_COSIF", "N", 8, 0, true, 2)]
             public int CtaCosif { get; set; }
 
             /// <summary>
             ///   Quantidade de ocorrências na conta
             /// </summary>
-            [SpedCampos(5, "QTD_OCOR", "N", 0, 0, true, 15)]
+            [SpedCampos(5, "QTD_OCOR", "N", 0, 0, true, 2)]
             public int QtdOcor { get; set; }
 
             /// <summary>
             ///   Item da lista de serviços, conforme Tabela 4.6.3.
             /// </summary>
-            [SpedCampos(6, "COD_SERV", "N", 4, 0, true, 15)]
+            [SpedCampos(6, "COD_SERV", "N", 4, 0, true, 2)]
             public int CodServ { get; set; }
 
             /// <summary>
             ///  Valor contábil
             /// </summary>
-            [SpedCampos(7, "VL_CONT", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "VL_CONT", "N", 0, 2, true, 2)]
             public int VlCont { get; set; }
 
             /// <summary>
             ///   Valor da base de cálculo do ISS
             /// </summary>
-            [SpedCampos(8, "VL_BC_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(8, "VL_BC_ISS", "N", 0, 2, true, 2)]
             public int VlBcIss { get; set; }
 
             /// <summary>
             ///   Alíquota do ISS
             /// </summary>
-            [SpedCampos(9, "ALIQ_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(9, "ALIQ_ISS", "N", 0, 2, true, 2)]
             public int AliqIss { get; set; }
 
             /// <summary>
             ///    Valor do ISS
             /// </summary>
-            [SpedCampos(10, "VL_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(10, "VL_ISS", "N", 0, 2, true, 2)]
             public int VlIss { get; set; }
 
             /// <summary>
             ///    Código da observação do lançamento fiscal (campo 02 do Registro 0460)
             /// </summary>
-            [SpedCampos(11, "COD_INF_OBS", "C", 60, 0, false, 15)]
+            [SpedCampos(11, "COD_INF_OBS", "C", 60, 0, false, 2)]
             public int CodInfObs { get; set; }
 
         }
@@ -455,37 +455,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///  Totalização do Valor  ontábil das prestações  do  declarante  referente à combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(2, "VL_CONT", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "VL_CONT", "N", 0, 2, true, 2)]
             public int VlCont { get; set; }
 
             /// <summary>
             ///   Totalização do Valor da base de cálculo do ISS das prestações do declarante referente à combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(3, "VL_BC_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_BC_ISS", "N", 0, 2, true, 2)]
             public int VlBcIss { get; set; }
 
             /// <summary>
             ///    Alíquota do ISS
             /// </summary>
-            [SpedCampos(4, "ALIQ_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "ALIQ_ISS", "N", 0, 2, true, 2)]
             public int AliqIss { get; set; }
 
             /// <summary>
             ///    Totalização do valor das operações isentas ou não-tributadas pelo ISS referente à combinação da alíquota e item da lista
             /// </summary>
-            [SpedCampos(5, "VL_ISNT_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "VL_ISNT_ISS", "N", 0, 2, true, 2)]
             public int VlIsntIss { get; set; }
 
             /// <summary>
             ///   Totalização, por combinação da alíquota e item da lista, do Valor do ISS
             /// </summary>
-            [SpedCampos(6, "VL_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_ISS", "N", 0, 2, true, 2)]
             public int VlIss { get; set; }
 
             /// <summary>
             ///   Item da lista de serviços, conforme Tabela 4.6.3.
             /// </summary>
-            [SpedCampos(7, "COD_SERV", "C", 0, 0, true, 15)]
+            [SpedCampos(7, "COD_SERV", "C", 0, 0, true, 2)]
             public int CodServ { get; set; }
 
         }
@@ -508,7 +508,7 @@ namespace FiscalBr.EFDFiscal
             ///  0 - Aquisição;
             ///  1 - Prestação
             /// </summary>
-            [SpedCampos(2, "IND_OPER", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "IND_OPER", "N", 0, 2, true, 2)]
             public int IndOper { get; set; }
 
             /// <summary>
@@ -516,25 +516,25 @@ namespace FiscalBr.EFDFiscal
             ///   - do prestador, no caso de aquisição de serviço pelo declarante;
             ///   - do tomador, no caso de prestação de serviço pelo declarante
             /// </summary>
-            [SpedCampos(3, "COD_PART", "C", 0, 0, true, 15)]
+            [SpedCampos(3, "COD_PART", "C", 0, 0, true, 2)]
             public int CodPart { get; set; }
 
             /// <summary>
             ///    Totalização do Valor Contábil das prestações e/ou aquisições do declarante pela combinação de tipo de operação e participante.
             /// </summary>
-            [SpedCampos(4, "VL_CONT_RT", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_CONT_RT", "N", 0, 2, true, 2)]
             public int VlContRt { get; set; }
 
             /// <summary>
             ///    Totalização do Valor da base de cálculo de etenção do ISS das prestações e/ou aquisições do declarante pela combinação de tipo de operação e participante.
             /// </summary>
-            [SpedCampos(5, "VL_BC_ISS_RT", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "VL_BC_ISS_RT", "N", 0, 2, true, 2)]
             public int VlBcIssRt { get; set; }
 
             /// <summary>
             ///   Totalização do Valor do ISS retido pelo tomador das prestações e/ou aquisições do declarante pela combinação de tipo de operação e participante.
             /// </summary>
-            [SpedCampos(6, "VL_ISS_RT", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_ISS_RT", "N", 0, 2, true, 2)]
             public int VlIssRt { get; set; }
         }
 
@@ -558,19 +558,19 @@ namespace FiscalBr.EFDFiscal
             ///   2 - Decisão administrativa ou judicial;
             ///   9 - Outro
             /// </summary>
-            [SpedCampos(2, "IND_DED", "C", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_DED", "C", 1, 0, true, 2)]
             public int IndDed { get; set; }
 
             /// <summary>
             ///   Valor da dedução
             /// </summary>
-            [SpedCampos(3, "VL_DED", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_DED", "N", 0, 2, true, 2)]
             public int VlDed { get; set; }
 
             /// <summary>
             ///   Número  do  processo  ao  qual  o ajuste está vinculado, se houver
             /// </summary>
-            [SpedCampos(4, "NUM_PROC", "C", 0, 0, false, 15)]
+            [SpedCampos(4, "NUM_PROC", "C", 0, 0, false, 2)]
             public int NumProc { get; set; }
 
             /// <summary>
@@ -580,19 +580,19 @@ namespace FiscalBr.EFDFiscal
             ///   2 - Justiça Estadual;
             ///   9 - Outros
             /// </summary>
-            [SpedCampos(5, "IND_PROC", "C", 1, 0, false, 15)]
+            [SpedCampos(5, "IND_PROC", "C", 1, 0, false, 2)]
             public int IndProc { get; set; }
 
             /// <summary>
             ///   Descrição do processo que embasou o lançamento
             /// </summary>
-            [SpedCampos(6, "PROC", "C", 0, 0, false, 15)]
+            [SpedCampos(6, "PROC", "C", 0, 0, false, 2)]
             public int Proc { get; set; }
 
             /// <summary>
             ///   Código da observação do lançamento fiscal(campo 02 do Registro 0460)
             /// </summary>
-            [SpedCampos(7, "COD_INF_OBS", "C", 60, 0, true, 15)]
+            [SpedCampos(7, "COD_INF_OBS", "C", 60, 0, true, 2)]
             public int CodInfObs { get; set; }
 
             /// <summary>
@@ -600,7 +600,7 @@ namespace FiscalBr.EFDFiscal
             ///  0 - ISS Próprio;-ISS Substituto (devido pelas aquisições de serviços do declarante).
             ///    - ISS Uniprofissionais
             /// </summary>
-            [SpedCampos(8, "IND_OBR", "C", 1, 0, true, 15)]
+            [SpedCampos(8, "IND_OBR", "C", 1, 0, true, 2)]
             public int IndObr { get; set; }
 
         }
@@ -621,85 +621,85 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///   A - Valor total referente às prestações de serviço do período
             /// </summary>
-            [SpedCampos(2, "VL_CONT", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "VL_CONT", "N", 0, 2, true, 2)]
             public int VlCont { get; set; }
 
             /// <summary>
             ///    B - Valor total do material fornecido por terceiros na prestação do serviço
             /// </summary>
-            [SpedCampos(3, "VL_MAT_TERC", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_MAT_TERC", "N", 0, 2, true, 2)]
             public int VlMatTerc { get; set; }
 
             /// <summary>
             ///    C - Valor do material próprio utilizado na prestação do serviço
             /// </summary>
-            [SpedCampos(4, "VL_MAT_PROP", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_MAT_PROP", "N", 0, 2, true, 2)]
             public int VlMatProp { get; set; }
 
             /// <summary>
             ///    D - Valor total das subempreitadas
             /// </summary>
-            [SpedCampos(5, "VL_SUB", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "VL_SUB", "N", 0, 2, true, 2)]
             public int VlSub { get; set; }
 
             /// <summary>
             ///   E - Valor total das operações isentas ou não-tributadas pelo ISS
             /// </summary>
-            [SpedCampos(6, "VL_ISNT", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_ISNT", "N", 0, 2, true, 2)]
             public int VlIsnt { get; set; }
 
             /// <summary>
             ///    F - Valor total das deduções da base de cálculo (B + C + D + E)
             /// </summary>
-            [SpedCampos(7, "VL_DED_BC", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "VL_DED_BC", "N", 0, 2, true, 2)]
             public int VlDedBc { get; set; }
 
             /// <summary>
             ///   G - Valor total da base de cálculo do ISS
             /// </summary>
-            [SpedCampos(8, "VL_BC_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(8, "VL_BC_ISS", "N", 0, 2, true, 2)]
             public int VlBcIss { get; set; }
 
             /// <summary>
             ///    H - Valor total da base de cálculo de retenção do ISS referente às prestações do declarante.
             /// </summary>
-            [SpedCampos(9, "VL_BC_ISS_RT", "N", 0, 2, true, 15)]
+            [SpedCampos(9, "VL_BC_ISS_RT", "N", 0, 2, true, 2)]
             public int VlBcIssRt { get; set; }
 
             /// <summary>
             ///   I - Valor total do ISS destacado
             /// </summary>
-            [SpedCampos(10, "VL_ISS", "N", 0, 2, true, 15)]
+            [SpedCampos(10, "VL_ISS", "N", 0, 2, true, 2)]
             public int VlIss { get; set; }
 
             /// <summary>
             ///   J - Valor total do ISS retido pelo tomador nas prestações do declarante
             /// </summary>
-            [SpedCampos(11, "VL_ISS_RT", "N", 0, 2, true, 15)]
+            [SpedCampos(11, "VL_ISS_RT", "N", 0, 2, true, 2)]
             public int VlIssRt { get; set; }
 
             /// <summary>
             ///  K - Valor total das deduções do ISS próprio
             /// </summary>
-            [SpedCampos(12, "VL_DED", "N", 0, 2, true, 15)]
+            [SpedCampos(12, "VL_DED", "N", 0, 2, true, 2)]
             public int VlDed { get; set; }
 
             /// <summary>
             ///   L - Valor total apurado do ISS próprio a recolher (I -J -K)
             /// </summary>
-            [SpedCampos(13, "VL_ISS_REC", "N", 0, 2, true, 15)]
+            [SpedCampos(13, "VL_ISS_REC", "N", 0, 2, true, 2)]
             public int VlIssRec { get; set; }
 
             /// <summary>
             ///   M - Valor total do ISS substituto a recolher pelas aquisições do declarante (tomador)
             /// </summary>
-            [SpedCampos(14, "VL_ISS_ST", "N", 0, 2, true, 15)]
+            [SpedCampos(14, "VL_ISS_ST", "N", 0, 2, true, 2)]
             public int VlIssSt { get; set; }
 
             /// <summary>
             ///   N - Valor do ISS próprio a recolher pela Sociedade Uniprofissional
             /// </summary>
-            [SpedCampos(15, "VL_ISS_REC_UNI", "N", 0, 2, true, 15)]
+            [SpedCampos(15, "VL_ISS_REC_UNI", "N", 0, 2, true, 2)]
             public int VlIssRecUni { get; set; }
 
         }
@@ -720,19 +720,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Valor  mensal  das  receitas  auferidas  pela  sociedade uniprofissional
             /// </summary>
-            [SpedCampos(2, "VL_REC", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "VL_REC", "N", 0, 2, true, 2)]
             public int VlRec { get; set; }
 
             /// <summary>
             ///  Série do documento fiscal
             /// </summary>
-            [SpedCampos(3, "QTD_PROF", "N", 0, 0, true, 15)]
+            [SpedCampos(3, "QTD_PROF", "N", 0, 0, true, 2)]
             public int QtdProf { get; set; }
 
             /// <summary>
             ///   Número do primeiro documento fiscal emitido no dia
             /// </summary>
-            [SpedCampos(4, "VL_OR", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_OR", "N", 0, 2, true, 2)]
             public int VlOr { get; set; }
 
             public List<RegistroB510> RegB510s { get; set; }
@@ -755,31 +755,31 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///   Indicador de habilitação:0- Profissional habilitado1- Profissional não habilitado
             /// </summary>
-            [SpedCampos(2, "IND_PROF", "C", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_PROF", "C", 1, 0, true, 2)]
             public int IndProf { get; set; }
 
             /// <summary>
             ///  Indicador de escolaridade: 0- Nível superior 1- Nível médio
             /// </summary>
-            [SpedCampos(3, "IND_ESC", "C", 1, 0, true, 15)]
+            [SpedCampos(3, "IND_ESC", "C", 1, 0, true, 2)]
             public int IndEsc { get; set; }
 
             /// <summary>
             ///   Indicador de participação societária: 0 - Sócio 1 - Não sócio
             /// </summary>
-            [SpedCampos(4, "IND_SOC", "C", 1, 0, true, 15)]
+            [SpedCampos(4, "IND_SOC", "C", 1, 0, true, 2)]
             public int IndSoc { get; set; }
 
             /// <summary>
             ///   Número de inscrição do profissional no CPF.
             /// </summary>
-            [SpedCampos(5, "CPF", "N", 11, 0, true, 15)]
+            [SpedCampos(5, "CPF", "N", 11, 0, true, 2)]
             public int Cpf { get; set; }
 
             /// <summary>
             ///  Nome do profissional
             /// </summary>
-            [SpedCampos(6, "NOME", "C", 100, 0, true, 15)]
+            [SpedCampos(6, "NOME", "C", 100, 0, true, 2)]
             public int Nome { get; set; }
 
         }
@@ -800,7 +800,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Quantidade total de linhas do Bloco B
             /// </summary>
-            [SpedCampos(3, "QTD_LIN_B", "N", int.MaxValue, 0, true, 15)]
+            [SpedCampos(3, "QTD_LIN_B", "N", int.MaxValue, 0, true, 2)]
             public int QtdLinB { get; set; }
         }
     }

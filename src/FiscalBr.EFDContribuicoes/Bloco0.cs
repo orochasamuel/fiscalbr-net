@@ -114,7 +114,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             /// Código da versão do leiaute
             /// </summary>
-            [SpedCampos(2, "COD_VER", "N", 3, 0, true, 15)]
+            [SpedCampos(2, "COD_VER", "N", 3, 0, true, 2)]
             public int CodVer { get; set; }
 
             /// <summary>
@@ -124,7 +124,7 @@ namespace FiscalBr.EFDContribuicoes
             /// 1 - Retificadora.2
             /// </remarks>
             /// </summary>
-            [SpedCampos(3, "TIPO_ESCRIT", "N", 1, 0, true, 15)]
+            [SpedCampos(3, "TIPO_ESCRIT", "N", 1, 0, true, 2)]
             public int TipoEscrit { get; set; }
 
             /// <summary>
@@ -137,55 +137,55 @@ namespace FiscalBr.EFDContribuicoes
             /// 4 - Encerramento.
             /// </remarks>
             /// </summary>
-            [SpedCampos(4, "IND_SIT_ESP", "N", 1, 0, false, 15)]
+            [SpedCampos(4, "IND_SIT_ESP", "N", 1, 0, false, 2)]
             public int? IndSitEsp { get; set; }
 
             /// <summary>
             /// Número do Recibo da Escrituração anterior a ser retificada, utilizado quando TIPO_ESCRIT for igual a 1
             /// </summary>
-            [SpedCampos(5, "NUM_REC_ANTERIOR", "C", 41, 0, false, 15)]
+            [SpedCampos(5, "NUM_REC_ANTERIOR", "C", 41, 0, false, 2)]
             public string NumRecAnterior { get; set; }
 
             /// <summary>
             /// Data inicial das informações contidas no arquivo
             /// </summary>
-            [SpedCampos(6, "DT_INI", "N", 8, 0, true, 15)]
+            [SpedCampos(6, "DT_INI", "N", 8, 0, true, 2)]
             public DateTime DtIni { get; set; }
 
             /// <summary>
             /// Data final das informações contidas no arquivo
             /// </summary>
-            [SpedCampos(7, "DT_FIN", "N", 8, 0, true, 15)]
+            [SpedCampos(7, "DT_FIN", "N", 8, 0, true, 2)]
             public DateTime DtFin { get; set; }
 
             /// <summary>
             /// Nome empresarial da pessoa jurídica
             /// </summary>
-            [SpedCampos(8, "NOME", "C", 100, 0, true, 15)]
+            [SpedCampos(8, "NOME", "C", 100, 0, true, 2)]
             public string Nome { get; set; }
 
             /// <summary>
             /// Número de inscrição do estabelecimento matriz da pessoa jurídica no CNPJ
             /// </summary>
-            [SpedCampos(9, "CNPJ", "N", 14, 0, true, 15)]
+            [SpedCampos(9, "CNPJ", "N", 14, 0, true, 2)]
             public string Cnpj { get; set; }
 
             /// <summary>
             /// Sigla da Unidade da Federação da pessoa jurídica
             /// </summary>
-            [SpedCampos(10, "UF", "C", 2, 0, true, 15)]
+            [SpedCampos(10, "UF", "C", 2, 0, true, 2)]
             public string Uf { get; set; }
 
             /// <summary>
             /// Código do município do domicílio fiscal da pessoa jurídica, conforme a tabela IBGE
             /// </summary>
-            [SpedCampos(11, "COD_MUN", "N", 7, 0, true, 15)]
+            [SpedCampos(11, "COD_MUN", "N", 7, 0, true, 2)]
             public string CodMun { get; set; }
 
             /// <summary>
             /// Inscrição da pessoa jurídica na Suframa
             /// </summary>
-            [SpedCampos(12, "SUFRAMA", "C", 9, 0, false, 15)]
+            [SpedCampos(12, "SUFRAMA", "C", 9, 0, false, 2)]
             public string Suframa { get; set; }
 
             /// <summary>
@@ -199,7 +199,7 @@ namespace FiscalBr.EFDContribuicoes
             /// 05 - Sociedade em Conta de Participação - SCP.
             /// </remarks>
             /// </summary>
-            [SpedCampos(13, "IND_NAT_PJ", "N", 2, 0, false, 15)]
+            [SpedCampos(13, "IND_NAT_PJ", "N", 2, 0, false, 2)]
             public int? IndNatPj { get; set; }
 
             /// <summary>
@@ -213,7 +213,7 @@ namespace FiscalBr.EFDContribuicoes
             /// 9 - Outros.
             /// </remarks>
             /// </summary>
-            [SpedCampos(14, "IND_ATIV", "N", 1, 0, true, 15)]
+            [SpedCampos(14, "IND_ATIV", "N", 1, 0, true, 2)]
             public int IndAtiv { get; set; }
         }
 
@@ -247,7 +247,7 @@ namespace FiscalBr.EFDContribuicoes
             /// 1 - Bloco sem dados informados.
             /// </remarks>
             /// </summary>
-            [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 2)]
             public IndMovimento IndMov { get; set; }
 
             public List<Registro0035> Reg0035s { get; set; }
@@ -270,13 +270,13 @@ namespace FiscalBr.EFDContribuicoes
                 Reg = "0035";
             }
 
-            [SpedCampos(2, "COD_SCP", "N", 14, 0, false, 15)]
+            [SpedCampos(2, "COD_SCP", "N", 14, 0, false, 2)]
             public string CodScp { get; set; }
 
-            [SpedCampos(3, "DESC_SCP", "C", int.MaxValue, 0, false, 15)]
+            [SpedCampos(3, "DESC_SCP", "C", int.MaxValue, 0, false, 2)]
             public string DescScp { get; set; }
 
-            [SpedCampos(4, "INF_COMP", "C", int.MaxValue, 0, false, 15)]
+            [SpedCampos(4, "INF_COMP", "C", int.MaxValue, 0, false, 2)]
             public string InfComp { get; set; }
         }
 
@@ -287,43 +287,43 @@ namespace FiscalBr.EFDContribuicoes
                 Reg = "0100";
             }
 
-            [SpedCampos(2, "NOME", "C", 100, 0, true, 15)]
+            [SpedCampos(2, "NOME", "C", 100, 0, true, 2)]
             public string Nome { get; set; }
 
-            [SpedCampos(3, "CPF", "N", 11, 0, true, 15)]
+            [SpedCampos(3, "CPF", "N", 11, 0, true, 2)]
             public string Cpf { get; set; }
 
-            [SpedCampos(4, "CRC", "C", 15, 0, true, 15)]
+            [SpedCampos(4, "CRC", "C", 15, 0, true, 2)]
             public string Crc { get; set; }
 
-            [SpedCampos(5, "CNPJ", "N", 14, 0, false, 15)]
+            [SpedCampos(5, "CNPJ", "N", 14, 0, false, 2)]
             public string Cnpj { get; set; }
 
-            [SpedCampos(6, "CEP", "N", 8, 0, false, 15)]
+            [SpedCampos(6, "CEP", "N", 8, 0, false, 2)]
             public string Cep { get; set; }
 
-            [SpedCampos(7, "END", "C", 60, 0, false, 15)]
+            [SpedCampos(7, "END", "C", 60, 0, false, 2)]
             public string End { get; set; }
 
-            [SpedCampos(8, "NUM", "C", int.MaxValue, 0, false, 15)]
+            [SpedCampos(8, "NUM", "C", int.MaxValue, 0, false, 2)]
             public string Num { get; set; }
 
-            [SpedCampos(9, "COMPL", "C", 60, 0, false, 15)]
+            [SpedCampos(9, "COMPL", "C", 60, 0, false, 2)]
             public string Compl { get; set; }
 
-            [SpedCampos(10, "BAIRRO", "C", 60, 0, false, 15)]
+            [SpedCampos(10, "BAIRRO", "C", 60, 0, false, 2)]
             public string Bairro { get; set; }
 
-            [SpedCampos(11, "FONE", "C", 11, 0, false, 15)]
+            [SpedCampos(11, "FONE", "C", 11, 0, false, 2)]
             public string Fone { get; set; }
 
-            [SpedCampos(12, "FAX", "C", 11, 0, false, 15)]
+            [SpedCampos(12, "FAX", "C", 11, 0, false, 2)]
             public string Fax { get; set; }
 
-            [SpedCampos(13, "EMAIL", "C", int.MaxValue, 0, false, 15)]
+            [SpedCampos(13, "EMAIL", "C", int.MaxValue, 0, false, 2)]
             public string Email { get; set; }
 
-            [SpedCampos(14, "COD_MUN", "N", 7, 0, false, 15)]
+            [SpedCampos(14, "COD_MUN", "N", 7, 0, false, 2)]
             public string CodMun { get; set; }
         }
 
@@ -334,16 +334,16 @@ namespace FiscalBr.EFDContribuicoes
                 Reg = "0110";
             }
 
-            [SpedCampos(2, "COD_INC_TRIB", "N", 1, 0, true, 15)]
+            [SpedCampos(2, "COD_INC_TRIB", "N", 1, 0, true, 2)]
             public int CodIncTrib { get; set; }
 
-            [SpedCampos(3, "IND_APRO_CRED", "BLANK", 1, 0, false, 15)]
+            [SpedCampos(3, "IND_APRO_CRED", "BLANK", 1, 0, false, 2)]
             public int? IndAproCred { get; set; }
 
-            [SpedCampos(4, "COD_TIPO_CONT", "BLANK", 1, 0, false, 15)]
+            [SpedCampos(4, "COD_TIPO_CONT", "BLANK", 1, 0, false, 2)]
             public int? CodTipoCont { get; set; }
 
-            [SpedCampos(5, "IND_REG_CUM", "BLANK", 1, 0, false, 15)]
+            [SpedCampos(5, "IND_REG_CUM", "BLANK", 1, 0, false, 2)]
             public int? IndRegCum { get; set; }
 
             public Registro0111 Reg0111 { get; set; }
@@ -365,32 +365,32 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Receita Bruta Não-Cumulativa - Tributada no Mercado Interno
             /// </summary>
-            [SpedCampos(2, "REC_BRU_NCUM_TRIB_MI", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(2, "REC_BRU_NCUM_TRIB_MI", "N", int.MaxValue, 2, true, 2)]
             public decimal RecBruNCumTribMI { get; set; }
 
             /// <summary>
             ///     Receita Bruta Não-Cumulativa - Não Tributada no Mercado Interno
             ///     (Vendas com suspensão, alíquota zero, isenção e sem incidência das contribuições)
             /// </summary>
-            [SpedCampos(3, "REC_BRU_NCUM_NT_MI", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(3, "REC_BRU_NCUM_NT_MI", "N", int.MaxValue, 2, true, 2)]
             public decimal RecBruNCumNTMI { get; set; }
 
             /// <summary>
             ///     Receita Bruta Não-Cumulativa - Exportação
             /// </summary>
-            [SpedCampos(4, "REC_BRU_NCUM_EXP", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(4, "REC_BRU_NCUM_EXP", "N", int.MaxValue, 2, true, 2)]
             public decimal RedBruNCumExp { get; set; }
 
             /// <summary>
             ///     Receita Bruta Cumulativa
             /// </summary>
-            [SpedCampos(5, "REC_BRU_CUM", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(5, "REC_BRU_CUM", "N", int.MaxValue, 2, true, 2)]
             public decimal RecBruCum { get; set; }
 
             /// <summary>
             ///     Receita Bruta Total
             /// </summary>
-            [SpedCampos(6, "REC_BRU_TOTAL", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(6, "REC_BRU_TOTAL", "N", int.MaxValue, 2, true, 2)]
             public decimal RecBruTotal { get; set; }
         }
 
@@ -410,7 +410,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Mês de referência do ano-calendário da escrituração sem dados, dispensada da entrega.
             /// </summary>
-            [SpedCampos(2, "MES_REFER", "MA", 6, 0, true, 15)]
+            [SpedCampos(2, "MES_REFER", "MA", 6, 0, true, 2)]
             public DateTime MesRefer { get; set; }
 
             /// <summary>
@@ -426,7 +426,7 @@ namespace FiscalBr.EFDContribuicoes
             /// 07 - Escrituração decorrente de incorporação, fusão ou cisão, sem operações geradoras de receitas (tributáveis ou não) ou de créditos; <para/>
             /// 09 - Demais hipóteses de dispensa de escrituração, relacionadas no art. 5º, da IN RFB nº 1.252, de 2012.
             /// </remarks>
-            [SpedCampos(3, "INF_COMP", "C", 90, 0, true, 15)]
+            [SpedCampos(3, "INF_COMP", "C", 90, 0, true, 2)]
             public string InfComp { get; set; }
         }
 
@@ -437,28 +437,28 @@ namespace FiscalBr.EFDContribuicoes
                 Reg = "0140";
             }
 
-            [SpedCampos(2, "COD_EST", "C", 60, 0, false, 15)]
+            [SpedCampos(2, "COD_EST", "C", 60, 0, false, 2)]
             public string CodEst { get; set; }
 
-            [SpedCampos(3, "NOME", "C", 100, 0, true, 15)]
+            [SpedCampos(3, "NOME", "C", 100, 0, true, 2)]
             public string Nome { get; set; }
 
-            [SpedCampos(4, "CNPJ", "N", 14, 0, true, 15)]
+            [SpedCampos(4, "CNPJ", "N", 14, 0, true, 2)]
             public string Cnpj { get; set; }
 
-            [SpedCampos(5, "UF", "C", 2, 0, true, 15)]
+            [SpedCampos(5, "UF", "C", 2, 0, true, 2)]
             public string Uf { get; set; }
 
-            [SpedCampos(6, "IE", "C", 14, 0, false, 15)]
+            [SpedCampos(6, "IE", "C", 14, 0, false, 2)]
             public string Ie { get; set; }
 
-            [SpedCampos(7, "COD_MUN", "N", 7, 0, true, 15)]
+            [SpedCampos(7, "COD_MUN", "N", 7, 0, true, 2)]
             public string CodMun { get; set; }
 
-            [SpedCampos(8, "IM", "C", 0, 0, false, 15)]
+            [SpedCampos(8, "IM", "C", 0, 0, false, 2)]
             public string Im { get; set; }
 
-            [SpedCampos(9, "SUFRAMA", "C", 9, 0, false, 15)]
+            [SpedCampos(9, "SUFRAMA", "C", 9, 0, false, 2)]
             public string Suframa { get; set; }
 
             public Registro0145 Reg0145 { get; set; }
@@ -487,31 +487,31 @@ namespace FiscalBr.EFDContribuicoes
             ///  1 –Contribuição Previdenciária apurada no período, exclusivamente com base na Receita Bruta;
             ///  2 –Contribuição Previdenciária apurada no período, com base na Receita Bruta e com base nas Remunerações pagas, na forma dos nos incisos I e III do art. 22 da Lei no8.212, de 1991.   
             /// </summary>
-            [SpedCampos(2, "COD_INC_TRIB", "N", int.MaxValue, 0, true, 15)]
+            [SpedCampos(2, "COD_INC_TRIB", "N", int.MaxValue, 0, true, 2)]
             public decimal CodIncTrib { get; set; }
 
             /// <summary>
             ///     Valor da Receita Bruta Total da Pessoa Jurídica no Período
             /// </summary>
-            [SpedCampos(3, "VL_REC_TOT", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(3, "VL_REC_TOT", "N", int.MaxValue, 2, true, 2)]
             public decimal VlRecTot { get; set; }
 
             /// <summary>
             ///    Valor da Receita Bruta da(s) Atividade(s) Sujeita(s) à Contribuição Previdenciária sobre a Receita Bruta
             /// </summary>
-            [SpedCampos(4, "VL_REC_ATIV", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(4, "VL_REC_ATIV", "N", int.MaxValue, 2, true, 2)]
             public decimal VlRecAtiv { get; set; }
 
             /// <summary>
             ///   Valor da Receita Bruta da(s) Atividade(s) não Sujeita(s) à Contribuição Previdenciária sobre a Receita Bruta
             /// </summary>
-            [SpedCampos(5, "VL_REC_DEMAIS_ATIV", "N", int.MaxValue, 2, false, 15)]
+            [SpedCampos(5, "VL_REC_DEMAIS_ATIV", "N", int.MaxValue, 2, false, 2)]
             public decimal VlRecDemaisAtiv { get; set; }
 
             /// <summary>
             ///     Informação complementar
             /// </summary>
-            [SpedCampos(6, "INFO_COMPL", "C", int.MaxValue, 0, false, 15)]
+            [SpedCampos(6, "INFO_COMPL", "C", int.MaxValue, 0, false, 2)]
             public decimal InfoCompl { get; set; }
 
         }
@@ -532,73 +532,73 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Código de identificação do participante no arquivo.
             /// </summary>
-            [SpedCampos(2, "COD_PART", "C", 60, 0, true, 15)]
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true, 2)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Nome pessoal ou empresarial do participante.
             /// </summary>
-            [SpedCampos(3, "NOME", "C", 100, 0, true, 15)]
+            [SpedCampos(3, "NOME", "C", 100, 0, true, 2)]
             public string Nome { get; set; }
 
             /// <summary>
             ///     Código do país do participante, conforme a tabela indicada no item 3.2.1.
             /// </summary>
-            [SpedCampos(4, "COD_PAIS", "N", 5, 0, true, 15)]
+            [SpedCampos(4, "COD_PAIS", "N", 5, 0, true, 2)]
             public string CodPais { get; set; }
 
             /// <summary>
             ///     CNPJ do participante.
             /// </summary>
-            [SpedCampos(5, "CNPJ", "N", 14, 0, false, 15)]
+            [SpedCampos(5, "CNPJ", "N", 14, 0, false, 2)]
             public string Cnpj { get; set; }
 
             /// <summary>
             ///     CPF do participante.
             /// </summary>
-            [SpedCampos(6, "CPF", "N", 11, 0, false, 15)]
+            [SpedCampos(6, "CPF", "N", 11, 0, false, 2)]
             public string Cpf { get; set; }
 
             /// <summary>
             ///     Inscrição Estadual do participante.
             /// </summary>
-            [SpedCampos(7, "IE", "C", 14, 0, false, 15)]
+            [SpedCampos(7, "IE", "C", 14, 0, false, 2)]
             public string Ie { get; set; }
 
             /// <summary>
             ///     Código do município, conforme a tabela IBGE.
             /// </summary>
-            [SpedCampos(8, "COD_MUN", "N", 7, 0, false, 15)]
+            [SpedCampos(8, "COD_MUN", "N", 7, 0, false, 2)]
             public string CodMun { get; set; }
 
             /// <summary>
             ///     Número de inscrição do participante na SUFRAMA
             /// </summary>
-            [SpedCampos(9, "SUFRAMA", "C", 9, 0, false, 15)]
+            [SpedCampos(9, "SUFRAMA", "C", 9, 0, false, 2)]
             public string Suframa { get; set; }
 
             /// <summary>
             ///     Logradouro e endereço do imóvel.
             /// </summary>
-            [SpedCampos(10, "END", "C", 60, 0, true, 15)]
+            [SpedCampos(10, "END", "C", 60, 0, true, 2)]
             public string End { get; set; }
 
             /// <summary>
             ///     Número do imóvel.
             /// </summary>
-            [SpedCampos(11, "NUM", "C", 10, 0, false, 15)]
+            [SpedCampos(11, "NUM", "C", 10, 0, false, 2)]
             public string Num { get; set; }
 
             /// <summary>
             ///     Dados complementares do endereço.
             /// </summary>
-            [SpedCampos(12, "COMPL", "C", 60, 0, false, 15)]
+            [SpedCampos(12, "COMPL", "C", 60, 0, false, 2)]
             public string Compl { get; set; }
 
             /// <summary>
             ///     Bairro em que o imóvel está situado.
             /// </summary>
-            [SpedCampos(13, "BAIRRO", "C", 60, 0, false, 15)]
+            [SpedCampos(13, "BAIRRO", "C", 60, 0, false, 2)]
             public string Bairro { get; set; }
         }
 
@@ -618,13 +618,13 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Código da unidade de medida.
             /// </summary>
-            [SpedCampos(2, "UNID", "C", 6, 0, true, 15)]
+            [SpedCampos(2, "UNID", "C", 6, 0, true, 2)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Descrição da unidade de medida.
             /// </summary>
-            [SpedCampos(3, "DESCR", "C", int.MaxValue, 0, true, 15)]
+            [SpedCampos(3, "DESCR", "C", int.MaxValue, 0, true, 2)]
             public string Descr { get; set; }
         }
 
@@ -644,31 +644,31 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Código do item.
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 2)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Descrição do item.
             /// </summary>
-            [SpedCampos(3, "DESCR_ITEM", "C", int.MaxValue, 0, true, 15)]
+            [SpedCampos(3, "DESCR_ITEM", "C", int.MaxValue, 0, true, 2)]
             public string DescrItem { get; set; }
 
             /// <summary>
             ///     Representação alfanumérica do código de barra do produto, se houver.
             /// </summary>
-            [SpedCampos(4, "COD_BARRA", "C", 99, 0, false, 15)]
+            [SpedCampos(4, "COD_BARRA", "C", 99, 0, false, 2)]
             public string CodBarra { get; set; }
 
             /// <summary>
             ///     Código anterior do item com relação à última informação apresentada.
             /// </summary>
-            [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false, 15)]
+            [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false, 2)]
             public string CodAntItem { get; private set; }
 
             /// <summary>
             ///     Unidade de medida utilizada na quantificação de estoques.
             /// </summary>
-            [SpedCampos(6, "UNID_INV", "C", 6, 0, true, 15)]
+            [SpedCampos(6, "UNID_INV", "C", 6, 0, true, 2)]
             public string UnidInv { get; set; }
 
             /// <summary>
@@ -676,37 +676,37 @@ namespace FiscalBr.EFDContribuicoes
             ///     - Embalagem; 03 - Produto em Processo; 04 - Produto Acabado; 05 - Subproduto; 06 - Produto Intermediário; 07 -
             ///     Material de Uso e Consumo; 08 - Ativo Imobilizado; 09 - Serviços; 10 - Outros insumos; 99 - Outras.
             /// </summary>
-            [SpedCampos(7, "TIPO_ITEM", "N", 2, 0, true, 15)]
+            [SpedCampos(7, "TIPO_ITEM", "N", 2, 0, true, 2)]
             public string TipoItem { get; set; }
 
             /// <summary>
             ///     Código da Nomenclatura Comum do Mercosul
             /// </summary>
-            [SpedCampos(8, "COD_NCM", "C", 8, 0, false, 15)]
+            [SpedCampos(8, "COD_NCM", "C", 8, 0, false, 2)]
             public string CodNcm { get; set; }
 
             /// <summary>
             ///     Código EX, conforme a TIPI
             /// </summary>
-            [SpedCampos(9, "EX_IPI", "C", 3, 0, false, 15)]
+            [SpedCampos(9, "EX_IPI", "C", 3, 0, false, 2)]
             public string ExIpi { get; set; }
 
             /// <summary>
             ///     Código do gênero do item
             /// </summary>
-            [SpedCampos(10, "COD_GEN", "N", 2, 0, false, 15)]
+            [SpedCampos(10, "COD_GEN", "N", 2, 0, false, 2)]
             public string CodGen { get; set; }
 
             /// <summary>
             ///     Código do serviço conforme a lista do Anexo I da Lei Complementar Federal n 116/2003.
             /// </summary>
-            [SpedCampos(11, "COD_LST", "C", 5, 0, false, 15)]
+            [SpedCampos(11, "COD_LST", "C", 5, 0, false, 2)]
             public string CodLst { get; set; }
 
             /// <summary>
             ///     Alíquota de ICMS aplicável ao item nas operações internas.
             /// </summary>
-            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false, 15)]
+            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false, 2)]
             public decimal AliqIcms { get; set; }
 
             public List<Registro0205> Reg0205s { get; set; }
@@ -730,25 +730,25 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Descrição anterior do item
             /// </summary>
-            [SpedCampos(2, "DESCR_ANT_ITEM", "C", int.MaxValue, 0, false, 15)]
+            [SpedCampos(2, "DESCR_ANT_ITEM", "C", int.MaxValue, 0, false, 2)]
             public string DescrAntItem { get; set; }
 
             /// <summary>
             ///     Data inicial de utilização da descrição do item.
             /// </summary>
-            [SpedCampos(3, "DT_INI", "N", 8, 0, true, 15)]
+            [SpedCampos(3, "DT_INI", "N", 8, 0, true, 2)]
             public DateTime DtIni { get; set; }
 
             /// <summary>
             ///     Data final de utilização da descrição do item.
             /// </summary>
-            [SpedCampos(4, "DT_FIM", "N", 8, 0, true, 15)]
+            [SpedCampos(4, "DT_FIM", "N", 8, 0, true, 2)]
             public DateTime DtFin { get; set; }
 
             /// <summary>
             ///     Código anterior do item com relação à última informação apresentada.
             /// </summary>
-            [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false, 15)]
+            [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false, 2)]
             public string CodAntItem { get; set; }
         }
 
@@ -768,7 +768,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Código do combustível, conforme tabela publicada pela ANP
             /// </summary>
-            [SpedCampos(2, "COD_COMB", "C", int.MaxValue, 0, true, 15)]
+            [SpedCampos(2, "COD_COMB", "C", int.MaxValue, 0, true, 2)]
             public string CodComb { get; set; }
 
         }
@@ -803,19 +803,19 @@ namespace FiscalBr.EFDContribuicoes
             ///     A partir de outubro de 2012:
             ///     13 –Tabela XIII
             /// </summary>
-            [SpedCampos(2, "COD_TAB", "C", 2, 0, true, 15)]
+            [SpedCampos(2, "COD_TAB", "C", 2, 0, true, 2)]
             public string CodTab { get; set; }
 
             /// <summary>
             ///     Código  do  grupo,  conforme  Anexo  III  do  Decreto  nº 6.707/08.
             /// </summary>
-            [SpedCampos(3, "COD_GRU", "C", 2, 0, true, 15)]
+            [SpedCampos(3, "COD_GRU", "C", 2, 0, true, 2)]
             public string CodGru { get; set; }
 
             /// <summary>
             ///   Marca Comercial
             /// </summary>
-            [SpedCampos(4, "MARCA_COM", "C", 60, 0, true, 15)]
+            [SpedCampos(4, "MARCA_COM", "C", 60, 0, true, 2)]
             public string MarcaCom { get; set; }
 
         }
@@ -836,13 +836,13 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Código da natureza da operação/prestação
             /// </summary>
-            [SpedCampos(2, "COD_NAT", "C", 10, 0, true, 15)]
+            [SpedCampos(2, "COD_NAT", "C", 10, 0, true, 2)]
             public string CodNat { get; set; }
 
             /// <summary>
             ///     Descrição da natureza da operação/prestação
             /// </summary>
-            [SpedCampos(3, "DESCR_NAT", "C", 250, 0, true, 15)]
+            [SpedCampos(3, "DESCR_NAT", "C", 250, 0, true, 2)]
             public string DescrNat { get; set; }
         }
 
@@ -862,7 +862,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Código da informação complementar do documento fiscal
             /// </summary>
-            [SpedCampos(2, "COD_INF", "C", 6, 0, true, 15)]
+            [SpedCampos(2, "COD_INF", "C", 6, 0, true, 2)]
             public string CodInf { get; set; }
 
             /// <summary>
@@ -872,7 +872,7 @@ namespace FiscalBr.EFDContribuicoes
             ///     referências pertinentes com indicação referentes ao
             ///     tributo.
             /// </summary>
-            [SpedCampos(3, "TXT", "C", int.MaxValue, 0, true, 15)]
+            [SpedCampos(3, "TXT", "C", int.MaxValue, 0, true, 2)]
             public string Txt { get; set; }
         }
 
@@ -892,7 +892,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Data de inclusão/alteração
             /// </summary>
-            [SpedCampos(2, "DT_ALT", "N", 8, 0, true, 15)]
+            [SpedCampos(2, "DT_ALT", "N", 8, 0, true, 2)]
             public DateTime DtAlt { get; set; }
 
             /// <summary>
@@ -906,7 +906,7 @@ namespace FiscalBr.EFDContribuicoes
             ///     05 - Contas de compensação; e<para/>
             ///     09 - Outras.
             /// </remarks>
-            [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true, 15)]
+            [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true, 2)]
             public string CodNatCc { get; set; }
 
             /// <summary>
@@ -916,37 +916,37 @@ namespace FiscalBr.EFDContribuicoes
             ///  S - Sintética (grupo de contas); e<para/>
             ///  A - Analítica (conta).
             /// </remarks>
-            [SpedCampos(4, "IND_CTA", "C", 1, 0, true, 15)]
+            [SpedCampos(4, "IND_CTA", "C", 1, 0, true, 2)]
             public string IndCta { get; set; }
 
             /// <summary>
             ///     Nível da conta analítica/grupo de contas.
             /// </summary>
-            [SpedCampos(5, "NIVEL", "N", 5, 0, true, 15)]
+            [SpedCampos(5, "NIVEL", "N", 5, 0, true, 2)]
             public int Nivel { get; set; }
 
             /// <summary>
             ///     Código da conta analítica/grupo de contas.
             /// </summary>
-            [SpedCampos(6, "COD_CTA", "C", 255, 0, true, 15)]
+            [SpedCampos(6, "COD_CTA", "C", 255, 0, true, 2)]
             public string CodCta { get; set; }
 
             /// <summary>
             ///     Nome da conta analítica/grupo de contas.
             /// </summary>
-            [SpedCampos(7, "NOME_CTA", "C", 60, 0, true, 15)]
+            [SpedCampos(7, "NOME_CTA", "C", 60, 0, true, 2)]
             public string NomeCta { get; set; }
 
             /// <summary>
             ///     Codigo da conta correlacionada no Plano de Contas Referenciado, publicado pela RFB.
             /// </summary>
-            [SpedCampos(8, "COD_CTA_REF", "C", 60, 0, false, 15)]
+            [SpedCampos(8, "COD_CTA_REF", "C", 60, 0, false, 2)]
             public string CodCtaRef { get; set; }
 
             /// <summary>
             ///     CNPJ do estabelecimento, no caso da conta informada no campo COD_CTA ser específica de um estabelecimento.
             /// </summary>
-            [SpedCampos(9, "CNPJ_EST", "N", 14, 0, false, 15)]
+            [SpedCampos(9, "CNPJ_EST", "N", 14, 0, false, 2)]
             public string CnpjEst { get; set; }
         }
 
@@ -966,19 +966,19 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Data da inclusão/alteração
             /// </summary>
-            [SpedCampos(2, "DT_ALT", "N", 8, 0, true, 15)]
+            [SpedCampos(2, "DT_ALT", "N", 8, 0, true, 2)]
             public DateTime DtAlt { get; set; }
 
             /// <summary>
             ///     Código do centro de custos.
             /// </summary>
-            [SpedCampos(3, "COD_CCUS", "C", 255, 0, true, 15)]
+            [SpedCampos(3, "COD_CCUS", "C", 255, 0, true, 2)]
             public string CodCcus { get; set; }
 
             /// <summary>
             ///     Nome do centro de custos.
             /// </summary>
-            [SpedCampos(4, "CCUS", "C", 60, 0, true, 15)]
+            [SpedCampos(4, "CCUS", "C", 60, 0, true, 2)]
             public string Ccus { get; set; }
         }
 
@@ -998,79 +998,79 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Receita total referente aos registros escriturados no Bloco A
             /// </summary>
-            [SpedCampos(2, "REC_TOTAL_BLOCO_A", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(2, "REC_TOTAL_BLOCO_A", "N", int.MaxValue, 2, true, 2)]
             public decimal RecTotalBlocoA { get; set; }
 
             /// <summary>
             ///     Parcela da receita total escriturada no Bloco A (campo 02), não classificada como receita bruta
             /// </summary>
-            [SpedCampos(3, "REC_NRB_BLOCO_A", "N", int.MaxValue, 2, false, 15)]
+            [SpedCampos(3, "REC_NRB_BLOCO_A", "N", int.MaxValue, 2, false, 2)]
             public decimal? RecNrbBlocoA { get; set; }
 
             /// <summary>
             ///     Receita total referente aos registros escriturados no Bloco C
             /// </summary>
-            [SpedCampos(4, "REC_TOTAL_BLOCO_C", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(4, "REC_TOTAL_BLOCO_C", "N", int.MaxValue, 2, true, 2)]
             public decimal RecTotalBlocoC { get; set; }
 
             /// <summary>
             ///     Parcela da receita total escriturada no Bloco C (campo 04), não classificada como receita bruta
             /// </summary>
-            [SpedCampos(5, "REC_NRB_BLOCO_C", "N", int.MaxValue, 2, false, 15)]
+            [SpedCampos(5, "REC_NRB_BLOCO_C", "N", int.MaxValue, 2, false, 2)]
             public decimal? RecNrbBlocoC { get; set; }
 
             /// <summary>
             ///     Receita total referente aos registros escriturados no Bloco D
             /// </summary>
-            [SpedCampos(6, "REC_TOTAL_BLOCO_D", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(6, "REC_TOTAL_BLOCO_D", "N", int.MaxValue, 2, true, 2)]
             public decimal RecTotalBlocoD { get; set; }
 
             /// <summary>
             ///     Parcela da receita total escriturada no Bloco D (campo 06), não classificada como receita bruta
             /// </summary>
-            [SpedCampos(7, "REC_NRB_BLOCO_D", "N", int.MaxValue, 2, false, 15)]
+            [SpedCampos(7, "REC_NRB_BLOCO_D", "N", int.MaxValue, 2, false, 2)]
             public decimal? RecNrbBlocoD { get; set; }
 
             /// <summary>
             ///     Receita total referente aos registros escriturados no Bloco F
             /// </summary>
-            [SpedCampos(8, "REC_TOTAL_BLOCO_F", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(8, "REC_TOTAL_BLOCO_F", "N", int.MaxValue, 2, true, 2)]
             public decimal RecTotalBlocoF { get; set; }
 
             /// <summary>
             ///     Parcela da receita total escriturada no Bloco F (campo 08), não classificada como receita bruta
             /// </summary>
-            [SpedCampos(9, "REC_NRB_BLOCO_F", "N", int.MaxValue, 2, false, 15)]
+            [SpedCampos(9, "REC_NRB_BLOCO_F", "N", int.MaxValue, 2, false, 2)]
             public decimal? RecNrbBlocoF { get; set; }
 
             /// <summary>
             ///     Receita total referente aos registros escriturados no Bloco I
             /// </summary>
-            [SpedCampos(10, "REC_TOTAL_BLOCO_I", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(10, "REC_TOTAL_BLOCO_I", "N", int.MaxValue, 2, true, 2)]
             public decimal RecTotalBlocoI { get; set; }
 
             /// <summary>
             ///     Parcela da receita total escriturada no Bloco I (campo 10) não classificada como receita bruta
             /// </summary>
-            [SpedCampos(11, "REC_NRB_BLOCO_I", "N", int.MaxValue, 2, false, 15)]
+            [SpedCampos(11, "REC_NRB_BLOCO_I", "N", int.MaxValue, 2, false, 2)]
             public decimal? RecNrbBlocoI { get; set; }
 
             /// <summary>
             ///     Receita total referente aos registros escriturados no Bloco 1 (RET)
             /// </summary>
-            [SpedCampos(12, "REC_TOTAL_BLOCO_1", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(12, "REC_TOTAL_BLOCO_1", "N", int.MaxValue, 2, true, 2)]
             public decimal RecTotalBloco1 { get; set; }
 
             /// <summary>
             ///     Parcela da receita total escriturada no Bloco 1 (campo 12), não classificada como receita bruta
             /// </summary>
-            [SpedCampos(13, "REC_NRB_BLOCO_1", "N", int.MaxValue, 2, false, 15)]
+            [SpedCampos(13, "REC_NRB_BLOCO_1", "N", int.MaxValue, 2, false, 2)]
             public decimal? RecNrbBloco1 { get; set; }
 
             /// <summary>
             ///     Receita bruta total (soma dos campos 02, 04, 06, 08, 10 e 12)
             /// </summary>
-            [SpedCampos(14, "REC_TOTAL_PERIODO", "N", int.MaxValue, 2, true, 15)]
+            [SpedCampos(14, "REC_TOTAL_PERIODO", "N", int.MaxValue, 2, true, 2)]
             public decimal RecTotalPeriodo
             {
                 get
@@ -1088,7 +1088,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Parcela da receita total escriturada (campo 14), não classificada como receita bruta (soma dos campos 03, 05, 07, 09, 11 e 13)
             /// </summary>
-            [SpedCampos(15, "REC_TOTAL_NRB_PERIODO", "N", int.MaxValue, 2, false, 15)]
+            [SpedCampos(15, "REC_TOTAL_NRB_PERIODO", "N", int.MaxValue, 2, false, 2)]
             public decimal? RecTotalNrbPeriodo
             {
                 get
@@ -1130,7 +1130,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Quantidade total de linhas do Bloco 0
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_0", "N", int.MaxValue, 0, true, 15)]
+            [SpedCampos(2, "QTD_LIN_0", "N", int.MaxValue, 0, true, 2)]
             public int QtdLin0 { get; set; }
         }
     }

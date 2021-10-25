@@ -5,7 +5,7 @@ using Xunit;
 
 namespace FiscalBr.Tests.Sped
 {
-    public class Registro0000
+    public class Registro0000Test
     {
         [Fact]
         public void Escrever_Registro_0000_EFDFiscal()
@@ -34,7 +34,7 @@ namespace FiscalBr.Tests.Sped
                 IndAtiv = Common.IndTipoAtividade.Outros
             };
 
-            var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(source);
+            var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(source, CodigoVersaoLeiaute.V15);
 
             Assert.Equal(expectedResult, currentResult);
         }
@@ -61,8 +61,7 @@ namespace FiscalBr.Tests.Sped
 
             var currentResult = (EFDFiscal.Bloco0.Registro0000)Common.Sped.LerCamposSped.LerCampos(source);
 
-            Assert.Equal(expectedResult.CodFin, currentResult.CodFin);
-            
+            Assert.Equal(expectedResult.CodVer, currentResult.CodVer);
         }
     }
 }

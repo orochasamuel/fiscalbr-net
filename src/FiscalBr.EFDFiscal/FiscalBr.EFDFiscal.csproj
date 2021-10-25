@@ -10,7 +10,7 @@
     <Copyright>Copyright ₢ 2021 Samuel Rocha de Oliveira</Copyright>
     <PackageProjectUrl>https://github.com/orochasamuel/fiscalbr.net</PackageProjectUrl>
     <PackageTags>fiscalbr  efd sped fiscal icms ipi</PackageTags>
-    <Version>2.0.1</Version>
+    <Version>2.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -34,7 +34,7 @@ namespace FiscalBr.EFDFiscal
             ///     <para />
             ///     1 - Bloco sem dados informados
             /// </remarks>
-            [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 2)]
             public IndMovimento IndMov { get; set; }
 
             public Registro1010 Reg1010 { get; set; }
@@ -71,84 +71,84 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Reg. 1100 - Ocorreu averbação (conclusão) de exportação no período: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(2, "IND_EXP", "LE", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_EXP", "LE", 1, 0, true, 6)]
             public SimOuNao IndExp { get; set; }
 
             /// <summary>
             ///     Reg. 1200 - Existem informações acerca de créditos de ICMS a serem controlados, definidos pela Sefaz: S - Sim; N -
             ///     Não
             /// </summary>
-            [SpedCampos(3, "IND_CCRF", "LE", 1, 0, true, 15)]
+            [SpedCampos(3, "IND_CCRF", "LE", 1, 0, true, 6)]
             public SimOuNao IndCcrf { get; set; }
 
             /// <summary>
             ///     Reg. 1300 – É comercio varejista de combustíveis com movimentação e/ou estoque no período: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(4, "IND_COMB", "LE", 1, 0, true, 15)]
+            [SpedCampos(4, "IND_COMB", "LE", 1, 0, true, 6)]
             public SimOuNao IndComb { get; set; }
 
             /// <summary>
             ///     Reg. 1390 – Usinas de açúcar e/álcool – O estabelecimento é produtor de açúcar e/ou álcool carburante com
             ///     movimentação e/ou estoque no período: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(5, "IND_USINA", "LE", 1, 0, true, 15)]
+            [SpedCampos(5, "IND_USINA", "LE", 1, 0, true, 6)]
             public SimOuNao IndUsina { get; set; }
 
             /// <summary>
             ///     Reg 1400 – Sendo o registro obrigatório em sua Unidade de Federação, existem informações a serem prestadas neste
             ///     registro: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(6, "IND_VA", "LE", 1, 0, true, 15)]
+            [SpedCampos(6, "IND_VA", "LE", 1, 0, true, 6)]
             public SimOuNao IndVa { get; set; }
 
             /// <summary>
             ///     Reg 1500 - A empresa é distribuidora de energia e ocorreu fornecimento de energia elétrica para consumidores de
             ///     outra UF: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(7, "IND_EE", "LE", 1, 0, true, 15)]
+            [SpedCampos(7, "IND_EE", "LE", 1, 0, true, 6)]
             public SimOuNao IndEe { get; set; }
 
             /// <summary>
             ///     Reg 1600 - Realizou vendas com Cartão de Crédito ou de débito: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(8, "IND_CART", "LE", 1, 0, true, 15)]
+            [SpedCampos(8, "IND_CART", "LE", 1, 0, true, 6)]
             public SimOuNao IndCart { get; set; }
 
             /// <summary>
             ///     Reg. 1700 – Foram emitidos documentos fiscais em papel no período em unidade da federação que exija o controle de
             ///     utilização de documentos fiscais: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(9, "IND_FORM", "LE", 1, 0, true, 15)]
+            [SpedCampos(9, "IND_FORM", "LE", 1, 0, true, 6)]
             public SimOuNao IndForm { get; set; }
 
             /// <summary>
             ///     Reg 1800 – A empresa prestou serviços de transporte aéreo de cargas e de passageiros: S - Sim; N - Não
             /// </summary>
-            [SpedCampos(10, "IND_AER", "LE", 1, 0, true, 15)]
+            [SpedCampos(10, "IND_AER", "LE", 1, 0, true, 6)]
             public SimOuNao IndAer { get; set; }
 
             /// <summary>
             ///     Reg. 1960 - Possui informações GIAF1? : S - Sim; N - Não
             /// </summary>
-            [SpedCampos(11, "IND_GIAF1", "LE", 1, 0, true, 15)]
+            [SpedCampos(11, "IND_GIAF1", "LE", 1, 0, true, 6)]
             public SimOuNao IndGiaf1 { get; set; }
 
             /// <summary>
             ///     Reg. 1970 - Possui informações GIAF3? : S - Sim; N - Não
             /// </summary>
-            [SpedCampos(12, "IND_GIAF3", "LE", 1, 0, true, 15)]
+            [SpedCampos(12, "IND_GIAF3", "LE", 1, 0, true, 6)]
             public SimOuNao IndGiaf3 { get; set; }
 
             /// <summary>
             ///     Reg. 1980 - Possui informações GIAF4? : S - Sim; N - Não
             /// </summary>
-            [SpedCampos(13, "IND_GIAF4", "LE", 1, 0, true, 15)]
+            [SpedCampos(13, "IND_GIAF4", "LE", 1, 0, true, 6)]
             public SimOuNao IndGiaf4 { get; set; }
 
             /// <summary>
             ///     Reg. 1250 – Possui informações consolidadas de saldos de restituição, ressarcimento e complementação do ICMS?
             /// </summary>
-            [SpedCampos(14, "IND_REST_RESSARC_COMPL_ICMS", "LE", 1, 0, true, 15)]
+            [SpedCampos(14, "IND_REST_RESSARC_COMPL_ICMS", "LE", 1, 0, true, 6)]
             public SimOuNao IndRestRessarcComplIcms { get; set; }
         }
 
@@ -168,67 +168,67 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     0 - Declaração de Exportação; 1 - Declaração Simplificada de Exportação
             /// </summary>
-            [SpedCampos(2, "IND_DOC", "N", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_DOC", "N", 1, 0, true, 2)]
             public int IndDoc { get; set; }
 
             /// <summary>
             ///     Número da declaração
             /// </summary>
-            [SpedCampos(3, "NRO_DE", "N", 11, 0, true, 15)]
+            [SpedCampos(3, "NRO_DE", "N", 11, 0, true, 2)]
             public int NroDe { get; set; }
 
             /// <summary>
             ///     Data da declaração
             /// </summary>
-            [SpedCampos(4, "DT_DE", "N", 8, 0, true, 15)]
+            [SpedCampos(4, "DT_DE", "N", 8, 0, true, 2)]
             public DateTime DtDe { get; set; }
 
             /// <summary>
             ///     0 - Exportação Direta; 1 - Exportação Indireta
             /// </summary>
-            [SpedCampos(5, "NAT_EXP", "N", 1, 0, true, 15)]
+            [SpedCampos(5, "NAT_EXP", "N", 1, 0, true, 2)]
             public int NatExp { get; set; }
 
             /// <summary>
             ///     Nro do registro de exportação
             /// </summary>
-            [SpedCampos(6, "NRO_RE", "N", 12, 0, false, 15)]
+            [SpedCampos(6, "NRO_RE", "N", 12, 0, false, 2)]
             public int NroRe { get; set; }
 
             /// <summary>
             ///     Data do registro de exportação
             /// </summary>
-            [SpedCampos(7, "DT_RE", "N", 8, 0, false, 15)]
+            [SpedCampos(7, "DT_RE", "N", 8, 0, false, 2)]
             public DateTime DtRe { get; set; }
 
             /// <summary>
             ///     Nro do conhecimento de embarque
             /// </summary>
-            [SpedCampos(8, "CHC_EMB", "C", 18, 0, false, 15)]
+            [SpedCampos(8, "CHC_EMB", "C", 18, 0, false, 2)]
             public string ChcEmb { get; set; }
 
             /// <summary>
             ///     Data do conhecimento de embarque
             /// </summary>
-            [SpedCampos(9, "DT_CHC", "N", 8, 0, false, 15)]
+            [SpedCampos(9, "DT_CHC", "N", 8, 0, false, 2)]
             public DateTime DtChc { get; set; }
 
             /// <summary>
             ///     Data da averbação da declaração de exportação
             /// </summary>
-            [SpedCampos(10, "DT_AVB", "N", 8, 0, true, 15)]
+            [SpedCampos(10, "DT_AVB", "N", 8, 0, true, 2)]
             public DateTime DtAvb { get; set; }
 
             /// <summary>
             ///     Tipo de conhecimento de embarque
             /// </summary>
-            [SpedCampos(11, "TP_CHC", "N", 1, 0, true, 15)]
+            [SpedCampos(11, "TP_CHC", "N", 1, 0, true, 2)]
             public int TpChc { get; set; }
 
             /// <summary>
             ///     Código do país de destino da mercadoria (conforme tabela do SISCOMEX)
             /// </summary>
-            [SpedCampos(12, "PAIS", "N", 3, 0, true, 15)]
+            [SpedCampos(12, "PAIS", "N", 3, 0, true, 2)]
             public int Pais { get; set; }
 
             public List<Registro1105> Reg1105s { get; set; }
@@ -250,37 +250,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do modelo da NF
             /// </summary>
-            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 15)]
+            [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 2)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Série da nota fiscal
             /// </summary>
-            [SpedCampos(3, "SERIE", "C", 3, 0, false, 15)]
+            [SpedCampos(3, "SERIE", "C", 3, 0, false, 2)]
             public string Serie { get; set; }
 
             /// <summary>
             ///     Nro da nota fiscal de exportação emitida pelo exportador
             /// </summary>
-            [SpedCampos(4, "NUM_DOC", "N", 9, 0, true, 15)]
+            [SpedCampos(4, "NUM_DOC", "N", 9, 0, true, 2)]
             public int NumDoc { get; set; }
 
             /// <summary>
             ///     Chave da nota fiscal eletrônica
             /// </summary>
-            [SpedCampos(5, "CHV_NFE", "N", 44, 0, false, 15)]
+            [SpedCampos(5, "CHV_NFE", "N", 44, 0, false, 2)]
             public string ChvNfe { get; set; }
 
             /// <summary>
             ///     Data da emissão da NF de exportação
             /// </summary>
-            [SpedCampos(6, "DT_DOC", "N", 8, 0, true, 15)]
+            [SpedCampos(6, "DT_DOC", "N", 8, 0, true, 2)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(7, "COD_ITEM", "C", 60, 0, true, 15)]
+            [SpedCampos(7, "COD_ITEM", "C", 60, 0, true, 2)]
             public string CodItem { get; set; }
 
             public List<Registro1110> Reg1110s { get; set; }
@@ -302,55 +302,55 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do participante-fornecedor da mercadoria destinada à exportação
             /// </summary>
-            [SpedCampos(2, "COD_PART", "C", 60, 0, true, 15)]
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true, 2)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Código do modelo da NF
             /// </summary>
-            [SpedCampos(3, "COD_MOD", "C", 2, 0, true, 15)]
+            [SpedCampos(3, "COD_MOD", "C", 2, 0, true, 2)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Série da nota fiscal
             /// </summary>
-            [SpedCampos(4, "SERIE", "C", 3, 0, false, 15)]
+            [SpedCampos(4, "SERIE", "C", 3, 0, false, 2)]
             public string Serie { get; set; }
 
             /// <summary>
             ///     Nro da nota fiscal recebida com fins específicos de exportação
             /// </summary>
-            [SpedCampos(5, "NUM_DOC", "N", 9, 0, true, 15)]
+            [SpedCampos(5, "NUM_DOC", "N", 9, 0, true, 2)]
             public int NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão da NF de exportação
             /// </summary>
-            [SpedCampos(6, "DT_DOC", "N", 8, 0, true, 15)]
+            [SpedCampos(6, "DT_DOC", "N", 8, 0, true, 2)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Chave da nota fiscal eletrônica
             /// </summary>
-            [SpedCampos(7, "CHV_NFE", "N", 44, 0, false, 15)]
+            [SpedCampos(7, "CHV_NFE", "N", 44, 0, false, 2)]
             public string ChvNfe { get; set; }
 
             /// <summary>
             ///     Nro do memorando de exportação
             /// </summary>
-            [SpedCampos(8, "NR_MEMO", "N", 0, 0, false, 15)]
+            [SpedCampos(8, "NR_MEMO", "N", 0, 0, false, 2)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Quantidade do item efetivamente exportado
             /// </summary>
-            [SpedCampos(9, "QTD", "N", 0, 3, true, 15)]
+            [SpedCampos(9, "QTD", "N", 0, 3, true, 2)]
             public int Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(10, "UNID", "C", 6, 0, true, 15)]
+            [SpedCampos(10, "UNID", "C", 6, 0, true, 2)]
             public string Unid { get; set; }
         }
 
@@ -370,37 +370,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código de ajuste
             /// </summary>
-            [SpedCampos(2, "COD_AJ_APUR", "C", 8, 0, true, 15)]
+            [SpedCampos(2, "COD_AJ_APUR", "C", 8, 0, true, 2)]
             public string CodAjApur { get; set; }
 
             /// <summary>
             ///     Saldo de créditos fiscais de períodos anteriores
             /// </summary>
-            [SpedCampos(3, "SLD_CRED", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "SLD_CRED", "N", 0, 2, true, 2)]
             public decimal SldCred { get; set; }
 
             /// <summary>
             ///     Total de credito apropriado no mês
             /// </summary>
-            [SpedCampos(4, "CRED_APR", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "CRED_APR", "N", 0, 2, true, 2)]
             public decimal CredApr { get; set; }
 
             /// <summary>
             ///     Total de créditos recebidos por transferência
             /// </summary>
-            [SpedCampos(5, "CRED_RECEB", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "CRED_RECEB", "N", 0, 2, true, 2)]
             public decimal CredReceb { get; set; }
 
             /// <summary>
             ///     Total de créditos utilizados no período
             /// </summary>
-            [SpedCampos(6, "CRED_UTIL", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "CRED_UTIL", "N", 0, 2, true, 2)]
             public decimal CredUtil { get; set; }
 
             /// <summary>
             ///     Saldo de crédito fiscal acumulado a transportar para o período seguinte
             /// </summary>
-            [SpedCampos(7, "SLD_CRED_FIM", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "SLD_CRED_FIM", "N", 0, 2, true, 2)]
             public decimal SldCredFim { get; set; }
 
             public List<Registro1210> Reg1210s { get; set; }
@@ -422,25 +422,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Tipo de utilização do crédito
             /// </summary>
-            [SpedCampos(2, "TIPO_UTIL", "C", 4, 0, true, 15)]
+            [SpedCampos(2, "TIPO_UTIL", "C", 4, 0, true, 2)]
             public string TipoUtil { get; set; }
 
             /// <summary>
             ///     Nro do documento utilizado na baixa de créditos
             /// </summary>
-            [SpedCampos(3, "NR_DOC", "C", 0, 0, false, 15)]
+            [SpedCampos(3, "NR_DOC", "C", 0, 0, false, 2)]
             public string NrDoc { get; set; }
 
             /// <summary>
             ///     Total de crédito utilizado
             /// </summary>
-            [SpedCampos(4, "VL_CRED_UTIL", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_CRED_UTIL", "N", 0, 2, true, 2)]
             public decimal VlCredUtil { get; set; }
 
             /// <summary>
             ///     Chave de Documento Eletrônico
             /// </summary>
-            [SpedCampos(5, "CHV_DOCe", "C", 44, 0, false, 15)]
+            [SpedCampos(5, "CHV_DOCe", "C", 44, 0, false, 2)]
             public string ChvDocE { get; set; }
         }
 
@@ -460,31 +460,31 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///    Informar o valor total do ICMS operação própria que o informante tem direito ao crédito, na forma prevista na legislação, referente às hipóteses de restituição em  que  há previsão deste crédito.
             /// </summary>
-            [SpedCampos(2, "VL_CREDITO_ICMS_OP", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "VL_CREDITO_ICMS_OP", "N", 0, 2, true, 2)]
             public string VlCreditoIcmsOp { get; set; }
 
             /// <summary>
             ///     Informar o valor total do ICMS ST que o informante tem direito ao crédito, na forma prevista na legislação, referente às hipóteses de restituição em que há previsão deste crédito.
             /// </summary>
-            [SpedCampos(3, "VL_ICMS_ST_REST", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_ICMS_ST_REST", "N", 0, 2, true, 2)]
             public decimal VlIcmsStRest { get; set; }
 
             /// <summary>
             ///     Informar o valor total do FCP_ST agregado ao valor do ICMS ST informado no campo “VL_ICMS_ST_REST”.
             /// </summary>
-            [SpedCampos(4, "VL_FCP_ST_REST", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_FCP_ST_REST", "N", 0, 2, true, 2)]
             public decimal VlFcpStRest { get; set; }
 
             /// <summary>
             ///     Informar o valor total do débito referente ao complemento do imposto, nos casos previstos na legislação.
             /// </summary>
-            [SpedCampos(5, "VL_ICMS_ST_COMPL", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "VL_ICMS_ST_COMPL", "N", 0, 2, true, 2)]
             public decimal VlIcmsStCompl { get; set; }
 
             /// <summary>
             ///    Informar  o valor total do FCP_ST agregado ao valor informado no campo “VL_ICMS_ST_COMPL"
             /// </summary>
-            [SpedCampos(6, "VL_FCP_ST_COMPL", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_FCP_ST_COMPL", "N", 0, 2, true, 2)]
             public decimal VlFcpStCompl { get; set; }
 
             public List<Registro1255> Reg1255s { get; set; }
@@ -506,37 +506,37 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código  do  motivo  da restituição  ou  complementação conforme Tabela 5.7
             /// </summary>
-            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 2, true, 15)]
+            [SpedCampos(2, "COD_MOT_REST_COMPL", "C", 5, 2, true, 2)]
             public string CodMotRestCompl { get; set; }
 
             /// <summary>
             ///     Informar o valor total do ICMS operação própria que o informante tem direito ao crédito, na forma prevista na legislação, referente às hipóteses de restituição em que há previsão deste crédito, para o mesmo “COD_MOT_REST_COMPL”
             /// </summary>
-            [SpedCampos(3, "VL_CREDITO_ICMS_OP_MOT", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_CREDITO_ICMS_OP_MOT", "N", 0, 2, true, 2)]
             public decimal VlCreditoIcmsOpMot { get; set; }
 
             /// <summary>
             ///     Informar o valor total do ICMS ST que o informante tem direito ao crédito, na forma prevista na legislação, referente às hipóteses de restituição em que há previsão deste crédito, para o mesmo “COD_MOT_REST_COMPL”
             /// </summary>
-            [SpedCampos(4, "VL_ICMS_ST_REST_MOT", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_ICMS_ST_REST_MOT", "N", 0, 2, true, 2)]
             public decimal VlIcmsStRestMot { get; set; }
 
             /// <summary>
             ///     Informar o  alor total do FCP_ST agregado ao valor do ICMS ST informado no campo “VL_ICMS_ST_REST_MOT"
             /// </summary>
-            [SpedCampos(5, "VL_FCP_ST_REST_MOT", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "VL_FCP_ST_REST_MOT", "N", 0, 2, true, 2)]
             public decimal VlFcpStRestMot { get; set; }
 
             /// <summary>
             ///     Informar o valor total do débito referente ao complemento do imposto, nos casos previstos na legislação, para o mesmo “COD_MOT_REST_COMPL”
             /// </summary>
-            [SpedCampos(6, "VL_ICMS_ST_COMPL_MOT", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_ICMS_ST_COMPL_MOT", "N", 0, 2, true, 2)]
             public decimal VlIcmsStComplMot { get; set; }
 
             /// <summary>
             ///     Informar o valor total do FCP_ST agregado ao valor informado no campo “VL_ICMS_ST_COMPL_MOT”
             /// </summary>
-            [SpedCampos(7, "VL_FCP_ST_COMPL_MOT", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "VL_FCP_ST_COMPL_MOT", "N", 0, 2, true, 2)]
             public decimal VlFcpStComplMot { get; set; }
         }
 
@@ -556,61 +556,61 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do produto
             /// </summary>
-            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 15)]
+            [SpedCampos(2, "COD_ITEM", "C", 60, 0, true, 2)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Data do fechamento da movimentação
             /// </summary>
-            [SpedCampos(3, "DT_FECH", "N", 8, 0, true, 15)]
+            [SpedCampos(3, "DT_FECH", "N", 8, 0, true, 2)]
             public DateTime DtFech { get; set; }
 
             /// <summary>
             ///     Estoque no início do dia (em litros)
             /// </summary>
-            [SpedCampos(4, "ESTQ_ABERT", "N", 0, 3, true, 15)]
+            [SpedCampos(4, "ESTQ_ABERT", "N", 0, 3, true, 2)]
             public decimal EstqAbert { get; set; }
 
             /// <summary>
             ///     Volume recebido no dia (em litros)
             /// </summary>
-            [SpedCampos(5, "VOL_ENTR", "N", 0, 3, true, 15)]
+            [SpedCampos(5, "VOL_ENTR", "N", 0, 3, true, 2)]
             public decimal VolEntr { get; set; }
 
             /// <summary>
             ///     Volume disponível no dia (em litros)
             /// </summary>
-            [SpedCampos(6, "VOL_DISP", "N", 0, 3, true, 15)]
+            [SpedCampos(6, "VOL_DISP", "N", 0, 3, true, 2)]
             public decimal VolDisp { get; set; }
 
             /// <summary>
             ///     Volume total das saídas (em litros)
             /// </summary>
-            [SpedCampos(7, "VOL_SAIDAS", "N", 0, 3, true, 15)]
+            [SpedCampos(7, "VOL_SAIDAS", "N", 0, 3, true, 2)]
             public decimal VolSaidas { get; set; }
 
             /// <summary>
             ///     Estoque escritural (em litros)
             /// </summary>
-            [SpedCampos(8, "ESTQ_ESCR", "N", 0, 3, true, 15)]
+            [SpedCampos(8, "ESTQ_ESCR", "N", 0, 3, true, 2)]
             public decimal EstqEscr { get; set; }
 
             /// <summary>
             ///     Valor da perda (em litros)
             /// </summary>
-            [SpedCampos(9, "VAL_AJ_PERDA", "N", 0, 3, true, 15)]
+            [SpedCampos(9, "VAL_AJ_PERDA", "N", 0, 3, true, 2)]
             public decimal ValAjPerda { get; set; }
 
             /// <summary>
             ///     Valor do ganho (em litros)
             /// </summary>
-            [SpedCampos(10, "VAL_AJ_GANHO", "N", 0, 3, true, 15)]
+            [SpedCampos(10, "VAL_AJ_GANHO", "N", 0, 3, true, 2)]
             public decimal ValAjGanho { get; set; }
 
             /// <summary>
             ///     Estoque de fechamento (em litros)
             /// </summary>
-            [SpedCampos(11, "FECH_FISICO", "N", 0, 3, true, 15)]
+            [SpedCampos(11, "FECH_FISICO", "N", 0, 3, true, 2)]
             public decimal FechFisico { get; set; }
 
             public List<Registro1310> Reg1310s { get; set; }
@@ -632,55 +632,55 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Tanque que armazena o combustível
             /// </summary>
-            [SpedCampos(2, "NUM_TANQUE", "C", 3, 0, true, 15)]
+            [SpedCampos(2, "NUM_TANQUE", "C", 3, 0, true, 2)]
             public string NumTanque { get; set; }
 
             /// <summary>
             ///     Estoque no início do dia (em litros)
             /// </summary>
-            [SpedCampos(3, "ESTQ_ABERT", "N", 0, 3, true, 15)]
+            [SpedCampos(3, "ESTQ_ABERT", "N", 0, 3, true, 2)]
             public decimal EstqAbert { get; set; }
 
             /// <summary>
             ///     Volume recebino no dia (em litros)
             /// </summary>
-            [SpedCampos(4, "VOL_ENTR", "N", 0, 3, true, 15)]
+            [SpedCampos(4, "VOL_ENTR", "N", 0, 3, true, 2)]
             public decimal VolEntr { get; set; }
 
             /// <summary>
             ///     Volume disponível (em litros)
             /// </summary>
-            [SpedCampos(5, "VOL_DISP", "N", 0, 3, true, 15)]
+            [SpedCampos(5, "VOL_DISP", "N", 0, 3, true, 2)]
             public decimal VolDisp { get; set; }
 
             /// <summary>
             ///     Volume total das saídas (em litros)
             /// </summary>
-            [SpedCampos(6, "VOL_SAIDAS", "N", 0, 3, true, 15)]
+            [SpedCampos(6, "VOL_SAIDAS", "N", 0, 3, true, 2)]
             public decimal VolSaidas { get; set; }
 
             /// <summary>
             ///     Estoque escritural (em litros)
             /// </summary>
-            [SpedCampos(7, "ESTQ_ESCR", "N", 0, 3, true, 15)]
+            [SpedCampos(7, "ESTQ_ESCR", "N", 0, 3, true, 2)]
             public decimal EstqEscr { get; set; }
 
             /// <summary>
             ///     Valor da perda (em litros)
             /// </summary>
-            [SpedCampos(8, "VAL_AJ_PERDA", "N", 0, 3, true, 15)]
+            [SpedCampos(8, "VAL_AJ_PERDA", "N", 0, 3, true, 2)]
             public decimal ValAjPerda { get; set; }
 
             /// <summary>
             ///     Valor do ganho (em litros)
             /// </summary>
-            [SpedCampos(9, "VAL_AJ_GANHO", "N", 0, 3, true, 15)]
+            [SpedCampos(9, "VAL_AJ_GANHO", "N", 0, 3, true, 2)]
             public decimal VlAjGanho { get; set; }
 
             /// <summary>
             ///     Volume aferido no tanque, em litros. Estoque de fechamento físico do tanque
             /// </summary>
-            [SpedCampos(10, "FECH_FISICO", "N", 0, 3, true, 15)]
+            [SpedCampos(10, "FECH_FISICO", "N", 0, 3, true, 2)]
             public decimal FechFisico { get; set; }
 
             public List<Registro1320> Reg1320s { get; set; }
@@ -702,61 +702,61 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Bico ligado à bomba
             /// </summary>
-            [SpedCampos(2, "NUM_BICO", "N", 0, 0, true, 15)]
+            [SpedCampos(2, "NUM_BICO", "N", 0, 0, true, 2)]
             public long NumBico { get; set; }
 
             /// <summary>
             ///     Número da intervenção
             /// </summary>
-            [SpedCampos(3, "NR_INTERV", "N", 0, 0, false, 15)]
+            [SpedCampos(3, "NR_INTERV", "N", 0, 0, false, 2)]
             public long? NrInterv { get; set; }
 
             /// <summary>
             ///     Motivo da intervenção
             /// </summary>
-            [SpedCampos(4, "MOT_INTERV", "C", 50, 0, false, 15)]
+            [SpedCampos(4, "MOT_INTERV", "C", 50, 0, false, 2)]
             public string MotInterv { get; set; }
 
             /// <summary>
             ///     Nome do interventor
             /// </summary>
-            [SpedCampos(5, "NOM_INTERV", "C", 30, 0, false, 15)]
+            [SpedCampos(5, "NOM_INTERV", "C", 30, 0, false, 2)]
             public string NomInterv { get; set; }
 
             /// <summary>
             ///     CNPJ da empresa responsável pela intervenção
             /// </summary>
-            [SpedCampos(6, "CNPJ_INTERV", "N", 14, 0, false, 15)]
+            [SpedCampos(6, "CNPJ_INTERV", "N", 14, 0, false, 2)]
             public string CnpjInterv { get; set; }
 
             /// <summary>
             ///     CPF do técnico responsável pela intervenção
             /// </summary>
-            [SpedCampos(7, "CPF_INTERV", "N", 11, 0, false, 15)]
+            [SpedCampos(7, "CPF_INTERV", "N", 11, 0, false, 2)]
             public string CpfInterv { get; set; }
 
             /// <summary>
             ///     Valor da leitura final do contador, no fechamento do bico
             /// </summary>
-            [SpedCampos(8, "VAL_FECHA", "N", 0, 3, true, 15)]
+            [SpedCampos(8, "VAL_FECHA", "N", 0, 3, true, 2)]
             public decimal ValFecha { get; set; }
 
             /// <summary>
             ///     Valor da leitura inicial do contador, na abertura do bico
             /// </summary>
-            [SpedCampos(9, "VAL_ABERT", "N", 0, 3, true, 15)]
+            [SpedCampos(9, "VAL_ABERT", "N", 0, 3, true, 2)]
             public decimal ValAbert { get; set; }
 
             /// <summary>
             ///     Aferições da bomba (em litros)
             /// </summary>
-            [SpedCampos(10, "VOL_AFERI", "N", 0, 3, false, 15)]
+            [SpedCampos(10, "VOL_AFERI", "N", 0, 3, false, 2)]
             public decimal VolAferi { get; set; }
 
             /// <summary>
             ///     Vendas do bico (em litros)
             /// </summary>
-            [SpedCampos(11, "VOL_VENDAS", "N", 0, 3, true, 15)]
+            [SpedCampos(11, "VOL_VENDAS", "N", 0, 3, true, 2)]
             public decimal VolVendas { get; set; }
         }
 
@@ -776,25 +776,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número de série da bomba
             /// </summary>
-            [SpedCampos(2, "SERIE", "C", 0, 0, true, 15)]
+            [SpedCampos(2, "SERIE", "C", 0, 0, true, 2)]
             public string Serie { get; set; }
 
             /// <summary>
             ///     Nome do fabricante da bomba
             /// </summary>
-            [SpedCampos(3, "FABRICANTE", "C", 60, 0, true, 15)]
+            [SpedCampos(3, "FABRICANTE", "C", 60, 0, true, 2)]
             public string Fabricante { get; set; }
 
             /// <summary>
             ///     Modelo da bomba
             /// </summary>
-            [SpedCampos(4, "MODELO", "C", 0, 0, true, 15)]
+            [SpedCampos(4, "MODELO", "C", 0, 0, true, 2)]
             public string Modelo { get; set; }
 
             /// <summary>
             ///     Identificador de medição: 0 - analógico; 1 - digital
             /// </summary>
-            [SpedCampos(5, "TIPO_MEDICAO", "C", 1, 0, true, 15)]
+            [SpedCampos(5, "TIPO_MEDICAO", "C", 1, 0, true, 2)]
             public string TipoMedicao { get; set; }
 
             public List<Registro1360> Reg1360s { get; set; }
@@ -817,13 +817,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número do lacre associado na bomba
             /// </summary>
-            [SpedCampos(2, "NUM_LACRE", "C", 20, 0, true, 15)]
+            [SpedCampos(2, "NUM_LACRE", "C", 20, 0, true, 2)]
             public string NumLacre { get; set; }
 
             /// <summary>
             ///     Data de aplicação do lacre
             /// </summary>
-            [SpedCampos(3, "DT_APLICACAO", "N", 8, 0, true, 15)]
+            [SpedCampos(3, "DT_APLICACAO", "N", 8, 0, true, 2)]
             public DateTime DtAplicacao { get; set; }
         }
 
@@ -843,19 +843,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número sequencial do bico ligado a bomba
             /// </summary>
-            [SpedCampos(2, "NUM_BICO", "N", 3, 0, true, 15)]
+            [SpedCampos(2, "NUM_BICO", "N", 3, 0, true, 2)]
             public int NumBico { get; set; }
 
             /// <summary>
             ///     Código do produto
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 2)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Tanque que armazena o combustível
             /// </summary>
-            [SpedCampos(4, "NUM_TANQUE", "C", 3, 0, true, 15)]
+            [SpedCampos(4, "NUM_TANQUE", "C", 3, 0, true, 2)]
             public string NumTanque { get; set; }
         }
 
@@ -875,7 +875,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     01 - Alc. Etil. Hidratado Carburante; 02 - Alc. Etil. Anidro Carburante; 03 - Açúcar
             /// </summary>
-            [SpedCampos(2, "COD_PROD", "N", 2, 0, true, 15)]
+            [SpedCampos(2, "COD_PROD", "N", 2, 0, true, 6)]
             public int CodProd { get; set; }
 
             public List<Registro1391> Reg1391s { get; set; }
@@ -897,103 +897,103 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data de produção
             /// </summary>
-            [SpedCampos(2, "DT_REGISTRO", "C", 8, 0, true, 15)]
+            [SpedCampos(2, "DT_REGISTRO", "C", 8, 0, true, 6)]
             public DateTime DtRegistro { get; set; }
 
             /// <summary>
             ///     Quantidade de cana esmagada (toneladas)
             /// </summary>
-            [SpedCampos(3, "QTD_MOID", "N", 0, 2, false, 15)]
+            [SpedCampos(3, "QTD_MOID", "N", 0, 2, false, 6)]
             public double? QtdMoid { get; set; }
 
             /// <summary>
             ///     Estoque inicial (litros / Kg)
             /// </summary>
-            [SpedCampos(4, "ESTQ_INI", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "ESTQ_INI", "N", 0, 2, true, 6)]
             public double EstqIni { get; set; }
 
             /// <summary>
             ///     Quantidade produziada (litros / Kg)
             /// </summary>
-            [SpedCampos(5, "QTD_PRODUZ", "N", 0, 2, false, 15)]
+            [SpedCampos(5, "QTD_PRODUZ", "N", 0, 2, false, 6)]
             public double? QtdProduz { get; set; }
 
             /// <summary>
             ///     Entrada de álcool anidro/hidratado decorrente da transformação do álcool hidratado/anidro
             /// </summary>
-            [SpedCampos(6, "ENT_ANID_HID", "N", 0, 2, false, 15)]
+            [SpedCampos(6, "ENT_ANID_HID", "N", 0, 2, false, 6)]
             public double? EntAnidHid { get; set; }
 
             /// <summary>
             ///     Outras entradas (litros / Kg)
             /// </summary>
-            [SpedCampos(7, "OUTR_ENTR", "N", 0, 2, false, 15)]
+            [SpedCampos(7, "OUTR_ENTR", "N", 0, 2, false, 6)]
             public double? OutrEntr { get; set; }
 
             /// <summary>
             ///     Evaporação (litros) ou quebra de peso (Kg)
             /// </summary>
-            [SpedCampos(8, "PERDA", "N", 0, 2, false, 15)]
+            [SpedCampos(8, "PERDA", "N", 0, 2, false, 6)]
             public double? Perda { get; set; }
 
             /// <summary>
             ///     Consumo (litros)
             /// </summary>
-            [SpedCampos(9, "CONS", "N", 0, 2, false, 15)]
+            [SpedCampos(9, "CONS", "N", 0, 2, false, 6)]
             public double? Cons { get; set; }
 
             /// <summary>
             ///     Saída para transformação (litros)
             /// </summary>
-            [SpedCampos(10, "SAI_ANI_HID", "N", 0, 2, false, 15)]
+            [SpedCampos(10, "SAI_ANI_HID", "N", 0, 2, false, 6)]
             public double? SaiAniHid { get; set; }
 
             /// <summary>
             ///     Saídas (litros / Kg)
             /// </summary>
-            [SpedCampos(11, "SAIDAS", "N", 0, 2, false, 15)]
+            [SpedCampos(11, "SAIDAS", "N", 0, 2, false, 6)]
             public double? Saidas { get; set; }
 
             /// <summary>
             ///     Estoque final (litros / Kg)
             /// </summary>
-            [SpedCampos(12, "ESTQ_FIN", "N", 0, 2, true, 15)]
+            [SpedCampos(12, "ESTQ_FIN", "N", 0, 2, true, 6)]
             public double EstqFin { get; set; }
 
             /// <summary>
             ///     Estoque inicial de mel residual (Kg)
             /// </summary>
-            [SpedCampos(13, "ESTQ_INI_MEL", "N", 0, 2, false, 15)]
+            [SpedCampos(13, "ESTQ_INI_MEL", "N", 0, 2, false, 6)]
             public double? EstqIniMel { get; set; }
 
             /// <summary>
             ///     Produção de mel residual (Kg) e entradas de mel (Kg)
             /// </summary>
-            [SpedCampos(14, "PROD_DIA_MEL", "N", 0, 2, false, 15)]
+            [SpedCampos(14, "PROD_DIA_MEL", "N", 0, 2, false, 6)]
             public double? ProdDiaMel { get; set; }
 
             /// <summary>
             ///     Mel residual utilizado (Kg) e saídas de mel (Kg)
             /// </summary>
-            [SpedCampos(15, "UTIL_MEL", "N", 0, 2, false, 15)]
+            [SpedCampos(15, "UTIL_MEL", "N", 0, 2, false, 6)]
             public double? UtilMel { get; set; }
 
             /// <summary>
             ///     Produção de álcool (litros) ou açúcar (Kg) proveniente do mel residual
             /// </summary>
-            [SpedCampos(16, "PROD_ALC_MEL", "N", 0, 2, false, 15)]
+            [SpedCampos(16, "PROD_ALC_MEL", "N", 0, 2, false, 6)]
             public double? ProdAlcMel { get; set; }
 
             /// <summary>
             ///     Observações
             /// </summary>
-            [SpedCampos(17, "OBS", "C", 0, 0, false, 15)]
+            [SpedCampos(17, "OBS", "C", 0, 0, false, 6)]
             public string Obs { get; set; }
 
             /// <summary>
             ///     Informar o insumo conforme código do item (campo 02 do Registro 0200)
             /// </summary>
-            [SpedCampos(18, "COD_ITEM", "C", 60, 0, true, 15)]
+            [SpedCampos(18, "COD_ITEM", "C", 60, 0, true, 6)]
             public string CodItem { get; set; }
 
             /// <summary>
@@ -1004,13 +1004,13 @@ namespace FiscalBr.EFDFiscal
             ///     02 - DDG
             ///     03 - WDG
             /// </remarks>
-            [SpedCampos(19, "TP_RESIDUO", "N", 2, 0, false, 15)]
+            [SpedCampos(19, "TP_RESIDUO", "N", 2, 0, false, 6)]
             public int? TpResiduo { get; set; }
 
             /// <summary>
             ///     Quantidade de resíduo produzido (toneladas)
             /// </summary>
-            [SpedCampos(19, "QTD_RESIDUO", "N", 0, 2, true, 15)]
+            [SpedCampos(19, "QTD_RESIDUO", "N", 0, 2, true, 6)]
             public decimal QtdResiduo { get; set; }
         }
 
@@ -1030,19 +1030,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do item - próprio IPM ou campo 02 do Registro 0200
             /// </summary>
-            [SpedCampos(2, "COD_ITEM_IPM", "C", 60, 0, true, 15)]
+            [SpedCampos(2, "COD_ITEM_IPM", "C", 60, 0, true, 2)]
             public string CodItemIpm { get; set; }
 
             /// <summary>
             ///     Código IBGE do Município de origem/destino
             /// </summary>
-            [SpedCampos(3, "MUN", "N", 7, 0, true, 15)]
+            [SpedCampos(3, "MUN", "N", 7, 0, true, 2)]
             public string Mun { get; set; }
 
             /// <summary>
             ///     Valor mensal correspondente ao município
             /// </summary>
-            [SpedCampos(4, "VALOR", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VALOR", "N", 0, 2, true, 2)]
             public decimal Valor { get; set; }
         }
 
@@ -1065,7 +1065,7 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     1 - Saída
             /// </remarks>
-            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 2)]
             public int IndOper
             {
                 get
@@ -1080,7 +1080,7 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     0 - Emissão própria
             /// </remarks>
-            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 15)]
+            [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 2)]
             public int IndEmit
             {
                 get
@@ -1095,31 +1095,31 @@ namespace FiscalBr.EFDFiscal
             /// <remarks>
             ///     - do adquirente, no caso das saídas
             /// </remarks>
-            [SpedCampos(4, "COD_PART", "C", 60, 0, true, 15)]
+            [SpedCampos(4, "COD_PART", "C", 60, 0, true, 2)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 15)]
+            [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 2)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal
             /// </summary>
-            [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 15)]
+            [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 2)]
             public int CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(7, "SER", "C", 4, 0, false, 15)]
+            [SpedCampos(7, "SER", "C", 4, 0, false, 2)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Subsérie do documento fiscal
             /// </summary>
-            [SpedCampos(8, "SUB", "N", 3, 0, false, 15)]
+            [SpedCampos(8, "SUB", "N", 3, 0, false, 2)]
             public int Sub { get; set; }
 
             /// <summary>
@@ -1135,103 +1135,103 @@ namespace FiscalBr.EFDFiscal
             ///     07 - Rural
             ///     08 - Serviço Público
             /// </remarks>
-            [SpedCampos(9, "COD_CONS", "C", 2, 0, true, 15)]
+            [SpedCampos(9, "COD_CONS", "C", 2, 0, true, 2)]
             public int CodCons { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
             /// </summary>
-            [SpedCampos(10, "NUM_DOC", "N", 9, 0, true, 15)]
+            [SpedCampos(10, "NUM_DOC", "N", 9, 0, true, 2)]
             public long NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(11, "DT_DOC", "N", 8, 0, true, 15)]
+            [SpedCampos(11, "DT_DOC", "N", 8, 0, true, 2)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Data da entrada ou da saída
             /// </summary>
-            [SpedCampos(12, "DT_E_S", "N", 8, 0, true, 15)]
+            [SpedCampos(12, "DT_E_S", "N", 8, 0, true, 2)]
             public DateTime DtEs { get; set; }
 
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(13, "VL_DOC", "N", 0, 2, true, 15)]
+            [SpedCampos(13, "VL_DOC", "N", 0, 2, true, 2)]
             public decimal VlDoc { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(14, "VL_DESC", "N", 0, 2, false, 15)]
+            [SpedCampos(14, "VL_DESC", "N", 0, 2, false, 2)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Valor total fornecido/consumido
             /// </summary>
-            [SpedCampos(15, "VL_FORN", "N", 0, 2, true, 15)]
+            [SpedCampos(15, "VL_FORN", "N", 0, 2, true, 2)]
             public decimal VlForn { get; set; }
 
             /// <summary>
             ///     Valor total dos serviços não-tributados pelo ICMS
             /// </summary>
-            [SpedCampos(16, "VL_SERV_NT", "N", 0, 2, false, 15)]
+            [SpedCampos(16, "VL_SERV_NT", "N", 0, 2, false, 2)]
             public decimal VlServNt { get; set; }
 
             /// <summary>
             ///     Valor total cobrado em nome de terceiros
             /// </summary>
-            [SpedCampos(17, "VL_TERC", "N", 0, 2, false, 15)]
+            [SpedCampos(17, "VL_TERC", "N", 0, 2, false, 2)]
             public decimal VlTerc { get; set; }
 
             /// <summary>
             ///     Valor total de despesas acessórias indicadas no documento fiscal
             /// </summary>
-            [SpedCampos(18, "VL_DA", "N", 0, 2, false, 15)]
+            [SpedCampos(18, "VL_DA", "N", 0, 2, false, 2)]
             public decimal VlDa { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(19, "VL_BC_ICMS", "N", 0, 2, false, 15)]
+            [SpedCampos(19, "VL_BC_ICMS", "N", 0, 2, false, 2)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS
             /// </summary>
-            [SpedCampos(20, "VL_ICMS", "N", 0, 2, false, 15)]
+            [SpedCampos(20, "VL_ICMS", "N", 0, 2, false, 2)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor acumulado da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(21, "VL_BC_ICMS_ST", "N", 0, 2, false, 15)]
+            [SpedCampos(21, "VL_BC_ICMS_ST", "N", 0, 2, false, 2)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor acumulado do ICMS retido por substituição triutária
             /// </summary>
-            [SpedCampos(22, "VL_ICMS_ST", "N", 0, 2, false, 15)]
+            [SpedCampos(22, "VL_ICMS_ST", "N", 0, 2, false, 2)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Código da informação complementar do documento fiscal
             /// </summary>
-            [SpedCampos(23, "COD_INF", "C", 6, 0, false, 15)]
+            [SpedCampos(23, "COD_INF", "C", 6, 0, false, 2)]
             public string CodInf { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(24, "VL_PIS", "N", 0, 2, false, 15)]
+            [SpedCampos(24, "VL_PIS", "N", 0, 2, false, 2)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
-            [SpedCampos(25, "VL_COFINS", "N", 0, 2, false, 15)]
+            [SpedCampos(25, "VL_COFINS", "N", 0, 2, false, 2)]
             public decimal VlCofins { get; set; }
 
             /// <summary>
@@ -1242,13 +1242,13 @@ namespace FiscalBr.EFDFiscal
             ///     2 - Bifásico
             ///     3 - Trifásico
             /// </remarks>
-            [SpedCampos(26, "TP_LIGACAO", "N", 1, 0, false, 15)]
+            [SpedCampos(26, "TP_LIGACAO", "N", 1, 0, false, 3)]
             public int TpLigacao { get; set; }
 
             /// <summary>
             ///     Código do grupo de tensão
             /// </summary>
-            [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false, 15)]
+            [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false, 3)]
             public int CodGrupoTensao { get; set; }
 
             public List<Registro1510> Reg1510s { get; set; }
@@ -1270,91 +1270,91 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número sequencial do item no documento fiscal
             /// </summary>
-            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 15)]
+            [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 2)]
             public int NumItem { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 15)]
+            [SpedCampos(3, "COD_ITEM", "C", 60, 0, true, 2)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Código de classificação do item de energia elétrica
             /// </summary>
-            [SpedCampos(4, "COD_CLASS", "N", 4, 0, true, 15)]
+            [SpedCampos(4, "COD_CLASS", "N", 4, 0, true, 2)]
             public int CodClass { get; set; }
 
             /// <summary>
             ///     Quantidade do item
             /// </summary>
-            [SpedCampos(5, "QTD", "N", 0, 3, false, 15)]
+            [SpedCampos(5, "QTD", "N", 0, 3, false, 2)]
             public decimal Qtd { get; set; }
 
             /// <summary>
             ///     Unidade do item
             /// </summary>
-            [SpedCampos(6, "UNID", "C", 6, 0, false, 15)]
+            [SpedCampos(6, "UNID", "C", 6, 0, false, 2)]
             public string Unid { get; set; }
 
             /// <summary>
             ///     Valor do item
             /// </summary>
-            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "VL_ITEM", "N", 0, 2, true, 2)]
             public decimal VlItem { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(8, "VL_DESC", "N", 0, 2, false, 15)]
+            [SpedCampos(8, "VL_DESC", "N", 0, 2, false, 2)]
             public decimal VlDesc { get; set; }
 
             /// <summary>
             ///     Código da situação tributária
             /// </summary>
-            [SpedCampos(9, "CST_ICMS", "N", 3, 0, true, 15)]
+            [SpedCampos(9, "CST_ICMS", "N", 3, 0, true, 2)]
             public int CstIcms { get; set; }
 
             /// <summary>
             ///     Código fiscal de operação e prestação
             /// </summary>
-            [SpedCampos(10, "CFOP", "N", 4, 0, true, 15)]
+            [SpedCampos(10, "CFOP", "N", 4, 0, true, 2)]
             public int Cfop { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false, 15)]
+            [SpedCampos(11, "VL_BC_ICMS", "N", 0, 2, false, 2)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS
             /// </summary>
-            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false, 15)]
+            [SpedCampos(12, "ALIQ_ICMS", "N", 6, 2, false, 2)]
             public decimal AliqIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS creditado/debitado
             /// </summary>
-            [SpedCampos(13, "VL_ICMS", "N", 0, 2, false, 15)]
+            [SpedCampos(13, "VL_ICMS", "N", 0, 2, false, 2)]
             public decimal VlIcms { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo referente à substituição tributária
             /// </summary>
-            [SpedCampos(14, "VL_BC_ICMS_ST", "N", 0, 2, false, 15)]
+            [SpedCampos(14, "VL_BC_ICMS_ST", "N", 0, 2, false, 2)]
             public decimal VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Alíquota do ICMS da substituição tributária na unidadde da federação de destino
             /// </summary>
-            [SpedCampos(15, "ALIQ_ST", "N", 0, 2, false, 15)]
+            [SpedCampos(15, "ALIQ_ST", "N", 0, 2, false, 2)]
             public decimal AliqSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS referente à substituição tributária
             /// </summary>
-            [SpedCampos(16, "VL_ICMS_ST", "N", 0, 2, false, 15)]
+            [SpedCampos(16, "VL_ICMS_ST", "N", 0, 2, false, 2)]
             public decimal VlIcmsSt { get; set; }
 
             /// <summary>
@@ -1364,31 +1364,31 @@ namespace FiscalBr.EFDFiscal
             ///     0 - Receita própria
             ///     1 - Receita de terceiros
             /// </remarks>
-            [SpedCampos(17, "IND_REC", "C", 1, 0, true, 15)]
+            [SpedCampos(17, "IND_REC", "C", 1, 0, true, 2)]
             public int IndRec { get; set; }
 
             /// <summary>
             ///     Código do participante receptor da receita, terceiro da operação
             /// </summary>
-            [SpedCampos(18, "COD_PART", "C", 60, 0, false, 15)]
+            [SpedCampos(18, "COD_PART", "C", 60, 0, false, 2)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Valor do PIS
             /// </summary>
-            [SpedCampos(19, "VL_PIS", "N", 0, 2, false, 15)]
+            [SpedCampos(19, "VL_PIS", "N", 0, 2, false, 2)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor da COFINS
             /// </summary>
-            [SpedCampos(20, "VL_COFINS", "N", 0, 2, false, 15)]
+            [SpedCampos(20, "VL_COFINS", "N", 0, 2, false, 2)]
             public decimal VlCofins { get; set; }
 
             /// <summary>
             ///     Código da conta analítica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(21, "COD_CTA", "C", 99, 0, false, 15)]
+            [SpedCampos(21, "COD_CTA", "C", 99, 0, false, 2)]
             public string CodCta { get; set; }
         }
 
@@ -1408,19 +1408,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150): identificação da administradora do cartão de débito/crédito
             /// </summary>
-            [SpedCampos(2, "COD_PART", "C", 60, 0, true, 15)]
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true, 2)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Valor total das operações realizadas no período referente a Cartão de Crédito
             /// </summary>
-            [SpedCampos(3, "TOT_CREDITO", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "TOT_CREDITO", "N", 0, 2, true, 2)]
             public decimal TotCredito { get; set; }
 
             /// <summary>
             ///     Valor total das operações realizadas no período referente a Cartão de Débito
             /// </summary>
-            [SpedCampos(3, "TOT_DEBITO", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "TOT_DEBITO", "N", 0, 2, true, 2)]
             public decimal TotDebito { get; set; }
         }
 
@@ -1448,43 +1448,43 @@ namespace FiscalBr.EFDFiscal
             ///     04 - Blocos
             ///     05 - Jogos Soltos
             /// </remarks>
-            [SpedCampos(2, "COD_DISP", "C", 2, 0, true, 15)]
+            [SpedCampos(2, "COD_DISP", "C", 2, 0, true, 3)]
             public int CodDisp { get; set; }
 
             /// <summary>
             ///     Código do modelo do dispositivo autorizado
             /// </summary>
-            [SpedCampos(3, "COD_MOD", "C", 2, 0, true, 15)]
+            [SpedCampos(3, "COD_MOD", "C", 2, 0, true, 3)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Série do dispositivo autorizado
             /// </summary>
-            [SpedCampos(4, "SER", "C", 4, 0, false, 15)]
+            [SpedCampos(4, "SER", "C", 4, 0, false, 3)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Subsérie do dispositivo autorizado
             /// </summary>
-            [SpedCampos(5, "SUB", "C", 3, 0, false, 15)]
+            [SpedCampos(5, "SUB", "C", 3, 0, false, 3)]
             public string Sub { get; set; }
 
             /// <summary>
             ///     Número do dispositivo autorizado (utilizado) inicial
             /// </summary>
-            [SpedCampos(6, "NUM_DOC_INI", "N", 12, 0, true, 15)]
+            [SpedCampos(6, "NUM_DOC_INI", "N", 12, 0, true, 3)]
             public long NumDocIni { get; set; }
 
             /// <summary>
             ///     Número do dispositivo autorizado (utilizado) final
             /// </summary>
-            [SpedCampos(7, "NUM_DOC_FIN", "N", 12, 0, true, 15)]
+            [SpedCampos(7, "NUM_DOC_FIN", "N", 12, 0, true, 3)]
             public long NumDocFin { get; set; }
 
             /// <summary>
             ///     Número da autorização, conforme dispositivo autorizado
             /// </summary>
-            [SpedCampos(8, "NUM_AUT", "N", 60, 0, true, 15)]
+            [SpedCampos(8, "NUM_AUT", "N", 60, 0, true, 3)]
             public string NumAut { get; set; }
 
             public List<Registro1710> Reg1710s { get; set; }
@@ -1506,13 +1506,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número do dispositivo autorizado (inutilizado) inicial
             /// </summary>
-            [SpedCampos(2, "NUM_DOC_INI", "N", 12, 0, true, 15)]
+            [SpedCampos(2, "NUM_DOC_INI", "N", 12, 0, true, 3)]
             public long NumDocIni { get; set; }
 
             /// <summary>
             ///     Número do dispositivo autorizado (inutilizado) final
             /// </summary>
-            [SpedCampos(3, "NUM_DOC_FIN", "N", 12, 0, true, 15)]
+            [SpedCampos(3, "NUM_DOC_FIN", "N", 12, 0, true, 3)]
             public long NumDocFin { get; set; }
         }
 
@@ -1532,55 +1532,55 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor das prestações cargas (tributado)
             /// </summary>
-            [SpedCampos(2, "VL_CARGA", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "VL_CARGA", "N", 0, 2, true, 3)]
             public decimal VlCarga { get; set; }
 
             /// <summary>
             ///     Valor das prestações passageiros/cargas(não tributado)
             /// </summary>
-            [SpedCampos(3, "VL_PASS", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_PASS", "N", 0, 2, true, 3)]
             public decimal VlPass { get; set; }
 
             /// <summary>
             ///     Valor total do faturamento
             /// </summary>
-            [SpedCampos(4, "VL_FAT", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_FAT", "N", 0, 2, true, 3)]
             public decimal VlFat { get; set; }
 
             /// <summary>
             ///     Índice para rateio
             /// </summary>
-            [SpedCampos(5, "IND_RAT", "N", 8, 2, true, 15)]
+            [SpedCampos(5, "IND_RAT", "N", 8, 2, true, 3)]
             public decimal IndRat { get; set; }
 
             /// <summary>
             ///     Valor total dos créditos do ICMS
             /// </summary>
-            [SpedCampos(6, "VL_ICMS_ANT", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_ICMS_ANT", "N", 0, 2, true, 3)]
             public decimal VlIcmsAnt { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(7, "VL_BC_ICMS", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "VL_BC_ICMS", "N", 0, 2, true, 3)]
             public decimal VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS apurado no cálculo
             /// </summary>
-            [SpedCampos(8, "VL_ICMS_APUR", "N", 0, 2, true, 15)]
+            [SpedCampos(8, "VL_ICMS_APUR", "N", 0, 2, true, 3)]
             public decimal VlIcmsApur { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS apurada
             /// </summary>
-            [SpedCampos(9, "VL_BC_ICMS_APUR", "N", 0, 2, true, 15)]
+            [SpedCampos(9, "VL_BC_ICMS_APUR", "N", 0, 2, true, 3)]
             public decimal VlBcIcmsApur { get; set; }
 
             /// <summary>
             ///     Valor da diferença a ser levada a estorno de crédito na apuração
             /// </summary>
-            [SpedCampos(10, "VL_DIF", "N", 0, 2, true, 15)]
+            [SpedCampos(10, "VL_DIF", "N", 0, 2, true, 3)]
             public decimal VlDif { get; set; }
         }
 
@@ -1608,13 +1608,13 @@ namespace FiscalBr.EFDFiscal
             ///     7 - APURAÇÃO 5
             ///     8 - APURAÇÃO 6
             /// </remarks>
-            [SpedCampos(2, "IND_APUR_ICMS", "C", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_APUR_ICMS", "C", 1, 0, true, 4)]
             public int IndApurIcms { get; set; }
 
             /// <summary>
             ///     Descrição complementar de outra apuração do ICMS
             /// </summary>
-            [SpedCampos(3, "DESCR_COMPL_OUT_APUR", "C", 1024, 0, true, 15)]
+            [SpedCampos(3, "DESCR_COMPL_OUT_APUR", "C", 1024, 0, true, 4)]
             public string DescrComplOutApur { get; set; }
 
             public List<Registro1910> Reg1910s { get; set; }
@@ -1636,13 +1636,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Data inicial da sub-apuração
             /// </summary>
-            [SpedCampos(2, "DT_INI", "N", 8, 0, true, 15)]
+            [SpedCampos(2, "DT_INI", "N", 8, 0, true, 4)]
             public DateTime DtIni { get; set; }
 
             /// <summary>
             ///     Data final da sub-apuração
             /// </summary>
-            [SpedCampos(3, "DT_FIN", "N", 8, 0, true, 15)]
+            [SpedCampos(3, "DT_FIN", "N", 8, 0, true, 4)]
             public DateTime DtFin { get; set; }
 
             public Registro1920 Reg1920 { get; set; }
@@ -1664,73 +1664,73 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total dos débitos por "Saídas e prestações com débito do imposto"
             /// </summary>
-            [SpedCampos(2, "VL_TOT_TRANSF_DEBITOS_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "VL_TOT_TRANSF_DEBITOS_OA", "N", 0, 2, true, 4)]
             public decimal VlTotTransfDebitosOa { get; set; }
 
             /// <summary>
             ///     Valor total de "Ajustes a débito"
             /// </summary>
-            [SpedCampos(3, "VL_TOT_AJ_DEBITOS_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_TOT_AJ_DEBITOS_OA", "N", 0, 2, true, 4)]
             public decimal VlTotAjDebitosOa { get; set; }
 
             /// <summary>
             ///     Valor total de ajustes "Estornos de créditos"
             /// </summary>
-            [SpedCampos(4, "VL_ESTORNOS_CRED_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_ESTORNOS_CRED_OA", "N", 0, 2, true, 4)]
             public decimal VlEstornosCredOa { get; set; }
 
             /// <summary>
             ///     Valor total dos créditos por "Entradas e aquisições com crédito do imposto"
             /// </summary>
-            [SpedCampos(5, "VL_TOT_TRANSF_CREDITOS_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "VL_TOT_TRANSF_CREDITOS_OA", "N", 0, 2, true, 4)]
             public decimal VlTotTransfCreditosOa { get; set; }
 
             /// <summary>
             ///     Valor total de "Ajustes a crédito"
             /// </summary>
-            [SpedCampos(6, "VL_TOT_AJ_CREDITOS_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "VL_TOT_AJ_CREDITOS_OA", "N", 0, 2, true, 4)]
             public decimal VlTotAjCreditosOa { get; set; }
 
             /// <summary>
             ///     Valor total de ajustes "Estornos de Débitos"
             /// </summary>
-            [SpedCampos(7, "VL_ESTORNOS_DEB_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "VL_ESTORNOS_DEB_OA", "N", 0, 2, true, 4)]
             public decimal VlEstornosDebOa { get; set; }
 
             /// <summary>
             ///     Valor total de "Saldo credor do período anterior"
             /// </summary>
-            [SpedCampos(8, "VL_SLD_CREDOR_ANT_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(8, "VL_SLD_CREDOR_ANT_OA", "N", 0, 2, true, 4)]
             public decimal VlSldCredorAntOa { get; set; }
 
             /// <summary>
             ///     Valor do saldo devedor apurado
             /// </summary>
-            [SpedCampos(9, "VL_SLD_APURADO_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(9, "VL_SLD_APURADO_OA", "N", 0, 2, true, 4)]
             public decimal VlSldApuradoOa { get; set; }
 
             /// <summary>
             ///     Valor total de "Deduções"
             /// </summary>
-            [SpedCampos(10, "VL_TOT_DED", "N", 0, 2, true, 15)]
+            [SpedCampos(10, "VL_TOT_DED", "N", 0, 2, true, 4)]
             public decimal VlTotDed { get; set; }
 
             /// <summary>
             ///     Valor total de "ICMS a recolher"
             /// </summary>
-            [SpedCampos(11, "VL_ICMS_RECOLHER_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(11, "VL_ICMS_RECOLHER_OA", "N", 0, 2, true, 4)]
             public decimal VlIcmsRecolherOa { get; set; }
 
             /// <summary>
             ///     Valor total de "Saldo credor a transportar para o período seguinte"
             /// </summary>
-            [SpedCampos(12, "VL_SLD_CREDOR_TRANSP_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(12, "VL_SLD_CREDOR_TRANSP_OA", "N", 0, 2, true, 4)]
             public decimal VlSldCredorTranspOa { get; set; }
 
             /// <summary>
             ///     Valores recolhidos ou a recolher, extra-apuração
             /// </summary>
-            [SpedCampos(13, "DEB_ESP_OA", "N", 0, 2, true, 15)]
+            [SpedCampos(13, "DEB_ESP_OA", "N", 0, 2, true, 4)]
             public decimal DebEspOa { get; set; }
 
             public List<Registro1921> Reg1921s { get; set; }
@@ -1754,19 +1754,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código de ajuste da SUB-APUARÇÃO e dedução
             /// </summary>
-            [SpedCampos(2, "COD_AJ_APUR", "C", 8, 0, true, 15)]
+            [SpedCampos(2, "COD_AJ_APUR", "C", 8, 0, true, 4)]
             public string CodAjApur { get; set; }
 
             /// <summary>
             ///     Descrição complementar do ajuste da apuração
             /// </summary>
-            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 1024, 0, false, 15)]
+            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 1024, 0, false, 4)]
             public string DescrComplAj { get; set; }
 
             /// <summary>
             ///     Valor do ajuste da apuração
             /// </summary>
-            [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true, 4)]
             public decimal VlAjApur { get; set; }
 
             public List<Registro1922> Reg1922s { get; set; }
@@ -1789,13 +1789,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número do documento de arrecadação estadual, se houver
             /// </summary>
-            [SpedCampos(2, "NUM_DA", "C", 100, 0, false, 15)]
+            [SpedCampos(2, "NUM_DA", "C", 100, 0, false, 4)]
             public string NumDa { get; set; }
 
             /// <summary>
             ///     Número do processo ao qual o ajuste está vinculado, se houver
             /// </summary>
-            [SpedCampos(3, "NUM_PROC", "C", 15, 0, false, 15)]
+            [SpedCampos(3, "NUM_PROC", "C", 15, 0, false, 4)]
             public string NumProc { get; set; }
 
             /// <summary>
@@ -1807,19 +1807,19 @@ namespace FiscalBr.EFDFiscal
             ///     2 - Justiça Estadual
             ///     9 - Outros
             /// </remarks>
-            [SpedCampos(4, "IND_PROC", "C", 1, 0, false, 15)]
+            [SpedCampos(4, "IND_PROC", "C", 1, 0, false, 4)]
             public int IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
-            [SpedCampos(5, "PROC", "C", 9999, 0, false, 15)]
+            [SpedCampos(5, "PROC", "C", 9999, 0, false, 4)]
             public string Proc { get; set; }
 
             /// <summary>
             ///     Descrição complementar
             /// </summary>
-            [SpedCampos(6, "TXT_COMPL", "C", 1024, 0, false, 15)]
+            [SpedCampos(6, "TXT_COMPL", "C", 1024, 0, false, 4)]
             public string TxtCompl { get; set; }
         }
 
@@ -1843,49 +1843,49 @@ namespace FiscalBr.EFDFiscal
             ///     - do emitente do documento ou do remetente das mercadorias, no caso das entradas
             ///     - do adquirente, no caso das saídas
             /// </remarks>
-            [SpedCampos(2, "COD_PART", "C", 60, 0, true, 15)]
+            [SpedCampos(2, "COD_PART", "C", 60, 0, true, 4)]
             public string CodPart { get; set; }
 
             /// <summary>
             ///     Código do modelo do documento fiscal
             /// </summary>
-            [SpedCampos(3, "COD_MOD", "C", 2, 0, true, 15)]
+            [SpedCampos(3, "COD_MOD", "C", 2, 0, true, 4)]
             public string CodMod { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
             /// </summary>
-            [SpedCampos(4, "SER", "C", 4, 0, false, 15)]
+            [SpedCampos(4, "SER", "C", 4, 0, false, 4)]
             public string Ser { get; set; }
 
             /// <summary>
             ///     Subsérie do documento fiscal
             /// </summary>
-            [SpedCampos(5, "SUB", "N", 3, 0, false, 15)]
+            [SpedCampos(5, "SUB", "N", 3, 0, false, 4)]
             public string Sub { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
             /// </summary>
-            [SpedCampos(6, "NUM_DOC", "N", 9, 0, true, 15)]
+            [SpedCampos(6, "NUM_DOC", "N", 9, 0, true, 4)]
             public long NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(7, "DT_DOC", "N", 8, 0, true, 15)]
+            [SpedCampos(7, "DT_DOC", "N", 8, 0, true, 4)]
             public DateTime DtDoc { get; set; }
 
             /// <summary>
             ///     Código do item
             /// </summary>
-            [SpedCampos(8, "COD_ITEM", "C", 60, 0, false, 15)]
+            [SpedCampos(8, "COD_ITEM", "C", 60, 0, false, 4)]
             public string CodItem { get; set; }
 
             /// <summary>
             ///     Valor do ajuste para a operação/item
             /// </summary>
-            [SpedCampos(9, "VL_AJ_ITEM", "N", 0, 2, true, 15)]
+            [SpedCampos(9, "VL_AJ_ITEM", "N", 0, 2, true, 4)]
             public decimal VlAjItem { get; set; }
         }
 
@@ -1905,19 +1905,19 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da informação adicional conforme tabela a ser definida pelas SEFAZ
             /// </summary>
-            [SpedCampos(2, "COD_INF_ADIC", "C", 8, 0, true, 15)]
+            [SpedCampos(2, "COD_INF_ADIC", "C", 8, 0, true, 4)]
             public string CodInfAdic { get; set; }
 
             /// <summary>
             ///     Valor referente à informação adicional
             /// </summary>
-            [SpedCampos(3, "VL_INF_ADIC", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_INF_ADIC", "N", 0, 2, true, 4)]
             public decimal VlInfAdic { get; set; }
 
             /// <summary>
             ///     Descrição complementar do ajuste
             /// </summary>
-            [SpedCampos(4, "DESCR_COMPL_AJ", "C", 1024, 0, false, 15)]
+            [SpedCampos(4, "DESCR_COMPL_AJ", "C", 1024, 0, false, 4)]
             public string DescrComplAj { get; set; }
         }
 
@@ -1937,31 +1937,31 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código da obrigação a recolher
             /// </summary>
-            [SpedCampos(2, "COD_OR", "C", 3, 0, true, 15)]
+            [SpedCampos(2, "COD_OR", "C", 3, 0, true, 4)]
             public string CodOr { get; set; }
 
             /// <summary>
             ///     Valor da obrigação a recolher
             /// </summary>
-            [SpedCampos(3, "VL_OR", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "VL_OR", "N", 0, 2, true, 4)]
             public decimal VlOr { get; set; }
 
             /// <summary>
             ///     Data de vencimento da obrigação
             /// </summary>
-            [SpedCampos(4, "DT_VCTO", "N", 8, 0, true, 15)]
+            [SpedCampos(4, "DT_VCTO", "N", 8, 0, true, 4)]
             public DateTime DtVcto { get; set; }
 
             /// <summary>
             ///     Código de receita referente à obrigação, próprio da unidade da federação, conforme legislação estadual
             /// </summary>
-            [SpedCampos(5, "COD_REC", "C", 100, 0, true, 15)]
+            [SpedCampos(5, "COD_REC", "C", 100, 0, true, 4)]
             public string CodRec { get; set; }
 
             /// <summary>
             ///     Número do processo ou auto de infração ao qual a obrigação está vinculada, se houver
             /// </summary>
-            [SpedCampos(6, "NUM_PROC", "C", 15, 0, false, 15)]
+            [SpedCampos(6, "NUM_PROC", "C", 15, 0, false, 4)]
             public string NumProc { get; set; }
 
             /// <summary>
@@ -1973,25 +1973,25 @@ namespace FiscalBr.EFDFiscal
             ///     2 - Justiça Estadual
             ///     9 - Outros
             /// </remarks>
-            [SpedCampos(7, "IND_PROC", "C", 1, 0, false, 15)]
+            [SpedCampos(7, "IND_PROC", "C", 1, 0, false, 4)]
             public int IndProc { get; set; }
 
             /// <summary>
             ///     Descrição resumida do processo que embasou o lançamento
             /// </summary>
-            [SpedCampos(8, "PROC", "C", 1024, 0, false, 15)]
+            [SpedCampos(8, "PROC", "C", 1024, 0, false, 4)]
             public string Proc { get; set; }
 
             /// <summary>
             ///     Descrição complementar das obrigações a recolher
             /// </summary>
-            [SpedCampos(9, "TXT_COMPL", "C", 1024, 0, false, 15)]
+            [SpedCampos(9, "TXT_COMPL", "C", 1024, 0, false, 4)]
             public string TxtCompl { get; set; }
 
             /// <summary>
             ///     Mês de referência
             /// </summary>
-            [SpedCampos(10, "MES_REF", "MA", 6, 0, true, 15)]
+            [SpedCampos(10, "MES_REF", "MA", 6, 0, true, 4)]
             public DateTime MesRef { get; set; }
         }
 
@@ -2011,73 +2011,73 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Indicador da sub-apuração por tipo de benefício (conforme tabela 4.7.1)
             /// </summary>
-            [SpedCampos(2, "IND_AP", "N", 2, 0, true, 15)]
+            [SpedCampos(2, "IND_AP", "N", 2, 0, true, 2)]
             public int IndAp{ get; set; }
 
             /// <summary>
             ///     Percentual de crédito presumido
             /// </summary>
-            [SpedCampos(3, "G1_01", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "G1_01", "N", 0, 2, true, 2)]
             public int G101 { get; set; }
 
             /// <summary>
             ///     Saídas não incentivadas de PI 
             /// </summary>
-            [SpedCampos(4, "G1_02", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "G1_02", "N", 0, 2, true, 2)]
             public int G102{ get; set; }
 
             /// <summary>
             ///     Saídas incentivadas de PI
             /// </summary>
-            [SpedCampos(5, "G1_03", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "G1_03", "N", 0, 2, true, 2)]
             public int G103 { get; set; }
 
             /// <summary>
             ///     Saídas incentivadas de PI para fora do Nordeste
             /// </summary>
-            [SpedCampos(6, "G1_04", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "G1_04", "N", 0, 2, true, 2)]
             public int G104 { get; set; }
 
             /// <summary>
             ///     Saldo devedor do ICMS antes das deduções do incentivo
             /// </summary>
-            [SpedCampos(7, "G1_05", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "G1_05", "N", 0, 2, true, 2)]
             public int G105 { get; set; }
 
             /// <summary>
             ///     Saldo devedor do ICMS relativo à faixa incentivada de PI 
             /// </summary>
-            [SpedCampos(8, "G1_06", "N", 0, 2, true, 15)]
+            [SpedCampos(8, "G1_06", "N", 0, 2, true, 2)]
             public int G106 { get; set; }
 
             /// <summary>
             ///     Crédito presumido nas saídas incentivadas de PI para fora do Nordeste
             /// </summary>
-            [SpedCampos(9, "G1_07", "N", 0, 2, true, 15)]
+            [SpedCampos(9, "G1_07", "N", 0, 2, true, 2)]
             public int G107 { get; set; }
 
             /// <summary>
             ///    Saldo devedor relativo à faixa incentivada de PI após o crédito presumido nas saídas para fora do Nordeste
             /// </summary>
-            [SpedCampos(10, "G1_08", "N", 0, 2, true, 15)]
+            [SpedCampos(10, "G1_08", "N", 0, 2, true, 2)]
             public int G108 { get; set; }
 
             /// <summary>
             ///    Crédito presumido
             /// </summary>
-            [SpedCampos(11, "G1_09", "N", 0, 2, true, 15)]
+            [SpedCampos(11, "G1_09", "N", 0, 2, true, 2)]
             public int G109 { get; set; }
 
             /// <summary>
             ///     Dedução de incentivo da Indústria (crédito presumido)
             /// </summary>
-            [SpedCampos(12, "G1_10", "N", 0, 2, true, 15)]
+            [SpedCampos(12, "G1_10", "N", 0, 2, true, 2)]
             public int G110 { get; set; }
 
             /// <summary>
             ///     Saldo devedor do ICMS após deduções
             /// </summary>
-            [SpedCampos(13, "G1_11", "N", 0, 2, true, 15)]
+            [SpedCampos(13, "G1_11", "N", 0, 2, true, 2)]
             public int G111 { get; set; }
 
         }
@@ -2098,67 +2098,67 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Indicador da sub-apuração por tipo de benefício (conforme tabela 4.7.1)
             /// </summary>
-            [SpedCampos(2, "IND_AP", "N", 2, 0, true, 15)]
+            [SpedCampos(2, "IND_AP", "N", 2, 0, true, 2)]
             public int IndAp { get; set; }
 
             /// <summary>
             ///     Importações com ICMS diferido
             /// </summary>
-            [SpedCampos(3, "G3_01", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "G3_01", "N", 0, 2, true, 2)]
             public int G301 { get; set; }
 
             /// <summary>
             ///     ICMS diferido nas importações
             /// </summary>
-            [SpedCampos(4, "G3_02", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "G3_02", "N", 0, 2, true, 2)]
             public int G302 { get; set; }
 
             /// <summary>
             ///    Saídas não incentivadas de PI
             /// </summary>
-            [SpedCampos(5, "G3_03", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "G3_03", "N", 0, 2, true, 2)]
             public int G303 { get; set; }
 
             /// <summary>
             ///   Percentual de incentivo nas saídas para fora do Estado
             /// </summary>
-            [SpedCampos(6, "G3_04", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "G3_04", "N", 0, 2, true, 2)]
             public int G304 { get; set; }
 
             /// <summary>
             ///     Saídas incentivadas de PI para fora do Estado
             /// </summary>
-            [SpedCampos(7, "G3_05", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "G3_05", "N", 0, 2, true, 2)]
             public int G305 { get; set; }
 
             /// <summary>
             ///     ICMS das saídas incentivadas de PI para fora do Estado
             /// </summary>
-            [SpedCampos(8, "G3_06", "N", 0, 2, true, 15)]
+            [SpedCampos(8, "G3_06", "N", 0, 2, true, 2)]
             public int G306 { get; set; }
 
             /// <summary>
             ///     Crédito presumido nas saídas para fora do Estado.
             /// </summary>
-            [SpedCampos(9, "G3_07", "N", 0, 2, true, 15)]
+            [SpedCampos(9, "G3_07", "N", 0, 2, true, 2)]
             public int G307 { get; set; }
 
             /// <summary>
             ///    Dedução de incentivo da Importação (crédito presumido)
             /// </summary>
-            [SpedCampos(10, "G3_T", "N", 0, 2, true, 15)]
+            [SpedCampos(10, "G3_T", "N", 0, 2, true, 2)]
             public int G3T { get; set; }
 
             /// <summary>
             ///    Saldo devedor do ICMS antes das deduções do incentivo
             /// </summary>
-            [SpedCampos(11, "G3_08", "N", 0, 2, true, 15)]
+            [SpedCampos(11, "G3_08", "N", 0, 2, true, 2)]
             public int G308 { get; set; }
 
             /// <summary>
             ///    Saldo devedor do ICMS após deduções do incentivo
             /// </summary>
-            [SpedCampos(12, "G3_09", "N", 0, 2, true, 15)]
+            [SpedCampos(12, "G3_09", "N", 0, 2, true, 2)]
             public int G309 { get; set; }
 
             public List<Registro1975> Reg1975s { get; set; }
@@ -2180,25 +2180,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Alíquota incidente sobre as importações-base
             /// </summary>
-            [SpedCampos(2, "ALIQ_IMP_BASE", "N", 0, 2, true, 15)]
+            [SpedCampos(2, "ALIQ_IMP_BASE", "N", 0, 2, true, 2)]
             public int AliqImpBase { get; set; }
 
             /// <summary>
             ///     Saídas incentivadas de PI 
             /// </summary>
-            [SpedCampos(3, "G3_10", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "G3_10", "N", 0, 2, true, 2)]
             public int G310 { get; set; }
 
             /// <summary>
             ///    Importações-base para o crédito presumido 
             /// </summary>
-            [SpedCampos(4, "G3_11", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "G3_11", "N", 0, 2, true, 2)]
             public int G311 { get; set; }
 
             /// <summary>
             ///   Crédito presumido nas saídas internas
             /// </summary>
-            [SpedCampos(5, "G3_12", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "G3_12", "N", 0, 2, true, 2)]
             public int G312 { get; set; }
         }
 
@@ -2218,79 +2218,79 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Indicador da sub-apuração por tipo de benefício (conforme Tabela 4.7.1)
             /// </summary>
-            [SpedCampos(2, "IND_AP", "N", 2, 0, true, 15)]
+            [SpedCampos(2, "IND_AP", "N", 2, 0, true, 2)]
             public int IndAp { get; set; }
 
             /// <summary>
             ///    Entradas (percentual de incentivo)
             /// </summary>
-            [SpedCampos(3, "G4_01", "N", 0, 2, true, 15)]
+            [SpedCampos(3, "G4_01", "N", 0, 2, true, 2)]
             public int G401 { get; set; }
 
             /// <summary>
             ///     Entradas não incentivadas de PI 
             /// </summary>
-            [SpedCampos(4, "G4_02", "N", 0, 2, true, 15)]
+            [SpedCampos(4, "G4_02", "N", 0, 2, true, 2)]
             public int G402 { get; set; }
 
             /// <summary>
             ///   Entradas incentivadas de PI
             /// </summary>
-            [SpedCampos(5, "G4_03", "N", 0, 2, true, 15)]
+            [SpedCampos(5, "G4_03", "N", 0, 2, true, 2)]
             public int G403 { get; set; }
 
             /// <summary>
             ///   Saídas (percentual de incentivo)
             /// </summary>
-            [SpedCampos(6, "G4_04", "N", 0, 2, true, 15)]
+            [SpedCampos(6, "G4_04", "N", 0, 2, true, 2)]
             public int G404 { get; set; }
 
             /// <summary>
             ///     Saídas não incentivadas de PI 
             /// </summary>
-            [SpedCampos(7, "G4_05", "N", 0, 2, true, 15)]
+            [SpedCampos(7, "G4_05", "N", 0, 2, true, 2)]
             public int G405 { get; set; }
 
             /// <summary>
             ///     Saídas incentivadas de P
             /// </summary>
-            [SpedCampos(8, "G4_06", "N", 0, 2, true, 15)]
+            [SpedCampos(8, "G4_06", "N", 0, 2, true, 2)]
             public int G406 { get; set; }
 
             /// <summary>
             ///     Saldo devedor do ICMS antes das deduções do incentivo (PI e itens não incentivados)
             /// </summary>
-            [SpedCampos(9, "G4_07", "N", 0, 2, true, 15)]
+            [SpedCampos(9, "G4_07", "N", 0, 2, true, 2)]
             public int G407 { get; set; }
 
             /// <summary>
             ///    Crédito presumido nas entradas incentivadas de PI 
             /// </summary>
-            [SpedCampos(10, "G4_08", "N", 0, 2, true, 15)]
+            [SpedCampos(10, "G4_08", "N", 0, 2, true, 2)]
             public int G408 { get; set; }
 
             /// <summary>
             ///    Crédito presumido nas saídas incentivadas de PI 
             /// </summary>
-            [SpedCampos(11, "G4_09", "N", 0, 2, true, 15)]
+            [SpedCampos(11, "G4_09", "N", 0, 2, true, 2)]
             public int G409 { get; set; }
 
             /// <summary>
             ///    Dedução de incentivo da Central de Distribuição (entradas/saídas)
             /// </summary>
-            [SpedCampos(12, "G4_10", "N", 0, 2, true, 15)]
+            [SpedCampos(12, "G4_10", "N", 0, 2, true, 2)]
             public int G410 { get; set; }
 
             /// <summary>
             ///    Saldo devedor do ICMS após deduções do incentivo
             /// </summary>
-            [SpedCampos(13, "G4_11", "N", 0, 2, true, 15)]
+            [SpedCampos(13, "G4_11", "N", 0, 2, true, 2)]
             public int G411 { get; set; }
 
             /// <summary>
             ///    Índice de recolhimento da central de distribuição
             /// </summary>
-            [SpedCampos(14, "G4_12", "N", 0, 2, true, 15)]
+            [SpedCampos(14, "G4_12", "N", 0, 2, true, 2)]
             public int G412 { get; set; }
         }
 
@@ -2311,7 +2311,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Quantidade total de linhas do Bloco 1.
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_1", "N", int.MaxValue, 0, true, 15)]
+            [SpedCampos(2, "QTD_LIN_1", "N", int.MaxValue, 0, true, 2)]
             public int QtdLin1 { get; set; }
         }
 

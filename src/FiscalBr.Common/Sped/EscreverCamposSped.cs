@@ -385,11 +385,11 @@ namespace FiscalBr.Common.Sped
                 VerificaObrigatoriedadeRegistro(new Tuple<DateTime?, DateTime?, DateTime>(dataObrigatoriedadeInicial,
                     dataObrigatoriedadeFinal, competenciaDeclaracao.Value));
 
-            var listaComPropriedadesOrdenadas = ObtemListaComPropriedadesOrdenadas(type);
-
             var sb = new StringBuilder();
             if (deveGerarCamposDoRegistro)
             {
+                var listaComPropriedadesOrdenadas = ObtemListaComPropriedadesOrdenadas(type);
+
                 foreach (var property in listaComPropriedadesOrdenadas)
                 {
                     if (SomenteParaLeitura(property)) continue;
@@ -458,9 +458,11 @@ namespace FiscalBr.Common.Sped
                 }
                 sb.Append("|");
                 sb.Append(Environment.NewLine);
+
+                return tryTrim ? sb.ToString().Trim() : sb.ToString();
             }
 
-            return tryTrim ? sb.ToString().Trim() : sb.ToString();
+            return null;
         }
 
         /// <summary>

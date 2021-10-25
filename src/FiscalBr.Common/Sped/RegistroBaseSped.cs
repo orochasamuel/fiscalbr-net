@@ -6,7 +6,7 @@ namespace FiscalBr.Common.Sped
 {
     public class RegistroBaseSped
     {
-        [SpedCampos(1, "REG", "C", 4, 0, true, 1)]
+        [SpedCampos(1, "REG", "C", 4, 0, true, 2)]
         public string Reg { get; set; }
 
         public static object GetPropValue(object src, string propName)

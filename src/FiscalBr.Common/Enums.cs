@@ -185,7 +185,14 @@ namespace FiscalBr.Common
         /// Versão: 1.13
         /// Validade: 01/01/2020 - 31/12/2020
         /// </summary>
-        [DefaultValue("006")] V6,
+        [DefaultValue("006")] V6 = 6,
+
+        /// <summary>
+        /// Código: 14
+        /// Versão: 1.13
+        /// Validade: 01/01/2020 - 31/12/2020
+        /// </summary>
+        [DefaultValue("009")] V9 = 9,
 
         /// <summary>
         /// Código: 14

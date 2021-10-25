@@ -30,7 +30,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
-            [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 15)]
+            [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 2)]
             public IndMovimento IndMov { get; set; }
 
             public List<Registro9900> Reg9900s { get; set; }
@@ -52,13 +52,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Registro que será totalizado no próximo campo.
             /// </summary>
-            [SpedCampos(2, "REG_BLC", "C", 4, 0, true, 15)]
+            [SpedCampos(2, "REG_BLC", "C", 4, 0, true, 2)]
             public string RegBlc { get; set; }
 
             /// <summary>
             ///     Total de registros do tipo informado no campo anterior.
             /// </summary>
-            [SpedCampos(3, "QTD_REG_BLC", "N", int.MaxValue, 0, true, 15)]
+            [SpedCampos(3, "QTD_REG_BLC", "N", int.MaxValue, 0, true, 2)]
             public int QtdRegBlc { get; set; }
 
             public List<Registro9990> Reg9990s { get; set; }
@@ -80,7 +80,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Quantidade total de linhas do Bloco 9.
             /// </summary>
-            [SpedCampos(2, "QTD_LIN_9", "N", int.MaxValue, 0, true, 15)]
+            [SpedCampos(2, "QTD_LIN_9", "N", int.MaxValue, 0, true, 2)]
             public int QtdLin9 { get; set; }
         }
 
@@ -100,7 +100,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Quantidade total de linhas do arquivo digital.
             /// </summary>
-            [SpedCampos(2, "QTD_LIN", "N", int.MaxValue, 0, true, 15)]
+            [SpedCampos(2, "QTD_LIN", "N", int.MaxValue, 0, true, 2)]
             public int QtdLin { get; set; }
         }
     }
