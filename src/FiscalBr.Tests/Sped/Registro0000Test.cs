@@ -42,14 +42,14 @@ namespace FiscalBr.Tests.Sped
         [Fact]
         public void Ler_Registro_0000_EFDFiscal()
         {
-            var source = @"|0000|015|0|01112020|30112020|BANCO DO BRASIL S.A.|00000000000191||GO|123456789|5204508|||A|1|";
+            var source = @"|0000|015|0|01012021|31012021|BANCO DO BRASIL S.A.|00000000000191||GO|123456789|5204508|||A|1|";
 
             var expectedResult = new EFDFiscal.Bloco0.Registro0000
             {
                 CodVer = Common.CodigoVersaoLeiaute.V15,
                 CodFin = Common.IndCodFinalidadeArquivo.RemessaArquivoOriginal,
-                DtIni = new DateTime(2020, 11, 1),
-                DtFin = new DateTime(2020, 11, 30),
+                DtIni = new DateTime(2021, 1, 1),
+                DtFin = new DateTime(2021, 1, 31),
                 Nome = "BANCO DO BRASIL S.A.",
                 Cnpj = "00000000000191",
                 Uf = "GO",
