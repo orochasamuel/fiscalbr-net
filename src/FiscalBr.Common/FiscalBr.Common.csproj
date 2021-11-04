@@ -10,7 +10,7 @@
     <PackageTags>fiscalbr</PackageTags>
     <Product>FiscalBr Common</Product>
     <Description>Biblioteca auxiliar para geração dos arquivos</Description>
-    <Version>4.0.2</Version>
+    <Version>4.0.3</Version>
     <PackageReleaseNotes></PackageReleaseNotes>
   </PropertyGroup>
 

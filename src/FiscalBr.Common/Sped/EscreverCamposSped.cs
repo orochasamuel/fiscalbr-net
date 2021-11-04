@@ -289,31 +289,24 @@ namespace FiscalBr.Common.Sped
                     SpedCamposAttribute spedCampoAttr = null;
                     var attrs = Attribute.GetCustomAttributes(property, typeof(SpedCamposAttribute));
 
-                    if (attrs.Length > 0)
+                    switch (attrs.Length)
                     {
-                        if (attrs.Length == 1)
-                        {
+                        case 0:
+                            break;
+                        case 1:
                             spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeAtual(property);
-                        }
-                        else
-                        {
-                            if (ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
+                            break;
+                        default:
+                            while (!ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
                             {
-                                spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
-                            }
-                            else
-                            {
-                                while (!ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
-                                {
-                                    versaoEspecifica--;
+                                versaoEspecifica--;
 
-                                    if (versaoEspecifica < 1)
-                                        break;
-                                }
-
-                                spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                                if (versaoEspecifica < 1)
+                                    break;
                             }
-                        }
+
+                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                            break;
                     }
 
                     if (spedCampoAttr == null)

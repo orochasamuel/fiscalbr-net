@@ -62,6 +62,16 @@ namespace FiscalBr.Tests.Sped
             var currentResult = (EFDFiscal.Bloco0.Registro0000)Common.Sped.LerCamposSped.LerCampos(source);
 
             Assert.Equal(expectedResult.CodVer, currentResult.CodVer);
+            Assert.Equal(expectedResult.CodFin, currentResult.CodFin);
+            Assert.Equal(expectedResult.DtIni, currentResult.DtIni);
+            Assert.Equal(expectedResult.DtFin, currentResult.DtFin);
+            Assert.Equal(expectedResult.Nome, currentResult.Nome);
+            Assert.Equal(expectedResult.Cnpj, currentResult.Cnpj);
+            Assert.Equal(expectedResult.Uf, currentResult.Uf);
+            Assert.Equal(expectedResult.Ie, currentResult.Ie);
+            Assert.Equal(expectedResult.CodMun, currentResult.CodMun);
+            Assert.Equal(expectedResult.IndPerfil, currentResult.IndPerfil);
+            Assert.Equal(expectedResult.IndAtiv, currentResult.IndAtiv);
         }
     }
 }
