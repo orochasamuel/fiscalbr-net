@@ -17,122 +17,133 @@ namespace FiscalBr.Common.Sped
             var propertyValue = property.GetValue(src, null);
 
             if (propertyType.IsEnum)
-                propertyValue = IdentifyEnumValueByType(propertyType, propertyValue);
+                propertyValue = GetEnumDefaultValueByType(propertyType, propertyValue);
 
             return propertyValue;
         }
 
-        public static string IdentifyEnumValueByType(Type type, object valueOfType)
+        public static string GetEnumDefaultValueByType(Type type, object value)
         {
+            /*
+             * https://stackoverflow.com/questions/50604295/how-to-get-default-value-of-an-enum-from-a-type-variable
+             */
+            var enumObj = Enum.ToObject(type, value) as Enum;
+
+            return enumObj.ToDefaultValue();
+
+            #region OLD ENUM CHECK
+
             if (type == typeof(CodigoVersaoLeiaute))
-                return ((CodigoVersaoLeiaute)valueOfType).ToDefaultValue();
+                return ((CodigoVersaoLeiaute)value).ToDefaultValue();
 
             if (type == typeof(SimOuNao))
-                return ((SimOuNao)valueOfType).ToDefaultValue();
+                return ((SimOuNao)value).ToDefaultValue();
 
             if (type == typeof(IndMovimento))
-                return ((IndMovimento)valueOfType).ToDefaultValue();
+                return ((IndMovimento)value).ToDefaultValue();
 
             if (type == typeof(IndCodFinalidadeArquivo))
-                return ((IndCodFinalidadeArquivo)valueOfType).ToDefaultValue();
+                return ((IndCodFinalidadeArquivo)value).ToDefaultValue();
 
             if (type == typeof(IndPerfilArquivo))
-                return ((IndPerfilArquivo)valueOfType).ToDefaultValue();
+                return ((IndPerfilArquivo)value).ToDefaultValue();
 
             if (type == typeof(IndTipoAtividade))
-                return ((IndTipoAtividade)valueOfType).ToDefaultValue();
+                return ((IndTipoAtividade)value).ToDefaultValue();
 
             if (type == typeof(ClassEstabIndustrial))
-                return ((ClassEstabIndustrial)valueOfType).ToDefaultValue();
+                return ((ClassEstabIndustrial)value).ToDefaultValue();
 
             if (type == typeof(IndCodMod))
-                return ((IndCodMod)valueOfType).ToDefaultValue();
+                return ((IndCodMod)value).ToDefaultValue();
 
             if (type == typeof(IndTipoItem))
-                return ((IndTipoItem)valueOfType).ToDefaultValue();
+                return ((IndTipoItem)value).ToDefaultValue();
 
             if (type == typeof(IndTipoMercadoria))
-                return ((IndTipoMercadoria)valueOfType).ToDefaultValue();
+                return ((IndTipoMercadoria)value).ToDefaultValue();
 
             if (type == typeof(IndNaturezaConta))
-                return ((IndNaturezaConta)valueOfType).ToDefaultValue();
+                return ((IndNaturezaConta)value).ToDefaultValue();
 
             if (type == typeof(IndTipoConta))
-                return ((IndTipoConta)valueOfType).ToDefaultValue();
+                return ((IndTipoConta)value).ToDefaultValue();
 
             if (type == typeof(IndTipoOperacaoProduto))
-                return ((IndTipoOperacaoProduto)valueOfType).ToDefaultValue();
+                return ((IndTipoOperacaoProduto)value).ToDefaultValue();
 
             if (type == typeof(IndTipoOperacaoServico))
-                return ((IndTipoOperacaoServico)valueOfType).ToDefaultValue();
+                return ((IndTipoOperacaoServico)value).ToDefaultValue();
 
             if (type == typeof(IndEmitente))
-                return ((IndEmitente)valueOfType).ToDefaultValue();
+                return ((IndEmitente)value).ToDefaultValue();
 
             if (type == typeof(IndCodSitDoc))
-                return ((IndCodSitDoc)valueOfType).ToDefaultValue();
+                return ((IndCodSitDoc)value).ToDefaultValue();
 
             if (type == typeof(IndTipoPagamento))
-                return ((IndTipoPagamento)valueOfType).ToDefaultValue();
+                return ((IndTipoPagamento)value).ToDefaultValue();
 
             if (type == typeof(IndTipoFrete))
-                return ((IndTipoFrete)valueOfType).ToDefaultValue();
+                return ((IndTipoFrete)value).ToDefaultValue();
 
             if (type == typeof(IndTipoOperacaoStUfDiversa))
-                return ((IndTipoOperacaoStUfDiversa)valueOfType).ToDefaultValue();
+                return ((IndTipoOperacaoStUfDiversa)value).ToDefaultValue();
 
             if (type == typeof(IndOrigemProcesso))
-                return ((IndOrigemProcesso)valueOfType).ToDefaultValue();
+                return ((IndOrigemProcesso)value).ToDefaultValue();
 
             if (type == typeof(IndCodModDocArrecadacao))
-                return ((IndCodModDocArrecadacao)valueOfType).ToDefaultValue();
+                return ((IndCodModDocArrecadacao)value).ToDefaultValue();
 
             if (type == typeof(IndTipoTransporte))
-                return ((IndTipoTransporte)valueOfType).ToDefaultValue();
+                return ((IndTipoTransporte)value).ToDefaultValue();
 
             if (type == typeof(IndDocumentoImportacao))
-                return ((IndDocumentoImportacao)valueOfType).ToDefaultValue();
+                return ((IndDocumentoImportacao)value).ToDefaultValue();
 
             if (type == typeof(IndTipoTituloCred))
-                return ((IndTipoTituloCred)valueOfType).ToDefaultValue();
+                return ((IndTipoTituloCred)value).ToDefaultValue();
 
             if (type == typeof(IndPeriodoApuracaoIpi))
-                return ((IndPeriodoApuracaoIpi)valueOfType).ToDefaultValue();
+                return ((IndPeriodoApuracaoIpi)value).ToDefaultValue();
 
             if (type == typeof(IndMovFisicaItem))
-                return ((IndMovFisicaItem)valueOfType).ToDefaultValue();
+                return ((IndMovFisicaItem)value).ToDefaultValue();
 
             if (type == typeof(IndBaseProdFarmaceutico))
-                return ((IndBaseProdFarmaceutico)valueOfType).ToDefaultValue();
+                return ((IndBaseProdFarmaceutico)value).ToDefaultValue();
 
             if (type == typeof(IndTipoProdFarmaceutico))
-                return ((IndTipoProdFarmaceutico)valueOfType).ToDefaultValue();
+                return ((IndTipoProdFarmaceutico)value).ToDefaultValue();
 
             if (type == typeof(IndTipoArmaFogo))
-                return ((IndTipoArmaFogo)valueOfType).ToDefaultValue();
+                return ((IndTipoArmaFogo)value).ToDefaultValue();
 
             if (type == typeof(IndTipoOperacaoVeiculo))
-                return ((IndTipoOperacaoVeiculo)valueOfType).ToDefaultValue();
+                return ((IndTipoOperacaoVeiculo)value).ToDefaultValue();
 
             if (type == typeof(IndClasseConsumoEnergia))
-                return ((IndClasseConsumoEnergia)valueOfType).ToDefaultValue();
+                return ((IndClasseConsumoEnergia)value).ToDefaultValue();
 
             if (type == typeof(IndClasseConsumoAgua))
-                return ((IndClasseConsumoAgua)valueOfType).ToDefaultValue();
+                return ((IndClasseConsumoAgua)value).ToDefaultValue();
 
             if (type == typeof(IndClasseConsumoGas))
-                return ((IndClasseConsumoGas)valueOfType).ToDefaultValue();
+                return ((IndClasseConsumoGas)value).ToDefaultValue();
 
             if (type == typeof(IndCodTipoLigacao))
-                return ((IndCodTipoLigacao)valueOfType).ToDefaultValue();
+                return ((IndCodTipoLigacao)value).ToDefaultValue();
 
             if (type == typeof(IndCodGrupoTensao))
-                return ((IndCodGrupoTensao)valueOfType).ToDefaultValue();
+                return ((IndCodGrupoTensao)value).ToDefaultValue();
 
             if (type == typeof(IndTipoAjuste))
-                return ((IndTipoAjuste)valueOfType).ToDefaultValue();
+                return ((IndTipoAjuste)value).ToDefaultValue();
 
             return string.Empty;
+
+            #endregion OLD ENUM CHECK
         }
     }
 }
