@@ -63,8 +63,10 @@ namespace FiscalBr.Tests.Sped
 
             Assert.Equal(expectedResult.CodVer, currentResult.CodVer);
             Assert.Equal(expectedResult.CodFin, currentResult.CodFin);
-            Assert.Equal(expectedResult.DtIni, currentResult.DtIni);
-            Assert.Equal(expectedResult.DtFin, currentResult.DtFin);
+            Assert.Equal(expectedResult.DtIni.ToString(new CultureInfo("pt-BR")), 
+                currentResult.DtIni.ToString(new CultureInfo("pt-BR")));
+            Assert.Equal(expectedResult.DtFin.ToString(new CultureInfo("pt-BR")), 
+                currentResult.DtFin.ToString(new CultureInfo("pt-BR")));
             Assert.Equal(expectedResult.Nome, currentResult.Nome);
             Assert.Equal(expectedResult.Cnpj, currentResult.Cnpj);
             Assert.Equal(expectedResult.Uf, currentResult.Uf);
