@@ -232,13 +232,13 @@ namespace FiscalBr.Common
         /// <summary>
         /// Código: 15
         /// Versão: 1.14
-        /// Validade: 01/01/2021 - 31/12/2021?
+        /// Validade: 01/01/2021 - 31/12/2021
         /// </summary>
         [DefaultValue("015")] V15,
 
         /// <summary>
         /// Código: 16
-        /// Versão: 1.14
+        /// Versão: 1.15
         /// Validade: 01/01/2022 - 31/12/2022?
         /// </summary>
         [DefaultValue("016")] V16,
