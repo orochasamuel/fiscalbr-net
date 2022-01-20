@@ -724,6 +724,12 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(3, "FAT_CONV", "N", 0, 6, true, 2)]
             public decimal FatConv { get; set; }
+
+            /// <summary>
+            ///     Representação alfanumérica do código de barra da unidade comercial do produto, se houver
+            /// </summary>
+            [SpedCampos(4, "COD_BARRA", "C", 0, 0, true, 2)]
+            public string CodBarra { get; set; }
         }
 
         /// <summary>
