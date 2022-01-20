@@ -722,13 +722,13 @@ namespace FiscalBr.EFDFiscal
             ///     Fator de conversão: fator utilizado para converter (multiplicar) a unidade a ser convertida na unidade adotada no
             ///     inventário.
             /// </summary>
-            [SpedCampos(3, "FAT_CONV", "N", 0, 6, true, 2)]
+            [SpedCampos(3, "FAT_CONV", "N", 10, 6, true, 2)]
             public decimal FatConv { get; set; }
 
             /// <summary>
             ///     Representação alfanumérica do código de barra da unidade comercial do produto, se houver
             /// </summary>
-            [SpedCampos(4, "COD_BARRA", "C", 0, int.MaxValue, false, 2)]
+            [SpedCampos(4, "COD_BARRA", "C", int.MaxValue, 0, false, 2)]
             public string CodBarra { get; set; }
         }
 
