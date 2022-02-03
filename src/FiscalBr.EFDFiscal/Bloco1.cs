@@ -47,6 +47,7 @@ namespace FiscalBr.EFDFiscal
             public List<Registro1400> Reg1400s { get; set; }
             public List<Registro1500> Reg1500s { get; set; }
             public List<Registro1600> Reg1600s { get; set; }
+            public List<Registro1601> Reg1601s { get; set; }
             public List<Registro1700> Reg1700s { get; set; }
             public Registro1800 Reg1800 { get; set; }
             public List<Registro1900> Reg1900s { get; set; }
@@ -109,7 +110,7 @@ namespace FiscalBr.EFDFiscal
             public SimOuNao IndEe { get; set; }
 
             /// <summary>
-            ///     Reg 1600 - Realizou vendas com Cartão de Crédito ou de débito: S - Sim; N - Não
+            ///     Reg 1601 - Realizou vendas com Cartão de Crédito ou de débito: S - Sim; N - Não
             /// </summary>
             [SpedCampos(8, "IND_CART", "LE", 1, 0, true, 6)]
             public SimOuNao IndCart { get; set; }
@@ -1420,8 +1421,52 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total das operações realizadas no período referente a Cartão de Débito
             /// </summary>
-            [SpedCampos(3, "TOT_DEBITO", "N", 0, 2, true, 2)]
+            [SpedCampos(4, "TOT_DEBITO", "N", 0, 2, true, 2)]
             public decimal TotDebito { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 1601: Operações com instrumentos de pagamentos eletrônicos 
+        /// </summary>
+        public class Registro1601 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1601" />.
+            /// </summary>
+            public Registro1601()
+            {
+                Reg = "1601";
+            }
+
+            /// <summary>
+            ///     Código do participante (campo 02 do Registro 0150): identificação da instituição que efetuou o pagamento
+            /// </summary>
+            [SpedCampos(2, "COD_PART_IP", "C", 60, 0, true, 2)]
+            public string CodPartIp { get; set; }
+
+            /// <summary>
+            ///     Código do participante (campo 02 do Registro 0150): identificação do intermediador da transação
+            /// </summary>
+            [SpedCampos(3, "COD_PART_IT", "C", 60, 0, true, 2)]
+            public decimal TotCreditoIt { get; set; }
+
+            /// <summary>
+            ///     Valor total bruto das vendas e/ou prestações de serviços no campo de incidência do ICMS, incluindo operações com imunidade do imposto.
+            /// </summary>
+            [SpedCampos(4, "TOT_VS", "N", 0, 2, true, 2)]
+            public decimal TotVendas { get; set; }
+
+            /// <summary>
+            ///     Valor total bruto das prestações de serviços no campo de incidência do ISS
+            /// </summary>
+            [SpedCampos(5, "TOT_ISS", "N", 0, 2, true, 2)]
+            public decimal TotISS { get; set; }
+
+            /// <summary>
+            ///     Valor total de operações deduzido dos valores dos campos TOT_VS e TOT_ISS.
+            /// </summary>
+            [SpedCampos(6, "TOT_OUTROS", "N", 0, 2, true, 2)]
+            public decimal TotOutros { get; set; }
         }
 
         /// <summary>
@@ -2012,7 +2057,7 @@ namespace FiscalBr.EFDFiscal
             ///     Indicador da sub-apuração por tipo de benefício (conforme tabela 4.7.1)
             /// </summary>
             [SpedCampos(2, "IND_AP", "N", 2, 0, true, 2)]
-            public int IndAp{ get; set; }
+            public int IndAp { get; set; }
 
             /// <summary>
             ///     Percentual de crédito presumido
@@ -2024,7 +2069,7 @@ namespace FiscalBr.EFDFiscal
             ///     Saídas não incentivadas de PI 
             /// </summary>
             [SpedCampos(4, "G1_02", "N", 0, 2, true, 2)]
-            public int G102{ get; set; }
+            public int G102 { get; set; }
 
             /// <summary>
             ///     Saídas incentivadas de PI

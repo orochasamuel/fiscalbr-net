@@ -1,7 +1,7 @@
+using FiscalBr.Common.Sped;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using FiscalBr.Common.Sped;
 
 namespace FiscalBr.EFDFiscal
 {
@@ -356,6 +356,13 @@ namespace FiscalBr.EFDFiscal
                         Bloco1.Reg1001.Reg1600s = new List<Bloco1.Registro1600>();
 
                     Bloco1.Reg1001.Reg1600s.Add((Bloco1.Registro1600)registro);
+                    break;
+
+                case "1601":
+                    if (Bloco1.Reg1001.Reg1601s == null)
+                        Bloco1.Reg1001.Reg1601s = new List<Bloco1.Registro1601>();
+
+                    Bloco1.Reg1001.Reg1601s.Add((Bloco1.Registro1601)registro);
                     break;
 
                 case "1700":
