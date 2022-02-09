@@ -47,6 +47,7 @@ namespace FiscalBr.EFDFiscal
             public List<Registro1400> Reg1400s { get; set; }
             public List<Registro1500> Reg1500s { get; set; }
             public List<Registro1600> Reg1600s { get; set; }
+            public List<Registro1601> Reg1601s { get; set; }
             public List<Registro1700> Reg1700s { get; set; }
             public Registro1800 Reg1800 { get; set; }
             public List<Registro1900> Reg1900s { get; set; }
@@ -1393,7 +1394,7 @@ namespace FiscalBr.EFDFiscal
         }
 
         /// <summary>
-        ///     REGISTRO 1600: TOTAL DAS OPERAÇÕES COM CARTÃO DE CRÉDITO E/OU DÉBITO
+        ///     REGISTRO 1600: TOTAL DAS OPERAÇÕES COM CARTÃO DE CRÉDITO E/OU DÉBITO, LOJA(PRIVATE LABEL) E DEMAIS INSTRUMENTOS DE PAGAMENTOS ELETRÔNICOS (VÁLIDO ATÉ 31/12/2021)
         /// </summary>
         public class Registro1600 : RegistroBaseSped
         {
@@ -1422,6 +1423,50 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(3, "TOT_DEBITO", "N", 0, 2, true, 2)]
             public decimal TotDebito { get; set; }
+        }
+
+        /// <summary>
+        ///     REGISTRO 1601: OPERAÇÕES COM INSTRUMENTOS DE PAGAMENTOS ELETRÔNICOS(VÁLIDO A PARTIR DE 01/01/2022)
+        /// </summary>
+        public class Registro1601 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro1601" />.
+            /// </summary>
+            public Registro1601()
+            {
+                Reg = "1601";
+            }
+
+            /// <summary>
+            ///     Identificação da instituição que efetuou o pagamento
+            /// </summary>
+            [SpedCampos(2, "COD_PART_IP", "C", 60, 0, true, 4)]
+            public int CodPartIp { get; set; }
+
+            /// <summary>
+            ///     Identificação do intermediador da transação
+            /// </summary>
+            [SpedCampos(3, "COD_PART_IT", "C", 60, 0, false, 4)]
+            public int CodPartIt { get; set; }
+
+            /// <summary>
+            ///     Valor total bruto das vendas e/ou prestações de serviços no campo de incidência do ICMS, incluindo operações com imunidade do imposto
+            /// </summary>
+            [SpedCampos(4, "TOT_VS", "N", 0, 2, true, 4)]
+            public decimal TotVs { get; set; }
+
+            /// <summary>
+            ///     Valor total bruto das prestações de serviços no campo de incidência do ISS
+            /// </summary>
+            [SpedCampos(5, "TOT_ISS", "N", 0, 2, true, 4)]
+            public decimal TotIss { get; set; }
+
+            /// <summary>
+            ///     Valor total de operações deduzido dos valores dos campos TOT_VS e TOT_ISS
+            /// </summary>
+            [SpedCampos(6, "TOT_OUTROS", "N", 0, 2, true, 4)]
+            public decimal TotOutros { get; set; }
         }
 
         /// <summary>
