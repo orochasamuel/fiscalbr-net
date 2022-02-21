@@ -1448,7 +1448,7 @@ namespace FiscalBr.EFDFiscal
             ///     Identificação do intermediador da transação
             /// </summary>
             [SpedCampos(3, "COD_PART_IT", "C", 60, 0, false, 4)]
-            public int CodPartIt { get; set; }
+            public int? CodPartIt { get; set; }
 
             /// <summary>
             ///     Valor total bruto das vendas e/ou prestações de serviços no campo de incidência do ICMS, incluindo operações com imunidade do imposto

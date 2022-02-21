@@ -762,7 +762,7 @@ namespace FiscalBr.EFDFiscal
             ///     Descrição do bem ou componente (modelo, marca e outras
             ///     características necessárias a sua individualização.
             /// </summary>
-            [SpedCampos(4, "DESCR_ITEM", "C", 0, 0, true, 4)]
+            [SpedCampos(4, "DESCR_ITEM", "C", 255, 0, true, 4)]
             public string DescrItem { get; set; }
 
             /// <summary>
@@ -814,7 +814,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Descrição sucinta da função do bem na atividade do estabelecimento
             /// </summary>
-            [SpedCampos(3, "FUNC", "C", 0, 0, true, 4)]
+            [SpedCampos(3, "FUNC", "C", 255, 0, true, 4)]
             public string Func { get; set; }
 
             /// <summary>
