@@ -357,7 +357,8 @@ namespace FiscalBr.Common.Sped
             this object source,
             CodigoVersaoLeiaute version,
             DateTime? competenciaDeclaracao = null,
-            bool tryTrim = false
+            bool tryTrim = false,
+            bool ignoreErrors = false
             )
         {
             var type = ObtemTipo(source);
@@ -443,9 +444,10 @@ namespace FiscalBr.Common.Sped
                                 spedCampoAttr.QtdCasas
                                 ));
 
-                    if (campoEscrito == Constantes.StructuralError)
-                        throw new Exception(string.Format(
-                            "O campo {0} - {1} no Registro {2} é obrigatório e não foi informado!", spedCampoAttr.Ordem, spedCampoAttr.Campo, registroAtual));
+                    if (ignoreErrors == false)
+                        if (campoEscrito == Constantes.StructuralError)
+                            throw new Exception(string.Format(
+                                "O campo {0} - {1} no Registro {2} é obrigatório e não foi informado!", spedCampoAttr.Ordem, spedCampoAttr.Campo, registroAtual));
 
                     sb.Append(campoEscrito);
                 }
