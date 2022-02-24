@@ -1,6 +1,6 @@
 language: csharp
 mono: none
-dist: xenial
+dist: bionic
 dotnet: 3.1
 before_install:
   - sudo apt-get install dotnet-sdk-3.1
