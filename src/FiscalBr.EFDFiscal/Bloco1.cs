@@ -1415,13 +1415,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total das operações realizadas no período referente a Cartão de Crédito
             /// </summary>
-            [SpedCampos(3, "TOT_CREDITO", "N", 0, 2, true, 2)]
+            [SpedCampos(3, "TOT_CREDITO", "N", 10, 2, true, 2)]
             public decimal TotCredito { get; set; }
 
             /// <summary>
             ///     Valor total das operações realizadas no período referente a Cartão de Débito
             /// </summary>
-            [SpedCampos(3, "TOT_DEBITO", "N", 0, 2, true, 2)]
+            [SpedCampos(4, "TOT_DEBITO", "N", 10, 2, true, 2)]
             public decimal TotDebito { get; set; }
         }
 
@@ -1442,30 +1442,30 @@ namespace FiscalBr.EFDFiscal
             ///     Identificação da instituição que efetuou o pagamento
             /// </summary>
             [SpedCampos(2, "COD_PART_IP", "C", 60, 0, true, 4)]
-            public int CodPartIp { get; set; }
+            public string CodPartIp { get; set; }
 
             /// <summary>
             ///     Identificação do intermediador da transação
             /// </summary>
             [SpedCampos(3, "COD_PART_IT", "C", 60, 0, false, 4)]
-            public int? CodPartIt { get; set; }
+            public string CodPartIt { get; set; }
 
             /// <summary>
             ///     Valor total bruto das vendas e/ou prestações de serviços no campo de incidência do ICMS, incluindo operações com imunidade do imposto
             /// </summary>
-            [SpedCampos(4, "TOT_VS", "N", 0, 2, true, 4)]
+            [SpedCampos(4, "TOT_VS", "N", 10, 2, true, 4)]
             public decimal TotVs { get; set; }
 
             /// <summary>
             ///     Valor total bruto das prestações de serviços no campo de incidência do ISS
             /// </summary>
-            [SpedCampos(5, "TOT_ISS", "N", 0, 2, true, 4)]
+            [SpedCampos(5, "TOT_ISS", "N", 10, 2, true, 4)]
             public decimal TotIss { get; set; }
 
             /// <summary>
             ///     Valor total de operações deduzido dos valores dos campos TOT_VS e TOT_ISS
             /// </summary>
-            [SpedCampos(6, "TOT_OUTROS", "N", 0, 2, true, 4)]
+            [SpedCampos(6, "TOT_OUTROS", "N", 10, 2, true, 4)]
             public decimal TotOutros { get; set; }
         }
 
@@ -2057,73 +2057,73 @@ namespace FiscalBr.EFDFiscal
             ///     Indicador da sub-apuração por tipo de benefício (conforme tabela 4.7.1)
             /// </summary>
             [SpedCampos(2, "IND_AP", "N", 2, 0, true, 2)]
-            public int IndAp{ get; set; }
+            public int IndAp { get; set; }
 
             /// <summary>
             ///     Percentual de crédito presumido
             /// </summary>
-            [SpedCampos(3, "G1_01", "N", 0, 2, true, 2)]
-            public int G101 { get; set; }
+            [SpedCampos(3, "G1_01", "N", 15, 2, true, 2)]
+            public decimal G101 { get; set; }
 
             /// <summary>
             ///     Saídas não incentivadas de PI 
             /// </summary>
-            [SpedCampos(4, "G1_02", "N", 0, 2, true, 2)]
-            public int G102{ get; set; }
+            [SpedCampos(4, "G1_02", "N", 15, 2, true, 2)]
+            public decimal G102 { get; set; }
 
             /// <summary>
             ///     Saídas incentivadas de PI
             /// </summary>
-            [SpedCampos(5, "G1_03", "N", 0, 2, true, 2)]
-            public int G103 { get; set; }
+            [SpedCampos(5, "G1_03", "N", 15, 2, true, 2)]
+            public decimal G103 { get; set; }
 
             /// <summary>
             ///     Saídas incentivadas de PI para fora do Nordeste
             /// </summary>
-            [SpedCampos(6, "G1_04", "N", 0, 2, true, 2)]
-            public int G104 { get; set; }
+            [SpedCampos(6, "G1_04", "N", 15, 2, true, 2)]
+            public decimal G104 { get; set; }
 
             /// <summary>
             ///     Saldo devedor do ICMS antes das deduções do incentivo
             /// </summary>
-            [SpedCampos(7, "G1_05", "N", 0, 2, true, 2)]
-            public int G105 { get; set; }
+            [SpedCampos(7, "G1_05", "N", 15, 2, true, 2)]
+            public decimal G105 { get; set; }
 
             /// <summary>
             ///     Saldo devedor do ICMS relativo à faixa incentivada de PI 
             /// </summary>
-            [SpedCampos(8, "G1_06", "N", 0, 2, true, 2)]
-            public int G106 { get; set; }
+            [SpedCampos(8, "G1_06", "N", 15, 2, true, 2)]
+            public decimal G106 { get; set; }
 
             /// <summary>
             ///     Crédito presumido nas saídas incentivadas de PI para fora do Nordeste
             /// </summary>
-            [SpedCampos(9, "G1_07", "N", 0, 2, true, 2)]
-            public int G107 { get; set; }
+            [SpedCampos(9, "G1_07", "N", 15, 2, true, 2)]
+            public decimal G107 { get; set; }
 
             /// <summary>
             ///    Saldo devedor relativo à faixa incentivada de PI após o crédito presumido nas saídas para fora do Nordeste
             /// </summary>
-            [SpedCampos(10, "G1_08", "N", 0, 2, true, 2)]
-            public int G108 { get; set; }
+            [SpedCampos(10, "G1_08", "N", 15, 2, true, 2)]
+            public decimal G108 { get; set; }
 
             /// <summary>
             ///    Crédito presumido
             /// </summary>
-            [SpedCampos(11, "G1_09", "N", 0, 2, true, 2)]
-            public int G109 { get; set; }
+            [SpedCampos(11, "G1_09", "N", 15, 2, true, 2)]
+            public decimal G109 { get; set; }
 
             /// <summary>
             ///     Dedução de incentivo da Indústria (crédito presumido)
             /// </summary>
-            [SpedCampos(12, "G1_10", "N", 0, 2, true, 2)]
-            public int G110 { get; set; }
+            [SpedCampos(12, "G1_10", "N", 15, 2, true, 2)]
+            public decimal G110 { get; set; }
 
             /// <summary>
             ///     Saldo devedor do ICMS após deduções
             /// </summary>
-            [SpedCampos(13, "G1_11", "N", 0, 2, true, 2)]
-            public int G111 { get; set; }
+            [SpedCampos(13, "G1_11", "N", 15, 2, true, 2)]
+            public decimal G111 { get; set; }
 
         }
 
