@@ -941,6 +941,7 @@ namespace FiscalBr.Common
     /// </summary>
     public enum IndPeriodoApuracaoIpi
     {
+        [DefaultValue("")] None = 0,
         /// <summary>
         ///     Mensal
         /// </summary>
@@ -1226,13 +1227,11 @@ namespace FiscalBr.Common
         /// <summary>
         ///     Ajuste de redução
         /// </summary>
-        [DefaultValue(0)]
-        Reducao,
+        [DefaultValue("0")] Reducao,
 
         /// <summary>
         ///     Ajuste de acréscimo
         /// </summary>
-        [DefaultValue(1)]
-        Acrescimo
+        [DefaultValue("1")] Acrescimo
     }
 }
