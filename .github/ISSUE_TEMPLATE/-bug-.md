@@ -1,6 +1,6 @@
 ---
-name: "[BUG] Correção necessária"
-about: No ajude a melhorar \o/
+name: "[BUG]"
+about: Nos ajude a melhorar \o/
 title: "[BUG] "
 labels: bug
 assignees: ''
