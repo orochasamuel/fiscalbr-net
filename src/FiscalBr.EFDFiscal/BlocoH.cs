@@ -180,7 +180,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Informe o valor do ICMS a ser debitado ou creditado
             /// </summary>
-            [SpedCampos(2, "VL_ICMS", "N", 0, 2, true, 6)]
+            [SpedCampos(4, "VL_ICMS", "N", 0, 2, true, 6)]
             public decimal VlIcms { get; set; }
         }
 
