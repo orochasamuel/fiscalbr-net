@@ -1113,8 +1113,9 @@ namespace FiscalBr.Common
     /// <summary>
     ///     Código de classe de consumo de energia elétrica
     /// </summary>
-    public enum IndClasseConsumoEnergia
+    public enum IndClasseConsumoEnergiaOuGas
     {
+        [DefaultValue("")] None,
         /// <summary>
         ///     Comercial
         /// </summary>
@@ -1227,27 +1228,26 @@ namespace FiscalBr.Common
     /// </summary>
     public enum IndCodTipoLigacao
     {
+        [DefaultValue("")] None,
         /// <summary>
         ///     Monofásico
         /// </summary>
-        [DefaultValue("1")]
-        Monofasico,
+        [DefaultValue("1")] Monofasico,
 
         /// <summary>
         ///     Bifásico
         /// </summary>
-        [DefaultValue("2")]
-        Bifasico,
+        [DefaultValue("2")] Bifasico,
 
         /// <summary>
         ///     Trifásico
         /// </summary>
-        [DefaultValue("3")]
-        Trifasico
+        [DefaultValue("3")] Trifasico
     }
 
     public enum IndCodGrupoTensao
     {
+        [DefaultValue("")] None,
         [DefaultValue("01")] A1,
         [DefaultValue("02")] A2,
         [DefaultValue("03")] A3,
@@ -1262,6 +1262,43 @@ namespace FiscalBr.Common
         [DefaultValue("12")] B3DemaisClasses,
         [DefaultValue("13")] B4a,
         [DefaultValue("14")] B4b
+    }
+
+    public enum IndCodFinDoce
+    {
+        [DefaultValue("")] None,
+        /// <summary>
+        ///     Normal
+        /// </summary>
+        [DefaultValue("1")] Normal,
+
+        /// <summary>
+        ///     Substituição
+        /// </summary>
+        [DefaultValue("2")] Substituicao,
+
+        /// <summary>
+        ///     Normal com ajuste
+        /// </summary>
+        [DefaultValue("3")] NormalComAjuste
+    }
+
+    public enum IndCodDestAcessante
+    {
+        /// <summary>
+        ///     Contribuinte do ICMS
+        /// </summary>
+        [DefaultValue("1")] ContribuinteIcms = 1,
+
+        /// <summary>
+        ///     Contribuinte Isento de Inscrição no Cadastro de Contribuintes do ICMS
+        /// </summary>
+        [DefaultValue("2")] ContribuinteIsento = 2,
+
+        /// <summary>
+        ///     Não Contribuinte
+        /// </summary>
+        [DefaultValue("9")] NaoContribuinte = 9
     }
 
     public enum IndTipoAjuste
