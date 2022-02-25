@@ -3865,7 +3865,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Chave da Nota Fiscal de Energia Elétrica Eletrônica
             /// </summary>
-            [SpedCampos(28, "CHV_DOCe", "C", 44, 0, false, 2)]
+            [SpedCampos(28, "CHV_DOCe", "C", 44, 0, false, 14)]
             public string ChvDoce { get; set; }
 
             /// <summary>
@@ -3876,13 +3876,13 @@ namespace FiscalBr.EFDFiscal
             ///     2 – Substituição
             ///     3 – Normal com ajuste
             /// </remarks>
-            [SpedCampos(29, "FIN_DOCe", "C", 1, 0, false, 2)]
+            [SpedCampos(29, "FIN_DOCe", "C", 1, 0, false, 14)]
             public string FinDoce { get; set; }
 
             /// <summary>
             ///     Chave da nota referenciada, substituída.
             /// </summary>
-            [SpedCampos(30, "CHV_DOCe_REF ", "C", 44, 0, false, 2)]
+            [SpedCampos(30, "CHV_DOCe_REF ", "C", 44, 0, false, 14)]
             public string ChvDoceRef { get; set; }
 
             /// <summary>
@@ -3893,19 +3893,19 @@ namespace FiscalBr.EFDFiscal
             ///     2 – Contribuinte Isento de Inscrição no Cadastro de Contribuintes do ICMS;
             ///     9 – Não Contribuinte
             /// </remarks>
-            [SpedCampos(31, "IND_DEST", "C", 1, 0, false, 2)]
+            [SpedCampos(31, "IND_DEST", "C", 1, 0, false, 14)]
             public string IndDest { get; set; }
 
             /// <summary>
             ///     Código do município do destinatário conforme a tabela do IBGE.
             /// </summary>
-            [SpedCampos(32, "COD_MUN_DEST", "C", 7, 0, false, 2)]
+            [SpedCampos(32, "COD_MUN_DEST", "C", 7, 0, false, 14)]
             public string CodMunDest { get; set; }
 
             /// <summary>
             ///     Código da conta analíica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(33, "COD_CTA", "C", 99, 0, false, 2)]
+            [SpedCampos(33, "COD_CTA", "C", 99, 0, false, 14)]
             public string CodCta { get; set; }
 
             public List<RegistroC510> RegC510s { get; set; }
