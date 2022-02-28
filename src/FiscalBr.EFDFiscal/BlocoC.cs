@@ -3890,6 +3890,49 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(33, "COD_CTA", "C", 99, 0, false, 14)]
             public string CodCta { get; set; }
 
+            /// <summary>
+            ///     Código do modelo do documento fiscal referenciado 
+            /// </summary>
+            [SpedCampos(34, "COD_MOD_DOC_REF", "C", 2, 0, false, 16)]
+            public string CodModDocRef { get; set; }
+
+            /// <summary>
+            ///     Código de autenticação digital do registro (Convênio 115/2003)
+            /// </summary>
+            [SpedCampos(35, "HASH_DOC_REF", "C", 32, 0, false, 16)]
+            public string HashDocRef { get; set; }
+
+            /// <summary>
+            ///     Série do documento fiscal referenciado.
+            /// </summary>
+            [SpedCampos(36, "SER_DOC_REF", "C", 4, 0, false, 16)]
+            public string SerDocRef { get; set; }
+
+            /// <summary>
+            ///     Número do documento fiscal referenciado. 
+            /// </summary>
+            [SpedCampos(37, "NUM_DOC_REF", "N", 9, 0, false, 16)]
+            public long? NumDocRef { get; set; }
+
+            /// <summary>
+            ///     Mês e ano da emissão do documento fiscal referenciado. 
+            /// </summary>
+            [SpedCampos(38, "MES_DOC_REF", "MA", 6, 0, false, 16)]
+            public DateTime? MesDocRef { get; set; }
+
+            /// <summary>
+            ///     Energia injetada. 
+            /// </summary>
+            [SpedCampos(39, "ENER_INJET", "N", 0, 2, false, 16)]
+            public long? EnerInjet { get; set; }
+
+            /// <summary>
+            ///     Outras deduções. 
+            /// </summary>
+            [SpedCampos(40, "OUTRAS_DED", "N", 0, 2, false, 16)]
+            public long? OutrDed { get; set; }
+
+
             public List<RegistroC510> RegC510s { get; set; }
             public List<RegistroC590> RegC590s { get; set; }
             public List<RegistroC595> RegC595s { get; set; }
