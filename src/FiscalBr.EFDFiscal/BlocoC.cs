@@ -3927,10 +3927,10 @@ namespace FiscalBr.EFDFiscal
             public long? EnerInjet { get; set; }
 
             /// <summary>
-            ///     OUTRAS_DED. 
+            ///     Outras deduções. 
             /// </summary>
             [SpedCampos(40, "OUTRAS_DED", "N", 0, 2, false, 16)]
-            public long? OutrDeb { get; set; }
+            public long? OutrDed { get; set; }
 
 
             public List<RegistroC510> RegC510s { get; set; }
