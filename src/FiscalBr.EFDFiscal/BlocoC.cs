@@ -3618,30 +3618,12 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC500" />.
             /// </summary>
-            public RegistroC500(IndClasseConsumoEnergia indConsumoEnergia, IndCodTipoLigacao indTipoLigacao, IndCodGrupoTensao indGrupoTensao)
+            public RegistroC500(IndClasseConsumoEnergiaOuGas indConsumoEnergia, IndCodTipoLigacao indTipoLigacao, IndCodGrupoTensao indGrupoTensao)
             {
                 Reg = "C500";
-                this.CodCons = (int)indConsumoEnergia;
-                this.TpLigacao = (int)indTipoLigacao;
-                this.CodGrupoTensao = (int)indGrupoTensao;
-            }
-
-            /// <summary>
-            ///     Inicializa uma nova instância da classe <see cref="RegistroC500" />.
-            /// </summary>
-            public RegistroC500(IndClasseConsumoAgua indConsumoAgua)
-            {
-                Reg = "C500";
-                this.CodCons = (int)indConsumoAgua;
-            }
-
-            /// <summary>
-            ///     Inicializa uma nova instância da classe <see cref="RegistroC500" />.
-            /// </summary>
-            public RegistroC500(IndClasseConsumoGas indConsumoGas)
-            {
-                Reg = "C500";
-                this.CodCons = (int)indConsumoGas;
+                this.CodCons = indConsumoEnergia;
+                this.TpLigacao = indTipoLigacao;
+                this.CodGrupoTensao = indGrupoTensao;
             }
 
             /// <summary>
@@ -3724,7 +3706,7 @@ namespace FiscalBr.EFDFiscal
             ///     - Código de classe de consumo de fornecimento d'água
             /// </remarks>
             [SpedCampos(9, "COD_CONS", "C", 2, 0, true, 2)]
-            public int CodCons { get; set; }
+            public IndClasseConsumoEnergiaOuGas CodCons { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal
@@ -3833,7 +3815,7 @@ namespace FiscalBr.EFDFiscal
             ///     3 - Trifásico
             /// </remarks>
             [SpedCampos(26, "TP_LIGACAO", "C", 1, 0, false, 3)]
-            public int? TpLigacao { get; set; }
+            public IndCodTipoLigacao TpLigacao { get; set; }
 
             /// <summary>
             ///     Código do grupo de tensão
@@ -3860,12 +3842,12 @@ namespace FiscalBr.EFDFiscal
             ///     14 - B4b - Iluminação pública - bulbo de lâmpada
             /// </remarks>
             [SpedCampos(27, "COD_GRUPO_TENSAO", "C", 2, 0, false, 3)]
-            public int? CodGrupoTensao { get; set; }
+            public IndCodGrupoTensao CodGrupoTensao { get; set; }
 
             /// <summary>
             ///     Chave da Nota Fiscal de Energia Elétrica Eletrônica
             /// </summary>
-            [SpedCampos(28, "CHV_DOCe", "C", 44, 0, false, 2)]
+            [SpedCampos(28, "CHV_DOCe", "C", 44, 0, false, 14)]
             public string ChvDoce { get; set; }
 
             /// <summary>
@@ -3876,13 +3858,13 @@ namespace FiscalBr.EFDFiscal
             ///     2 – Substituição
             ///     3 – Normal com ajuste
             /// </remarks>
-            [SpedCampos(29, "FIN_DOCe", "C", 1, 0, false, 2)]
-            public string FinDoce { get; set; }
+            [SpedCampos(29, "FIN_DOCe", "C", 1, 0, false, 14)]
+            public IndCodFinDoce FinDoce { get; set; }
 
             /// <summary>
             ///     Chave da nota referenciada, substituída.
             /// </summary>
-            [SpedCampos(30, "CHV_DOCe_REF ", "C", 44, 0, false, 2)]
+            [SpedCampos(30, "CHV_DOCe_REF ", "C", 44, 0, false, 14)]
             public string ChvDoceRef { get; set; }
 
             /// <summary>
@@ -3893,19 +3875,19 @@ namespace FiscalBr.EFDFiscal
             ///     2 – Contribuinte Isento de Inscrição no Cadastro de Contribuintes do ICMS;
             ///     9 – Não Contribuinte
             /// </remarks>
-            [SpedCampos(31, "IND_DEST", "C", 1, 0, false, 2)]
-            public string IndDest { get; set; }
+            [SpedCampos(31, "IND_DEST", "C", 1, 0, false, 14)]
+            public IndCodDestAcessante IndDest { get; set; }
 
             /// <summary>
             ///     Código do município do destinatário conforme a tabela do IBGE.
             /// </summary>
-            [SpedCampos(32, "COD_MUN_DEST", "C", 7, 0, false, 2)]
+            [SpedCampos(32, "COD_MUN_DEST", "C", 7, 0, false, 14)]
             public string CodMunDest { get; set; }
 
             /// <summary>
             ///     Código da conta analíica contábil debitada/creditada
             /// </summary>
-            [SpedCampos(33, "COD_CTA", "C", 99, 0, false, 2)]
+            [SpedCampos(33, "COD_CTA", "C", 99, 0, false, 14)]
             public string CodCta { get; set; }
 
             /// <summary>

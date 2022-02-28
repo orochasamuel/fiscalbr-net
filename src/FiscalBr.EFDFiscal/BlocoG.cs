@@ -149,7 +149,7 @@ namespace FiscalBr.EFDFiscal
             ///     PE = Perecimento, Extravio ou Deterioração
             ///     OT = Outras Saídas do Imobilizado
             /// </remarks>
-            [SpedCampos(4, "TIPO_MOV", "N", 0, 2, true, 4)]
+            [SpedCampos(4, "TIPO_MOV", "C", 2, 0, true, 4)]
             public string TipoMov { get; set; }
 
             /// <summary>

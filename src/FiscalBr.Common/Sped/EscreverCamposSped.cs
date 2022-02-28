@@ -388,68 +388,67 @@ namespace FiscalBr.Common.Sped
                 {
                     if (SomenteParaLeitura(property)) continue;
 
-                    sb.Append("|");
-
                     int versaoEspecifica = version.ToDefaultValue().ToInt();
                     SpedCamposAttribute spedCampoAttr = null;
+
                     var attrs = Attribute.GetCustomAttributes(property, typeof(SpedCamposAttribute));
 
                     if (attrs.Length > 0)
                     {
-                        if (attrs.Length == 1)
+                        if (ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
                         {
-                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeAtual(property);
+                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                         }
                         else
                         {
-                            if (ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
+                            while (!ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
                             {
-                                spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
-                            }
-                            else
-                            {
-                                while (!ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
-                                {
-                                    versaoEspecifica--;
+                                versaoEspecifica--;
 
-                                    if (versaoEspecifica < 1)
-                                        break;
-                                }
-
-                                spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                                if (versaoEspecifica < 1)
+                                    break;
                             }
+
+                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                         }
                     }
-
-                    if (spedCampoAttr == null)
-                        throw new Exception(string.Format(
-                            "O campo {0} no registro {1} não possui atributo SPED definido!", property.Name, registroAtual));
-
-                    var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name);
-                    var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
-
-                    var isRequired = spedCampoAttr.IsObrigatorio;
-                    var campoEscrito =
-                        propertyValueToStringSafe.EscreverCampo(
-                            new Tuple<
-                                InformationType,
-                                InformationType,
-                                bool,
-                                int,
-                                int>(
-                                ObtemTipoDoAtributo(spedCampoAttr),
-                                ObtemTipoDaPropriedade(property),
-                                isRequired,
-                                spedCampoAttr.Tamanho,
-                                spedCampoAttr.QtdCasas
-                                ));
-
-                    if (ignoreErrors == false)
-                        if (campoEscrito == Constantes.StructuralError)
+                    else
+                    {
+                        if (ignoreErrors == false)
                             throw new Exception(string.Format(
-                                "O campo {0} - {1} no Registro {2} é obrigatório e não foi informado!", spedCampoAttr.Ordem, spedCampoAttr.Campo, registroAtual));
+                                "O campo {0} no registro {1} não possui atributo SPED definido!", property.Name, registroAtual));
+                    }
 
-                    sb.Append(campoEscrito);
+                    if (spedCampoAttr != null)
+                    {
+                        sb.Append("|");
+                        var propertyValue = RegistroBaseSped.GetPropValue(source, property.Name);
+                        var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
+
+                        var isRequired = spedCampoAttr.IsObrigatorio;
+                        var campoEscrito =
+                            propertyValueToStringSafe.EscreverCampo(
+                                new Tuple<
+                                    InformationType,
+                                    InformationType,
+                                    bool,
+                                    int,
+                                    int>(
+                                    ObtemTipoDoAtributo(spedCampoAttr),
+                                    ObtemTipoDaPropriedade(property),
+                                    isRequired,
+                                    spedCampoAttr.Tamanho,
+                                    spedCampoAttr.QtdCasas
+                                    ));
+
+                        if (ignoreErrors == false)
+                            if (campoEscrito == Constantes.StructuralError)
+                                throw new Exception(string.Format(
+                                    "O campo {0} - {1} no Registro {2} é obrigatório e não foi informado!", spedCampoAttr.Ordem, spedCampoAttr.Campo, registroAtual));
+
+                        sb.Append(campoEscrito);
+                    }
+                    spedCampoAttr = null;
                 }
                 sb.Append("|");
                 sb.Append(Environment.NewLine);

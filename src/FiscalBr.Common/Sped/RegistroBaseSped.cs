@@ -123,8 +123,8 @@ namespace FiscalBr.Common.Sped
             if (type == typeof(IndTipoOperacaoVeiculo))
                 return ((IndTipoOperacaoVeiculo)value).ToDefaultValue();
 
-            if (type == typeof(IndClasseConsumoEnergia))
-                return ((IndClasseConsumoEnergia)value).ToDefaultValue();
+            if (type == typeof(IndClasseConsumoEnergiaOuGas))
+                return ((IndClasseConsumoEnergiaOuGas)value).ToDefaultValue();
 
             if (type == typeof(IndClasseConsumoAgua))
                 return ((IndClasseConsumoAgua)value).ToDefaultValue();

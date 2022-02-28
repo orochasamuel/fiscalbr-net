@@ -181,63 +181,105 @@ namespace FiscalBr.Common
     public enum CodigoVersaoLeiaute
     {
         /// <summary>
-        /// Código: 14
-        /// Versão: 1.13
-        /// Validade: 01/01/2020 - 31/12/2020
+        /// Código: 002
+        /// Versão: 1.01
+        /// Validade: 01/01/2009 - 31/12/2009
         /// </summary>
-        [DefaultValue("006")] V6 = 6,
+        [DefaultValue("002")] V2 = 2,
 
         /// <summary>
-        /// Código: 14
-        /// Versão: 1.13
-        /// Validade: 01/01/2020 - 31/12/2020
+        /// Código: 003
+        /// Versão: 1.02
+        /// Validade: 01/01/2010 - 31/12/2010
         /// </summary>
-        [DefaultValue("009")] V9 = 9,
+        [DefaultValue("003")] V3,
 
         /// <summary>
-        /// Código: 14
-        /// Versão: 1.13
-        /// Validade: 01/01/2020 - 31/12/2020
+        /// Código: 004
+        /// Versão: 1.03
+        /// Validade: 01/01/2011 - 31/12/2011
+        /// </summary>
+        [DefaultValue("004")] V4,
+
+        /// <summary>
+        /// Código: 005
+        /// Versão: 1.04
+        /// Validade: 01/01/2012 - 30/06/2012
+        /// </summary>
+        [DefaultValue("005")] V5,
+
+        /// <summary>
+        /// Código: 006
+        /// Versão: 1.05
+        /// Validade: 01/07/2012 - 31/12/2012
+        /// </summary>
+        [DefaultValue("006")] V6,
+
+        /// <summary>
+        /// Código: 007
+        /// Versão: 1.06
+        /// Validade: 01/01/2013 - 31/12/2013
+        /// </summary>
+        [DefaultValue("007")] V7,
+
+        /// <summary>
+        /// Código: 008
+        /// Versão: 1.07
+        /// Validade: 01/01/2014 - 31/12/2014
+        /// </summary>
+        [DefaultValue("008")] V8,
+
+        /// <summary>
+        /// Código: 009
+        /// Versão: 1.08
+        /// Validade: 01/01/2015 - 31/12/2015
+        /// </summary>
+        [DefaultValue("009")] V9,
+
+        /// <summary>
+        /// Código: 010
+        /// Versão: 1.09
+        /// Validade: 01/01/2016 - 31/12/2016
         /// </summary>
         [DefaultValue("010")] V10,
 
         /// <summary>
-        /// Código: 14
-        /// Versão: 1.13
-        /// Validade: 01/01/2020 - 31/12/2020
+        /// Código: 011
+        /// Versão: 1.10
+        /// Validade: 01/01/2017 - 31/12/2017
         /// </summary>
         [DefaultValue("011")] V11,
 
         /// <summary>
-        /// Código: 14
-        /// Versão: 1.13
-        /// Validade: 01/01/2020 - 31/12/2020
+        /// Código: 012
+        /// Versão: 1.11
+        /// Validade: 01/01/2018 - 31/12/2018
         /// </summary>
         [DefaultValue("012")] V12,
 
         /// <summary>
-        /// Código: 14
-        /// Versão: 1.13
-        /// Validade: 01/01/2020 - 31/12/2020
+        /// Código: 013
+        /// Versão: 1.12
+        /// Validade: 01/01/2019 - 31/12/2019
         /// </summary>
         [DefaultValue("013")] V13,
 
         /// <summary>
-        /// Código: 14
+        /// Código: 014
         /// Versão: 1.13
         /// Validade: 01/01/2020 - 31/12/2020
         /// </summary>
         [DefaultValue("014")] V14,
 
         /// <summary>
-        /// Código: 15
+        /// Código: 015
         /// Versão: 1.14
         /// Validade: 01/01/2021 - 31/12/2021
         /// </summary>
         [DefaultValue("015")] V15,
 
         /// <summary>
-        /// Código: 16
+        /// Código: 016
         /// Versão: 1.15
         /// Validade: 01/01/2022 - 31/12/2022?
         /// </summary>
@@ -941,6 +983,7 @@ namespace FiscalBr.Common
     /// </summary>
     public enum IndPeriodoApuracaoIpi
     {
+        [DefaultValue("")] None = 0,
         /// <summary>
         ///     Mensal
         /// </summary>
@@ -1070,8 +1113,9 @@ namespace FiscalBr.Common
     /// <summary>
     ///     Código de classe de consumo de energia elétrica
     /// </summary>
-    public enum IndClasseConsumoEnergia
+    public enum IndClasseConsumoEnergiaOuGas
     {
+        [DefaultValue("")] None,
         /// <summary>
         ///     Comercial
         /// </summary>
@@ -1184,27 +1228,26 @@ namespace FiscalBr.Common
     /// </summary>
     public enum IndCodTipoLigacao
     {
+        [DefaultValue("")] None,
         /// <summary>
         ///     Monofásico
         /// </summary>
-        [DefaultValue("1")]
-        Monofasico,
+        [DefaultValue("1")] Monofasico,
 
         /// <summary>
         ///     Bifásico
         /// </summary>
-        [DefaultValue("2")]
-        Bifasico,
+        [DefaultValue("2")] Bifasico,
 
         /// <summary>
         ///     Trifásico
         /// </summary>
-        [DefaultValue("3")]
-        Trifasico
+        [DefaultValue("3")] Trifasico
     }
 
     public enum IndCodGrupoTensao
     {
+        [DefaultValue("")] None,
         [DefaultValue("01")] A1,
         [DefaultValue("02")] A2,
         [DefaultValue("03")] A3,
@@ -1221,18 +1264,53 @@ namespace FiscalBr.Common
         [DefaultValue("14")] B4b
     }
 
+    public enum IndCodFinDoce
+    {
+        [DefaultValue("")] None,
+        /// <summary>
+        ///     Normal
+        /// </summary>
+        [DefaultValue("1")] Normal,
+
+        /// <summary>
+        ///     Substituição
+        /// </summary>
+        [DefaultValue("2")] Substituicao,
+
+        /// <summary>
+        ///     Normal com ajuste
+        /// </summary>
+        [DefaultValue("3")] NormalComAjuste
+    }
+
+    public enum IndCodDestAcessante
+    {
+        /// <summary>
+        ///     Contribuinte do ICMS
+        /// </summary>
+        [DefaultValue("1")] ContribuinteIcms = 1,
+
+        /// <summary>
+        ///     Contribuinte Isento de Inscrição no Cadastro de Contribuintes do ICMS
+        /// </summary>
+        [DefaultValue("2")] ContribuinteIsento = 2,
+
+        /// <summary>
+        ///     Não Contribuinte
+        /// </summary>
+        [DefaultValue("9")] NaoContribuinte = 9
+    }
+
     public enum IndTipoAjuste
     {
         /// <summary>
         ///     Ajuste de redução
         /// </summary>
-        [DefaultValue(0)]
-        Reducao,
+        [DefaultValue("0")] Reducao,
 
         /// <summary>
         ///     Ajuste de acréscimo
         /// </summary>
-        [DefaultValue(1)]
-        Acrescimo
+        [DefaultValue("1")] Acrescimo
     }
 }
