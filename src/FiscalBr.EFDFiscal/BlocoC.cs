@@ -3923,14 +3923,14 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Energia injetada. 
             /// </summary>
-            [SpedCampos(39, "ENER_INJET", "N", 0, 2, false, 16)]
-            public long? EnerInjet { get; set; }
+            [SpedCampos(39, "ENER_INJET", "N", 15, 2, false, 16)]
+            public decimal EnerInjet { get; set; }
 
             /// <summary>
             ///     Outras deduções. 
             /// </summary>
-            [SpedCampos(40, "OUTRAS_DED", "N", 0, 2, false, 16)]
-            public long? OutrDed { get; set; }
+            [SpedCampos(40, "OUTRAS_DED", "N", 15, 2, false, 16)]
+            public decimal OutrDed { get; set; }
 
 
             public List<RegistroC510> RegC510s { get; set; }
