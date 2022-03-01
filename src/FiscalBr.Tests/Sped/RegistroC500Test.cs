@@ -9,9 +9,10 @@ namespace FiscalBr.Tests.Sped
 {
     public class RegistroC500Test
     {
-        [Fact]
+        [Fact]        
         public void Escrever_Registro_C500_EFDFiscal_V2()
         {
+            SetCulture();
             var expectedResult =
                 $"|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|{ Environment.NewLine}";
 
@@ -68,6 +69,7 @@ namespace FiscalBr.Tests.Sped
         [Fact]
         public void Escrever_Registro_C500_EFDFiscal_V3()
         {
+            SetCulture();
             var expectedResult =
                 $"|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|1|01|{ Environment.NewLine}";
 
@@ -124,6 +126,7 @@ namespace FiscalBr.Tests.Sped
         [Fact]
         public void Escrever_Registro_C500_EFDFiscal_V14()
         {
+            SetCulture();
             var expectedResult =
                 $"|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|1|01|01234567890123456789012345678901234567890123|1||9|1234|3.1.01.01.001|{ Environment.NewLine}";
 
@@ -180,6 +183,7 @@ namespace FiscalBr.Tests.Sped
         [Fact]
         public void Escrever_Registro_C500_EFDFiscal_V16()
         {
+            SetCulture();
             var expectedResult =
                 $"|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|1|01|01234567890123456789012345678901234567890123|1||9|1234|3.1.01.01.001|06|1234|1111|123456789|01012009|1,00|1,00|{ Environment.NewLine}";
 
@@ -238,6 +242,11 @@ namespace FiscalBr.Tests.Sped
                 );
 
             Assert.Equal(expectedResult, currentResult);
+        }
+
+        private void SetCulture()
+        {
+            System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
         }
     }
 }

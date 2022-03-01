@@ -168,19 +168,28 @@ namespace FiscalBr.Common.Sped
             return (SpedRegistrosAttribute)Attribute.GetCustomAttribute(tipo, typeof(SpedRegistrosAttribute));
         }
 
-        private static SpedCamposAttribute ObtemAtributoCampoAtual(Type tipo, int index = 0)
+        private static readonly Dictionary<string, SpedCamposAttribute[]> SpedCamposAttributeRepository = new Dictionary<string, SpedCamposAttribute[]>();
+
+        private static SpedCamposAttribute[] GetSpedCamposAttribute(PropertyInfo prop)
         {
-            return (SpedCamposAttribute)Attribute.GetCustomAttributes(tipo, typeof(SpedCamposAttribute))[index];
+            lock (SpedCamposAttributeRepository)
+            {
+                string propName = $"{ prop.DeclaringType.FullName}.{prop.Name}";
+                if (!SpedCamposAttributeRepository.ContainsKey(propName))
+                    SpedCamposAttributeRepository.Add(propName, (SpedCamposAttribute[])Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute)));
+
+                return SpedCamposAttributeRepository[propName];
+            }
         }
 
         private static SpedCamposAttribute ObtemAtributoPropriedadeAtual(PropertyInfo prop, int index = 0)
         {
-            return (SpedCamposAttribute)Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute), true)[index];
+            return GetSpedCamposAttribute(prop)[index];
         }
 
         private static bool ExisteAtributoPropriedadeParaVersao(PropertyInfo prop, int versao)
         {
-            var attrs = (SpedCamposAttribute[])Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute));
+            var attrs = GetSpedCamposAttribute(prop);
 
             return attrs.Any(a => a.Versao == versao);
         }
@@ -194,7 +203,7 @@ namespace FiscalBr.Common.Sped
 
         private static SpedCamposAttribute ObtemAtributoPropriedadeVersaoAtual(PropertyInfo prop, int versao)
         {
-            var attrs = (SpedCamposAttribute[])Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute));
+            var attrs = GetSpedCamposAttribute(prop);
 
             return attrs.FirstOrDefault(f => f.Versao == versao);
         }
@@ -287,14 +296,14 @@ namespace FiscalBr.Common.Sped
 
                     int versaoEspecifica = lastVersion.ToDefaultValue().ToInt();
                     SpedCamposAttribute spedCampoAttr = null;
-                    var attrs = Attribute.GetCustomAttributes(property, typeof(SpedCamposAttribute));
+                    var attrs = GetSpedCamposAttribute(property);
 
                     switch (attrs.Length)
                     {
                         case 0:
                             break;
                         case 1:
-                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeAtual(property);
+                            spedCampoAttr = ObtemAtributoPropriedadeAtual(property);
                             break;
                         default:
                             while (!ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
@@ -305,7 +314,7 @@ namespace FiscalBr.Common.Sped
                                     break;
                             }
 
-                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                            spedCampoAttr = ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                             break;
                     }
 
@@ -391,13 +400,13 @@ namespace FiscalBr.Common.Sped
                     int versaoEspecifica = version.ToDefaultValue().ToInt();
                     SpedCamposAttribute spedCampoAttr = null;
 
-                    var attrs = Attribute.GetCustomAttributes(property, typeof(SpedCamposAttribute));
+                    var attrs = GetSpedCamposAttribute(property);
 
                     if (attrs.Length > 0)
                     {
                         if (ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
                         {
-                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                            spedCampoAttr = ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                         }
                         else
                         {
@@ -409,7 +418,7 @@ namespace FiscalBr.Common.Sped
                                     break;
                             }
 
-                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                            spedCampoAttr = ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                         }
                     }
                     else
@@ -469,7 +478,7 @@ namespace FiscalBr.Common.Sped
         /// <returns>Linha de arquivo SPED escrita e formatada.</returns>
         public static string EscreverCampos(
             this object source,
-            out string errosEncontrados, 
+            out string errosEncontrados,
             DateTime? competenciaDeclaracao = null,
             bool tryTrim = false
             )
@@ -510,19 +519,19 @@ namespace FiscalBr.Common.Sped
 
                     int versaoEspecifica = lastVersion.ToDefaultValue().ToInt();
                     SpedCamposAttribute spedCampoAttr = null;
-                    var attrs = Attribute.GetCustomAttributes(property, typeof(SpedCamposAttribute));
+                    var attrs = GetSpedCamposAttribute(property);
 
                     if (attrs.Length > 0)
                     {
                         if (attrs.Length == 1)
                         {
-                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeAtual(property);
+                            spedCampoAttr = ObtemAtributoPropriedadeAtual(property);
                         }
                         else
                         {
                             if (ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
                             {
-                                spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                                spedCampoAttr = ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                             }
                             else
                             {
@@ -534,7 +543,7 @@ namespace FiscalBr.Common.Sped
                                         break;
                                 }
 
-                                spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                                spedCampoAttr = ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                             }
                         }
                     }
@@ -565,12 +574,12 @@ namespace FiscalBr.Common.Sped
                     if (campoEscrito == Constantes.StructuralError)
                         errosEncontrados +=
                                 string.Format("O campo {0} - {1} no Registro {2} é obrigatório e não foi informado!\n", spedCampoAttr.Ordem, spedCampoAttr.Campo, registroAtual);
-                        else
-                            sb.Append(campoEscrito);
-                    }
+                    else
+                        sb.Append(campoEscrito);
                 }
-                sb.Append("|");
-                sb.Append(Environment.NewLine);
+            }
+            sb.Append("|");
+            sb.Append(Environment.NewLine);
 
             if (errosEncontrados.Length > 0)
                 errosEncontrados =
@@ -629,19 +638,19 @@ namespace FiscalBr.Common.Sped
 
                     int versaoEspecifica = version.ToDefaultValue().ToInt();
                     SpedCamposAttribute spedCampoAttr = null;
-                    var attrs = Attribute.GetCustomAttributes(property, typeof(SpedCamposAttribute));
+                    var attrs = GetSpedCamposAttribute(property);
 
                     if (attrs.Length > 0)
                     {
                         if (attrs.Length == 1)
                         {
-                            spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeAtual(property);
+                            spedCampoAttr = ObtemAtributoPropriedadeAtual(property);
                         }
                         else
                         {
                             if (ExisteAtributoPropriedadeParaVersao(property, versaoEspecifica))
                             {
-                                spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                                spedCampoAttr = ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                             }
                             else
                             {
@@ -653,7 +662,7 @@ namespace FiscalBr.Common.Sped
                                         break;
                                 }
 
-                                spedCampoAttr = (SpedCamposAttribute)ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
+                                spedCampoAttr = ObtemAtributoPropriedadeVersaoAtual(property, versaoEspecifica);
                             }
                         }
                     }
