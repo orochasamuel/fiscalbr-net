@@ -1715,6 +1715,12 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(14, "VL_COFINS", "N", 0, 2, false, 2)]
             public decimal? VlCofins { get; set; }
 
+            /// <summary>
+            ///     Chave do Documento Fiscal Eletrônico
+            /// </summary>
+            [SpedCampos(15, "CHV_DOCe", "N", 44, 0, false, 6)]
+            public string ChvDoce { get; set; }
+
             public List<RegistroC501> RegC501s { get; set; }
             public List<RegistroC505> RegC505s { get; set; }
             public List<RegistroC509> RegC509s { get; set; }
