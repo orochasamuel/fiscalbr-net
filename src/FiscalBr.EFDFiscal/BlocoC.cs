@@ -3876,7 +3876,7 @@ namespace FiscalBr.EFDFiscal
             ///     9 – Não Contribuinte
             /// </remarks>
             [SpedCampos(31, "IND_DEST", "C", 1, 0, false, 14)]
-            public IndCodDestAcessante IndDest { get; set; }
+            public IndCodDestAcessante? IndDest { get; set; }
 
             /// <summary>
             ///     Código do município do destinatário conforme a tabela do IBGE.
