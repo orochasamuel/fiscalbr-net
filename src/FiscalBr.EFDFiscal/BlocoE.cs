@@ -402,6 +402,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do processo ou auto de infração ao qual a obrigação está vinculada, se houver.
             /// </summary>
             [SpedCampos(6, "NUM_PROC", "C", 15, 0, false, 2)]
+            [SpedCampos(6, "NUM_PROC", "C", 60, 0, false, 17)]
             public string NumProc { get; set; }
 
             /// <summary>

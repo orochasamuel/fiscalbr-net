@@ -733,6 +733,33 @@ namespace FiscalBr.EFDFiscal
         }
 
         /// <summary>
+        ///     REGISTRO 0221: CORRELAÇÃO ENTRE CÓDIGOS DE ITENS COMERCIALIZADOS
+        /// </summary>
+        [SpedRegistros("01/01/2023", "")]
+        public class Registro0221 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0221" />.
+            /// </summary>
+            public Registro0221()
+            {
+                Reg = "0221";
+            }
+
+            /// <summary>
+            ///     Informar o código do item atômico contido no item informado no 0200 Pai.
+            /// </summary>
+            [SpedCampos(2, "COD_ITEM_ATOMICO", "C", 60, 0, true, 17)]
+            public string CodItemAtomico { get; set; }
+
+            /// <summary>
+            ///     Informar quantos itens atômicos estão contidos no item informado no 0200 Pai.
+            /// </summary>
+            [SpedCampos(3, "QTD_CONTIDA", "N", int.MaxValue, 6, true, 17)]
+            public decimal QtdContida { get; set; }
+        }
+
+        /// <summary>
         ///     REGISTRO 0300: CADASTRO DE BENS OU COMPONENTES DO ATIVO IMOBILIZADO
         /// </summary>
         public class Registro0300 : RegistroBaseSped

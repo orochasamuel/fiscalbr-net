@@ -1873,8 +1873,8 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(11, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, false, 2)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
-            [SpedCampos(12, "VL_UNIT_BC_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false, 2)]
-            public decimal VlUnitBcIcmsStEstoqueConv { get; set; }
+            [SpedCampos(12, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 9, 6, false, 2)]
+            public decimal VlUnitIcmsOpEstoqueConv { get; set; }
 
             [SpedCampos(13, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false, 2)]
             public decimal VlUnitIcmsStEstoqueConv { get; set; }
@@ -3876,7 +3876,7 @@ namespace FiscalBr.EFDFiscal
             ///     9 – Não Contribuinte
             /// </remarks>
             [SpedCampos(31, "IND_DEST", "C", 1, 0, false, 14)]
-            public IndCodDestAcessante? IndDest { get; set; }
+            public IndCodDestAcessante IndDest { get; set; }
 
             /// <summary>
             ///     Código do município do destinatário conforme a tabela do IBGE.
@@ -5195,7 +5195,6 @@ namespace FiscalBr.EFDFiscal
 
             public RegistroC880 RegC880 { get; set; }
         }
-
 
         /// <summary>
         ///     REGISTRO C880: INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE SAÍDA DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CF-E-SAT) (CÓDIGO 59)
