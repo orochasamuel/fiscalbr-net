@@ -729,7 +729,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Representação alfanumérica do código de barra da unidade comercial do produto, se houver
             /// </summary>
-            [SpedCampos(4, "COD_BARRA", "C", int.MaxValue, 0, false, 2)]
+            [SpedCampos(4, "COD_BARRA", "C", int.MaxValue, 0, false, 16)]
             public string CodBarra { get; set; }
         }
 
