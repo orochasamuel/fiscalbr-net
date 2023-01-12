@@ -2,7 +2,7 @@
 [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Common?color=red&label=Common)](https://www.nuget.org/packages/FiscalBr.Common/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Dimob?label=Dimob)](https://www.nuget.org/packages/FiscalBr.Dimob/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.ECF?label=ECF)](https://www.nuget.org/packages/FiscalBr.ECF/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?label=EFD%20Contribuições)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?label=EFD%20Fiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/)  [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Sintegra?label=Sintegra)](https://www.nuget.org/packages/FiscalBr.Sintegra/)
 
 ###### SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
-Biblioteca gratuita  - desenvolvida com Visual Studio Community 2019 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
+Biblioteca gratuita  - desenvolvida com Visual Studio Community 2022 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
 ## TODO
 
