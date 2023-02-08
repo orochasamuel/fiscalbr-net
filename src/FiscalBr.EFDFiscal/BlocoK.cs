@@ -38,7 +38,31 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 10)]
             public IndMovimento IndMov { get; set; }
 
+            public RegistroK010 RegK010 { get; set; }
             public List<RegistroK100> RegK100s { get; set; }
+        }
+
+        [SpedRegistros("01/01/2023", "")]
+        public class RegistroK010 : RegistroBaseSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroK010" />.
+            /// </summary>
+            public RegistroK010()
+            {
+                Reg = "K010";
+            }
+
+            /// <summary>
+            ///      Indicador de Tipo de Layout
+            /// </summary>
+            /// <remarks>
+            ///     0 – Leiaute simplificado
+            ///     1 - Leiaute completo
+            ///     2 – Leiaute restrito aos saldos de estoque
+            /// </remarks>
+            [SpedCampos(2, "IND_TP_LEIAUTE", "C", 1, 0, true, 17)]
+            public IndTpLeiaute IndTpLeiaute { get; set; }
         }
 
         /// <summary>

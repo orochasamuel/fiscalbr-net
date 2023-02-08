@@ -625,7 +625,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Descrição anterior do item
             /// </summary>
-            [SpedCampos(2, "DESCR_ANT_ITEM", "C", 0, 0, false, 2)]
+            [SpedCampos(2, "DESCR_ANT_ITEM", "C", int.MaxValue, 0, false, 2)]
             public string DescrAntItem { get; set; }
 
             /// <summary>
