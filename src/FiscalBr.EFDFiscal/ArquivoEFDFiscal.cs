@@ -1783,6 +1783,7 @@ namespace FiscalBr.EFDFiscal
             switch (registro.Reg)
             {
                 case "K001": BlocoK.RegK001 = (BlocoK.RegistroK001)registro; break;
+                case "K010": BlocoK.RegK001.RegK010 = (BlocoK.RegistroK010)registro; break;
                 case "K100":
                     if (BlocoK.RegK001.RegK100s == null)
                         BlocoK.RegK001.RegK100s = new List<BlocoK.RegistroK100>();

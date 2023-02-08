@@ -281,9 +281,16 @@ namespace FiscalBr.Common
         /// <summary>
         /// Código: 016
         /// Versão: 1.15
-        /// Validade: 01/01/2022 - 31/12/2022?
+        /// Validade: 01/01/2022 - 31/12/2022
         /// </summary>
         [DefaultValue("016")] V16,
+
+        /// <summary>
+        /// Código: 017
+        /// Versão: 1.16
+        /// Validade: 01/01/2023 - 31/12/2023
+        /// </summary>
+        [DefaultValue("017")] V17,
     }
 
     public enum SimOuNao
@@ -310,6 +317,24 @@ namespace FiscalBr.Common
         ///     Bloco sem dados informados
         /// </summary>
         [DefaultValue("1")] BlocoSemDados
+    }
+
+    public enum IndTpLeiaute
+    {
+        /// <summary>
+        ///     Leiaute simplificado
+        /// </summary>
+        [DefaultValue("0")] Simplificado,
+
+        /// <summary>
+        ///     Leiaute completo
+        /// </summary>
+        [DefaultValue("1")] Completo,
+
+        /// <summary>
+        ///     Leiaute restrito aos saldos de estoque
+        /// </summary>
+        [DefaultValue("2")] RestritoSaldoEstoque
     }
 
     /// <summary>
