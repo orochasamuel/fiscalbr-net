@@ -1843,6 +1843,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do processo ao qual o ajuste está vinculado, se houver
             /// </summary>
             [SpedCampos(3, "NUM_PROC", "C", 15, 0, false, 4)]
+            [SpedCampos(3, "NUM_PROC", "C", 60, 0, false, 17)]
             public string NumProc { get; set; }
 
             /// <summary>
@@ -2009,6 +2010,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do processo ou auto de infração ao qual a obrigação está vinculada, se houver
             /// </summary>
             [SpedCampos(6, "NUM_PROC", "C", 15, 0, false, 4)]
+            [SpedCampos(6, "NUM_PROC", "C", 60, 0, false, 17)]
             public string NumProc { get; set; }
 
             /// <summary>
