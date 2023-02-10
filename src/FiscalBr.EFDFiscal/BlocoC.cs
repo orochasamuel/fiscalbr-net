@@ -369,7 +369,6 @@ namespace FiscalBr.EFDFiscal
             ///     Identificação do processo ou ato concessório.
             /// </summary>
             [SpedCampos(2, "NUM_PROC", "C", 15, 0, true, 2)]
-            [SpedCampos(2, "NUM_PROC", "C", 60, 0, true, 17)]
             public string NumProc { get; set; }
 
             /// <summary>
@@ -1874,8 +1873,8 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(11, "VL_UNIT_ICMS_OP_CONV", "N", 9, 6, false, 2)]
             public decimal VlUnitIcmsOpConv { get; set; }
 
-            [SpedCampos(12, "VL_UNIT_ICMS_OP_ESTOQUE_CONV", "N", 9, 6, false, 2)]
-            public decimal VlUnitIcmsOpEstoqueConv { get; set; }
+            [SpedCampos(12, "VL_UNIT_BC_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false, 2)]
+            public decimal VlUnitBcIcmsStEstoqueConv { get; set; }
 
             [SpedCampos(13, "VL_UNIT_ICMS_ST_ESTOQUE_CONV", "N", 9, 6, false, 2)]
             public decimal VlUnitIcmsStEstoqueConv { get; set; }
@@ -3877,7 +3876,7 @@ namespace FiscalBr.EFDFiscal
             ///     9 – Não Contribuinte
             /// </remarks>
             [SpedCampos(31, "IND_DEST", "C", 1, 0, false, 14)]
-            public IndCodDestAcessante IndDest { get; set; }
+            public IndCodDestAcessante? IndDest { get; set; }
 
             /// <summary>
             ///     Código do município do destinatário conforme a tabela do IBGE.
@@ -4645,14 +4644,12 @@ namespace FiscalBr.EFDFiscal
             ///     Nome do arquivo mestre do documento fiscal
             /// </summary>
             [SpedCampos(8, "NOM_MEST", "C", 15, 0, true, 2)]
-            [SpedCampos(8, "NOM_MEST", "C", 15, 0, false, 17)]
             public string Nom_Mest { get; set; }
 
             /// <summary>
             ///     Chave de codificação digital do arquivo mestre de documento fiscal
             /// </summary>
             [SpedCampos(9, "CHV_COD_DIG", "C", 32, 0, true, 2)]
-            [SpedCampos(9, "CHV_COD_DIG", "C", 32, 0, false, 17)]
             public string ChvCodDig { get; set; }
 
             public List<RegistroC790> RegC790s { get; set; }
@@ -5095,95 +5092,6 @@ namespace FiscalBr.EFDFiscal
             /// </remarks>
             [SpedCampos(8, "COD_OBS", "C", 6, 0, false, 2)]
             public string CodObs { get; set; }
-
-            public List<RegistroC855> RegC855s { get; set; }
-        }
-
-        /// <summary>
-        ///     REGISTRO C855: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59)
-        /// </summary>
-        [SpedRegistros("01/01/2023", "")]
-        public class RegistroC855 : RegistroBaseSped
-        {
-            /// <summary>
-            ///     Inicializa uma nova instância da classe <see cref="RegistroC855" />.
-            /// </summary>
-            public RegistroC855()
-            {
-                Reg = "C855";
-            }
-
-            /// <summary>
-            ///     Código da observação do lançamento fiscal (campo 02 do Registro 0460).
-            /// </summary>
-            [SpedCampos(2, "COD_OBS", "C", 6, 0, true, 17)]
-            public string CodObs { get; set; }
-
-            /// <summary>
-            ///     Descrição complementar do código de observação.
-            /// </summary>
-            [SpedCampos(3, "TXT_COMPL", "C", 999, 0, false, 17)]
-            public string TxtCompl { get; set; }
-
-            public List<RegistroC857> RegC857s { get; set; }
-        }
-
-        /// <summary>
-        ///     REGISTRO C857: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE 
-        ///     VALORES PROVENIENTES DE DOCUMENTO FISCAL.
-        /// </summary>
-        [SpedRegistros("01/01/2023", "")]
-        public class RegistroC857 : RegistroBaseSped
-        {
-            /// <summary>
-            ///     Inicializa uma nova instância da classe <see cref="RegistroC857" />.
-            /// </summary>
-            public RegistroC857()
-            {
-                Reg = "C857";
-            }
-
-            /// <summary>
-            ///     Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3.
-            /// </summary>
-            [SpedCampos(2, "COD_AJ", "C", 10, 0, true, 17)]
-            public string CodAj { get; set; }
-
-            /// <summary>
-            ///     Descrição complementar do ajuste do documento fiscal.
-            /// </summary>
-            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 999, 0, false, 17)]
-            public string DescrComplAj { get; set; }
-
-            /// <summary>
-            ///     Código do item (campo 02 do Registro 0200).
-            /// </summary>
-            [SpedCampos(4, "COD_ITEM", "C", 60, 0, false, 17)]
-            public string CodItem { get; set; }
-
-            /// <summary>
-            ///     Base de cálculo do ICMS ou do ICMS ST.
-            /// </summary>
-            [SpedCampos(5, "VL_BC_ICMS", "N", 0, 2, false, 17)]
-            public decimal VlBcIcms { get; set; }
-
-            /// <summary>
-            ///     Alíquota do ICMS.
-            /// </summary>
-            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false, 17)]
-            public decimal AliqIcms { get; set; }
-
-            /// <summary>
-            ///     Valor do ICMS ou do ICMS ST.
-            /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, false, 17)]
-            public decimal VlIcms { get; set; }
-
-            /// <summary>
-            ///     Outros valores.
-            /// </summary>
-            [SpedCampos(8, "VL_OUTROS", "N", 0, 2, false, 17)]
-            public decimal VlOutros { get; set; }
         }
 
         /// <summary>
@@ -5287,6 +5195,7 @@ namespace FiscalBr.EFDFiscal
 
             public RegistroC880 RegC880 { get; set; }
         }
+
 
         /// <summary>
         ///     REGISTRO C880: INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE SAÍDA DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CF-E-SAT) (CÓDIGO 59)
@@ -5442,92 +5351,6 @@ namespace FiscalBr.EFDFiscal
             /// </remarks>
             [SpedCampos(8, "COD_OBS", "C", 6, 0, false, 2)]
             public string CodObs { get; set; }
-        }
-
-        /// <summary>
-        ///     REGISTRO C895: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59)
-        /// </summary>
-        [SpedRegistros("01/01/2023", "")]
-        public class RegistroC895 : RegistroBaseSped
-        {
-            /// <summary>
-            ///     Inicializa uma nova instância da classe <see cref="RegistroC895" />.
-            /// </summary>
-            public RegistroC895()
-            {
-                Reg = "C895";
-            }
-
-            /// <summary>
-            ///     Código da observação do lançamento fiscal (campo 02 do Registro 0460).
-            /// </summary>
-            [SpedCampos(2, "COD_OBS", "C", 6, 0, true, 17)]
-            public string CodObs { get; set; }
-
-            /// <summary>
-            ///     Descrição complementar do código de observação.
-            /// </summary>
-            [SpedCampos(3, "TXT_COMPL", "C", 999, 0, false, 17)]
-            public string TxtCompl { get; set; }
-
-            public List<RegistroC897> RegC897s { get; set; }
-        }
-
-        /// <summary>
-        ///     REGISTRO C897: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.
-        /// </summary>
-        [SpedRegistros("01/01/2023", "")]
-        public class RegistroC897 : RegistroBaseSped
-        {
-            /// <summary>
-            ///     Inicializa uma nova instância da classe <see cref="RegistroC897" />.
-            /// </summary>
-            public RegistroC897()
-            {
-                Reg = "C897";
-            }
-
-            /// <summary>
-            ///     Código do ajustes/benefício/incentivo, conforme tabela indicada no item 5.3.
-            /// </summary>
-            [SpedCampos(2, "COD_AJ", "C", 10, 0, true, 17)]
-            public string CodAj { get; set; }
-
-            /// <summary>
-            ///     Descrição complementar do ajuste do documento fiscal.
-            /// </summary>
-            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 999, 0, false, 17)]
-            public string DescrComplAj { get; set; }
-
-            /// <summary>
-            ///     Código do item (campo 02 do Registro 0200).
-            /// </summary>
-            [SpedCampos(4, "COD_ITEM ", "C", 60, 0, false, 17)]
-            public string CodItem { get; set; }
-
-            /// <summary>
-            ///     Base de cálculo do ICMS ou do ICMS ST.
-            /// </summary>
-            [SpedCampos(5, "VL_BC_ICMS", "N", 0, 2, false, 17)]
-            public decimal VlBcIcms { get; set; }
-
-            /// <summary>
-            ///     Alíquota do ICMS.
-            /// </summary>
-            [SpedCampos(6, "ALIQ_ICMS", "N", 6, 2, false, 17)]
-            public decimal TxtCompl { get; set; }
-
-            /// <summary>
-            ///     Valor do ICMS ou do ICMS ST.
-            /// </summary>
-            [SpedCampos(7, "VL_ICMS", "N", 0, 2, false, 17)]
-            public decimal VlIcms { get; set; }
-
-            /// <summary>
-            ///     Outros Valores.
-            /// </summary>
-            [SpedCampos(8, "VL_OUTROS", "N", 0, 2, false, 17)]
-            public decimal VlOutros { get; set; }
         }
 
         /// <summary>
