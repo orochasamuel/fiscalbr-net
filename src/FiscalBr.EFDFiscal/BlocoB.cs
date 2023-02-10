@@ -30,7 +30,7 @@ namespace FiscalBr.EFDFiscal
             ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
             /// </summary>
             [SpedCampos(2, "IND_DAD", "C", 1, 0, true, 2)]
-            public int IndDad { get; set; }
+            public IndMovimento IndDad { get; set; }
 
             public List<RegistroB020> RegB020s { get; set; }
             public List<RegistroB030> RegB030s { get; set; }
