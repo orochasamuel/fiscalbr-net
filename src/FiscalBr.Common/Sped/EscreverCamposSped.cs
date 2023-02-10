@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -52,6 +53,8 @@ namespace FiscalBr.Common.Sped
             var isRequired = info.Item3;
             var fieldLength = info.Item4;
             var decimalPlaces = info.Item5;
+            var decimalPlacesStr = string.Empty.PadLeft(decimalPlaces, '0');
+            var cultura = CultureInfo.GetCultureInfo("pt-BR");
 
             var propertyLength = hasValue ? valorEscrever.Length : 0;
 
@@ -69,20 +72,27 @@ namespace FiscalBr.Common.Sped
 
             if (isRequired && isDecimal &&
                 (valorEscrever == string.Empty || valorEscrever.ToDecimal() == 0))
-                return Constantes.VZero.ToString("N" + decimalPlaces);
+                //return Constantes.VZero.ToString("N" + decimalPlaces);
+                return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Constantes.VZero);
             else
             {
                 if (isDecimal && hasValue)
                 {
+                    return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Convert.ToDecimal(valorEscrever));
+                    /*
                     var vDecimal =
                         Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
                     return vDecimal.ToStringSafe().Replace(".", string.Empty);
+                    */
                 }
                 else if (isNullableDecimal && hasValue)
                 {
+                    return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Convert.ToDecimal(valorEscrever));
+                    /*
                     var vDecimal =
                         Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
                     return vDecimal.ToStringSafe().Replace(".", string.Empty);
+                    */
                 }
                 else if (isNullableDateTime && hasValue)
                     return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
@@ -174,7 +184,7 @@ namespace FiscalBr.Common.Sped
         {
             lock (SpedCamposAttributeRepository)
             {
-                string propName = $"{ prop.DeclaringType.FullName}.{prop.Name}";
+                string propName = $"{prop.DeclaringType.FullName}.{prop.Name}";
                 if (!SpedCamposAttributeRepository.ContainsKey(propName))
                     SpedCamposAttributeRepository.Add(propName, (SpedCamposAttribute[])Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute)));
 
