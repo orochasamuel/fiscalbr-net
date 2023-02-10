@@ -474,19 +474,19 @@ namespace FiscalBr.EFDContribuicoes
             ///    Valor total do crédito apurado na Escrituração Fiscal Digital (Registro M100) ou em demonstrativo DACON (Fichas 06A e 06B) de período anterior. 
             /// </summary>
             [SpedCampos(6, "VL_CRED_APU", "N", 0, 2, true, 2)]
-            public decimal VlCredApu { get; set; }
+            public string VlCredApu { get; set; }
 
             /// <summary>
             ///    Valor de Crédito Extemporâneo Apurado (Registro 1101), referente a Período Anterior, Informado no Campo 02 –PER_APU_CRED
             /// </summary>
             [SpedCampos(7, "VL_CRED_EXT_APU", "N", 0, 2, false, 2)]
-            public int VlCredExtApu { get; set; }
+            public string VlCredExtApu { get; set; }
 
             /// <summary>
             ///     Valor Total do Crédito Apurado (06 + 07)
             /// </summary>
             [SpedCampos(8, "VL_TOT_CRED_APU", "N", 0, 2, true, 2)]
-            public int VlTotCredApu { get; set; }
+            public string VlTotCredApu { get; set; }
 
             /// <summary>
             ///   Valor do Crédito utilizado mediante Desconto, em Período(s)  Anterior(es).
@@ -1039,19 +1039,19 @@ namespace FiscalBr.EFDContribuicoes
             ///    Valor Total  do  crédito  apurado  na  Escrituração  Fiscal Digital (Registro M500) ou em demonstrativo DACON (Fichas 16A e 16B) de período anterior.
             /// </summary>
             [SpedCampos(6, "VL_CRED_APU", "N", 0, 2, true, 2)]
-            public decimal VlCredApu { get; set; }
+            public string VlCredApu { get; set; }
 
             /// <summary>
             ///    Valor  de  Crédito Extemporâneo  Apurado  (Registro 1501),  referente  a  Período  Anterior,  Informado  no Campo 02 –PER_APU_CRED
             /// </summary>
             [SpedCampos(7, "VL_CRED_EXT_APU", "N", 0, 2, false, 2)]
-            public int VlCredExtApu { get; set; }
+            public string VlCredExtApu { get; set; }
 
             /// <summary>
             ///     Valor Total do Crédito Apurado (06 + 07)
             /// </summary>
             [SpedCampos(8, "VL_TOT_CRED_APU", "N", 0, 2, true, 2)]
-            public int VlTotCredApu { get; set; }
+            public string VlTotCredApu { get; set; }
 
             /// <summary>
             ///   Valor  do  Crédito  utilizado  mediante  Desconto,  em Período(s)  Anterior(es)
