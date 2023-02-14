@@ -73,6 +73,7 @@ namespace FiscalBr.Common.Sintegra
                         (propertyValueToStringSafe == string.Empty || propertyValueToStringSafe.ToDecimal() == 0))
                         sb.Append(
                             vZero.ToString("N" + sintegraCampoAttr.QtdCasas)
+                                .Replace(".", "")
                                 .Replace(",", "")
                                 .PadLeft(sintegraCampoAttr.Tamanho, '0'));
                     else
