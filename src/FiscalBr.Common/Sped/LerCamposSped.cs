@@ -8,7 +8,7 @@ namespace FiscalBr.Common.Sped
     {
         public static object LerCampos(this string line, string file = "EFDFiscal")
         {
-            line = line.Substring(1);
+            line = line.TrimStart().Substring(1);
 
             line = line.Remove(line.LastIndexOf('|'));
 

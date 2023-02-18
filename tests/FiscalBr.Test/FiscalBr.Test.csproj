@@ -24,7 +24,10 @@
   <ItemGroup>
     <ProjectReference Include="..\..\src\FiscalBr.Common\FiscalBr.Common.csproj" />
     <ProjectReference Include="..\..\src\FiscalBr.Dimob\FiscalBr.Dimob.csproj" />
+    <ProjectReference Include="..\..\src\FiscalBr.ECF\FiscalBr.ECF.csproj" />
+    <ProjectReference Include="..\..\src\FiscalBr.EFDContribuicoes\FiscalBr.EFDContribuicoes.csproj" />
     <ProjectReference Include="..\..\src\FiscalBr.EFDFiscal\FiscalBr.EFDFiscal.csproj" />
+    <ProjectReference Include="..\..\src\FiscalBr.Sintegra\FiscalBr.Sintegra.csproj" />
   </ItemGroup>
 
 </Project>
