@@ -18,6 +18,8 @@ namespace FiscalBr.EFDFiscal
         /// </summary>
         public class RegistroC001 : RegistroBaseSped
         {
+            #region Construtores
+
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
             /// </summary>
@@ -27,10 +29,41 @@ namespace FiscalBr.EFDFiscal
             }
 
             /// <summary>
-            ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
             /// </summary>
+            public RegistroC001(IndMovimento indMovimento)
+            {
+                Reg = "C001";
+                IndMov = indMovimento;
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
+            /// </summary>
+            public RegistroC001(bool indMovimento)
+            {
+                Reg = "C001";
+                IndMov = indMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+            }
+
+            #endregion Construtores
+
+            #region Propriedades
+
+            /// <summary>
+            ///     Indicador de movimento
+            /// </summary>
+            /// <remarks>
+            ///     0 - Bloco com dados informados;
+            ///     <para />
+            ///     1 - Bloco sem dados informados.
+            /// </remarks>
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 2)]
             public IndMovimento IndMov { get; set; }
+
+            #endregion Propriedades
+
+            #region Filhos
 
             public List<RegistroC100> RegC100s { get; set; }
             public List<RegistroC300> RegC300s { get; set; }
@@ -42,6 +75,24 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC700> RegC700s { get; set; }
             public List<RegistroC800> RegC800s { get; set; }
             public List<RegistroC860> RegC860s { get; set; }
+
+            #endregion Filhos
+
+            #region Métodos
+
+            public RegistroC001 ComIndicadorMovimento(IndMovimento valor)
+            {
+                this.IndMov = valor;
+                return this;
+            }
+
+            public RegistroC001 ComIndicadorMovimento(bool valor)
+            {
+                this.IndMov = valor ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+                return this;
+            }
+
+            #endregion Métodos
         }
 
         /// <summary>
@@ -57,21 +108,29 @@ namespace FiscalBr.EFDFiscal
                 Reg = "C100";
             }
 
-            /// <summary>
-            ///     Indicador do tipo de operação:
-            ///     0 - Entrada;
-            ///     1 - Saída.
-            /// </summary>
-            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 2)]
-            public int IndOper { get; set; }
+            #region Propriedades
 
             /// <summary>
-            ///     Indicador do emitente do documento fiscal:
-            ///     0 - Emissão própria;
-            ///     1 - Terceiros;
+            ///     Indicador do tipo de operação
             /// </summary>
+            /// <remarks>
+            ///     0 - Entrada
+            ///     <para />
+            ///     1 - Saída
+            /// </remarks>
+            [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 2)]
+            public IndTipoOperacaoProduto IndOper { get; set; }
+
+            /// <summary>
+            ///     Indicador do emitente do documento fiscal/título
+            /// </summary>
+            /// <remarks>
+            ///     0 - Emissão Própria
+            ///     <para />
+            ///     1 - Terceiros
+            /// </remarks>
             [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 2)]
-            public int IndEmit { get; set; }
+            public IndEmitente IndEmit { get; set; }
 
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150):
@@ -253,6 +312,92 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC186> RegC186s { get; set; }
             public List<RegistroC190> RegC190s { get; set; }
             public List<RegistroC195> RegC195s { get; set; }
+
+            #endregion Propriedades
+
+            #region Métodos
+
+            public RegistroC100 ComTipoOperacao(IndTipoOperacaoProduto valor)
+            {
+                this.IndOper = valor;
+                return this;
+            }
+
+            public RegistroC100 ComTipoEmissao(IndEmitente valor)
+            {
+                this.IndEmit = valor;
+                return this;
+            }
+
+            public RegistroC100 ComCodigoParticipante(string valor)
+            {
+                this.CodPart = valor;
+                return this;
+            }
+
+            public RegistroC100 ComCodigoModelo(string valor)
+            {
+                this.CodMod = valor;
+                return this;
+            }
+
+            public RegistroC100 ComCodigoSituacao(int valor)
+            {
+                this.CodSit = valor;
+                return this;
+            }
+
+            public RegistroC100 ComSerie(string valor)
+            {
+                this.Ser = valor;
+                return this;
+            }
+
+            public RegistroC100 ComNumeroDocumento(string valor)
+            {
+                this.NumDoc = valor;
+                return this;
+            }
+
+            public RegistroC100 ComChaveDfe(string valor)
+            {
+                this.ChvNfe = valor;
+                return this;
+            }
+
+            public RegistroC100 ComDataEmissao(DateTime valor)
+            {
+                this.DtDoc = valor;
+                return this;
+            }
+
+            public RegistroC100 ComDataEntradaSaida(DateTime valor)
+            {
+                this.DtEs = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorTotal(decimal valor)
+            {
+                this.VlDoc = valor;
+                return this;
+            }
+
+            public RegistroC100 ComTipoPagamento(int valor)
+            {
+                this.IndPgto = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorDesconto(decimal valor)
+            {
+                this.VlDesc = valor;
+                return this;
+            }
+
+            //TODO: Implementar demais propriedades
+
+            #endregion Métodos
         }
 
         /// <summary>

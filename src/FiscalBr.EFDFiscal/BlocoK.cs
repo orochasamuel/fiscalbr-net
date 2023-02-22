@@ -58,7 +58,9 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             /// <remarks>
             ///     0 – Leiaute simplificado
+            ///     <para />
             ///     1 - Leiaute completo
+            ///     <para />
             ///     2 – Leiaute restrito aos saldos de estoque
             /// </remarks>
             [SpedCampos(2, "IND_TP_LEIAUTE", "C", 1, 0, true, 17)]

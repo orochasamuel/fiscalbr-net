@@ -753,6 +753,12 @@ namespace FiscalBr.Common
 
     /// <summary>
     ///     Indicador do tipo de operação
+    /// <remarks>
+    ///     <para />
+    ///     0 - Entrada
+    ///     <para />
+    ///     1 - Saída
+    /// </remarks>
     /// </summary>
     public enum IndTipoOperacaoProduto
     {
@@ -785,6 +791,12 @@ namespace FiscalBr.Common
 
     /// <summary>
     ///     Indicador do emitente do documento fiscal/título
+    /// <remarks>
+    ///     <para />
+    ///     0 - Emissão Própria
+    ///     <para />
+    ///     1 - Terceiros
+    /// </remarks>
     /// </summary>
     public enum IndEmitente
     {
