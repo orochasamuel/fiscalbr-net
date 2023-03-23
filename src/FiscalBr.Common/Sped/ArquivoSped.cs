@@ -32,12 +32,44 @@ namespace FiscalBr.Common.Sped
 
         public virtual void Ler(string path, Encoding encoding = null)
         {
+            if (!File.Exists(path))
+                throw new Exception("O arquivo não existe! Verifique e tente novamente.");
+
             Erros = new List<string>();
 
+            // TODO: Alterar para remover os espaços em branco antes do primeiro pipe e após o último pipe.
             Linhas = File.ReadAllLines(path, encoding ?? Encoding.Default).ToList();
 
+            if (ExisteAssinaturaNoArquivo())
+                RemoverLinhasDeAssinatura();
+
+            RemoverLinhasVazias();
+        }
+
+        private void RemoverLinhasVazias()
+        {
             //Remove linhas em branco
             Linhas.RemoveAll(l => string.IsNullOrEmpty(l.Trim()));
+        }
+
+        private void RemoverLinhasDeAssinatura()
+        {
+            var index9999 = Linhas.FindIndex(p => p.StartsWith("|9999"));
+
+            var startsAt = index9999 + 1;
+            var countedToDelete = Linhas.Count - startsAt;
+
+            Linhas.RemoveRange(startsAt, countedToDelete);
+        }
+
+        private bool ExisteAssinaturaNoArquivo()
+        {
+            var index9999 = Linhas.FindIndex(p => p.StartsWith("|9999"));
+
+            if (Linhas.Count > index9999 + 1)
+                return true;
+
+            return false;
         }
 
         /// <summary>

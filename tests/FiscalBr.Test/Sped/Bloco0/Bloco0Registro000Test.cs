@@ -1,11 +1,11 @@
-﻿namespace FiscalBr.Test.Sped
+﻿namespace FiscalBr.Test.Sped.Bloco0
 {
     public class Bloco0Registro000Test
     {
         [Fact]
         public void Escrever_Registro_0000_EFDFiscal()
         {
-            var initialDate = (DateTime.Now.AddDays(-(DateTime.Now.Day - 1))).Date;
+            var initialDate = DateTime.Now.AddDays(-(DateTime.Now.Day - 1)).Date;
             var finalDate = initialDate.AddMonths(1).AddDays(-1);
 
             var formatedInitialDate = initialDate.ToString(new CultureInfo("pt-BR")).Replace("/", "").Split(" ")[0];
@@ -16,8 +16,8 @@
 
             var source = new EFDFiscal.Bloco0.Registro0000
             {
-                CodVer = Common.CodigoVersaoLeiaute.V15,
-                CodFin = Common.IndCodFinalidadeArquivo.RemessaArquivoOriginal,
+                CodVer = CodigoVersaoLeiaute.V15,
+                CodFin = IndCodFinalidadeArquivo.RemessaArquivoOriginal,
                 DtIni = initialDate,
                 DtFin = finalDate,
                 Nome = "BANCO DO BRASIL S.A.",
@@ -25,8 +25,8 @@
                 Uf = "GO",
                 Ie = "123456789",
                 CodMun = "5204508",
-                IndPerfil = Common.IndPerfilArquivo.A,
-                IndAtiv = Common.IndTipoAtividade.Outros
+                IndPerfil = IndPerfilArquivo.A,
+                IndAtiv = IndTipoAtividade.Outros
             };
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(source, CodigoVersaoLeiaute.V15);

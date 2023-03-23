@@ -27,6 +27,8 @@ namespace FiscalBr.EFDFiscal
                 Reg = "0000";
             }
 
+            #region Propriedades
+
             /// <summary>
             ///     Código da versão do leiaute conforme a tabela indicada no Ato COTEPE.
             /// </summary>
@@ -119,6 +121,20 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(15, "IND_ATIV", "N", 1, 0, true, 2)]
             public IndTipoAtividade IndAtiv { get; set; }
+
+            #endregion Propriedades
+
+            public Registro0000 ComVersaoLayout(CodigoVersaoLeiaute valor)
+            {
+                this.CodVer = valor;
+                return this;
+            }
+
+            public Registro0000 ComFinalidade(IndCodFinalidadeArquivo valor)
+            {
+                this.CodFin = valor;
+                return this;
+            }
         }
 
         /// <summary>
@@ -135,8 +151,31 @@ namespace FiscalBr.EFDFiscal
             }
 
             /// <summary>
-            ///     Indicador de movimento: 0 - Bloco com dados informados; 1 - Bloco sem dados informados.
+            ///     Inicializa uma nova instância da classe <see cref="Registro0001" />.
             /// </summary>
+            public Registro0001(IndMovimento indMovimento)
+            {
+                Reg = "0001";
+                IndMov = indMovimento;
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0001" />.
+            /// </summary>
+            public Registro0001(bool temMovimento)
+            {
+                Reg = "0001";
+                IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+            }
+
+            /// <summary>
+            ///     Indicador de movimento
+            /// </summary>
+            /// <remarks>
+            ///     0 - Bloco com dados informados;
+            ///     <para />
+            ///     1 - Bloco sem dados informados.
+            /// </remarks>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 2)]
             public IndMovimento IndMov { get; set; }
             
@@ -153,6 +192,12 @@ namespace FiscalBr.EFDFiscal
             public List<Registro0460> Reg0460s { get; set; }
             public List<Registro0500> Reg0500s { get; set; }
             public List<Registro0600> Reg0600s { get; set; }
+
+            public Registro0001 ComIndicadorMovimento(bool valor)
+            {
+                this.IndMov = valor ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+                return this;
+            }
         }
 
         /// <summary>

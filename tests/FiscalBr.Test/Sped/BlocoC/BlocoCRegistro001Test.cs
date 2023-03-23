@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FiscalBr.Test.Sped
+namespace FiscalBr.Test.Sped.BlocoC
 {
     public class BlocoCRegistro001Test
     {
         [Fact]
-        public void Escrever_Registro_C001_Com_Movimento_EFDFiscal()
+        public void Escrever_Registro_C001_Com_Movimento_EFDContribuicoes_e_EFDFiscal()
         {
             var expectResult = $"|C001|0|{Environment.NewLine}";
 
@@ -28,23 +28,18 @@ namespace FiscalBr.Test.Sped
 
             var currentResult3 = Common.Sped.EscreverCamposSped.EscreverCampos(source3);
 
-            var source4 = new EFDFiscal.BlocoC.RegistroC001().ComIndicadorMovimento(IndMovimento.BlocoComDados);
+            var source4 = new EFDFiscal.BlocoC.RegistroC001().ComIndicadorMovimento(true);
 
             var currentResult4 = Common.Sped.EscreverCamposSped.EscreverCampos(source4);
-
-            var source5 = new EFDFiscal.BlocoC.RegistroC001().ComIndicadorMovimento(true);
-
-            var currentResult5 = Common.Sped.EscreverCamposSped.EscreverCampos(source5);
 
             Assert.Equal(expectResult, currentResult1);
             Assert.Equal(expectResult, currentResult2);
             Assert.Equal(expectResult, currentResult3);
             Assert.Equal(expectResult, currentResult4);
-            Assert.Equal(expectResult, currentResult5);
         }
 
         [Fact]
-        public void Escrever_Registro_C001_Sem_Movimento_EFDFiscal()
+        public void Escrever_Registro_C001_Sem_Movimento_EFDContribuicoes_e_EFDFiscal()
         {
             var expectResult = $"|C001|1|{Environment.NewLine}";
 
@@ -63,19 +58,14 @@ namespace FiscalBr.Test.Sped
 
             var currentResult3 = Common.Sped.EscreverCamposSped.EscreverCampos(source3);
 
-            var source4 = new EFDFiscal.BlocoC.RegistroC001().ComIndicadorMovimento(IndMovimento.BlocoSemDados);
+            var source4 = new EFDFiscal.BlocoC.RegistroC001().ComIndicadorMovimento(false);
 
             var currentResult4 = Common.Sped.EscreverCamposSped.EscreverCampos(source4);
-
-            var source5 = new EFDFiscal.BlocoC.RegistroC001().ComIndicadorMovimento(false);
-
-            var currentResult5 = Common.Sped.EscreverCamposSped.EscreverCampos(source5);
 
             Assert.Equal(expectResult, currentResult1);
             Assert.Equal(expectResult, currentResult2);
             Assert.Equal(expectResult, currentResult3);
             Assert.Equal(expectResult, currentResult4);
-            Assert.Equal(expectResult, currentResult5);
         }
     }
 }

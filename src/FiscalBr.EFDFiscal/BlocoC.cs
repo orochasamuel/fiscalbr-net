@@ -18,8 +18,6 @@ namespace FiscalBr.EFDFiscal
         /// </summary>
         public class RegistroC001 : RegistroBaseSped
         {
-            #region Construtores
-
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
             /// </summary>
@@ -40,15 +38,11 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
             /// </summary>
-            public RegistroC001(bool indMovimento)
+            public RegistroC001(bool temMovimento)
             {
                 Reg = "C001";
-                IndMov = indMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+                IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
             }
-
-            #endregion Construtores
-
-            #region Propriedades
 
             /// <summary>
             ///     Indicador de movimento
@@ -61,10 +55,6 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 2)]
             public IndMovimento IndMov { get; set; }
 
-            #endregion Propriedades
-
-            #region Filhos
-
             public List<RegistroC100> RegC100s { get; set; }
             public List<RegistroC300> RegC300s { get; set; }
             public List<RegistroC350> RegC350s { get; set; }
@@ -76,23 +66,11 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC800> RegC800s { get; set; }
             public List<RegistroC860> RegC860s { get; set; }
 
-            #endregion Filhos
-
-            #region Métodos
-
-            public RegistroC001 ComIndicadorMovimento(IndMovimento valor)
-            {
-                this.IndMov = valor;
-                return this;
-            }
-
             public RegistroC001 ComIndicadorMovimento(bool valor)
             {
                 this.IndMov = valor ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
                 return this;
-            }
-
-            #endregion Métodos
+            }   
         }
 
         /// <summary>
@@ -4082,6 +4060,20 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC510> RegC510s { get; set; }
             public List<RegistroC590> RegC590s { get; set; }
             public List<RegistroC595> RegC595s { get; set; }
+
+
+
+            public bool EhValido()
+            {
+                if (IndOper == IndTipoOperacaoProduto.Saida)
+                    if (IndDest == IndCodDestAcessante.None)
+                        return false;
+
+                return true;
+            }
+
+
+
         }
 
         /// <summary>

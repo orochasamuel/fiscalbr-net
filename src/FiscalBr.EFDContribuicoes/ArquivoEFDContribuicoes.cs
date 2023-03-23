@@ -23,39 +23,47 @@ namespace FiscalBr.EFDContribuicoes
         {
             base.Ler(path, encoding);
 
+            bool leituraConcluida = false;
             foreach (var linha in Linhas)
             {
-                var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, file: "EFDContribuicoes");
-
-                var args = new SpedEventArgs()
+                if (leituraConcluida == false)
                 {
-                    Linha = linha,
-                    Registro = registro
-                };
-                AoProcessarLinhaRaise(this, args);
+                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, file: "EFDContribuicoes");
 
-                if (linha.StartsWith("|0"))
-                    LerBloco0(registro);
-                else if (linha.StartsWith("|1"))
-                    LerBloco1(registro);
-                else if (linha.StartsWith("|9"))
-                    LerBloco9(registro);
-                else if (linha.StartsWith("|A"))
-                    LerBlocoA(registro);
-                else if (linha.StartsWith("|C"))
-                    LerBlocoC(registro);
-                else if (linha.StartsWith("|D"))
-                    LerBlocoD(registro);
-                else if (linha.StartsWith("|F"))
-                    LerBlocoF(registro);
-                else if (linha.StartsWith("|I"))
-                    LerBlocoI(registro);
-                else if (linha.StartsWith("|M"))
-                    LerBlocoM(registro);
-                else if (linha.StartsWith("|P"))
-                    LerBlocoP(registro);
-                else
-                    break;
+                    if (registro.Reg == "9999")
+                        leituraConcluida = true;
+
+                    var args = new SpedEventArgs()
+                    {
+                        Linha = linha,
+                        Registro = registro
+                    };
+                    AoProcessarLinhaRaise(this, args);
+
+                    if (linha.StartsWith("|0"))
+                        LerBloco0(registro);
+                    else if (linha.StartsWith("|1"))
+                        LerBloco1(registro);
+                    else if (linha.StartsWith("|9"))
+                        LerBloco9(registro);
+                    else if (linha.StartsWith("|A"))
+                        LerBlocoA(registro);
+                    else if (linha.StartsWith("|C"))
+                        LerBlocoC(registro);
+                    else if (linha.StartsWith("|D"))
+                        LerBlocoD(registro);
+                    else if (linha.StartsWith("|F"))
+                        LerBlocoF(registro);
+                    else if (linha.StartsWith("|I"))
+                        LerBlocoI(registro);
+                    else if (linha.StartsWith("|M"))
+                        LerBlocoM(registro);
+                    else if (linha.StartsWith("|P"))
+                        LerBlocoP(registro);
+                    else
+                        break;
+                }
+                else { break; }
             }
         }
 

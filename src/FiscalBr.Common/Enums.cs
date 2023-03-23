@@ -338,8 +338,13 @@ namespace FiscalBr.Common
     }
 
     /// <summary>
-    ///     Código da finalidae do arquivo
+    ///     Código da finalidade do arquivo
     /// </summary>
+    /// <remarks>
+    ///     0 - Original
+    ///     <para />
+    ///     1 - Substituto
+    /// </remarks>
     public enum IndCodFinalidadeArquivo
     {
         /// <summary>
@@ -592,6 +597,11 @@ namespace FiscalBr.Common
         /// Nota Fiscal Eletrônica p/ Consumidor Final - NFC-e
         /// </summary>
         [DefaultValue("65")] Mod65,
+
+        /// <summary>
+        /// Nota Fiscal de Energia Elétrica Eletrônica - NF3e
+        /// </summary>
+        [DefaultValue("66")] Mod66,
 
         /// <summary>
         /// Conhecimento de Transporte Eletrônico - CT-e (OS)
@@ -1322,6 +1332,7 @@ namespace FiscalBr.Common
 
     public enum IndCodDestAcessante
     {
+        [DefaultValue("")] None,
         /// <summary>
         ///     Contribuinte do ICMS
         /// </summary>

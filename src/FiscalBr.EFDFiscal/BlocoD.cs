@@ -1950,7 +1950,7 @@ namespace FiscalBr.EFDFiscal
             ///     1 - Prestação;
             /// </summary>
             [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 2)]
-            public string IndOper { get; set; }
+            public IndTipoOperacaoServico IndOper { get; set; }
 
             /// <summary>
             ///     Indicador do emitente do documento fiscal:
@@ -1960,7 +1960,7 @@ namespace FiscalBr.EFDFiscal
             ///     1 - Terceiros;
             /// </summary>
             [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 2)]
-            public string IndEmit { get; set; }
+            public IndEmitente IndEmit { get; set; }
 
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150);
@@ -1976,13 +1976,13 @@ namespace FiscalBr.EFDFiscal
             ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
             /// </summary>
             [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 2)]
-            public string CodMod { get; set; }
+            public IndCodMod CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
             [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 2)]
-            public string CodSit { get; set; }
+            public IndCodSitDoc CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal

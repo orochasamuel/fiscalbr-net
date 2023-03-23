@@ -1,4 +1,4 @@
-﻿namespace FiscalBr.Test.Sped
+﻿namespace FiscalBr.Test.Sped.BlocoC
 {
     public class BlocoCRegistro500Test
     {
@@ -239,7 +239,7 @@
 
         private void SetCulture()
         {
-            System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
         }
     }
 }

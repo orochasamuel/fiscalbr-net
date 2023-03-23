@@ -1,4 +1,4 @@
-﻿namespace FiscalBr.Test.Sped
+﻿namespace FiscalBr.Test.Sped.BlocoK
 {
     public class BlocoKRegistro001Test
     {
@@ -7,7 +7,7 @@
         {
             var source = new EFDFiscal.BlocoK.RegistroK001
             {
-                IndMov = Common.IndMovimento.BlocoSemDados
+                IndMov = IndMovimento.BlocoSemDados
             };
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
@@ -27,7 +27,7 @@
 
             var source = new EFDFiscal.BlocoK.RegistroK001
             {
-                IndMov = Common.IndMovimento.BlocoSemDados
+                IndMov = IndMovimento.BlocoSemDados
             };
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
@@ -48,7 +48,7 @@
 
             var source = new EFDFiscal.BlocoK.RegistroK001
             {
-                IndMov = Common.IndMovimento.BlocoSemDados
+                IndMov = IndMovimento.BlocoSemDados
             };
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
