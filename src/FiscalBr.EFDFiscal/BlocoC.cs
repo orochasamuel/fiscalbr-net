@@ -1641,7 +1641,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do documento fiscal relativa a última entrada
             /// </summary>
             [SpedCampos(3, "NUM_DOC_ULT_E", "N", 9, 0, true, 2)]
-            public long NumDocUltE { get; set; }
+            public string NumDocUltE { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal relativa a última entrada
@@ -1867,25 +1867,25 @@ namespace FiscalBr.EFDFiscal
             ///    Número de série de fabricação do equipamento ECF 
             /// </summary>
             [SpedCampos(7, "ECF_FAB_SAIDA", "C", 21, 0, false, 2)]
-            public int EcfFabSaida { get; set; }
+            public string EcfFabSaida { get; set; }
 
             /// <summary>
             ///     Número do documento fiscal de saída
             /// </summary>
             [SpedCampos(8, "NUM_DOC_SAIDA", "N", 9, 0, false, 2)]
-            public int NumDocSaida { get; set; }
+            public string NumDocSaida { get; set; }
 
             /// <summary>
             ///    Chave do documento fiscal eletrônico de saída  
             /// </summary>
             [SpedCampos(9, "CHV_DFE_SAIDA", "N", 44, 0, false, 2)]
-            public int ChvDfeSaida { get; set; }
+            public string ChvDfeSaida { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal de saída
             /// </summary>
             [SpedCampos(10, "DT_DOC_SAIDA", "N", 8, 0, true, 2)]
-            public int DtDocSaida { get; set; }
+            public DateTime DtDocSaida { get; set; }
 
             /// <summary>
             ///    Número do item em que foi escriturada a saída em um registro C185, C380, C480 ou C815 quando o contribuinte informar a saída em um arquivo de perfil A.
@@ -2090,7 +2090,7 @@ namespace FiscalBr.EFDFiscal
             ///    Número do documento fiscal de entrada
             /// </summary>
             [SpedCampos(11, "NUM_DOC_ENTRADA", "N", 9, 0, false, 2)]
-            public decimal NumDocEntrada { get; set; }
+            public string NumDocEntrada { get; set; }
 
             /// <summary>
             ///     Chave do documento fiscal eletrônico de entrada 
@@ -2381,13 +2381,13 @@ namespace FiscalBr.EFDFiscal
             ///     Número do documento fiscal inicial
             /// </summary>
             [SpedCampos(5, "NUM_DOC_INI", "N", 6, 0, true, 2)]
-            public int NumDocIni { get; set; }
+            public string NumDocIni { get; set; }
 
             /// <summary>
             ///     Número do documento fical final
             /// </summary>
             [SpedCampos(6, "NUM_DOC_FIN", "N", 6, 0, true, 2)]
-            public int NumDocFin { get; set; }
+            public string NumDocFin { get; set; }
 
             /// <summary>
             ///     Data da emissão dos documentos fiscais
@@ -2440,7 +2440,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do documento fiscal cancelado
             /// </summary>
             [SpedCampos(2, "NUM_DOC_CANC", "N", 999, 0, true, 2)]
-            public int NumDocCanc { get; set; }
+            public string NumDocCanc { get; set; }
         }
 
         /// <summary>
@@ -2700,7 +2700,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do documento fiscal
             /// </summary>
             [SpedCampos(4, "NUM_DOC", "C", 3, 0, true, 2)]
-            public int NumDoc { get; set; }
+            public string NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
@@ -3323,7 +3323,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do documento fiscal (COO)
             /// </summary>
             [SpedCampos(4, "NUM_DOC", "N", 9, 0, true, 2)]
-            public double NumDoc { get; set; }
+            public string NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
@@ -3742,7 +3742,11 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC500" />.
             /// </summary>
-            public RegistroC500(IndClasseConsumoEnergiaOuGas indConsumoEnergia, IndCodTipoLigacao indTipoLigacao, IndCodGrupoTensao indGrupoTensao)
+            public RegistroC500(
+                IndClasseConsumoEnergiaOuGas indConsumoEnergia,
+                IndCodTipoLigacao indTipoLigacao,
+                IndCodGrupoTensao indGrupoTensao
+                )
             {
                 Reg = "C500";
                 this.CodCons = indConsumoEnergia;
@@ -3836,7 +3840,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do documento fiscal
             /// </summary>
             [SpedCampos(10, "NUM_DOC", "N", 9, 0, true, 2)]
-            public long NumDoc { get; set; }
+            public string NumDoc { get; set; }
 
             /// <summary>
             ///     Data da emissão do documento fiscal
@@ -4036,7 +4040,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do documento fiscal referenciado. 
             /// </summary>
             [SpedCampos(37, "NUM_DOC_REF", "N", 9, 0, false, 16)]
-            public long? NumDocRef { get; set; }
+            public string NumDocRef { get; set; }
 
             /// <summary>
             ///     Mês e ano da emissão do documento fiscal referenciado. 
@@ -4056,24 +4060,18 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(40, "OUTRAS_DED", "N", 15, 2, false, 16)]
             public decimal OutrDed { get; set; }
 
-
             public List<RegistroC510> RegC510s { get; set; }
             public List<RegistroC590> RegC590s { get; set; }
             public List<RegistroC595> RegC595s { get; set; }
 
-
-
-            public bool EhValido()
+            public override bool EhValido()
             {
                 if (IndOper == IndTipoOperacaoProduto.Saida)
                     if (IndDest == IndCodDestAcessante.None)
                         return false;
 
-                return true;
+                return base.EhValido();
             }
-
-
-
         }
 
         /// <summary>
@@ -4536,7 +4534,7 @@ namespace FiscalBr.EFDFiscal
             ///     Número do documento fiscal cancelado
             /// </summary>
             [SpedCampos(2, "NUM_DOC_CANC", "N", 9, 0, true, 2)]
-            public double NumDocCanc { get; set; }
+            public string NumDocCanc { get; set; }
         }
 
         /// <summary>
@@ -5364,7 +5362,7 @@ namespace FiscalBr.EFDFiscal
             ///     Preenchimento: informar o número do primeiro CF-e-SAT emitido, mesmo que cancelado, no período, pelo equipamento.
             /// </remarks>
             [SpedCampos(5, "DOC_INI", "N", 6, 0, true, 2)]
-            public int NumDocIni { get; set; }
+            public string NumDocIni { get; set; }
 
             /// <summary>
             ///     Número do documento final

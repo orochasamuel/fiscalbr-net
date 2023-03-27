@@ -6,7 +6,7 @@ namespace FiscalBr.Common.Sped
 {
     public static class LerCamposSped
     {
-        public static object LerCampos(this string line, string file = "EFDFiscal")
+        public static object LerCampos(this string line, string file = "EFDFiscal", int codVersao = 0)
         {
             line = line.TrimStart().Substring(1);
 
@@ -25,7 +25,7 @@ namespace FiscalBr.Common.Sped
 
             var instantiatedObject = Activator.CreateInstance(objectType);
 
-            var properties = ObtemListaComPropriedadesOrdenadas(objectType);
+            var properties = ObtemListaComPropriedadesOrdenadas(objectType, codVersao);
 
             for (int i = 0; i < properties.Count; i++)
             {
@@ -115,18 +115,36 @@ namespace FiscalBr.Common.Sped
             return false; // value-type
         }
 
-        private static List<System.Reflection.PropertyInfo> ObtemListaComPropriedadesOrdenadas(Type tipo)
+        public static List<System.Reflection.PropertyInfo> ObtemListaComPropriedadesOrdenadas(Type tipo, int codVersao = 0)
         {
+            var r = tipo.GetProperties()
+             .Where(p => Attribute.IsDefined(p, typeof(SpedCamposAttribute))); //Só quero os campos do tipo SpedCamposAttribute, ignorando registros filhos!
+
+            if (codVersao > 0)
+            {
+                r = r.Where(x => x.GetCustomAttributes(typeof(SpedCamposAttribute), true)
+                .Cast<SpedCamposAttribute>()
+                .Any(a => a.Versao <= codVersao));
+
+            }
+
+            r = r.OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
+                .Cast<SpedCamposAttribute>()
+                .Select(a => a.Ordem)
+                .FirstOrDefault());
+
+            return r.ToList();
+
             /*
              * http://stackoverflow.com/questions/22306689/get-properties-of-class-by-order-using-reflection
              */
-            return tipo.GetProperties()
-                .Where(p => Attribute.IsDefined(p, typeof(SpedCamposAttribute))) //Só quero os campos do tipo SpedCamposAttribute, ignorando registros filhos!
-                .OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
-                .Cast<SpedCamposAttribute>()
-                .Select(a => a.Ordem)
-                .FirstOrDefault())
-                .ToList();
+            //return tipo.GetProperties()
+            //    .Where(p => Attribute.IsDefined(p, typeof(SpedCamposAttribute))) //Só quero os campos do tipo SpedCamposAttribute, ignorando registros filhos!
+            //    .OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
+            //    .Cast<SpedCamposAttribute>()
+            //    .Select(a => a.Ordem)
+            //    .FirstOrDefault())
+            //    .ToList();
         }
     }
 }

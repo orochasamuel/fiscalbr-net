@@ -15,9 +15,30 @@ namespace FiscalBr.EFDContribuicoes
         /// </summary>
         public class RegistroC001 : RegistroBaseSped
         {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
+            /// </summary>
             public RegistroC001()
             {
                 Reg = "C001";
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
+            /// </summary>
+            public RegistroC001(IndMovimento indMovimento)
+            {
+                Reg = "C001";
+                IndMov = indMovimento;
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
+            /// </summary>
+            public RegistroC001(bool temMovimento)
+            {
+                Reg = "C001";
+                IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
             }
 
             /// <summary>
@@ -28,6 +49,11 @@ namespace FiscalBr.EFDContribuicoes
 
             public List<RegistroC010> RegC010s { get; set; }
 
+            public RegistroC001 ComIndicadorMovimento(bool valor)
+            {
+                this.IndMov = valor ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+                return this;
+            }
         }
 
         /// <summary>

@@ -19,16 +19,19 @@ namespace FiscalBr.EFDFiscal
         public BlocoK BlocoK { get; set; }
 
         #region Leitura
-        public override void Ler(string path, Encoding encoding = null)
+        public override void Ler(string path, Encoding encoding = null, int codVersaoLayout = 0)
         {
             base.Ler(path, encoding);
+
+            if (codVersaoLayout == 0)
+                codVersaoLayout = ObterVersaoLayout();
 
             bool leituraConcluida = false;
             foreach (var linha in Linhas)
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, file: "EFDFiscal");
+                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, file: "EFDFiscal", codVersaoLayout);
 
                     if (registro.Reg == "9999")
                         leituraConcluida = true;
@@ -593,7 +596,17 @@ namespace FiscalBr.EFDFiscal
         private void LerBlocoC(RegistroBaseSped registro)
         {
             if (BlocoC == null)
+            {
                 BlocoC = new BlocoC();
+
+                /*
+                * Cria o C001 com movimento caso não exista no arquivo,
+                * isso é feito para os cenários onde será realizada a
+                * leitura isolada somente de alguns registros do Bloco C.
+                */
+                if (BlocoC.RegC001 == null)
+                    BlocoC.RegC001 = new BlocoC.RegistroC001(true);
+            }
 
             switch (registro.Reg)
             {

@@ -30,7 +30,7 @@ namespace FiscalBr.Common.Sped
             Erros = new List<string>();
         }
 
-        public virtual void Ler(string path, Encoding encoding = null)
+        public virtual void Ler(string path, Encoding encoding = null, int codVersaoLayout = 0)
         {
             if (!File.Exists(path))
                 throw new Exception("O arquivo não existe! Verifique e tente novamente.");
@@ -66,10 +66,52 @@ namespace FiscalBr.Common.Sped
         {
             var index9999 = Linhas.FindIndex(p => p.StartsWith("|9999"));
 
+            if (index9999 < 0)
+                return false;
+
             if (Linhas.Count > index9999 + 1)
                 return true;
 
             return false;
+        }
+
+        public virtual int ObterVersaoLayout()
+        {
+            var versaoLayout = ObterUltimaVersaoDisponivelLayout();
+
+            if (Linhas.Count > 0)
+            {
+                var index0000 = Linhas.FindIndex(p => p.StartsWith("|0000"));
+
+                if (index0000 < 0)
+                    return versaoLayout;
+
+                var primeiraLinha = Linhas.ElementAt(index0000);
+
+                var dados = primeiraLinha.Split('|');
+
+                /*
+                 * [0] Primeiro pipe estará em branco
+                 * [1] Segundo pipe é do Registro 0000
+                 * [2] Terceiro pipe é o que queremos, a versão do layout
+                 */
+                var versaoLayoutArquivoLido = dados[2].ToInt();
+
+                if (versaoLayoutArquivoLido > 0 && versaoLayoutArquivoLido != versaoLayout)
+                    versaoLayout = versaoLayoutArquivoLido;
+            }
+
+            return versaoLayout;
+        }
+
+        private int ObterUltimaVersaoDisponivelLayout()
+        {
+            return Enum.GetValues(typeof(CodigoVersaoLeiaute)).Cast<int>().Max();
+        }
+
+        private int ObterPrimeiraVersaoLayout()
+        {
+            return Enum.GetValues(typeof(CodigoVersaoLeiaute)).Cast<int>().Min();
         }
 
         /// <summary>

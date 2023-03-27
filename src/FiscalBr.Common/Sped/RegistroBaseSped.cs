@@ -31,5 +31,10 @@ namespace FiscalBr.Common.Sped
 
             return enumObj.ToDefaultValue();
         }
+
+        public virtual bool EhValido()
+        {
+            return true;
+        }
     }
 }
