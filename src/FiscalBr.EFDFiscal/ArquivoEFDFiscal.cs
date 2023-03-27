@@ -21,6 +21,7 @@ namespace FiscalBr.EFDFiscal
         #region Leitura
         public override void Ler(string path, Encoding encoding = null)
         {
+            int codVersao = 0;
             base.Ler(path, encoding);
 
             bool leituraConcluida = false;
@@ -28,7 +29,7 @@ namespace FiscalBr.EFDFiscal
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, file: "EFDFiscal");
+                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, file: "EFDFiscal", codVersao);
 
                     if (registro.Reg == "9999")
                         leituraConcluida = true;
@@ -41,7 +42,10 @@ namespace FiscalBr.EFDFiscal
                     AoProcessarLinhaRaise(this, args);
 
                     if (linha.StartsWith("|0"))
+                    {
                         LerBloco0(registro);
+                        codVersao = (int)Bloco0.Reg0000.CodVer;
+                    }
                     else if (linha.StartsWith("|1"))
                         LerBloco1(registro);
                     else if (linha.StartsWith("|9"))
@@ -1980,10 +1984,10 @@ namespace FiscalBr.EFDFiscal
             base.CalcularBloco9(totalizarblocos);
 
             #region Totalizar blocos
-            if (totalizarblocos) //Calcula os X990 de todos os blocos e readiciona as linhas de totalizaÁ„o -> |X990|
+            if (totalizarblocos) //Calcula os X990 de todos os blocos e readiciona as linhas de totaliza√ß√£o -> |X990|
             {
                 var registros = Linhas
-                    .Where(x => x.Length > 6 && x.Substring(2, 3) != "990") // Pega sÛ as linhas que n„o se tratam de totalizadores
+                    .Where(x => x.Length > 6 && x.Substring(2, 3) != "990") // Pega s√≥ as linhas que n√£o se tratam de totalizadores
                     .Select(x => x.Substring(1, 4));
 
                 if (Bloco0 != null)
@@ -2018,7 +2022,7 @@ namespace FiscalBr.EFDFiscal
             #endregion
 
             #region Bloco 9
-            Linhas.RemoveAll(x => x.Length > 6 && x[1] == '9'); //Remove todas as linhas do Bloco 9, as linhas ser„o readicionadas posteriormente
+            Linhas.RemoveAll(x => x.Length > 6 && x[1] == '9'); //Remove todas as linhas do Bloco 9, as linhas ser√£o readicionadas posteriormente
 
             Bloco9 = new Bloco9()
             {
