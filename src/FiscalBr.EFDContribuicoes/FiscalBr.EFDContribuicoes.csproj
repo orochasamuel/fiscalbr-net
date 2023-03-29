@@ -10,7 +10,7 @@
     <Copyright>Copyright ₢ 2023 Samuel Rocha de Oliveira</Copyright>
     <Description>Biblioteca para geração do arquivo EFD Contribuições (PIS/COFINS)</Description>
     <Company>orochasamuel sroliveira</Company>
-    <Version>6.0.0</Version>
+    <Version>6.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
