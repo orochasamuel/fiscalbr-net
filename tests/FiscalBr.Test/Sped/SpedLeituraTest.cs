@@ -221,6 +221,8 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
         {
             var line = "|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|{Environment.NewLine}";
 
+            #region ...
+
             var file = "EFDFiscal";
 
             line = line.TrimStart().Substring(1);
@@ -235,6 +237,10 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
             var toInstantiate = $"FiscalBr.{file}.Bloco{bloco}+Registro{registro}, FiscalBr.{file}";
 
             var objectType = Type.GetType(toInstantiate);
+
+            #endregion ...
+
+            // ...
 
             var propriedades = FiscalBr.Common.Sped.LerCamposSped.ObtemListaComPropriedadesOrdenadas(objectType, 2);
 
@@ -246,6 +252,8 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
         {
             var line = "|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|1|01|{Environment.NewLine}";
 
+            #region ...
+
             var file = "EFDFiscal";
 
             line = line.TrimStart().Substring(1);
@@ -260,6 +268,10 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
             var toInstantiate = $"FiscalBr.{file}.Bloco{bloco}+Registro{registro}, FiscalBr.{file}";
 
             var objectType = Type.GetType(toInstantiate);
+
+            #endregion ...
+
+            // ...
 
             var propriedades = FiscalBr.Common.Sped.LerCamposSped.ObtemListaComPropriedadesOrdenadas(objectType, 3);
 
@@ -271,6 +283,8 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
         {
             var line = "|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|1|01|{Environment.NewLine}";
 
+            #region ...
+
             var file = "EFDFiscal";
 
             line = line.TrimStart().Substring(1);
@@ -285,6 +299,10 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
             var toInstantiate = $"FiscalBr.{file}.Bloco{bloco}+Registro{registro}, FiscalBr.{file}";
 
             var objectType = Type.GetType(toInstantiate);
+
+            #endregion ...
+
+            // ...
 
             var propriedades = FiscalBr.Common.Sped.LerCamposSped.ObtemListaComPropriedadesOrdenadas(objectType, 10);
 
@@ -296,6 +314,8 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
         {
             var line = "|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|1|01|01234567890123456789012345678901234567890123|1||9|1234|3.1.01.01.001|{Environment.NewLine}";
 
+            #region ...
+
             var file = "EFDFiscal";
 
             line = line.TrimStart().Substring(1);
@@ -310,6 +330,10 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
             var toInstantiate = $"FiscalBr.{file}.Bloco{bloco}+Registro{registro}, FiscalBr.{file}";
 
             var objectType = Type.GetType(toInstantiate);
+
+            #endregion ...
+
+            // ...
 
             var propriedades = FiscalBr.Common.Sped.LerCamposSped.ObtemListaComPropriedadesOrdenadas(objectType, 14);
 
@@ -321,6 +345,8 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
         {
             var line = @"|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|1|01|01234567890123456789012345678901234567890123|1||9|1234|3.1.01.01.001|06|1234|1111|123456789|01012009|1,00|1,00|";
 
+            #region ...
+
             var file = "EFDFiscal";
 
             line = line.TrimStart().Substring(1);
@@ -335,6 +361,10 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
             var toInstantiate = $"FiscalBr.{file}.Bloco{bloco}+Registro{registro}, FiscalBr.{file}";
 
             var objectType = Type.GetType(toInstantiate);
+
+            #endregion ...
+
+            // ...
 
             var propriedades = FiscalBr.Common.Sped.LerCamposSped.ObtemListaComPropriedadesOrdenadas(objectType, 16);
 
@@ -346,6 +376,8 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
         {
             var line = @"|C500|1|0|CLIENTE 1 (USAR CPF/CNPJ PREFERENCIALMENTE)|66|00|9999|000|06|123456789|01012009|01012009|99,99|9,99|0,00|0,00|0,00|0,00|90,00|22,50|0,00|0,00|CODINF|1,49|6,84|1|01|01234567890123456789012345678901234567890123|1||9|1234|3.1.01.01.001|06|1234|1111|123456789|01012009|1,00|1,00|";
 
+            #region ...
+
             var file = "EFDFiscal";
 
             line = line.TrimStart().Substring(1);
@@ -360,6 +392,10 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
             var toInstantiate = $"FiscalBr.{file}.Bloco{bloco}+Registro{registro}, FiscalBr.{file}";
 
             var objectType = Type.GetType(toInstantiate);
+
+            #endregion ...
+
+            // ...
 
             var propriedades = FiscalBr.Common.Sped.LerCamposSped.ObtemListaComPropriedadesOrdenadas(objectType, 17);
 

@@ -2,6 +2,7 @@
 using FiscalBr.Common.Sped;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 
 namespace FiscalBr.EFDFiscal
 {
@@ -122,13 +123,13 @@ namespace FiscalBr.EFDFiscal
             ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
             /// </summary>
             [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 2)]
-            public string CodMod { get; set; }
+            public IndCodMod CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
             [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 2)]
-            public int CodSit { get; set; }
+            public IndCodSitDoc CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
@@ -174,7 +175,7 @@ namespace FiscalBr.EFDFiscal
             ///     9 - Sem pagamento (até 30/06/2012).
             /// </summary>
             [SpedCampos(13, "IND_PGTO", "C", 1, 0, false, 2)]
-            public int? IndPgto { get; set; }
+            public IndTipoPagamento IndPgto { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
@@ -203,7 +204,7 @@ namespace FiscalBr.EFDFiscal
             ///     9 - Sem cobrança de frete.
             /// </summary>
             [SpedCampos(17, "IND_FRT", "C", 1, 0, false, 2)]
-            public int? IndFrt { get; set; }
+            public IndTipoFrete IndFrt { get; set; }
 
             /// <summary>
             ///     Valor do frete indicado no documento fiscal
@@ -277,6 +278,8 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false, 2)]
             public decimal? VlCofinsSt { get; set; }
 
+            #region Registros Filhos
+
             public RegistroC101 RegC101 { get; set; }
             public RegistroC105 RegC105 { get; set; }
             public List<RegistroC110> RegC110s { get; set; }
@@ -291,9 +294,11 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC190> RegC190s { get; set; }
             public List<RegistroC195> RegC195s { get; set; }
 
+            #endregion Registros Filhos
+
             #endregion Propriedades
 
-            #region Métodos
+            #region Métodos no Padrão Builder
 
             public RegistroC100 ComTipoOperacao(IndTipoOperacaoProduto valor)
             {
@@ -313,13 +318,13 @@ namespace FiscalBr.EFDFiscal
                 return this;
             }
 
-            public RegistroC100 ComCodigoModelo(string valor)
+            public RegistroC100 ComCodigoModelo(IndCodMod valor)
             {
                 this.CodMod = valor;
                 return this;
             }
 
-            public RegistroC100 ComCodigoSituacao(int valor)
+            public RegistroC100 ComCodigoSituacao(IndCodSitDoc valor)
             {
                 this.CodSit = valor;
                 return this;
@@ -361,7 +366,7 @@ namespace FiscalBr.EFDFiscal
                 return this;
             }
 
-            public RegistroC100 ComTipoPagamento(int valor)
+            public RegistroC100 ComTipoPagamento(IndTipoPagamento valor)
             {
                 this.IndPgto = valor;
                 return this;
@@ -373,9 +378,855 @@ namespace FiscalBr.EFDFiscal
                 return this;
             }
 
-            //TODO: Implementar demais propriedades
+            public RegistroC100 ComValorAbatimento(decimal valor)
+            {
+                this.VlAbatNt = valor;
+                return this;
+            }
 
-            #endregion Métodos
+            public RegistroC100 ComValorMercadorias(decimal valor)
+            {
+                this.VlMerc = valor;
+                return this;
+            }
+
+            public RegistroC100 ComTipoFrete(IndTipoFrete valor)
+            {
+                this.IndFrt = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorFrete(decimal valor)
+            {
+                this.VlFrt = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorSeguro(decimal valor)
+            {
+                this.VlSeg = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorOutrasDesp(decimal valor)
+            {
+                this.VlOutDa = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorBaseIcms(decimal valor)
+            {
+                this.VlBcIcms = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorIcms(decimal valor)
+            {
+                this.VlIcms = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorBaseIcmsSt(decimal valor)
+            {
+                this.VlBcIcmsSt = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorIcmsSt(decimal valor)
+            {
+                this.VlIcmsSt = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorIpi(decimal valor)
+            {
+                this.VlIpi = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorPis(decimal valor)
+            {
+                this.VlPis = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorCofins(decimal valor)
+            {
+                this.VlCofins = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorPisSt(decimal valor)
+            {
+                this.VlPisSt = valor;
+                return this;
+            }
+
+            public RegistroC100 ComValorCofinsSt(decimal valor)
+            {
+                this.VlCofinsSt = valor;
+                return this;
+            }
+
+            #endregion Métodos no Padrão Builder
+
+            #region Métodos Estáticos
+
+            public static RegistroC100 PreencherDFeCancelado(
+                IndTipoOperacaoProduto indOperacao,
+                IndEmitente indEmit,
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(indOperacao)
+                    .ComTipoEmissao(indEmit)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoCancelado)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe);
+            }
+
+            public static RegistroC100 PreencherDFeCanceladoExtemporaneo(
+                IndTipoOperacaoProduto indOperacao,
+                IndEmitente indEmit,
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(indOperacao)
+                    .ComTipoEmissao(indEmit)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoCanceladoExtemporaneo)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe);
+            }
+
+            public static RegistroC100 PreencherDFeDenegado(
+                IndTipoOperacaoProduto indOperacao,
+                IndEmitente indEmit,
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(indOperacao)
+                    .ComTipoEmissao(indEmit)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DFeDenegado)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe);
+            }
+
+            public static RegistroC100 PreencherDFeInutilizado(
+                IndTipoOperacaoProduto indOperacao,
+                IndEmitente indEmit,
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(indOperacao)
+                    .ComTipoEmissao(indEmit)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DFeInutilizado)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc);
+            }
+
+            public static RegistroC100 PreencherDFeDeCompraAVistaComFretePorContaDoEmitente(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart,
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
+                    .ComTipoEmissao(IndEmitente.Terceiros)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.AVista)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.ContaEmitente)
+                    .ComValorFrete(vlFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeVendaAVistaComFretePorContaDoEmitente(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart = "",
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
+                    .ComTipoEmissao(IndEmitente.EmissaoPropria)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.AVista)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.ContaEmitente)
+                    .ComValorFrete(vlFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeCompraAVistaComFretePorContaDoDestinatario(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart,
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
+                    .ComTipoEmissao(IndEmitente.Terceiros)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.AVista)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.ContaDestinatarioRemetente)
+                    .ComValorFrete(vlFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeVendaAVistaComFretePorContaDoDestinatario(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart = "",
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
+                    .ComTipoEmissao(IndEmitente.EmissaoPropria)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.AVista)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.ContaDestinatarioRemetente)
+                    .ComValorFrete(vlFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeCompraAVistaSemFrete(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart,
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
+                    .ComTipoEmissao(IndEmitente.Terceiros)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.AVista)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.SemCobrancaFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeVendaAVistaSemFrete(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart = "",
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
+                    .ComTipoEmissao(IndEmitente.EmissaoPropria)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.AVista)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.SemCobrancaFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeCompraAPrazoComFretePorContaDoEmitente(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart,
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
+                    .ComTipoEmissao(IndEmitente.Terceiros)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.APrazo)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.ContaEmitente)
+                    .ComValorFrete(vlFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeVendaAPrazoComFretePorContaDoEmitente(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart = "",
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
+                    .ComTipoEmissao(IndEmitente.EmissaoPropria)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.APrazo)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.ContaEmitente)
+                    .ComValorFrete(vlFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeCompraAPrazoComFretePorContaDoDestinatario(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart,
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
+                    .ComTipoEmissao(IndEmitente.Terceiros)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.APrazo)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.ContaDestinatarioRemetente)
+                    .ComValorFrete(vlFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeVendaAPrazoComFretePorContaDoDestinatario(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart = "",
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
+                    .ComTipoEmissao(IndEmitente.EmissaoPropria)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.APrazo)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.ContaDestinatarioRemetente)
+                    .ComValorFrete(vlFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeCompraAPrazoSemFrete(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart,
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
+                    .ComTipoEmissao(IndEmitente.Terceiros)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.APrazo)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.SemCobrancaFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            public static RegistroC100 PreencherDFeDeVendaAPrazoSemFrete(
+                IndCodMod codModelo,
+                string numDoc,
+                string numSerie,
+                string chaveDfe,
+                DateTime dtDoc,
+                DateTime dtEntrada,
+                decimal vlDoc,
+                string codPart = "",
+                decimal vlMerc = 0M,
+                decimal vlDesc = 0M,
+                decimal vlAbat = 0M,
+                decimal vlFrete = 0M,
+                decimal vlSeguro = 0M,
+                decimal vlDespesas = 0M,
+                decimal vlBaseIcms = 0M,
+                decimal vlIcms = 0M,
+                decimal vlBaseIcmsSt = 0M,
+                decimal vlIcmsSt = 0M,
+                decimal vlIpi = 0M,
+                decimal vlPis = 0M,
+                decimal vlCofins = 0M,
+                decimal vlPisSt = 0M,
+                decimal vlCofinsSt = 0M
+                )
+            {
+                return new RegistroC100()
+                    .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
+                    .ComTipoEmissao(IndEmitente.EmissaoPropria)
+                    .ComCodigoParticipante(codPart)
+                    .ComCodigoModelo(codModelo)
+                    .ComCodigoSituacao(IndCodSitDoc.DocumentoRegular)
+                    .ComSerie(numSerie)
+                    .ComNumeroDocumento(numDoc)
+                    .ComChaveDfe(chaveDfe)
+                    .ComDataEmissao(dtDoc)
+                    .ComDataEntradaSaida(dtEntrada)
+                    .ComValorTotal(vlDoc)
+                    .ComTipoPagamento(IndTipoPagamento.APrazo)
+                    .ComValorDesconto(vlDesc)
+                    .ComValorAbatimento(vlAbat)
+                    .ComValorMercadorias(vlMerc)
+                    .ComTipoFrete(IndTipoFrete.SemCobrancaFrete)
+                    .ComValorSeguro(vlSeguro)
+                    .ComValorOutrasDesp(vlDespesas)
+                    .ComValorBaseIcms(vlBaseIcms)
+                    .ComValorIcms(vlIcms)
+                    .ComValorBaseIcmsSt(vlBaseIcmsSt)
+                    .ComValorIcmsSt(vlIcmsSt)
+                    .ComValorIpi(vlIpi)
+                    .ComValorPis(vlPis)
+                    .ComValorCofins(vlCofins)
+                    .ComValorPisSt(vlPisSt)
+                    .ComValorCofinsSt(vlCofinsSt);
+            }
+
+            #endregion Métodos Estáticos
         }
 
         /// <summary>

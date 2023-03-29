@@ -75,7 +75,7 @@ namespace FiscalBr.Common.Sped
             return false;
         }
 
-        public virtual int ObterVersaoLayout()
+        public int ObterVersaoLayout()
         {
             var versaoLayout = ObterUltimaVersaoDisponivelLayout();
 

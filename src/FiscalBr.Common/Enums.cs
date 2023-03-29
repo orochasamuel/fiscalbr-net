@@ -843,6 +843,11 @@ namespace FiscalBr.Common
     public enum IndTipoPagamento
     {
         /// <summary>
+        ///     Em branco
+        /// </summary>
+        [DefaultValue("")] None,
+
+        /// <summary>
         ///     À vista
         /// </summary>
         [DefaultValue("0")] AVista,
@@ -868,6 +873,7 @@ namespace FiscalBr.Common
     /// </summary>
     public enum IndTipoFrete
     {
+        [DefaultValue("")] None,
         [DefaultValue("0")] ContaEmitente,
         [DefaultValue("1")] ContaDestinatarioRemetente,
         [DefaultValue("2")] ContaTerceiros,
