@@ -1,0 +1,16 @@
+# Number of days of inactivity before an issue becomes stale
+daysUntilStale: 30
+# Number of days of inactivity before a stale issue is closed
+daysUntilClose: 10
+# Issues with these labels will never be considered stale
+exemptLabels:
+  - bug
+  - enhancement
+  - revision
+# Label to use when marking an issue as stale
+staleLabel: waiting feedback
+# Comment to post when marking an issue as stale. Set to `false` to disable
+markComment: >
+  Ei, já tem um tempinho que essa issue está inativa, em breve será encerrada. Obrigado a todos pela contribuição. o/
+# Comment to post when closing a stale issue. Set to `false` to disable
+closeComment: false
