@@ -871,13 +871,14 @@ namespace FiscalBr.Common
     /// <summary>
     ///     Indicador do tipo de frete
     /// </summary>
+    [DefaultValue(None)]
     public enum IndTipoFrete
     {
-        [DefaultValue("")] None,
-        [DefaultValue("0")] ContaEmitente,
-        [DefaultValue("1")] ContaDestinatarioRemetente,
-        [DefaultValue("2")] ContaTerceiros,
-        [DefaultValue("9")] SemCobrancaFrete
+        [DefaultValue("")] None = -1,
+        [DefaultValue("0")] ContaEmitente = 0,
+        [DefaultValue("1")] ContaDestinatarioRemetente = 1,
+        [DefaultValue("2")] ContaTerceiros = 2,
+        [DefaultValue("9")] SemCobrancaFrete = 9
     }
 
     /// <summary>

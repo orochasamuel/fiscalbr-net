@@ -1,4 +1,6 @@
-﻿namespace FiscalBr.Test.Sped
+﻿using FiscalBr.Common;
+
+namespace FiscalBr.Test.Sped
 {
     public class SpedEnumTest
     {
@@ -22,6 +24,26 @@
         public void CodigoVersaoLeiauteTest(CodigoVersaoLeiaute v)
         {
             Assert.Equal(v.ToString("D").PadLeft(3, '0'), v.ToDefaultValue());
+        }
+
+        [Theory]
+        [InlineData(IndTipoFrete.ContaEmitente)]
+        [InlineData(IndTipoFrete.ContaDestinatarioRemetente)]
+        [InlineData(IndTipoFrete.ContaTerceiros)]
+        [InlineData(IndTipoFrete.SemCobrancaFrete)]
+        public void IndTipoFreteTest(IndTipoFrete v)
+        {
+            Assert.Equal(v.ToString("D"), v.ToDefaultValue());
+        }
+
+        [Fact]
+        public void ConverterIntParaEnumTipoSemFreteTest()
+        {
+            var indicadorFreteInt = 9; // Sem frete
+
+            var indicadorFreteEnum = (IndTipoFrete)indicadorFreteInt;
+
+            Assert.Equal(IndTipoFrete.SemCobrancaFrete, indicadorFreteEnum);
         }
     }
 }

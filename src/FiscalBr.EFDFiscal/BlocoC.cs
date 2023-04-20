@@ -488,7 +488,8 @@ namespace FiscalBr.EFDFiscal
                     .ComCodigoSituacao(IndCodSitDoc.DocumentoCancelado)
                     .ComSerie(numSerie)
                     .ComNumeroDocumento(numDoc)
-                    .ComChaveDfe(chaveDfe);
+                    .ComChaveDfe(chaveDfe)
+                    .ComTipoFrete(IndTipoFrete.None);
             }
 
             public static RegistroC100 PreencherDFeCanceladoExtemporaneo(
@@ -507,7 +508,8 @@ namespace FiscalBr.EFDFiscal
                     .ComCodigoSituacao(IndCodSitDoc.DocumentoCanceladoExtemporaneo)
                     .ComSerie(numSerie)
                     .ComNumeroDocumento(numDoc)
-                    .ComChaveDfe(chaveDfe);
+                    .ComChaveDfe(chaveDfe)
+                    .ComTipoFrete(IndTipoFrete.None);
             }
 
             public static RegistroC100 PreencherDFeDenegado(
@@ -526,7 +528,8 @@ namespace FiscalBr.EFDFiscal
                     .ComCodigoSituacao(IndCodSitDoc.DFeDenegado)
                     .ComSerie(numSerie)
                     .ComNumeroDocumento(numDoc)
-                    .ComChaveDfe(chaveDfe);
+                    .ComChaveDfe(chaveDfe)
+                    .ComTipoFrete(IndTipoFrete.None);
             }
 
             public static RegistroC100 PreencherDFeInutilizado(
@@ -543,7 +546,8 @@ namespace FiscalBr.EFDFiscal
                     .ComCodigoModelo(codModelo)
                     .ComCodigoSituacao(IndCodSitDoc.DFeInutilizado)
                     .ComSerie(numSerie)
-                    .ComNumeroDocumento(numDoc);
+                    .ComNumeroDocumento(numDoc)
+                    .ComTipoFrete(IndTipoFrete.None);
             }
 
             public static RegistroC100 PreencherDFeDeCompraAVistaComFretePorContaDoEmitente(
