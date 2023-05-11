@@ -249,6 +249,9 @@ namespace FiscalBr.Common.Sped
 
         private static bool SomenteParaLeitura(System.Reflection.PropertyInfo property)
         {
+            var attribute = property.CustomAttributes.FirstOrDefault();
+            if (attribute != null && attribute.AttributeType == typeof(SpedIgnorarAttribute)) return true;
+
             if (property.PropertyType.BaseType.Equals(typeof(RegistroBaseSped))) return true;
 
             if (property.PropertyType.IsGenericType &&
