@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using FiscalBr.Common;
 using FiscalBr.Common.Sped;
 
 namespace FiscalBr.EFDFiscal
@@ -19,6 +20,62 @@ namespace FiscalBr.EFDFiscal
         public BlocoK BlocoK { get; set; }
 
         #region Leitura
+
+        /// <summary>
+        /// Faz a leitura das linhas
+        /// </summary>
+        /// <param name="source"></param>
+        public override void Ler(string[] source)
+        {
+            base.Ler(source);
+
+            var codVersaoLayout = ObterVersaoLayout();
+
+            bool leituraConcluida = false;
+            foreach (var linha in Linhas)
+            {
+                if (leituraConcluida == false)
+                {
+                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, Constantes.EFDFiscal, codVersaoLayout);
+
+                    if (registro.Reg == "9999")
+                        leituraConcluida = true;
+
+                    var args = new SpedEventArgs()
+                    {
+                        Linha = linha,
+                        Registro = registro
+                    };
+                    AoProcessarLinhaRaise(this, args);
+
+                    if (linha.StartsWith("|0"))
+                        LerBloco0(registro);
+                    else if (linha.StartsWith("|1"))
+                        LerBloco1(registro);
+                    else if (linha.StartsWith("|9"))
+                        LerBloco9(registro);
+                    else if (linha.StartsWith("|B"))
+                        LerBlocoB(registro);
+                    else if (linha.StartsWith("|C"))
+                        LerBlocoC(registro);
+                    else if (linha.StartsWith("|D"))
+                        LerBlocoD(registro);
+                    else if (linha.StartsWith("|E"))
+                        LerBlocoE(registro);
+                    else if (linha.StartsWith("|G"))
+                        LerBlocoG(registro);
+                    else if (linha.StartsWith("|H"))
+                        LerBlocoH(registro);
+                    else if (linha.StartsWith("|K"))
+                        LerBlocoK(registro);
+                    else
+                        break;
+                }
+                else { break; }
+            }
+
+        }
+
         public override void Ler(string path, Encoding encoding = null, int codVersaoLayout = 0)
         {
             base.Ler(path, encoding);
@@ -31,7 +88,7 @@ namespace FiscalBr.EFDFiscal
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, file: "EFDFiscal", codVersaoLayout);
+                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, Constantes.EFDFiscal, codVersaoLayout);
 
                     if (registro.Reg == "9999")
                         leituraConcluida = true;
@@ -167,7 +224,7 @@ namespace FiscalBr.EFDFiscal
                     Bloco0.Reg0001.Reg0300s.Add((Bloco0.Registro0300)registro);
                     break;
 
-                case "00305":
+                case "0305":
                     var reg0300 = Bloco0.Reg0001.Reg0300s.Last();
                     reg0300.Reg0305 = (Bloco0.Registro0305)registro;
                     break;
