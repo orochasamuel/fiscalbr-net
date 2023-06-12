@@ -6,7 +6,7 @@ namespace FiscalBr.Common.Sped
 {
     public static class LerCamposSped
     {
-        public static object LerCampos(this string line, string file = "EFDFiscal", int codVersao = 0)
+        public static object LerCampos(this string line, string file = Constantes.EFDFiscal, int codVersao = 0)
         {
             line = line.TrimStart().Substring(1);
 

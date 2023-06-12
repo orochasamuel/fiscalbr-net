@@ -22,10 +22,19 @@ namespace FiscalBr.Sintegra
         /// <param name="CodFin">Código de Finalidade do Arquivo. 1 - Normal; 2 - Retificadora; 3 - Vedado; 5 - Desfazimento.</param>
         /// <param name="CodEstrut">Código de Estrutura do Arquivo</param>
         /// <param name="CodNat">Código da Natureza das Operações</param>
-        public Registro10(string Cnpj, string Ie, string RazaoSocial, string Municipio, string Uf, string Fax,
-            DateTime DataInicial, DateTime DataFinal, CodFinalidadeArquivo CodFin,
+        public Registro10(
+            string Cnpj,
+            string Ie,
+            string RazaoSocial,
+            string Municipio,
+            string Uf,
+            string Fax,
+            DateTime DataInicial,
+            DateTime DataFinal,
+            CodFinalidadeArquivo CodFin,
             CodEstruturaArquivo CodEstrut = CodEstruturaArquivo.Cod3,
-            CodNaturezaOperacoes CodNat = CodNaturezaOperacoes.Cod3)
+            CodNaturezaOperacoes CodNat = CodNaturezaOperacoes.Cod3
+            )
         {
             Tipo = "10";
             this.Cnpj = Cnpj;

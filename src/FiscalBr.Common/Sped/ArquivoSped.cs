@@ -46,6 +46,20 @@ namespace FiscalBr.Common.Sped
             RemoverLinhasVazias();
         }
 
+        public virtual void Ler(string[] source)
+        {
+            if (source == null || source.Length == 0) throw new Exception("Nada a ser lido! Verifique e tente novamente");
+
+            Erros = new List<string>();
+
+            Linhas = source.ToList();
+
+            if (ExisteAssinaturaNoArquivo())
+                RemoverLinhasDeAssinatura();
+
+            RemoverLinhasVazias();
+        }
+
         private void RemoverLinhasVazias()
         {
             //Remove linhas em branco

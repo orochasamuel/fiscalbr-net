@@ -30,7 +30,11 @@ namespace FiscalBr.Sintegra
 
         private string NUMERO_REGISTROS_TIPO_90 { get; set; }
 
-        public Registro90(string inscrCnpj, string inscrEstadual, List<string> linhas)
+        public Registro90(
+            string inscrCnpj,
+            string inscrEstadual,
+            List<string> linhas
+            )
         {
             var registros = new List<Registro90.Registro90Temp>();
 

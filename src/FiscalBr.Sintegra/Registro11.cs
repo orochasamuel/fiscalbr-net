@@ -18,8 +18,15 @@ namespace FiscalBr.Sintegra
         /// <param name="Cep">Cep do endereço do informante</param>
         /// <param name="NomeContato">Nome para contato</param>
         /// <param name="NumeroContato">Número para contato</param>
-        public Registro11(string Logradouro, string Numero, string Complemento, string Bairro, string Cep,
-            string NomeContato, string NumeroContato)
+        public Registro11(
+            string Logradouro,
+            string Numero,
+            string Complemento,
+            string Bairro,
+            string Cep,
+            string NomeContato,
+            string NumeroContato
+            )
         {
             Tipo = "11";
             this.Logradouro = Logradouro;

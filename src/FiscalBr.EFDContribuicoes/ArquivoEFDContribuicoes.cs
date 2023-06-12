@@ -1,4 +1,5 @@
-﻿using FiscalBr.Common.Sped;
+﻿using FiscalBr.Common;
+using FiscalBr.Common.Sped;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,7 +32,7 @@ namespace FiscalBr.EFDContribuicoes
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, file: "EFDContribuicoes", codVersaoLayout);
+                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, Constantes.EFDContribuicoes, codVersaoLayout);
 
                     if (registro.Reg == "9999")
                         leituraConcluida = true;

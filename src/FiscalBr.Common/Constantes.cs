@@ -10,5 +10,9 @@ namespace FiscalBr.Common
     {
         public const decimal VZero = 0.00M;
         public const string StructuralError = "|ERRO_NA_ESTRUTURA|";
+
+        public const string EFDFiscal = "EFDFiscal";
+        public const string EFDContribuicoes = "EFDContribuicoes";
+
     }
 }
