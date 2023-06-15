@@ -126,13 +126,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Código individualizado do bem ou componente adotado no controle patrimonial do estabelecimento informante
             /// </summary>
-            [SpedCampos(2, "COD_IND_BEM", "C", 2, 0, true, 4)]
+            [SpedCampos(2, "COD_IND_BEM", "C", 60, 0, true, 4)]
             public string CodIndBem { get; set; }
 
             /// <summary>
             ///     Data da movimentação ou do saldo inicial
             /// </summary>
-            [SpedCampos(3, "DT_MOV", "N", 0, 2, true, 4)]
+            [SpedCampos(3, "DT_MOV", "N", 8, 0, true, 4)]
             public DateTime DtMov { get; set; }
 
             /// <summary>
@@ -155,25 +155,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor do ICMS da operação própria na entrada do bem ou componente
             /// </summary>
-            [SpedCampos(5, "VL_IMOB_ICMS_OP", "N", 0, 2, false, 4)]
+            [SpedCampos(5, "VL_IMOB_ICMS_OP", "N", 15, 2, false, 4)]
             public decimal VlImobIcmsOp { get; set; }
 
             /// <summary>
             ///     Valor do ICMS da operação por sub. tributária na entrada do bem ou componente
             /// </summary>
-            [SpedCampos(6, "VL_IMOB_ICMS_ST", "N", 0, 2, false, 4)]
+            [SpedCampos(6, "VL_IMOB_ICMS_ST", "N", 15, 2, false, 4)]
             public decimal VlImobIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS sobre frete do conhecimento de transporte na entrada do bem ou componente
             /// </summary>
-            [SpedCampos(7, "VL_IMOB_ICMS_FRT", "N", 0, 2, false, 4)]
+            [SpedCampos(7, "VL_IMOB_ICMS_FRT", "N", 15, 2, false, 4)]
             public decimal VlImobIcmsFrt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS - diferencial de alíquota, conforme doc. de arrecação, na entrada do bem ou componente
             /// </summary>
-            [SpedCampos(8, "VL_IMOB_ICMS_DIF", "N", 0, 2, false, 4)]
+            [SpedCampos(8, "VL_IMOB_ICMS_DIF", "N", 15, 2, false, 4)]
             public decimal VlImobIcmsDif { get; set; }
 
             /// <summary>
@@ -186,7 +186,7 @@ namespace FiscalBr.EFDFiscal
             ///     Valor da parcela do ICMS passível de apropriação (antes da aplicação da participação percentual do valor das saídas
             ///     tributadas/exportação sobre as saídas totais)
             /// </summary>
-            [SpedCampos(10, "VL_PARC_PASS", "N", 0, 2, false, 4)]
+            [SpedCampos(10, "VL_PARC_PASS", "N", 15, 2, false, 4)]
             public decimal VlParcPass { get; set; }
 
             public List<RegistroG126> RegG126s { get; set; }

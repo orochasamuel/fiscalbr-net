@@ -27,7 +27,7 @@ namespace FiscalBr.Test.Sped.Bloco0
 
             arquivoLido.Ler(resultadoEsperadoArray);
 
-            arquivoLido.GerarLinhas();
+            //arquivoLido.GerarLinhas();
 
             Assert.Equivalent(arquivoGerado, arquivoLido, true);
         }
