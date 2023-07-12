@@ -878,6 +878,8 @@ namespace FiscalBr.Common
         [DefaultValue("0")] ContaEmitente = 0,
         [DefaultValue("1")] ContaDestinatarioRemetente = 1,
         [DefaultValue("2")] ContaTerceiros = 2,
+        [DefaultValue("3")] ProprioContaRemetente = 3,
+        [DefaultValue("4")] ProprioContaDestinatario = 4,
         [DefaultValue("9")] SemCobrancaFrete = 9
     }
 
