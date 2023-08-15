@@ -85,6 +85,21 @@ namespace FiscalBr.Test.Sped.BlocoC
             Assert.Equal(expectedResult, currentResult);
         }
 
+        [Fact]
+        public void Teste_Leitura_Isolada_C100_indmod_1B()
+        {
+            var expectedResult =
+            @"|C100|0|1|F000408|1B|00|001|1862||11012020|11012020|1370|1|0|0|1370|9|0|0|0|1090|196,2|0|0|0|17,99|82,84|0|0|";
+
+            File.WriteAllText("SpedTestC100.1Bv17.txt", expectedResult);
+
+            var efdFiscalFile = new FiscalBr.EFDFiscal.ArquivoEFDFiscal();
+
+            efdFiscalFile.Ler("SpedTestC100.1Bv17.txt");
+            Assert.Equal("1862", efdFiscalFile.BlocoC?.RegC001?.RegC100s?.FirstOrDefault()?.NumDoc);
+            Assert.Equal(IndCodMod.Mod1B, efdFiscalFile.BlocoC?.RegC001?.RegC100s?.FirstOrDefault()?.CodMod);
+        }
+
         private void SetCulture()
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");

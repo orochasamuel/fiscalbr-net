@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 
 namespace FiscalBr.Common.Sped
 {
@@ -72,9 +74,28 @@ namespace FiscalBr.Common.Sped
 
                     else if (propType.IsEnum)
                     {
-                        var convertedEnum = Enum.Parse(propType, value.ToStringSafe());
+                        foreach (var currentEnumItem in propType.GetEnumValues())
+                        {
+                            MemberInfo memberInfo = propType.GetMember(currentEnumItem.ToString()).FirstOrDefault();
 
-                        prop.SetValue(instantiatedObject, convertedEnum);
+                            if (memberInfo != null)
+                            {
+                                DefaultValueAttribute attribute = (DefaultValueAttribute)
+                                             memberInfo.GetCustomAttributes(typeof(DefaultValueAttribute), false)
+                                                       .FirstOrDefault();
+
+                                if (attribute != null)
+                                {
+                                    if (attribute.Value.ToString() == value.ToString())
+                                    {
+                                        var convertedEnum = Enum.Parse(propType, currentEnumItem.ToString());
+
+                                        prop.SetValue(instantiatedObject, convertedEnum);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
                     }
 
                     else if (propType == typeof(Decimal) || propType == typeof(Nullable<Decimal>))

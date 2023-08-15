@@ -875,10 +875,22 @@ namespace FiscalBr.Common
     public enum IndTipoFrete
     {
         [DefaultValue("")] None = -1,
-        [DefaultValue("0")] ContaEmitente = 0,
-        [DefaultValue("1")] ContaDestinatarioRemetente = 1,
+
+        [DefaultValue("0")] ContaRemetenteCif = 0,
+        [DefaultValue("1")] ContaDestinatarioFob = 1,
         [DefaultValue("2")] ContaTerceiros = 2,
-        [DefaultValue("9")] SemCobrancaFrete = 9
+        [DefaultValue("3")] ContaProprioRemetente = 3,
+        [DefaultValue("4")] ContaProprioDestinatario = 4,
+
+        [DefaultValue("9")] SemCobrancaFrete = 9,
+
+        [DefaultValue("0")] ContaTerceirosPre2012 = 120,
+        [DefaultValue("1")] ContaEmitentePre2012 = 121,
+        [DefaultValue("2")] ContaDestinatarioPre2012 = 122,
+
+        [DefaultValue("0")] ContaEmitentePre2018 = 180,
+        [DefaultValue("1")] ContaDestinatarioRemetentePre2018 = 181,
+        [DefaultValue("2")] ContaTerceirosPre2018 = 182
     }
 
     /// <summary>

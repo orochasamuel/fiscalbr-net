@@ -27,8 +27,10 @@ namespace FiscalBr.Test.Sped
         }
 
         [Theory]
-        [InlineData(IndTipoFrete.ContaEmitente)]
-        [InlineData(IndTipoFrete.ContaDestinatarioRemetente)]
+        [InlineData(IndTipoFrete.ContaDestinatarioFob)]
+        [InlineData(IndTipoFrete.ContaRemetenteCif)]
+        [InlineData(IndTipoFrete.ContaProprioDestinatario)]
+        [InlineData(IndTipoFrete.ContaProprioRemetente)]
         [InlineData(IndTipoFrete.ContaTerceiros)]
         [InlineData(IndTipoFrete.SemCobrancaFrete)]
         public void IndTipoFreteTest(IndTipoFrete v)
