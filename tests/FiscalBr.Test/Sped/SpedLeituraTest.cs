@@ -232,7 +232,7 @@ QUALQUER INFORMAÇÃO APÓS ESSE REGISTRO SERÁ DESPREZADA NA LEITURA
 
             var bloco = registro.Substring(0, 1);
 
-            var toInstantiate = $"FiscalBr.{Constantes.EFDFiscal}.Bloco{bloco}+Registro{registro}, FiscalBr.{Constantes.EFDFiscal}";
+            var toInstantiate = $"FiscalBr.{Constantes.ArquivoDigital.Sped.EFDFiscal}.Bloco{bloco}+Registro{registro}, FiscalBr.{Constantes.ArquivoDigital.Sped.EFDFiscal}";
 
             var objectType = Type.GetType(toInstantiate);
 

@@ -36,7 +36,7 @@ namespace FiscalBr.EFDFiscal
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, Constantes.EFDFiscal, codVersaoLayout);
+                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, Constantes.ArquivoDigital.Sped.EFDFiscal, codVersaoLayout);
 
                     if (registro.Reg == "9999")
                         leituraConcluida = true;
@@ -88,7 +88,7 @@ namespace FiscalBr.EFDFiscal
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, Constantes.EFDFiscal, codVersaoLayout);
+                    var registro = (RegistroBaseSped)LerCamposSped.LerCampos(linha, Constantes.ArquivoDigital.Sped.EFDFiscal, codVersaoLayout);
 
                     if (registro.Reg == "9999")
                         leituraConcluida = true;

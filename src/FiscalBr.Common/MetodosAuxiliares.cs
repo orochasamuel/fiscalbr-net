@@ -299,20 +299,20 @@ namespace FiscalBr.Common
 
         // This extension method is broken out so you can use a similar pattern with 
         // other MetaData elements in the future. This is your base method for each.
-        private static T GetAttribute<T>(this Enum value) where T : Attribute
-        {
-            var type = value.GetType();
-            var memberInfo = type.GetMember(value.ToString());
-            var attributes = memberInfo[0].GetCustomAttributes(typeof(T), false);
-            return (T)attributes[0];
-        }
+        //private static T GetAttribute<T>(this Enum value) where T : Attribute
+        //{
+        //    var type = value.GetType();
+        //    var memberInfo = type.GetMember(value.ToString());
+        //    var attributes = memberInfo[0].GetCustomAttributes(typeof(T), false);
+        //    return (T)attributes[0];
+        //}
 
-        // This method creates a specific call to the above method, requesting the
-        // Description MetaData attribute.
-        public static string ToDefaultValue(this Enum value)
-        {
-            var attribute = value.GetAttribute<DefaultValueAttribute>();
-            return attribute == null ? value.ToStringSafe() : attribute.Value.ToStringSafe();
-        }
+        //// This method creates a specific call to the above method, requesting the
+        //// Description MetaData attribute.
+        //public static string ToDefaultValue(this Enum value)
+        //{
+        //    var attribute = value.GetAttribute<DefaultValueAttribute>();
+        //    return attribute == null ? value.ToStringSafe() : attribute.Value.ToStringSafe();
+        //}
     }
 }

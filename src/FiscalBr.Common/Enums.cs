@@ -177,6 +177,13 @@ namespace FiscalBr.Common
 
     #endregion ECD
 
+    public enum LeiauteArquivoSped
+    {
+        [DefaultValue("EFD Contrib")] EFDContrib,
+        [DefaultValue("EFD Fiscal")] EFDFiscal,
+        [DefaultValue("ECD")] ECD,
+        [DefaultValue("ECF")] ECF,
+    }
 
     public enum CodigoVersaoLeiaute
     {

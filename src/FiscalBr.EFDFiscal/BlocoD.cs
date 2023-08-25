@@ -27,22 +27,109 @@ namespace FiscalBr.EFDFiscal
             }
 
             /// <summary>
-            ///     Indicador de movimento: 
+            ///   Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
+            /// </summary>
+            public RegistroD001(IndMovimento indMovimento)
+            {
+                Reg = "D001";
+                IndMov = indMovimento;
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroD001" />.
+            /// </summary>
+            public RegistroD001(bool temMovimento)
+            {
+                Reg = "D001";
+                IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+            }
+
+            /// <summary>
+            ///     Indicador de movimento:
+            ///     <remarks>
             ///     <para />
             ///     0 - Bloco com dados informados;
             ///     <para />
             ///     1 - Bloco sem dados informados.
+            ///     </remarks>
             /// </summary>
             [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 2)]
             public IndMovimento IndMov { get; set; }
-            
+
             public List<RegistroD100> RegD100s { get; set; }
             public List<RegistroD300> RegD300s { get; set; }
             public List<RegistroD350> RegD350s { get; set; }
             public List<RegistroD400> RegD400s { get; set; }
             public List<RegistroD500> RegD500s { get; set; }
             public List<RegistroD600> RegD600s { get; set; }
-            public List<RegistroD695> RegD695s { get; set; } 
+            public List<RegistroD695> RegD695s { get; set; }
+
+            public RegistroD001 ComIndicadorMovimento(bool v)
+            {
+                IndMov = v ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+                return this;  
+            }
+        }
+
+        public class RegistroD001New : RegistroSped
+        {
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
+            /// </summary>
+            public RegistroD001New() : base(Constantes.ArquivoDigital.Sped.Bloco.D.D001) { }
+
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
+            /// </summary>
+            /// <param name="indMovimento"></param>
+            public RegistroD001New(IndMovimento indMovimento) : base(Constantes.ArquivoDigital.Sped.Bloco.D.D001)
+            {
+                IndMov = indMovimento;
+            }
+
+            /// <summary>
+            /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
+            /// </summary>
+            /// <param name="temMovimento"></param>
+            public RegistroD001New(bool temMovimento) : base(Constantes.ArquivoDigital.Sped.Bloco.D.D001)
+            {
+                IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+            }
+
+            /// <summary>
+            ///     Indicador de movimento: 
+            ///     <remarks>
+            ///     </para>
+            ///     0 - Bloco com dados informados;
+            ///     1 - Bloco sem dados informados.
+            ///     </remarks>
+            /// </summary>
+            [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 2)]
+            public IndMovimento IndMov { get; set; }
+
+            public List<RegistroD100> RegD100s { get; set; }
+            public List<RegistroD300> RegD300s { get; set; }
+            public List<RegistroD350> RegD350s { get; set; }
+            public List<RegistroD400> RegD400s { get; set; }
+            public List<RegistroD500> RegD500s { get; set; }
+            public List<RegistroD600> RegD600s { get; set; }
+            public List<RegistroD695> RegD695s { get; set; }
+
+            public RegistroD001New ComIndicadorMovimento(bool v)
+            {
+                IndMov = v ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+                return this;
+            }
+
+            public override bool Validar()
+            {
+                if (!Reg.Equals(Constantes.ArquivoDigital.Sped.Bloco.D.D001))
+                    return false;
+
+
+
+                return base.Validar();
+            }
         }
 
         /// <summary>
@@ -2760,7 +2847,7 @@ namespace FiscalBr.EFDFiscal
             ///  Chave de codificação digital do arquivo Mestre de Documento Fiscal
             /// </summary>
             [SpedCampos(9, "CHV_COD_DIG", "C", 32, 0, true, 2)]
-            public string ChvCodDig{ get; set; }
+            public string ChvCodDig { get; set; }
 
             public List<RegistroD696> RegD696s { get; set; }
         }

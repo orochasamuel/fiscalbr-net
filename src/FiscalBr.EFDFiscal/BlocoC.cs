@@ -164,7 +164,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total do documento fiscal
             /// </summary>
-            [SpedCampos(12, "VL_DOC", "N", 0, 2, false, 2)]
+            [SpedCampos(12, "VL_DOC", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlDoc { get; set; }
 
             /// <summary>
@@ -180,20 +180,20 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total do desconto
             /// </summary>
-            [SpedCampos(14, "VL_DESC", "N", 0, 2, false, 2)]
+            [SpedCampos(14, "VL_DESC", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlDesc { get; set; }
 
             /// <summary>
             ///     Abatimento não tributado e não comercial.
             ///     Ex.: desconto ICMS nas remessas para ZFM.
             /// </summary>
-            [SpedCampos(15, "VL_ABAT_NT", "N", 0, 2, false, 2)]
+            [SpedCampos(15, "VL_ABAT_NT", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlAbatNt { get; set; }
 
             /// <summary>
             ///     Valor total das mercadorias e serviços
             /// </summary>
-            [SpedCampos(16, "VL_MERC", "N", 0, 2, false, 2)]
+            [SpedCampos(16, "VL_MERC", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlMerc { get; set; }
 
             /// <summary>
@@ -209,73 +209,73 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor do frete indicado no documento fiscal
             /// </summary>
-            [SpedCampos(18, "VL_FRT", "N", 0, 2, false, 2)]
+            [SpedCampos(18, "VL_FRT", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlFrt { get; set; }
 
             /// <summary>
             ///     Valor do seguro indicado no documento fiscal
             /// </summary>
-            [SpedCampos(19, "VL_SEG", "N", 0, 2, false, 2)]
+            [SpedCampos(19, "VL_SEG", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlSeg { get; set; }
 
             /// <summary>
             ///     Valor de outras despesas acessórias
             /// </summary>
-            [SpedCampos(20, "VL_OUT_DA", "N", 0, 2, false, 2)]
+            [SpedCampos(20, "VL_OUT_DA", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlOutDa { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS
             /// </summary>
-            [SpedCampos(21, "VL_BC_ICMS", "N", 0, 2, false, 2)]
+            [SpedCampos(21, "VL_BC_ICMS", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlBcIcms { get; set; }
 
             /// <summary>
             ///     Valor do ICMS
             /// </summary>
-            [SpedCampos(22, "VL_ICMS", "N", 0, 2, false, 2)]
+            [SpedCampos(22, "VL_ICMS", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlIcms { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo do ICMS substituição tributária
             /// </summary>
-            [SpedCampos(23, "VL_BC_ICMS_ST", "N", 0, 2, false, 2)]
+            [SpedCampos(23, "VL_BC_ICMS_ST", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlBcIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor do ICMS retido por substituição tributária
             /// </summary>
-            [SpedCampos(24, "VL_ICMS_ST", "N", 0, 2, false, 2)]
+            [SpedCampos(24, "VL_ICMS_ST", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlIcmsSt { get; set; }
 
             /// <summary>
             ///     Valor total do IPI
             /// </summary>
-            [SpedCampos(25, "VL_IPI", "N", 0, 2, false, 2)]
+            [SpedCampos(25, "VL_IPI", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlIpi { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
-            [SpedCampos(26, "VL_PIS", "N", 0, 2, false, 2)]
+            [SpedCampos(26, "VL_PIS", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
-            [SpedCampos(27, "VL_COFINS", "N", 0, 2, false, 2)]
+            [SpedCampos(27, "VL_COFINS", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Valor total do PIS retido por substituição tributária
             /// </summary>
-            [SpedCampos(28, "VL_PIS_ST", "N", 0, 2, false, 2)]
+            [SpedCampos(28, "VL_PIS_ST", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlPisSt { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS retido por substituição tributária
             /// </summary>
-            [SpedCampos(29, "VL_COFINS_ST", "N", 0, 2, false, 2)]
+            [SpedCampos(29, "VL_COFINS_ST", "N", int.MaxValue, 2, false, 2)]
             public decimal? VlCofinsSt { get; set; }
 
             #region Registros Filhos
@@ -300,171 +300,171 @@ namespace FiscalBr.EFDFiscal
 
             #region Métodos no Padrão Builder
 
-            public RegistroC100 ComTipoOperacao(IndTipoOperacaoProduto valor)
+            public RegistroC100 ComTipoOperacao(IndTipoOperacaoProduto v)
             {
-                this.IndOper = valor;
+                this.IndOper = v;
                 return this;
             }
 
-            public RegistroC100 ComTipoEmissao(IndEmitente valor)
+            public RegistroC100 ComTipoEmissao(IndEmitente v)
             {
-                this.IndEmit = valor;
+                this.IndEmit = v;
                 return this;
             }
 
-            public RegistroC100 ComCodigoParticipante(string valor)
+            public RegistroC100 ComCodigoParticipante(string v)
             {
-                this.CodPart = valor;
+                this.CodPart = v;
                 return this;
             }
 
-            public RegistroC100 ComCodigoModelo(IndCodMod valor)
+            public RegistroC100 ComCodigoModelo(IndCodMod v)
             {
-                this.CodMod = valor;
+                this.CodMod = v;
                 return this;
             }
 
-            public RegistroC100 ComCodigoSituacao(IndCodSitDoc valor)
+            public RegistroC100 ComCodigoSituacao(IndCodSitDoc v)
             {
-                this.CodSit = valor;
+                this.CodSit = v;
                 return this;
             }
 
-            public RegistroC100 ComSerie(string valor)
+            public RegistroC100 ComSerie(string v)
             {
-                this.Ser = valor;
+                this.Ser = v;
                 return this;
             }
 
-            public RegistroC100 ComNumeroDocumento(string valor)
+            public RegistroC100 ComNumeroDocumento(string v)
             {
-                this.NumDoc = valor;
+                this.NumDoc = v;
                 return this;
             }
 
-            public RegistroC100 ComChaveDfe(string valor)
+            public RegistroC100 ComChaveDfe(string v)
             {
-                this.ChvNfe = valor;
+                this.ChvNfe = v;
                 return this;
             }
 
-            public RegistroC100 ComDataEmissao(DateTime valor)
+            public RegistroC100 ComDataEmissao(DateTime v)
             {
-                this.DtDoc = valor;
+                this.DtDoc = v;
                 return this;
             }
 
-            public RegistroC100 ComDataEntradaSaida(DateTime valor)
+            public RegistroC100 ComDataEntradaSaida(DateTime v)
             {
-                this.DtEs = valor;
+                this.DtEs = v;
                 return this;
             }
 
-            public RegistroC100 ComValorTotal(decimal valor)
+            public RegistroC100 ComValorTotal(decimal v)
             {
-                this.VlDoc = valor;
+                this.VlDoc = v;
                 return this;
             }
 
-            public RegistroC100 ComTipoPagamento(IndTipoPagamento valor)
+            public RegistroC100 ComTipoPagamento(IndTipoPagamento v)
             {
-                this.IndPgto = valor;
+                this.IndPgto = v;
                 return this;
             }
 
-            public RegistroC100 ComValorDesconto(decimal valor)
+            public RegistroC100 ComValorDesconto(decimal v)
             {
-                this.VlDesc = valor;
+                this.VlDesc = v;
                 return this;
             }
 
-            public RegistroC100 ComValorAbatimento(decimal valor)
+            public RegistroC100 ComValorAbatimento(decimal v)
             {
-                this.VlAbatNt = valor;
+                this.VlAbatNt = v;
                 return this;
             }
 
-            public RegistroC100 ComValorMercadorias(decimal valor)
+            public RegistroC100 ComValorMercadorias(decimal v)
             {
-                this.VlMerc = valor;
+                this.VlMerc = v;
                 return this;
             }
 
-            public RegistroC100 ComTipoFrete(IndTipoFrete valor)
+            public RegistroC100 ComTipoFrete(IndTipoFrete v)
             {
-                this.IndFrt = valor;
+                this.IndFrt = v;
                 return this;
             }
 
-            public RegistroC100 ComValorFrete(decimal valor)
+            public RegistroC100 ComValorFrete(decimal v)
             {
-                this.VlFrt = valor;
+                this.VlFrt = v;
                 return this;
             }
 
-            public RegistroC100 ComValorSeguro(decimal valor)
+            public RegistroC100 ComValorSeguro(decimal v)
             {
-                this.VlSeg = valor;
+                this.VlSeg = v;
                 return this;
             }
 
-            public RegistroC100 ComValorOutrasDesp(decimal valor)
+            public RegistroC100 ComValorOutrasDesp(decimal v)
             {
-                this.VlOutDa = valor;
+                this.VlOutDa = v;
                 return this;
             }
 
-            public RegistroC100 ComValorBaseIcms(decimal valor)
+            public RegistroC100 ComValorBaseIcms(decimal v)
             {
-                this.VlBcIcms = valor;
+                this.VlBcIcms = v;
                 return this;
             }
 
-            public RegistroC100 ComValorIcms(decimal valor)
+            public RegistroC100 ComValorIcms(decimal v)
             {
-                this.VlIcms = valor;
+                this.VlIcms = v;
                 return this;
             }
 
-            public RegistroC100 ComValorBaseIcmsSt(decimal valor)
+            public RegistroC100 ComValorBaseIcmsSt(decimal v)
             {
-                this.VlBcIcmsSt = valor;
+                this.VlBcIcmsSt = v;
                 return this;
             }
 
-            public RegistroC100 ComValorIcmsSt(decimal valor)
+            public RegistroC100 ComValorIcmsSt(decimal v)
             {
-                this.VlIcmsSt = valor;
+                this.VlIcmsSt = v;
                 return this;
             }
 
-            public RegistroC100 ComValorIpi(decimal valor)
+            public RegistroC100 ComValorIpi(decimal v)
             {
-                this.VlIpi = valor;
+                this.VlIpi = v;
                 return this;
             }
 
-            public RegistroC100 ComValorPis(decimal valor)
+            public RegistroC100 ComValorPis(decimal v)
             {
-                this.VlPis = valor;
+                this.VlPis = v;
                 return this;
             }
 
-            public RegistroC100 ComValorCofins(decimal valor)
+            public RegistroC100 ComValorCofins(decimal v)
             {
-                this.VlCofins = valor;
+                this.VlCofins = v;
                 return this;
             }
 
-            public RegistroC100 ComValorPisSt(decimal valor)
+            public RegistroC100 ComValorPisSt(decimal v)
             {
-                this.VlPisSt = valor;
+                this.VlPisSt = v;
                 return this;
             }
 
-            public RegistroC100 ComValorCofinsSt(decimal valor)
+            public RegistroC100 ComValorCofinsSt(decimal v)
             {
-                this.VlCofinsSt = valor;
+                this.VlCofinsSt = v;
                 return this;
             }
 
@@ -4919,14 +4919,14 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC590> RegC590s { get; set; }
             public List<RegistroC595> RegC595s { get; set; }
 
-            public override bool EhValido()
-            {
-                if (IndOper == IndTipoOperacaoProduto.Saida)
-                    if (IndDest == IndCodDestAcessante.None)
-                        return false;
+            //public override bool Validar()
+            //{
+            //    if (IndOper == IndTipoOperacaoProduto.Saida)
+            //        if (IndDest == IndCodDestAcessante.None)
+            //            return false;
 
-                return base.EhValido();
-            }
+            //    return base.Validar();
+            //}
         }
 
         /// <summary>
