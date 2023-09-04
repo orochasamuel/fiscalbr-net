@@ -107,6 +107,16 @@ namespace FiscalBr.Common.Sped
                         conversionResult = Decimal.TryParse(value.ToStringSafe(), out convertedDecimalValue);
                         prop.SetValue(instantiatedObject, convertedDecimalValue);
                     }
+                    else if (propType == typeof(Double) || propType == typeof(Nullable<Double>))
+                    {
+                        Double convertedDoubleValue;
+                        conversionResult = Double.TryParse(value.ToStringSafe(), out convertedDoubleValue);
+                        prop.SetValue(instantiatedObject, convertedDoubleValue);
+                        if (propType == typeof(Nullable<Double>))
+                            prop.SetValue(instantiatedObject, (Nullable<Double>)convertedDoubleValue);
+                        else
+                            prop.SetValue(instantiatedObject, convertedDoubleValue);
+                    }
                     else if (propType == typeof(Int32) || propType == typeof(Nullable<Int32>))
                     {
                         int convertedInt32Value;
