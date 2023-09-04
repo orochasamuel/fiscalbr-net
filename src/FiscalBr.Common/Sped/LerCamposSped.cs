@@ -56,7 +56,10 @@ namespace FiscalBr.Common.Sped
                     {
                         int convertedInt32Value;
                         conversionResult = Int32.TryParse(value.ToStringSafe(), out convertedInt32Value);
-                        prop.SetValue(instantiatedObject, convertedInt32Value);
+                        if (propType == typeof(Nullable<Int64>))
+                            prop.SetValue(instantiatedObject, (Nullable<Int64>)convertedInt32Value);
+                        else
+                            prop.SetValue(instantiatedObject, convertedInt32Value);
                     }
 
                     else if (propType == typeof(DateTime) || propType == typeof(Nullable<DateTime>))
