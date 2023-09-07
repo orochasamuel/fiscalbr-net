@@ -105,13 +105,19 @@ namespace FiscalBr.Common.Sped
                     else if (propType == typeof(Decimal) || propType == typeof(Nullable<Decimal>))
                     {
                         Decimal convertedDecimalValue;
-                        conversionResult = Decimal.TryParse(value.ToStringSafe(), out convertedDecimalValue);
-                        prop.SetValue(instantiatedObject, convertedDecimalValue);
+                        System.Globalization.NumberStyles style = System.Globalization.NumberStyles.Number;
+                        conversionResult = Decimal.TryParse(value.ToStringSafe(), style, System.Globalization.CultureInfo.GetCultureInfo("pt-BR"), out convertedDecimalValue);
+                        
+                        if (propType == typeof(Nullable<Decimal>))
+                            prop.SetValue(instantiatedObject, (Nullable<Decimal>)convertedDecimalValue);
+                        else
+                            prop.SetValue(instantiatedObject, convertedDecimalValue);
                     }
                     else if (propType == typeof(Double) || propType == typeof(Nullable<Double>))
                     {
                         Double convertedDoubleValue;
-                        conversionResult = Double.TryParse(value.ToStringSafe(), out convertedDoubleValue);
+                        System.Globalization.NumberStyles style = System.Globalization.NumberStyles.Number;
+                        conversionResult = Double.TryParse(value.ToStringSafe(), style, System.Globalization.CultureInfo.GetCultureInfo("pt-BR"), out convertedDoubleValue);
 
                         if (propType == typeof(Nullable<Double>))
                             prop.SetValue(instantiatedObject, (Nullable<Double>)convertedDoubleValue);
