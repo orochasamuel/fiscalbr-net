@@ -56,7 +56,10 @@ namespace FiscalBr.Common.Sped
                     {
                         int convertedInt32Value;
                         conversionResult = Int32.TryParse(value.ToStringSafe(), out convertedInt32Value);
-                        prop.SetValue(instantiatedObject, convertedInt32Value);
+                        if (propType == typeof(Nullable<Int64>))
+                            prop.SetValue(instantiatedObject, (Nullable<Int64>)convertedInt32Value);
+                        else
+                            prop.SetValue(instantiatedObject, convertedInt32Value);
                     }
 
                     else if (propType == typeof(DateTime) || propType == typeof(Nullable<DateTime>))
@@ -103,6 +106,16 @@ namespace FiscalBr.Common.Sped
                         Decimal convertedDecimalValue;
                         conversionResult = Decimal.TryParse(value.ToStringSafe(), out convertedDecimalValue);
                         prop.SetValue(instantiatedObject, convertedDecimalValue);
+                    }
+                    else if (propType == typeof(Double) || propType == typeof(Nullable<Double>))
+                    {
+                        Double convertedDoubleValue;
+                        conversionResult = Double.TryParse(value.ToStringSafe(), out convertedDoubleValue);
+                        prop.SetValue(instantiatedObject, convertedDoubleValue);
+                        if (propType == typeof(Nullable<Double>))
+                            prop.SetValue(instantiatedObject, (Nullable<Double>)convertedDoubleValue);
+                        else
+                            prop.SetValue(instantiatedObject, convertedDoubleValue);
                     }
                     else if (propType == typeof(Int32) || propType == typeof(Nullable<Int32>))
                     {

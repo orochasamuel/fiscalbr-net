@@ -492,10 +492,10 @@ namespace FiscalBr.EFDFiscal
                 case "1923":
                     reg1921 = Bloco1.Reg1001.Reg1900s.Last().Reg1910s.Last().Reg1920.Reg1921s.Last();
 
-                    if (reg1921.Reg1922s == null)
-                        reg1921.Reg1922s = new List<Bloco1.Registro1922>();
+                    if (reg1921.Reg1923s == null)
+                        reg1921.Reg1923s = new List<Bloco1.Registro1923>();
 
-                    reg1921.Reg1922s.Add((Bloco1.Registro1922)registro);
+                    reg1921.Reg1923s.Add((Bloco1.Registro1923)registro);
                     break;
 
                 case "1925":
@@ -657,8 +657,8 @@ namespace FiscalBr.EFDFiscal
                 BlocoC = new BlocoC();
 
                 /*
-                * Cria o C001 com movimento caso não exista no arquivo,
-                * isso é feito para os cenários onde será realizada a
+                * Cria o C001 com movimento caso nï¿½o exista no arquivo,
+                * isso ï¿½ feito para os cenï¿½rios onde serï¿½ realizada a
                 * leitura isolada somente de alguns registros do Bloco C.
                 */
                 if (BlocoC.RegC001 == null)
@@ -2050,10 +2050,10 @@ namespace FiscalBr.EFDFiscal
             base.CalcularBloco9(totalizarblocos);
 
             #region Totalizar blocos
-            if (totalizarblocos) //Calcula os X990 de todos os blocos e readiciona as linhas de totalização -> |X990|
+            if (totalizarblocos) //Calcula os X990 de todos os blocos e readiciona as linhas de totalizaï¿½ï¿½o -> |X990|
             {
                 var registros = Linhas
-                    .Where(x => x.Length > 6 && x.Substring(2, 3) != "990") // Pega só as linhas que não se tratam de totalizadores
+                    .Where(x => x.Length > 6 && x.Substring(2, 3) != "990") // Pega sï¿½ as linhas que nï¿½o se tratam de totalizadores
                     .Select(x => x.Substring(1, 4));
 
                 if (Bloco0 != null)
@@ -2088,7 +2088,7 @@ namespace FiscalBr.EFDFiscal
             #endregion
 
             #region Bloco 9
-            Linhas.RemoveAll(x => x.Length > 6 && x[1] == '9'); //Remove todas as linhas do Bloco 9, as linhas serão readicionadas posteriormente
+            Linhas.RemoveAll(x => x.Length > 6 && x[1] == '9'); //Remove todas as linhas do Bloco 9, as linhas serï¿½o readicionadas posteriormente
 
             Bloco9 = new Bloco9()
             {
