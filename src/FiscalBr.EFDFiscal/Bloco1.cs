@@ -703,13 +703,13 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Bico ligado à bomba
             /// </summary>
-            [SpedCampos(2, "NUM_BICO", "N", 0, 0, true, 2)]
+            [SpedCampos(2, "NUM_BICO", "N", int.MaxValue, 0, true, 2)]
             public long NumBico { get; set; }
 
             /// <summary>
             ///     Número da intervenção
             /// </summary>
-            [SpedCampos(3, "NR_INTERV", "N", 0, 0, false, 2)]
+            [SpedCampos(3, "NR_INTERV", "N", int.MaxValue, 0, false, 2)]
             public long? NrInterv { get; set; }
 
             /// <summary>
@@ -739,25 +739,25 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor da leitura final do contador, no fechamento do bico
             /// </summary>
-            [SpedCampos(8, "VAL_FECHA", "N", 0, 3, true, 2)]
+            [SpedCampos(8, "VAL_FECHA", "N", int.MaxValue, 3, true, 2)]
             public decimal ValFecha { get; set; }
 
             /// <summary>
             ///     Valor da leitura inicial do contador, na abertura do bico
             /// </summary>
-            [SpedCampos(9, "VAL_ABERT", "N", 0, 3, true, 2)]
+            [SpedCampos(9, "VAL_ABERT", "N", int.MaxValue, 3, true, 2)]
             public decimal ValAbert { get; set; }
 
             /// <summary>
             ///     Aferições da bomba (em litros)
             /// </summary>
-            [SpedCampos(10, "VOL_AFERI", "N", 0, 3, false, 2)]
+            [SpedCampos(10, "VOL_AFERI", "N", int.MaxValue, 3, false, 2)]
             public decimal VolAferi { get; set; }
 
             /// <summary>
             ///     Vendas do bico (em litros)
             /// </summary>
-            [SpedCampos(11, "VOL_VENDAS", "N", 0, 3, true, 2)]
+            [SpedCampos(11, "VOL_VENDAS", "N", int.MaxValue, 3, true, 2)]
             public decimal VolVendas { get; set; }
         }
 
