@@ -19,21 +19,21 @@ namespace FiscalBr.Test.Validacoes
         }
 
         [Theory]
-        [InlineData("ISENTO", "GO")]
-        [InlineData("ISENTO", "SP")]
         [InlineData("ISENTO", "AC")]
         [InlineData("ISENTO", "CE")]
         [InlineData("ISENTO", "MA")]
+        [InlineData("ISENTO", "GO")]
+        [InlineData("ISENTO", "SP")]
         public void ValidarInscricaoEstadualIsento(string ie, string uf)
         {
             Assert.True(FiscalBr.Common.Validar.InscEstadual(ie, uf));
         }
 
         [Theory]
-        [InlineData("ISENTA", "GO")]
         [InlineData("ISENTA", "AC")]
         [InlineData("ISENTA", "CE")]
         [InlineData("ISENTA", "MA")]
+        [InlineData("ISENTA", "GO")]
         public void ValidarInscricaoEstadualIsenta(string ie, string uf)
         {
             Assert.False(FiscalBr.Common.Validar.InscEstadual(ie, uf));

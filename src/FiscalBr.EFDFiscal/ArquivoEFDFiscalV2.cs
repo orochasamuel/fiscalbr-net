@@ -29,21 +29,21 @@ namespace FiscalBr.EFDFiscal
         {
         }
 
-        public ArquivoEFDFiscalV2(
-    CodigoVersaoLeiaute versaoLeiaute,
-    LeiauteArquivoSped arquivoSped = LeiauteArquivoSped.EFDFiscal,
-    string nomeSoftwareHouse = ""
-    ) : base(versaoLeiaute, arquivoSped, nomeSoftwareHouse)
-        {
-        }
+//        public ArquivoEFDFiscalV2(
+//    CodigoVersaoLeiaute versaoLeiaute,
+//       string nomeSoftwareHouse = "",
+//    LeiauteArquivoSped arquivoSped = LeiauteArquivoSped.EFDFiscal
+//    ) : base(versaoLeiaute, arquivoSped, nomeSoftwareHouse)
+//        {
+//        }
 
-        public ArquivoEFDFiscalV2(
-CodigoVersaoLeiaute versaoLeiaute,
-LeiauteArquivoSped arquivoSped = LeiauteArquivoSped.EFDFiscal,
-string nomeSoftwareHouse = "",
-string cnpjSoftwareHouse = ""
-) : base(versaoLeiaute, arquivoSped, nomeSoftwareHouse, cnpjSoftwareHouse)
-        {
-        }
+//        public ArquivoEFDFiscalV2(
+//CodigoVersaoLeiaute versaoLeiaute,
+//string nomeSoftwareHouse = "",
+//string cnpjSoftwareHouse = "",
+//LeiauteArquivoSped arquivoSped = LeiauteArquivoSped.EFDFiscal
+//) : base(versaoLeiaute, arquivoSped, nomeSoftwareHouse, cnpjSoftwareHouse)
+//        {
+//        }
     }
 }
