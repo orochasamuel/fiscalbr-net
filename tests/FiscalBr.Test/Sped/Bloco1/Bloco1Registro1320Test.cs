@@ -24,10 +24,10 @@ namespace FiscalBr.Test.Sped.Bloco1
             Assert.Equal("Interventor 1", registro.NomInterv);
             Assert.Equal("51077662000109", registro.CnpjInterv);
             Assert.Equal("00695196090", registro.CpfInterv);
-            Assert.Equal(Convert.ToDecimal(100.13, new CultureInfo(currentCulture)), registro.ValFecha);
-            Assert.Equal(Convert.ToDecimal(55.20, new CultureInfo(currentCulture)), registro.ValAbert);
-            Assert.Equal(10, registro.VolAferi);
-            Assert.Equal(40, registro.VolVendas); 
+            Assert.Equal(100.13M, registro.ValFecha);
+            Assert.Equal(55.20M, registro.ValAbert);
+            Assert.Equal(10M, registro.VolAferi);
+            Assert.Equal(40M, registro.VolVendas); 
         }        
     }
 }
