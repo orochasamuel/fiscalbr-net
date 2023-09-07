@@ -56,6 +56,7 @@ namespace FiscalBr.Common.Sped
                     {
                         int convertedInt32Value;
                         conversionResult = Int32.TryParse(value.ToStringSafe(), out convertedInt32Value);
+
                         if (propType == typeof(Nullable<Int64>))
                             prop.SetValue(instantiatedObject, (Nullable<Int64>)convertedInt32Value);
                         else
@@ -111,7 +112,7 @@ namespace FiscalBr.Common.Sped
                     {
                         Double convertedDoubleValue;
                         conversionResult = Double.TryParse(value.ToStringSafe(), out convertedDoubleValue);
-                        prop.SetValue(instantiatedObject, convertedDoubleValue);
+
                         if (propType == typeof(Nullable<Double>))
                             prop.SetValue(instantiatedObject, (Nullable<Double>)convertedDoubleValue);
                         else

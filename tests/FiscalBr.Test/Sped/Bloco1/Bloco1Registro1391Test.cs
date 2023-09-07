@@ -9,8 +9,9 @@ namespace FiscalBr.Test.Sped.Bloco1
 {
     public class Bloco1Registro1391Test
     {
-        [Fact]
-        public void Ler_Registro_1391_EFDFiscal()
+        [Theory]
+        [InlineData("pt-BR")]
+        public void Ler_Registro_1391_EFDFiscal(string currentCulture)
         {
             string linha = "|1391|01012023|123,41|123,42|123,43|123,44|123,45|123,46|123,47|123,48|123,49|123,40|123,41|123,42|123,43|123,44|Observações|COD_ITEM|01|123,45|";
 
@@ -18,24 +19,24 @@ namespace FiscalBr.Test.Sped.Bloco1
 
             Assert.Equal("1391", registro.Reg);
             Assert.Equal(new DateTime(2023, 01, 01), registro.DtRegistro);
-            Assert.Equal(123.41, registro.QtdMoid);
-            Assert.Equal(123.42, registro.EstqIni);
-            Assert.Equal(123.43, registro.QtdProduz);
-            Assert.Equal(123.44, registro.EntAnidHid);
-            Assert.Equal(123.45, registro.OutrEntr);
-            Assert.Equal(123.46, registro.Perda);
-            Assert.Equal(123.47, registro.Cons);
-            Assert.Equal(123.48, registro.SaiAniHid);
-            Assert.Equal(123.49, registro.Saidas);
-            Assert.Equal(123.40, registro.EstqFin);
-            Assert.Equal(123.41, registro.EstqIniMel);
-            Assert.Equal(123.42, registro.ProdDiaMel);
-            Assert.Equal(123.43, registro.UtilMel);
-            Assert.Equal(123.44, registro.ProdAlcMel);
+            Assert.Equal(Convert.ToDecimal(123.41, new CultureInfo(currentCulture)), registro.QtdMoid);
+            Assert.Equal(Convert.ToDecimal(123.42, new CultureInfo(currentCulture)), registro.EstqIni);
+            Assert.Equal(Convert.ToDecimal(123.43, new CultureInfo(currentCulture)), registro.QtdProduz);
+            Assert.Equal(Convert.ToDecimal(123.44, new CultureInfo(currentCulture)), registro.EntAnidHid);
+            Assert.Equal(Convert.ToDecimal(123.45, new CultureInfo(currentCulture)), registro.OutrEntr);
+            Assert.Equal(Convert.ToDecimal(123.46, new CultureInfo(currentCulture)), registro.Perda);
+            Assert.Equal(Convert.ToDecimal(123.47, new CultureInfo(currentCulture)), registro.Cons);
+            Assert.Equal(Convert.ToDecimal(123.48, new CultureInfo(currentCulture)), registro.SaiAniHid);
+            Assert.Equal(Convert.ToDecimal(123.49, new CultureInfo(currentCulture)), registro.Saidas);
+            Assert.Equal(Convert.ToDecimal(123.40, new CultureInfo(currentCulture)), registro.EstqFin);
+            Assert.Equal(Convert.ToDecimal(123.41, new CultureInfo(currentCulture)), registro.EstqIniMel);
+            Assert.Equal(Convert.ToDecimal(123.42, new CultureInfo(currentCulture)), registro.ProdDiaMel);
+            Assert.Equal(Convert.ToDecimal(123.43, new CultureInfo(currentCulture)), registro.UtilMel);
+            Assert.Equal(Convert.ToDecimal(123.44, new CultureInfo(currentCulture)), registro.ProdAlcMel);
             Assert.Equal("Observações", registro.Obs);
             Assert.Equal("COD_ITEM", registro.CodItem);
             Assert.Equal(1, registro.TpResiduo);
-            Assert.Equal((decimal)123.45, registro.QtdResiduo);
+            Assert.Equal(Convert.ToDecimal(123.45, new CultureInfo(currentCulture)), registro.QtdResiduo);
         }
     }
 }
