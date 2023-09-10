@@ -17,14 +17,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K001: ABERTURA DO BLOCO K
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK001 : RegistroBaseSped
+        public class RegistroK001 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK001" />.
             /// </summary>
-            public RegistroK001()
+            public RegistroK001() : base("K001")
             {
-                Reg = "K001";
             }
 
             /// <summary>
@@ -43,14 +42,13 @@ namespace FiscalBr.EFDFiscal
         }
 
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroK010 : RegistroBaseSped
+        public class RegistroK010 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK010" />.
             /// </summary>
-            public RegistroK010()
+            public RegistroK010() : base("K010")
             {
-                Reg = "K010";
             }
 
             /// <summary>
@@ -71,14 +69,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K100: PERÍODO DE APURAÇÃO DO ICMS/IPI
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK100 : RegistroBaseSped
+        public class RegistroK100 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK100" />.
             /// </summary>
-            public RegistroK100()
+            public RegistroK100() : base("K100")
             {
-                Reg = "K100";
             }
 
             /// <summary>
@@ -109,14 +106,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K200: ESTOQUE ESCRITURADO
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK200 : RegistroBaseSped
+        public class RegistroK200 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK200" />.
             /// </summary>
-            public RegistroK200()
+            public RegistroK200() : base("K200")
             {
-                Reg = "K200";
             }
 
             /// <summary>
@@ -164,14 +160,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K210: DESMONTAGEM DE MERCADORIAS – ITEM DE ORIGEM
         /// </summary>
         [SpedRegistros("01/01/2017", "")]
-        public class RegistroK210 : RegistroBaseSped
+        public class RegistroK210 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK210" />.
             /// </summary>
-            public RegistroK210()
+            public RegistroK210() : base("K210")
             {
-                Reg = "K210";
             }
 
             /// <summary>
@@ -211,14 +206,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K215: DESMONTAGEM DE MERCADORIAS – ITENS DE DESTINO
         /// </summary>
         [SpedRegistros("01/01/2017", "")]
-        public class RegistroK215 : RegistroBaseSped
+        public class RegistroK215 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK215" />.
             /// </summary>
-            public RegistroK215()
+            public RegistroK215() : base("K215")
             {
-                Reg = "K215";
             }
 
             /// <summary>
@@ -238,14 +232,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K220: OUTRAS MOVIMENTAÇÕES INTERNAS ENTRE MERCADORIAS
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK220 : RegistroBaseSped
+        public class RegistroK220 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK220" />.
             /// </summary>
-            public RegistroK220()
+            public RegistroK220() : base("K220")
             {
-                Reg = "K220";
             }
 
             /// <summary>
@@ -285,14 +278,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K230: ITENS PRODUZIDOS
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK230 : RegistroBaseSped
+        public class RegistroK230 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK230" />.
             /// </summary>
-            public RegistroK230()
+            public RegistroK230() : base("K230")
             {
-                Reg = "K230";
             }
 
             /// <summary>
@@ -332,14 +324,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K235: INSUMOS CONSUMIDOS
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK235 : RegistroBaseSped
+        public class RegistroK235 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK235" />.
             /// </summary>
-            public RegistroK235()
+            public RegistroK235() : base("K235")
             {
-                Reg = "K235";
             }
 
             /// <summary>
@@ -371,14 +362,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K250: INDUSTRIALIZAÇÃO EFETUADA POR TERCEIROS - ITENS PRODUZIDOS
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK250 : RegistroBaseSped
+        public class RegistroK250 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK250" />.
             /// </summary>
-            public RegistroK250()
+            public RegistroK250() : base("K250")
             {
-                Reg = "K250";
             }
 
             /// <summary>
@@ -406,14 +396,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K255: INDUSTRIALIZAÇÃO EM TERCEIROS - INSUMOS CONSUMIDOS
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK255 : RegistroBaseSped
+        public class RegistroK255 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK255" />.
             /// </summary>
-            public RegistroK255()
+            public RegistroK255() : base("K255")
             {
-                Reg = "K255";
             }
 
             /// <summary>
@@ -445,14 +434,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K260: REPROCESSAMENTO/REPARO DE PRODUTO/INSUMO
         /// </summary>
         [SpedRegistros("01/01/2017", "")]
-        public class RegistroK260 : RegistroBaseSped
+        public class RegistroK260 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK260"/>.
             /// </summary>
-            public RegistroK260()
+            public RegistroK260() : base("K260")
             {
-                Reg = "K260";
             }
 
             /// <summary>
@@ -498,14 +486,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K265: REPROCESSAMENTO/REPARO – MERCADORIAS CONSUMIDAS E/OU RETORNADAS
         /// </summary>
         [SpedRegistros("01/01/2017", "")]
-        public class RegistroK265 : RegistroBaseSped
+        public class RegistroK265 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK265" />.
             /// </summary>
-            public RegistroK265()
+            public RegistroK265() : base("K265")
             {
-                Reg = "K265";
             }
 
             /// <summary>
@@ -531,14 +518,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K270: CORREÇÃO DE APONTAMENTO DOS REGISTROS K210, K220, K230, K250 , K260, K291, K292, K301 E K302
         /// </summary>
         [SpedRegistros("01/01/2017", "")]
-        public class RegistroK270 : RegistroBaseSped
+        public class RegistroK270 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK270"/>.
             /// </summary>
-            public RegistroK270()
+            public RegistroK270() : base("K270")
             {
-                Reg = "K270";
             }
 
             /// <summary>
@@ -598,14 +584,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K275: CORREÇÃO DE APONTAMENTO E RETORNO DE INSUMOS DOS REGISTROS K215, K220, K235, K255 E K265.
         /// </summary>
         [SpedRegistros("01/01/2017", "")]
-        public class RegistroK275 : RegistroBaseSped
+        public class RegistroK275 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK275" />.
             /// </summary>
-            public RegistroK275()
+            public RegistroK275() : base("K275")
             {
-                Reg = "K275";
             }
 
             /// <summary>
@@ -637,14 +622,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K280: CORREÇÃO DE APONTAMENTO – ESTOQUE ESCRITURADO
         /// </summary>
         [SpedRegistros("01/01/2017", "")]
-        public class RegistroK280 : RegistroBaseSped
+        public class RegistroK280 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK280" />.
             /// </summary>
-            public RegistroK280()
+            public RegistroK280() : base("K280")
             {
-                Reg = "K280";
             }
 
             /// <summary>
@@ -686,14 +670,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K290: PRODUÇÃO CONJUNTA – ORDEM DE PRODUÇÃ
         /// </summary>
         [SpedRegistros("01/01/2019", "")]
-        public class RegistroK290 : RegistroBaseSped
+        public class RegistroK290 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK290" />.
             /// </summary>
-            public RegistroK290()
+            public RegistroK290() : base("K290")
             {
-                Reg = "K290";
             }
 
             /// <summary>
@@ -722,14 +705,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K291: PRODUÇÃO CONJUNTA - ITENS PRODUZIDOS
         /// </summary>
         [SpedRegistros("01/01/2019", "")]
-        public class RegistroK291 : RegistroBaseSped
+        public class RegistroK291 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK291" />.
             /// </summary>
-            public RegistroK291()
+            public RegistroK291() : base("K291")
             {
-                Reg = "K291";
             }
 
             /// <summary>
@@ -749,14 +731,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K292: PRODUÇÃO CONJUNTA – INSUMOS CONSUMIDOS
         /// </summary>
         [SpedRegistros("01/01/2019", "")]
-        public class RegistroK292 : RegistroBaseSped
+        public class RegistroK292 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK292" />.
             /// </summary>
-            public RegistroK292()
+            public RegistroK292() : base("K292")
             {
-                Reg = "K292";
             }
 
             /// <summary>
@@ -776,14 +757,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K300: PRODUÇÃO CONJUNTA – INDUSTRIALIZAÇÃO EFETUADA POR TERCEIROS
         /// </summary>
         [SpedRegistros("01/01/2019", "")]
-        public class RegistroK300 : RegistroBaseSped
+        public class RegistroK300 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK300" />.
             /// </summary>
-            public RegistroK300()
+            public RegistroK300() : base("K300")
             {
-                Reg = "K300";
             }
 
             /// <summary>
@@ -800,14 +780,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K301: PRODUÇÃO CONJUNTA – INDUSTRIALIZAÇÃO EFETUADA POR TERCEIROS – ITENS PRODUZIDOS
         /// </summary>
         [SpedRegistros("01/01/2019", "")]
-        public class RegistroK301 : RegistroBaseSped
+        public class RegistroK301 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK301" />.
             /// </summary>
-            public RegistroK301()
+            public RegistroK301() : base("K301")
             {
-                Reg = "K301";
             }
 
             /// <summary>
@@ -827,14 +806,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K302: PRODUÇÃO CONJUNTA – INDUSTRIALIZAÇÃO EFETUADA POR TERCEIROS – INSUMOS CONSUMIDOS
         /// </summary>
         [SpedRegistros("01/01/2019", "")]
-        public class RegistroK302 : RegistroBaseSped
+        public class RegistroK302 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK302" />.
             /// </summary>
-            public RegistroK302()
+            public RegistroK302() : base("K302")
             {
-                Reg = "K302";
             }
 
             /// <summary>
@@ -854,14 +832,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO K990: ENCERRAMENTO DO BLOCO K
         /// </summary>
         [SpedRegistros("01/01/2016", "")]
-        public class RegistroK990 : RegistroBaseSped
+        public class RegistroK990 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroK990" />.
             /// </summary>
-            public RegistroK990()
+            public RegistroK990() : base("K990")
             {
-                Reg = "K990";
             }
 
             /// <summary>

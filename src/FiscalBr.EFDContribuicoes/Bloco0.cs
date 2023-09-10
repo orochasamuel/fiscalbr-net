@@ -17,14 +17,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// REGISTRO 0000: ABERTURA DO ARQUIVO DIGITAL E IDENTIFICAÇÃO DA PESSOA JURÍDICA
         /// </summary>
-        public class Registro0000 : RegistroBaseSped
+        public class Registro0000 : RegistroSped
         {
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="Registro0000" />.
             /// </summary>
-            public Registro0000()
+            public Registro0000() : base("0000")
             {
-                Reg = "0000";
             }
 
             /// <summary>
@@ -49,9 +48,8 @@ namespace FiscalBr.EFDContribuicoes
                 string uf,
                 string cdMunicipio,
                 int idAtividade
-                )
+                ) : base("0000")
             {
-                Reg = "0000";
                 CodVer = cdVersao;
                 TipoEscrit = tpEscrituracao;
                 DtIni = dtInicial;
@@ -93,9 +91,8 @@ namespace FiscalBr.EFDContribuicoes
                 string suframa,
                 int idNaturezaPj,
                 int idAtividade
-                )
+                ) : base("0000")
             {
-                Reg = "0000";
                 CodVer = cdVersao;
                 TipoEscrit = tpEscrituracao;
                 IndSitEsp = idSituacaoEspecial;
@@ -220,23 +217,21 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// REGISTRO 0001: ABERTURA DO BLOCO 0
         /// </summary>
-        public class Registro0001 : RegistroBaseSped
+        public class Registro0001 : RegistroSped
         {
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="Registro0000" />.
             /// </summary>
-            public Registro0001()
+            public Registro0001() : base("0001")
             {
-                Reg = "0001";
             }
 
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="Registro0000" />.
             /// </summary>
             /// <param name="indicador">Indicador de movimento</param>
-            public Registro0001(IndMovimento indicador)
+            public Registro0001(IndMovimento indicador) : base("0001")
             {
-                Reg = "0001";
                 IndMov = indicador;
             }
 
@@ -260,14 +255,13 @@ namespace FiscalBr.EFDContribuicoes
             public Registro0900 Reg0900 { get; set; }
         }
 
-        public class Registro0035 : RegistroBaseSped
+        public class Registro0035 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0035" />.
             /// </summary>
-            public Registro0035()
+            public Registro0035() : base("0035")
             {
-                Reg = "0035";
             }
 
             [SpedCampos(2, "COD_SCP", "N", 14, 0, false, 2)]
@@ -280,11 +274,10 @@ namespace FiscalBr.EFDContribuicoes
             public string InfComp { get; set; }
         }
 
-        public class Registro0100 : RegistroBaseSped
+        public class Registro0100 : RegistroSped
         {
-            public Registro0100()
+            public Registro0100() : base("0100")
             {
-                Reg = "0100";
             }
 
             [SpedCampos(2, "NOME", "C", 100, 0, true, 2)]
@@ -327,11 +320,10 @@ namespace FiscalBr.EFDContribuicoes
             public string CodMun { get; set; }
         }
 
-        public class Registro0110 : RegistroBaseSped
+        public class Registro0110 : RegistroSped
         {
-            public Registro0110()
+            public Registro0110() : base("0110")
             {
-                Reg = "0110";
             }
 
             [SpedCampos(2, "COD_INC_TRIB", "N", 1, 0, true, 2)]
@@ -352,14 +344,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     Registro 0111: Tabela de Receita Bruta Mensal Para Fins de Rateio de Créditos Comuns 
         /// </summary>
-        public class Registro0111 : RegistroBaseSped
+        public class Registro0111 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0111" />.
             /// </summary>
-            public Registro0111()
+            public Registro0111() : base("0111")
             {
-                Reg = "0111";
             }
 
             /// <summary>
@@ -397,14 +388,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     Registro 0120: Identificação de EFD-Contribuições Sem Dados a Escriturar 
         /// </summary>
-        public class Registro0120 : RegistroBaseSped
+        public class Registro0120 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0120" />.
             /// </summary>
-            public Registro0120()
+            public Registro0120() : base("0120")
             {
-                Reg = "0120";
             }
 
             /// <summary>
@@ -430,11 +420,10 @@ namespace FiscalBr.EFDContribuicoes
             public string InfComp { get; set; }
         }
 
-        public class Registro0140 : RegistroBaseSped
+        public class Registro0140 : RegistroSped
         {
-            public Registro0140()
+            public Registro0140() : base("0140")
             {
-                Reg = "0140";
             }
 
             [SpedCampos(2, "COD_EST", "C", 60, 0, false, 2)]
@@ -472,14 +461,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     Registro 0145: Regime de Apuração da Contribuição Previdenciária Sobre a Receita Bruta
         /// </summary>
-        public class Registro0145 : RegistroBaseSped
+        public class Registro0145 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0145" />.
             /// </summary>
-            public Registro0145()
+            public Registro0145() : base("0145")
             {
-                Reg = "0145";
             }
 
             /// <summary>
@@ -519,14 +507,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0150: TABELA DE CADASTRO DO PARTICIPANTE
         /// </summary>
-        public class Registro0150 : RegistroBaseSped
+        public class Registro0150 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0150" />.
             /// </summary>
-            public Registro0150()
+            public Registro0150() : base("0150")
             {
-                Reg = "0150";
             }
 
             /// <summary>
@@ -605,14 +592,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0190: IDENTIFICAÇÃO DAS UNIDADES DE MEDIDA
         /// </summary>
-        public class Registro0190 : RegistroBaseSped
+        public class Registro0190 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0190" />.
             /// </summary>
-            public Registro0190()
+            public Registro0190() : base("0190")
             {
-                Reg = "0190";
             }
 
             /// <summary>
@@ -631,14 +617,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0200: IDENTIFICAÇÃO DO ITEM (PRODUTOS E SERVIÇOS)
         /// </summary>
-        public class Registro0200 : RegistroBaseSped
+        public class Registro0200 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0200" />.
             /// </summary>
-            public Registro0200()
+            public Registro0200() : base("0200")
             {
-                Reg = "0200";
             }
 
             /// <summary>
@@ -717,14 +702,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0205: ALTERAÇÃO DO ITEM
         /// </summary>
-        public class Registro0205 : RegistroBaseSped
+        public class Registro0205 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0205" />.
             /// </summary>
-            public Registro0205()
+            public Registro0205() : base("0205")
             {
-                Reg = "0205";
             }
 
             /// <summary>
@@ -755,14 +739,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0206: Código de Produto Conforme Tabela ANP (Combustíveis)
         /// </summary>
-        public class Registro0206 : RegistroBaseSped
+        public class Registro0206 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0206" />.
             /// </summary>
-            public Registro0206()
+            public Registro0206() : base("0206")
             {
-                Reg = "0206";
             }
 
             /// <summary>
@@ -776,14 +759,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0208: Código de Grupos por Marca Comercial –Refri (bebidas frias).
         /// </summary>
-        public class Registro0208 : RegistroBaseSped
+        public class Registro0208 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0208" />.
             /// </summary>
-            public Registro0208()
+            public Registro0208() : base("0208")
             {
-                Reg = "0208";
             }
 
             /// <summary>
@@ -823,14 +805,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0400: TABELA DE NATUREZA DA OPERAÇÃO/PRESTAÇÃO
         /// </summary>
-        public class Registro0400 : RegistroBaseSped
+        public class Registro0400 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0400" />.
             /// </summary>
-            public Registro0400()
+            public Registro0400() : base("0400")
             {
-                Reg = "0400";
             }
 
             /// <summary>
@@ -849,14 +830,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0450: TABELA DE INFORMAÇÃO COMPLEMENTAR DO DOCUMENTO FISCAL
         /// </summary>
-        public class Registro0450 : RegistroBaseSped
+        public class Registro0450 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0450" />.
             /// </summary>
-            public Registro0450()
+            public Registro0450() : base("0450")
             {
-                Reg = "0450";
             }
 
             /// <summary>
@@ -879,14 +859,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0500: PLANO DE CONTAS CONTÁBEIS
         /// </summary>
-        public class Registro0500 : RegistroBaseSped
+        public class Registro0500 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0500" />.
             /// </summary>
-            public Registro0500()
+            public Registro0500() : base("0500")
             {
-                Reg = "0500";
             }
 
             /// <summary>
@@ -953,14 +932,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0600: CENTRO DE CUSTOS
         /// </summary>
-        public class Registro0600 : RegistroBaseSped
+        public class Registro0600 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0600" />.
             /// </summary>
-            public Registro0600()
+            public Registro0600() : base("0600")
             {
-                Reg = "0600";
             }
 
             /// <summary>
@@ -985,14 +963,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0900: COMPOSIÇÃO DAS RECEITAS DO PERÍODO - RECEITA BRUTA E DEMAIS RECEIRAS
         ///</summary>
-        public class Registro0900 : RegistroBaseSped
+        public class Registro0900 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0900" />.
             /// </summary>
-            public Registro0900()
-            {
-                Reg = "0900";
+            public Registro0900() : base("0900")
+            { 
             }
 
             /// <summary>
@@ -1107,23 +1084,21 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 0990: ENCERRAMENTO DO BLOCO 0
         /// </summary>
-        public class Registro0990 : RegistroBaseSped
+        public class Registro0990 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0990" />.
             /// </summary>
-            public Registro0990()
+            public Registro0990() : base("0990")
             {
-                Reg = "0990";
             }
 
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro0990" />.
             /// </summary>
             /// <param name="qtdLinhas">Quantidade total de linhas do Bloco 0</param>
-            public Registro0990(int qtdLinhas)
+            public Registro0990(int qtdLinhas) : base("0990")
             {
-                Reg = "0990";
                 QtdLin0 = qtdLinhas;
             }
 

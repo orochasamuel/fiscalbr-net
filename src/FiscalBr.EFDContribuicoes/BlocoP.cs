@@ -10,11 +10,10 @@ namespace FiscalBr.EFDContribuicoes
         public RegistroP001 RegP001 { get; set; }
         public RegistroP990 RegP990 { get; set; }
 
-        public class RegistroP001 : RegistroBaseSped
+        public class RegistroP001 : RegistroSped
         {
-            public RegistroP001()
+            public RegistroP001() : base("P001")
             {
-                Reg = "P001";
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 2)]
@@ -27,14 +26,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO P010: Identificação do Estabelecimento
         /// </summary>
-        public class RegistroP010 : RegistroBaseSped
+        public class RegistroP010 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroP010"/>
             /// </summary>
-            public RegistroP010()
+            public RegistroP010() : base("P010")
             {
-                Reg = "P010";
             }
 
             [SpedCampos(3, "CNPJ", "N", 14, 0, true, 2)]
@@ -46,14 +44,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO P100:  Contribuição Previdenciária sobre a Receita Bruta
         /// </summary>
-        public class RegistroP100 : RegistroBaseSped
+        public class RegistroP100 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroP100"/>
             /// </summary>
-            public RegistroP100()
+            public RegistroP100() : base("P100")
             {
-                Reg = "P100";
             }
 
             /// <summary>
@@ -129,14 +126,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO P110: Complemento da Escrituração –Detalhamento da Apuração da Contribuição
         /// </summary>
-        public class RegistroP110 : RegistroBaseSped
+        public class RegistroP110 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroP110"/>
             /// </summary>
-            public RegistroP110()
+            public RegistroP110() : base("P110")
             {
-                Reg = "P110";
             }
 
             /// <summary>
@@ -167,14 +163,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO P199: Processo Referenciado
         /// </summary>
-        public class RegistroP199 : RegistroBaseSped
+        public class RegistroP199 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroP199"/>
             /// </summary>
-            public RegistroP199()
+            public RegistroP199() : base("P199")
             {
-                Reg = "P199";
             }
 
             /// <summary>
@@ -197,14 +192,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO P200:  Consolidação da Contribuição Previdenciária Sobre a Receita Bruta
         /// </summary>
-        public class RegistroP200 : RegistroBaseSped
+        public class RegistroP200 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroP200"/>
             /// </summary>
-            public RegistroP200()
+            public RegistroP200() : base("P200")
             {
-                Reg = "P200";
             }
 
             /// <summary>
@@ -249,14 +243,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO P210: Ajuste aa Contribuição Previdenciária Apurada Sobre a Receita Bruta
         /// </summary>
-        public class RegistroP210 : RegistroBaseSped
+        public class RegistroP210 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroP210"/>
             /// </summary>
-            public RegistroP210()
+            public RegistroP210() : base("P210")
             {
-                Reg = "P210";
             }
 
             /// <summary>
@@ -298,11 +291,10 @@ namespace FiscalBr.EFDContribuicoes
             public DateTime DtRef { get; set; }
         }
 
-        public class RegistroP990 : RegistroBaseSped
+        public class RegistroP990 : RegistroSped
         {
-            public RegistroP990()
+            public RegistroP990() : base("P990")
             {
-                Reg = "P990";
             }
 
             [SpedCampos(3, "QTD_LIN_P", "N", int.MaxValue, 0, true, 2)]

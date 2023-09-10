@@ -16,31 +16,28 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D001: ABERTURA DO BLOCO D
         /// </summary>
-        public class RegistroD001 : RegistroBaseSped
+        public class RegistroD001 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
             /// </summary>
-            public RegistroD001()
+            public RegistroD001() : base("D001")
             {
-                Reg = "D001";
             }
 
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
             /// </summary>
-            public RegistroD001(IndMovimento indMovimento)
+            public RegistroD001(IndMovimento indMovimento) : base("D001")
             {
-                Reg = "D001";
                 IndMov = indMovimento;
             }
 
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroD001" />.
             /// </summary>
-            public RegistroD001(bool temMovimento)
+            public RegistroD001(bool temMovimento) : base("D001")
             {
-                Reg = "D001";
                 IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
             }
 
@@ -69,63 +66,10 @@ namespace FiscalBr.EFDFiscal
                 IndMov = v ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
                 return this;  
             }
-        }
-
-        public class RegistroD001New : RegistroSped
-        {
-            private const string RegD001 = "D001";
-
-            /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
-            /// </summary>
-            public RegistroD001New() : base(RegD001) { }
-
-            /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
-            /// </summary>
-            /// <param name="indMovimento"></param>
-            public RegistroD001New(IndMovimento indMovimento) : base(RegD001)
-            {
-                IndMov = indMovimento;
-            }
-
-            /// <summary>
-            /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
-            /// </summary>
-            /// <param name="temMovimento"></param>
-            public RegistroD001New(bool temMovimento) : base(RegD001)
-            {
-                IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
-            }
-
-            /// <summary>
-            ///     Indicador de movimento: 
-            ///     <remarks>
-            ///     </para>
-            ///     0 - Bloco com dados informados;
-            ///     1 - Bloco sem dados informados.
-            ///     </remarks>
-            /// </summary>
-            [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 2)]
-            public IndMovimento IndMov { get; set; }
-
-            public List<RegistroD100> RegD100s { get; set; }
-            public List<RegistroD300> RegD300s { get; set; }
-            public List<RegistroD350> RegD350s { get; set; }
-            public List<RegistroD400> RegD400s { get; set; }
-            public List<RegistroD500> RegD500s { get; set; }
-            public List<RegistroD600> RegD600s { get; set; }
-            public List<RegistroD695> RegD695s { get; set; }
-
-            public RegistroD001New ComIndicadorMovimento(bool v)
-            {
-                IndMov = v ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
-                return this;
-            }
 
             public override bool Validar()
             {
-                if (!Reg.Equals(RegD001))
+                if (!Reg.Equals("D001"))
                     return false;
 
                 return base.Validar();
@@ -140,14 +84,13 @@ namespace FiscalBr.EFDFiscal
         ///     MULTIMODAL DE CARGAS (CÓDIGO 26), NOTA FISCAL DE TRANSPORTE FERROVIÁRIO DE CARGA ( CÓDIGO 27) E CONHECIMENTO DE
         ///     TRANSPORTE ELETRÔNICO – CT-e (CÓDIGO 57).
         /// </summary>
-        public class RegistroD100 : RegistroBaseSped
+        public class RegistroD100 : RegistroSped
         {
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="RegistroD100"/>.
             /// </summary>
-            public RegistroD100()
+            public RegistroD100() : base("D100")
             {
-                Reg = "D100";
             }
 
             /// <summary>
@@ -345,14 +288,13 @@ namespace FiscalBr.EFDFiscal
         ///     <para />
         ///     FINAL NÃO CONTRIBUINTE EC 87/15 (CÓDIGOS 57 e 67)
         /// </summary>
-        public class RegistroD101 : RegistroBaseSped
+        public class RegistroD101 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD101"/>.
             /// </summary>
-            public RegistroD101()
+            public RegistroD101() : base("D101")
             {
-                Reg = "D101";
             }
 
             /// <summary>
@@ -377,14 +319,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D110: ITENS DO DOCUMENTO - NOTA FISCAL DE SERVIÇOS DE TRANSPORTE (CODIGO 07)
         /// </summary>
-        public class RegistroD110 : RegistroBaseSped
+        public class RegistroD110 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD110"/>.
             /// </summary>
-            public RegistroD110()
+            public RegistroD110() : base("D110")
             {
-                Reg = "D110";
             }
 
             /// <summary>
@@ -417,14 +358,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D120: COMPLEMENTO DA NOTA FISCAL DE SERVIÇOS DE TRANSPORTE (CODIGO 07)
         /// </summary>
-        public class RegistroD120 : RegistroBaseSped
+        public class RegistroD120 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD120"/>.
             /// </summary>
-            public RegistroD120()
+            public RegistroD120() : base("D120")
             {
-                Reg = "D120";
             }
 
             /// <summary>
@@ -455,11 +395,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO  D130:  COMPLEMENTO  DO  CONHECIMENTO  RODOVIÁRIO  DE  CARGAS (CÓDIGO 08) E DO CONHECIMENTO RODOVIÁRIO DE CARGAS AVULSO (CÓDIGO 8B)
         /// </summary>
-        public class RegistroD130 : RegistroBaseSped
+        public class RegistroD130 : RegistroSped
         {
-            public RegistroD130()
+            public RegistroD130() : base("D130")
             {
-                Reg = "D130";
             }
 
             /// <summary>
@@ -561,11 +500,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D140: COMPLEMENTO DO CONHECIMENTO AQUAVIÁRIO DE CARGAS (CÓDIGO 09)
         /// </summary>
-        public class RegistroD140 : RegistroBaseSped
+        public class RegistroD140 : RegistroSped
         {
-            public RegistroD140()
+            public RegistroD140() : base("D140")
             {
-                Reg = "D140";
             }
 
             /// <summary>
@@ -666,12 +604,11 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D150: COMPLEMENTO DO CONHECIMENTO AÉREO (CÓDIGO 10)  
         /// </summary>
-        public class RegistroD150 : RegistroBaseSped
+        public class RegistroD150 : RegistroSped
         {
 
-            public RegistroD150()
+            public RegistroD150() : base("D150")
             {
-                Reg = "D150";
             }
 
             /// <summary>
@@ -750,12 +687,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D160: CARGA TRANSPORTADA (CÓDIGO 08, 8B, 09, 10, 11, 26 e 27)
         /// </summary>
-        public class RegistroD160 : RegistroBaseSped
+        public class RegistroD160 : RegistroSped
         {
-
-            public RegistroD160()
+            public RegistroD160() : base("D160")
             {
-                Reg = "D160";
             }
 
             /// <summary>
@@ -807,12 +742,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///  REGISTRO D161: LOCAL DA COLETA E ENTREGA (CÓDIGO 08, 8B, 09, 10, 11 e 26)
         /// </summary>
-        public class RegistroD161 : RegistroBaseSped
+        public class RegistroD161 : RegistroSped
         {
-
-            public RegistroD161()
+            public RegistroD161() : base("D161")
             {
-                Reg = "D161";
             }
 
             /// <summary>
@@ -875,12 +808,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO  D162: IDENTIFICAÇÃO DOS DOCUMENTOS FISCAIS (CÓDIGOS 08, 8B, 09, 10, 11, 26 E 27)
         /// </summary>
-        public class RegistroD162 : RegistroBaseSped
+        public class RegistroD162 : RegistroSped
         {
-
-            public RegistroD162()
+            public RegistroD162() : base("D162")
             {
-                Reg = "D162";
             }
 
             /// <summary>
@@ -943,11 +874,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///    REGISTRO  D170: COMPLEMENTO DO CONHECIMENTO MULTIMODAL DE CARGAS (CÓDIGO 26)
         /// </summary>
-        public class RegistroD170 : RegistroBaseSped
+        public class RegistroD170 : RegistroSped
         {
-            public RegistroD170()
+            public RegistroD170() : base("D170")
             {
-                Reg = "D170";
             }
 
             /// <summary>
@@ -1043,12 +973,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///  REGISTRO D180: MODAIS (CÓDIGO 26)
         /// </summary>
-        public class RegistroD180 : RegistroBaseSped
+        public class RegistroD180 : RegistroSped
         {
-
-            public RegistroD180()
+            public RegistroD180() : base("D180")
             {
-                Reg = "D180";
             }
 
             /// <summary>
@@ -1153,18 +1081,16 @@ namespace FiscalBr.EFDFiscal
             public string VlDoc { get; set; }
         }
 
-
         /// <summary>
         ///     REGISTRO D190: REGISTRO ANALÍTICO DOS DOCUMENTOS (CÓDIGO 07, 08, 8B, 09, 10, 11, 26, 27 e 57).
         /// </summary>
-        public class RegistroD190 : RegistroBaseSped
+        public class RegistroD190 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroD190"/>.
             /// </summary>
-            public RegistroD190()
+            public RegistroD190() : base("D190")
             {
-                Reg = "D190";
             }
 
             /// <summary>
@@ -1223,14 +1149,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D195: OBSERVAÇÕES DO LANÇAMENTO FISCAL
         /// </summary>
-        public class RegistroD195 : RegistroBaseSped
+        public class RegistroD195 : RegistroSped
         {
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="RegistroD195"/>.
             /// </summary>
-            public RegistroD195()
+            public RegistroD195() : base("D195")
             {
-                Reg = "D195";
             }
 
             /// <summary>
@@ -1251,14 +1176,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.
         /// </summary>
-        public class RegistroD197 : RegistroBaseSped
+        public class RegistroD197 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroD197" />.
             /// </summary>
-            public RegistroD197()
+            public RegistroD197() : base("D197")
             {
-                Reg = "C197";
             }
 
             /// <summary>
@@ -1309,11 +1233,10 @@ namespace FiscalBr.EFDFiscal
         ///    <para />
         ///    DE PASSAGEM AQUAVIÁRIO (CÓDIGO 14), DE PASSAGEM E NOTA DE BAGAGEM (CÓDIGO 15) E DE PASSAGEM FERROVIÁRIO (CÓDIGO 16)
         /// </summary>
-        public class RegistroD300 : RegistroBaseSped
+        public class RegistroD300 : RegistroSped
         {
-            public RegistroD300()
+            public RegistroD300() : base("D300")
             {
-                Reg = "D300";
             }
 
             /// <summary>
@@ -1443,11 +1366,10 @@ namespace FiscalBr.EFDFiscal
         ///    <para />
         ///    DE PASSAGEM AQUAVIÁRIO (CÓDIGO 14), DE PASSAGEM E NOTA DE BAGAGEM (CÓDIGO 15) E DE PASSAGEM FERROVIÁRIO (CÓDIGO 16). 
         /// </summary>
-        public class RegistroD301 : RegistroBaseSped
+        public class RegistroD301 : RegistroSped
         {
-            public RegistroD301()
+            public RegistroD301() : base("D301")
             {
-                Reg = "D301";
             }
 
             /// <summary>
@@ -1460,11 +1382,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///    REGISTRO D310: COMPLEMENTO DOS BILHETES (CÓDIGO 13, 14, 15 E 16).
         /// </summary>
-        public class RegistroD310 : RegistroBaseSped
+        public class RegistroD310 : RegistroSped
         {
-            public RegistroD310()
+            public RegistroD310() : base("D310")
             {
-                Reg = "D310";
             }
 
             /// <summary>
@@ -1495,11 +1416,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D350: EQUIPAMENTO ECF (CÓDIGOS 2E, 13, 14, 15 e 16)
         /// </summary>
-        public class RegistroD350 : RegistroBaseSped
+        public class RegistroD350 : RegistroSped
         {
-            public RegistroD350()
+            public RegistroD350() : base("D350")
             {
-                Reg = "D350";
             }
 
             /// <summary>
@@ -1532,11 +1452,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///  REGISTRO D355: REDUÇÃO Z (CÓDIGOS 2E, 13, 14, 15 e 16). 
         /// </summary>
-        public class RegistroD355 : RegistroBaseSped
+        public class RegistroD355 : RegistroSped
         {
-            public RegistroD355()
+            public RegistroD355() : base("D355")
             {
-                Reg = "D355";
             }
 
             /// <summary>
@@ -1583,11 +1502,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D360: PIS E COFINS TOTALIZADOS NO DIA (CÓDIGOS 2E, 13, 14, 15 e 16).
         /// </summary>
-        public class RegistroD360 : RegistroBaseSped
+        public class RegistroD360 : RegistroSped
         {
-            public RegistroD360()
+            public RegistroD360() : base("D360")
             {
-                Reg = "D360";
             }
 
             /// <summary>
@@ -1607,11 +1525,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D365: REGISTRO DOS TOTALIZADORES PARCIAIS DA  REDUÇÃO Z (CÓDIGOS 2E, 13, 14, 15 e 16).
         /// </summary>
-        public class RegistroD365 : RegistroBaseSped
+        public class RegistroD365 : RegistroSped
         {
-            public RegistroD365()
+            public RegistroD365() : base("D365")
             {
-                Reg = "D365";
             }
 
             /// <summary>
@@ -1646,11 +1563,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D370: COMPLEMENTO DOS DOCUMENTOS INFORMADOS (CÓDIGOS 13, 14, 15 e 16 e 2E)
         /// </summary>
-        public class RegistroD370 : RegistroBaseSped
+        public class RegistroD370 : RegistroSped
         {
-            public RegistroD370()
+            public RegistroD370() : base("D370")
             {
-                Reg = "D370";
             }
 
             /// <summary>
@@ -1688,11 +1604,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D390: REGISTRO ANALÍTICO DO MOVIMENTO DIÁRIO (CÓDIGOS 13, 14, 15, 16 E 2E).
         /// </summary>
-        public class RegistroD390 : RegistroBaseSped
+        public class RegistroD390 : RegistroSped
         {
-            public RegistroD390()
+            public RegistroD390() : base("D390")
             {
-                Reg = "D390";
             }
 
             /// <summary>
@@ -1761,11 +1676,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D400: RESUMO DE MOVIMENTO DIÁRIO - RMD (CÓDIGO 18).
         /// </summary>
-        public class RegistroD400 : RegistroBaseSped
+        public class RegistroD400 : RegistroSped
         {
-            public RegistroD400()
+            public RegistroD400() : base("D400")
             {
-                Reg = "D400";
             }
 
             /// <summary>
@@ -1865,11 +1779,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D410: DOCUMENTOS INFORMADOS (CÓDIGOS 13, 14, 15 E 16).
         /// </summary>
-        public class RegistroD410 : RegistroBaseSped
+        public class RegistroD410 : RegistroSped
         {
-            public RegistroD410()
+            public RegistroD410() : base("D410")
             {
-                Reg = "D410";
             }
 
             /// <summary>
@@ -1965,11 +1878,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D411: DOCUMENTOS CANCELADOS DOS DOCUMENTOS INFORMADOS (CÓDIGO 13, 14, 15 e 16).
         /// </summary>
-        public class RegistroD411 : RegistroBaseSped
+        public class RegistroD411 : RegistroSped
         {
-            public RegistroD411()
+            public RegistroD411() : base("D411")
             {
-                Reg = "D411";
             }
 
             /// <summary>
@@ -1983,11 +1895,10 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO D420: COMPLEMENTO DOS DOCUMENTOS INFORMADOS (CÓDIGO 13, 14,15 e 16).
         /// </summary>
-        public class RegistroD420 : RegistroBaseSped
+        public class RegistroD420 : RegistroSped
         {
-            public RegistroD420()
+            public RegistroD420() : base("D420")
             {
-                Reg = "D420";
             }
 
             /// <summary>
@@ -2019,14 +1930,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D500: NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E NOTA FISCAL DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22)
         /// </summary>
-        public class RegistroD500 : RegistroBaseSped
+        public class RegistroD500 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD500"/>.
             /// </summary>
-            public RegistroD500()
+            public RegistroD500() : base("D500")
             {
-                Reg = "D500";
             }
 
             /// <summary>
@@ -2199,14 +2109,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D510: ITENS DO DOCUMENTO - NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22).
         /// </summary>
-        public class RegistroD510 : RegistroBaseSped
+        public class RegistroD510 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD510"/>.
             /// </summary>
-            public RegistroD510()
+            public RegistroD510() : base("D510")
             {
-                Reg = "D510";
             }
 
             /// <summary>
@@ -2341,14 +2250,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D530: TERMINAL FATURADO.
         /// </summary>
-        public class RegistroD530 : RegistroBaseSped
+        public class RegistroD530 : RegistroSped
         {
             /// <summary>
             ///    Inicializa uma nova instância da classe <see cref="RegistroD530"/>.
             /// </summary>
-            public RegistroD530()
+            public RegistroD530() : base("D530")
             {
-                Reg = "D530";
             }
 
             /// <summary>
@@ -2404,14 +2312,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D590: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 21 E 22).
         /// </summary>
-        public class RegistroD590 : RegistroBaseSped
+        public class RegistroD590 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD590"/>.
             /// </summary>
-            public RegistroD590()
+            public RegistroD590() : base("D590")
             {
-                Reg = "D590";
             }
 
             /// <summary>
@@ -2480,14 +2387,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D600: CONSOLIDAÇÃO DA PRESTAÇÃO DE SERVIÇOS - NOTAS DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO  21) E DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22).
         /// </summary>
-        public class RegistroD600 : RegistroBaseSped
+        public class RegistroD600 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD600"/>.
             /// </summary>
-            public RegistroD600()
+            public RegistroD600() : base("D600")
             {
-                Reg = "D600";
             }
 
             /// <summary>
@@ -2599,14 +2505,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D610: ITENS DO DOCUMENTO CONSOLIDADO (CÓDIGO 21 E 22).
         /// </summary>
-        public class RegistroD610 : RegistroBaseSped
+        public class RegistroD610 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD610"/>.
             /// </summary>
-            public RegistroD610()
+            public RegistroD610() : base("D610")
             {
-                Reg = "D610";
             }
 
             /// <summary>
@@ -2716,14 +2621,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D690: REGISTRO ANALÍTICO DOS DOCUMENTOS (CÓDIGOS 21 e 22).
         /// </summary>
-        public class RegistroD690 : RegistroBaseSped
+        public class RegistroD690 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD690"/>.
             /// </summary>
-            public RegistroD690()
+            public RegistroD690() : base("D690")
             {
-                Reg = "D690";
             }
 
             /// <summary>
@@ -2791,14 +2695,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO D695: CONSOLIDAÇÃO DA PRESTAÇÃO DE SERVIÇOS – NOTAS DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO  21) E DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22) 
         ///     (EMPRESAS OBRIGADAS À ENTREGA DOS ARQUIVOS PREVISTOS NO CONVÊNIO ICMS 115/03).
         /// </summary>
-        public class RegistroD695 : RegistroBaseSped
+        public class RegistroD695 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD695"/>.
             /// </summary>
-            public RegistroD695()
+            public RegistroD695() : base("D695")
             {
-                Reg = "D695";
             }
 
             /// <summary>
@@ -2855,14 +2758,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D696: REGISTRO ANALÍTICO DOS DOCUMENTOS (CÓDIGO 21 E 22).
         /// </summary>
-        public class RegistroD696 : RegistroBaseSped
+        public class RegistroD696 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD696"/>.
             /// </summary>
-            public RegistroD696()
+            public RegistroD696() : base("D696")
             {
-                Reg = "D696";
             }
 
             /// <summary>
@@ -2931,14 +2833,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D697:  REGISTRO  DE  INFORMAÇÕES  DE  OUTRAS  UFs,  RELATIVAMENTE AOS SERVIÇOS “NÃO-MEDIDOS” DE TELEVISÃO POR ASSINATURA VIA SATÉLITE.
         /// </summary>
-        public class RegistroD697 : RegistroBaseSped
+        public class RegistroD697 : RegistroSped
         {
             /// <summary>
             ///   Inicializa uma nova instância da classe <see cref="RegistroD697"/>.
             /// </summary>
-            public RegistroD697()
+            public RegistroD697() : base("D697")
             {
-                Reg = "D697";
             }
 
             /// <summary>
@@ -2964,14 +2865,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO D700:  NOTA FISCAL FATURA ELETRÔNICA DE SERVIÇOS DE COMUNICAÇÃO – NFCom(CÓDIGO 62).
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroD700 : RegistroBaseSped
+        public class RegistroD700 : RegistroSped
         {
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="RegistroD700"/>.
             /// </summary>
-            public RegistroD700()
+            public RegistroD700() : base("D700")
             {
-                Reg = "D700";
             }
 
             /// <summary>
@@ -3180,14 +3080,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO D730:  REGISTRO ANALÍTICO NOTA FISCAL FATURA ELETRÔNICA DE SERVIÇOS DE COMUNICAÇÃO – NFCom (CÓDIGO 62).
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroD730 : RegistroBaseSped
+        public class RegistroD730 : RegistroSped
         {
             /// <summary>
             ///    Inicializa uma nova instância da classe <see cref="RegistroD730"/>.
             /// </summary>
-            public RegistroD730()
+            public RegistroD730() : base("D730")
             {
-                Reg = "D730";
             }
 
             /// <summary>
@@ -3247,14 +3146,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO D731: INFORMAÇÕES DO FUNDO DE COMBATE À POBREZA – FCP – (CÓDIGO 62).
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroD731 : RegistroBaseSped
+        public class RegistroD731 : RegistroSped
         {
             /// <summary>
             ///    Inicializa uma nova instância da classe <see cref="RegistroD731"/>.
             /// </summary>
-            public RegistroD731()
+            public RegistroD731() : base("D731")
             {
-                Reg = "D731";
             }
 
             /// <summary>
@@ -3269,14 +3167,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO D735: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 62).
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroD735 : RegistroBaseSped
+        public class RegistroD735 : RegistroSped
         {
             /// <summary>
             ///    Inicializa uma nova instância da classe <see cref="RegistroD735"/>.
             /// </summary>
-            public RegistroD735()
+            public RegistroD735() : base("D735")
             {
-                Reg = "D735";
             }
 
             /// <summary>
@@ -3297,14 +3194,13 @@ namespace FiscalBr.EFDFiscal
         ///     VALORES PROVENIENTES DE DOCUMENTO FISCAL.
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroD737 : RegistroBaseSped
+        public class RegistroD737 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroD737" />.
             /// </summary>
-            public RegistroD737()
+            public RegistroD737() : base("D737")
             {
-                Reg = "D737";
             }
 
             /// <summary>
@@ -3355,14 +3251,13 @@ namespace FiscalBr.EFDFiscal
         ///     ELETRÔNICA DE SERVIÇOS DE COMUNICAÇÃO - NFCom (CÓDIGO 62).
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroD750 : RegistroBaseSped
+        public class RegistroD750 : RegistroSped
         {
             /// <summary>
             ///    Inicializa uma nova instância da classe <see cref="RegistroD750"/>.
             /// </summary>
-            public RegistroD750()
+            public RegistroD750() : base("D750")
             {
-                Reg = "D750";
             }
 
             /// <summary>
@@ -3463,14 +3358,13 @@ namespace FiscalBr.EFDFiscal
         ///     FISCAL FATURA ELETRÔNICA DE SERVIÇOS DE COMUNICAÇÃO - NFCom(CÓDIGO 62)
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroD760 : RegistroBaseSped
+        public class RegistroD760 : RegistroSped
         {
             /// <summary>
             ///    Inicializa uma nova instância da classe <see cref="RegistroD760"/>.
             /// </summary>
-            public RegistroD760()
+            public RegistroD760() : base("D760")
             {
-                Reg = "D760";
             }
 
             /// <summary>
@@ -3530,14 +3424,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO D731: INFORMAÇÕES DO FUNDO DE COMBATE À POBREZA – FCP – (CÓDIGO 62).
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroD761 : RegistroBaseSped
+        public class RegistroD761 : RegistroSped
         {
             /// <summary>
             ///    Inicializa uma nova instância da classe <see cref="RegistroD761"/>.
             /// </summary>
-            public RegistroD761()
+            public RegistroD761() : base("D761")
             {
-                Reg = "D761";
             }
 
             /// <summary>
@@ -3551,14 +3444,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO D990: ENCERRAMENTO DO BLOCO D.
         /// </summary>
-        public class RegistroD990 : RegistroBaseSped
+        public class RegistroD990 : RegistroSped
         {
             /// <summary>
             ///    Inicializa uma nova instância da classe <see cref="RegistroD990"/>.
             /// </summary>
-            public RegistroD990()
+            public RegistroD990() : base("D990")
             {
-                Reg = "D990";
             }
 
             /// <summary>

@@ -17,31 +17,28 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C001: ABERTURA DO BLOCO C
         /// </summary>
-        public class RegistroC001 : RegistroBaseSped
+        public class RegistroC001 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
             /// </summary>
-            public RegistroC001()
+            public RegistroC001() : base("C001")
             {
-                Reg = "C001";
             }
 
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
             /// </summary>
-            public RegistroC001(IndMovimento indMovimento)
+            public RegistroC001(IndMovimento indMovimento) : base("C001")
             {
-                Reg = "C001";
                 IndMov = indMovimento;
             }
 
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC001" />.
             /// </summary>
-            public RegistroC001(bool temMovimento)
+            public RegistroC001(bool temMovimento) : base("C001")
             {
-                Reg = "C001";
                 IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
             }
 
@@ -77,14 +74,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C100: Nota fiscal, Nota fiscal avulsa, Nota fiscal de produtor, NF-e e NFC-e
         /// </summary>
-        public class RegistroC100 : RegistroBaseSped
+        public class RegistroC100 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC100" />.
             /// </summary>
-            public RegistroC100()
+            public RegistroC100() : base("C100")
             {
-                Reg = "C100";
             }
 
             #region Propriedades
@@ -1237,14 +1233,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO C101: INFORMAÇÃO COMPLEMENTAR DOS DOCUMENTOS FISCAIS QUANDO DAS OPERAÇÕES INTERESTADUAIS DESTINADAS A
         ///     CONSUMIDOR FINAL NÃO CONTRIBUINTE EC 87/15 (CÓDIGO 55)
         /// </summary>
-        public class RegistroC101 : RegistroBaseSped
+        public class RegistroC101 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC101" />.
             /// </summary>
-            public RegistroC101()
+            public RegistroC101() : base("C101")
             {
-                Reg = "C101";
             }
 
             /// <summary>
@@ -1269,14 +1264,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     OPERAÇÕES COM ICMS ST RECOLHIDO PARA UF DIVERSA DO DESTINATÁRIO DO DOCUMENTO FISCAL (CÓDIGO 55)
         /// </summary>
-        public class RegistroC105 : RegistroBaseSped
+        public class RegistroC105 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC105" />.
             /// </summary>
-            public RegistroC105()
+            public RegistroC105() : base("C105")
             {
-                Reg = "C105";
             }
 
             /// <summary>
@@ -1300,14 +1294,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     INFORMAÇÃO COMPLEMENTAR DA NOTA FISCAL (CÓDIGO 01, 1B, 04 e 55)
         /// </summary>
-        public class RegistroC110 : RegistroBaseSped
+        public class RegistroC110 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC110" />.
             /// </summary>
-            public RegistroC110()
+            public RegistroC110() : base("C110")
             {
-                Reg = "C110";
             }
 
             /// <summary>
@@ -1333,14 +1326,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     PROCESSO REFERENCIADO
         /// </summary>
-        public class RegistroC111 : RegistroBaseSped
+        public class RegistroC111 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC111" />.
             /// </summary>
-            public RegistroC111()
+            public RegistroC111() : base("C111")
             {
-                Reg = "C111";
             }
 
             /// <summary>
@@ -1365,14 +1357,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     DOCUMENTO DE ARRECADAÇÃO REFERENCIADO
         /// </summary>
-        public class RegistroC112 : RegistroBaseSped
+        public class RegistroC112 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC112" />.
             /// </summary>
-            public RegistroC112()
+            public RegistroC112() : base("C112")
             {
-                Reg = "C112";
             }
 
             /// <summary>
@@ -1423,14 +1414,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     DOCUMENTO FISCAL REFERENCIADO
         /// </summary>
-        public class RegistroC113 : RegistroBaseSped
+        public class RegistroC113 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC113" />.
             /// </summary>
-            public RegistroC113()
+            public RegistroC113() : base("C113")
             {
-                Reg = "C113";
             }
 
             /// <summary>
@@ -1497,14 +1487,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     CUPOM FISCAL REFERENCIADO
         /// </summary>
-        public class RegistroC114 : RegistroBaseSped
+        public class RegistroC114 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC114" />.
             /// </summary>
-            public RegistroC114()
+            public RegistroC114() : base("C114")
             {
-                Reg = "C114";
             }
 
             /// <summary>
@@ -1541,14 +1530,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C115: LOCAL DA COLETA E/OU ENTREGA (CÓDIGO 01, 1B E 04)
         /// </summary>
-        public class RegistroC115 : RegistroBaseSped
+        public class RegistroC115 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC115" />.
             /// </summary>
-            public RegistroC115()
+            public RegistroC115() : base("C115")
             {
-                Reg = "C115";
             }
 
             /// <summary>
@@ -1618,14 +1606,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C116: CUPOM FISCAL ELETRÔNICO REFERENCIADO
         /// </summary>
-        public class RegistroC116 : RegistroBaseSped
+        public class RegistroC116 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC116" />.
             /// </summary>
-            public RegistroC116()
+            public RegistroC116() : base("C116")
             {
-                Reg = "C116";
             }
 
             /// <summary>
@@ -1668,14 +1655,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C120: COMPLEMENTO DE DOCUMENTO - OPERAÇÕES DE IMPORTAÇÃO (CÓDIGOS 01 E 55)
         /// </summary>
-        public class RegistroC120 : RegistroBaseSped
+        public class RegistroC120 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC120" />.
             /// </summary>
-            public RegistroC120()
+            public RegistroC120() : base("C120")
             {
-                Reg = "C120";
             }
 
             /// <summary>
@@ -1717,14 +1703,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C130: ISSQN, IRRF E PREVIDÊNCIA SOCIAL
         /// </summary>
-        public class RegistroC130 : RegistroBaseSped
+        public class RegistroC130 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC130" />.
             /// </summary>
-            public RegistroC130()
+            public RegistroC130() : base("C130")
             {
-                Reg = "C130";
             }
 
             /// <summary>
@@ -1773,14 +1758,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C140: FATURA (CÓDIGO 01)
         /// </summary>
-        public class RegistroC140 : RegistroBaseSped
+        public class RegistroC140 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC140" />.
             /// </summary>
-            public RegistroC140()
+            public RegistroC140() : base("C140")
             {
-                Reg = "C140";
             }
 
             /// <summary>
@@ -1841,14 +1825,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C141: VENCIMENTO DA FATURA (CÓDIGO 01)
         /// </summary>
-        public class RegistroC141 : RegistroBaseSped
+        public class RegistroC141 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC141" />.
             /// </summary>
-            public RegistroC141()
+            public RegistroC141() : base("C141")
             {
-                Reg = "C141";
             }
 
             /// <summary>
@@ -1873,14 +1856,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO 160: VOLUMES TRANSPORTADOS (CÓDIGO 01 E 04) - EXCETO COMBUSTÍVEIS
         /// </summary>
-        public class RegistroC160 : RegistroBaseSped
+        public class RegistroC160 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC160" />.
             /// </summary>
-            public RegistroC160()
+            public RegistroC160() : base("C160")
             {
-                Reg = "C160";
             }
 
             /// <summary>
@@ -1923,14 +1905,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C165: OPERAÇÕES COM COMBUSTÍVEIS (CÓDIGO 01)
         /// </summary>
-        public class RegistroC165 : RegistroBaseSped
+        public class RegistroC165 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC165" />.
             /// </summary>
-            public RegistroC165()
+            public RegistroC165() : base("C165")
             {
-                Reg = "C165";
             }
 
             /// <summary>
@@ -2009,14 +1990,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO 170: ITENS DO DOCUMENTO (CÓDIGO 01, 1B, 04 e 55)
         /// </summary>
-        public class RegistroC170 : RegistroBaseSped
+        public class RegistroC170 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC170" />.
             /// </summary>
-            public RegistroC170()
+            public RegistroC170() : base("C170")
             {
-                Reg = "C170";
             }
 
             /// <summary>
@@ -2267,14 +2247,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C171: ARMAZENAMENTO DE COMBUSTÍVEIS
         /// </summary>
-        public class RegistroC171 : RegistroBaseSped
+        public class RegistroC171 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC171" />.
             /// </summary>
-            public RegistroC171()
+            public RegistroC171() : base("C171")
             {
-                Reg = "C171";
             }
 
             /// <summary>
@@ -2293,14 +2272,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C172: OPERAÇÕES COM ISSQN
         /// </summary>
-        public class RegistroC172 : RegistroBaseSped
+        public class RegistroC172 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC172" />.
             /// </summary>
-            public RegistroC172()
-            {
-                Reg = "C172";
+            public RegistroC172() : base("C172")
+            { 
             }
 
             /// <summary>
@@ -2325,14 +2303,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C173: OPERAÇÕES COM MEDICAMENTOS
         /// </summary>
-        public class RegistroC173 : RegistroBaseSped
+        public class RegistroC173 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC173" />.
             /// </summary>
-            public RegistroC173()
+            public RegistroC173() : base("C173")
             {
-                Reg = "C173";
             }
 
             /// <summary>
@@ -2393,14 +2370,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C174: OPERAÇÕES COM ARMAS DE FOGO
         /// </summary>
-        public class RegistroC174 : RegistroBaseSped
+        public class RegistroC174 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC174" />.
             /// </summary>
-            public RegistroC174()
+            public RegistroC174() : base("C174")
             {
-                Reg = "C174";
             }
 
             /// <summary>
@@ -2431,14 +2407,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C175: OPERAÇÕES COM VEÍCULOS NOVOS
         /// </summary>
-        public class RegistroC175 : RegistroBaseSped
+        public class RegistroC175 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC175" />.
             /// </summary>
-            public RegistroC175()
+            public RegistroC175() : base("C175")
             {
-                Reg = "C175";
             }
 
             /// <summary>
@@ -2476,14 +2451,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C176: RESSARCIMENTO DE ICMS EM OPERAÇÕES COM SUBSTITUIÇÃO TRIBUTÁRIA
         /// </summary>
-        public class RegistroC176 : RegistroBaseSped
+        public class RegistroC176 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC176" />.
             /// </summary>
-            public RegistroC176()
+            public RegistroC176() : base("C176")
             {
-                Reg = "C176";
             }
 
             /// <summary>
@@ -2538,14 +2512,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C177: OPERAÇÕES COM PRODUTOS SUJEITOS A SELO DE CONTROLE DE IPI
         /// </summary>
-        public class RegistroC177 : RegistroBaseSped
+        public class RegistroC177 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC177" />.
             /// </summary>
-            public RegistroC177()
+            public RegistroC177() : base("C177")
             {
-                Reg = "C177";
             }
 
             /// <summary>
@@ -2564,14 +2537,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C178: OPERAÇÕES COM PRODUTOS SUJEITOS À TRIBUTAÇÃO DE IPI POR UNIDADE OU QUANTIDADE DE PRODUTO
         /// </summary>
-        public class RegistroC178 : RegistroBaseSped
+        public class RegistroC178 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC178" />.
             /// </summary>
-            public RegistroC178()
+            public RegistroC178() : base("C178")
             {
-                Reg = "C178";
             }
 
             /// <summary>
@@ -2596,14 +2568,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C179: INFORMAÇÕES COMPLEMENTARES ST (CÓDIGO 01)
         /// </summary>
-        public class RegistroC179 : RegistroBaseSped
+        public class RegistroC179 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC179" />.
             /// </summary>
-            public RegistroC179()
+            public RegistroC179() : base("C179")
             {
-                Reg = "C179";
             }
 
             /// <summary>
@@ -2637,11 +2608,10 @@ namespace FiscalBr.EFDFiscal
             public decimal IcmsRet { get; set; }
         }
 
-        public class RegistroC180 : RegistroBaseSped
+        public class RegistroC180 : RegistroSped
         {
-            public RegistroC180()
+            public RegistroC180() : base("C180")
             {
-                Reg = "C180";
             }
 
             [SpedCampos(2, "COD_RESP_RET", "N", 1, 0, true, 2)]
@@ -2678,14 +2648,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C181:INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE DEVOLUÇÃO DE SAÍDAS DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CÓDIGO 01, 1B, 04 e 55).
         /// </summary>
-        public class RegistroC181 : RegistroBaseSped
+        public class RegistroC181 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC181" />.
             /// </summary>
-            public RegistroC181()
+            public RegistroC181() : base("C181")
             {
-                Reg = "C181";
             }
 
             /// <summary>
@@ -2812,14 +2781,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C185:INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE SAÍDA DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CÓDIGO 01, 1B, 04, 55 e 65).
         /// </summary>
-        public class RegistroC185 : RegistroBaseSped
+        public class RegistroC185 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC185" />.
             /// </summary>
-            public RegistroC185()
+            public RegistroC185() : base("C185")
             {
-                Reg = "C185";
             }
 
             [SpedCampos(2, "NUM_ITEM", "N", 3, 0, true, 2)]
@@ -2877,14 +2845,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C186:INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE DEVOLUÇÃO DE ENTRADAS DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CÓDIGO 01, 1B, 04 e 55).
         /// </summary>
-        public class RegistroC186 : RegistroBaseSped
+        public class RegistroC186 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC186" />.
             /// </summary>
-            public RegistroC186()
+            public RegistroC186() : base("C186")
             {
-                Reg = "C186";
             }
 
             /// <summary>
@@ -2999,14 +2966,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C190: REGISTRO ANALÍTICO DO DOCUMENTO (CÓDIGO 01, 1B, 04, 55 e 65)
         /// </summary>
-        public class RegistroC190 : RegistroBaseSped
+        public class RegistroC190 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC190" />.
             /// </summary>
-            public RegistroC190()
+            public RegistroC190() : base("C190")
             {
-                Reg = "C190";
             }
 
             /// <summary>
@@ -3088,14 +3054,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C191: INFORMAÇÕES DO FUNDO DE COMBATE À POBREZA – FCP – NA NF-e (CÓDIGO 55) E NA NFC-E (CÓDIGO 65)
         /// </summary>
-        public class RegistroC191 : RegistroBaseSped
+        public class RegistroC191 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC191" />.
             /// </summary>
-            public RegistroC191()
+            public RegistroC191() : base("C191")
             {
-                Reg = "C191";
             }
 
             /// <summary>
@@ -3120,14 +3085,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C195: OBSERVAÇOES DO LANÇAMENTO FISCAL (CÓDIGO 01, 1B, 04 E 55)
         /// </summary>
-        public class RegistroC195 : RegistroBaseSped
+        public class RegistroC195 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC195" />.
             /// </summary>
-            public RegistroC195()
+            public RegistroC195() : base("C195")
             {
-                Reg = "C195";
             }
 
             /// <summary>
@@ -3148,14 +3112,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C197: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.
         /// </summary>
-        public class RegistroC197 : RegistroBaseSped
+        public class RegistroC197 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC197" />.
             /// </summary>
-            public RegistroC197()
+            public RegistroC197() : base("C197")
             {
-                Reg = "C197";
             }
 
             /// <summary>
@@ -3204,14 +3167,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C300: RESUMO DIÁRIO DAS NOTAS FISCAIS DE VENDA A CONSUMIDOR (CÓDIGO 02)
         /// </summary>
-        public class RegistroC300 : RegistroBaseSped
+        public class RegistroC300 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC300" />.
             /// </summary>
-            public RegistroC300()
+            public RegistroC300() : base("C300")
             {
-                Reg = "C300";
             }
 
             /// <summary>
@@ -3281,14 +3243,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C310: DOCUMENTOS CANCELADOS DE NOTAS FISCAIS DE VENDA A CONSUMIDOR (CÓDIGO 02).
         /// </summary>
-        public class RegistroC310 : RegistroBaseSped
+        public class RegistroC310 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC310" />.
             /// </summary>
-            public RegistroC310()
+            public RegistroC310() : base("C310")
             {
-                Reg = "C310";
             }
 
             /// <summary>
@@ -3301,14 +3262,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C320: REGISTRO ANALÍTICO DO RESUMO DIÁRIO DAS NOTAS FISCAIS DE VENDA A CONSUMIDOR (CÓDIGO 02).
         /// </summary>
-        public class RegistroC320 : RegistroBaseSped
+        public class RegistroC320 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC320" />.
             /// </summary>
-            public RegistroC320()
+            public RegistroC320() : base("C320")
             {
-                Reg = "C320";
             }
 
             /// <summary>
@@ -3367,14 +3327,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C321: ITENS DO RESUMO DIÁRIO DOS DOCUMENTOS (CÓDIGO 02)
         /// </summary>
-        public class RegistroC321 : RegistroBaseSped
+        public class RegistroC321 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC321" />.
             /// </summary>
-            public RegistroC321()
+            public RegistroC321() : base("C321")
             {
-                Reg = "C321";
             }
 
             /// <summary>
@@ -3437,14 +3396,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C330: INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE SAÍDA DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CÓDIGO 02)
         /// </summary>
-        public class RegistroC330 : RegistroBaseSped
+        public class RegistroC330 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC330" />.
             /// </summary>
-            public RegistroC330()
+            public RegistroC330() : base("C330")
             {
-                Reg = "C330";
             }
 
             /// <summary>
@@ -3529,14 +3487,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C350: NOTA FISCAL DE VENDA A CONSUMIDOR (CÓDIGO 02)
         /// </summary>
-        public class RegistroC350 : RegistroBaseSped
+        public class RegistroC350 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC350" />.
             /// </summary>
-            public RegistroC350()
+            public RegistroC350() : base("C350")
             {
-                Reg = "C350";
             }
 
             /// <summary>
@@ -3612,14 +3569,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C370: ITENS DO DOCUMENTO (CÓDIGO 02)
         /// </summary>
-        public class RegistroC370 : RegistroBaseSped
+        public class RegistroC370 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC370" />.
             /// </summary>
-            public RegistroC370()
+            public RegistroC370() : base("C370")
             {
-                Reg = "C370";
             }
 
             /// <summary>
@@ -3665,14 +3621,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C380: INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE SAÍDA DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CÓDIGO 02)
         /// </summary>
-        public class RegistroC380 : RegistroBaseSped
+        public class RegistroC380 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC380" />.
             /// </summary>
-            public RegistroC380()
+            public RegistroC380() : base("C380")
             {
-                Reg = "C380";
             }
 
             /// <summary>
@@ -3769,14 +3724,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C390: REGISTRO ANALÍTICO DAS NOTAS FISCAIS DE VENDA A CONSUMIDOR (CÓDIGO 02)
         /// </summary>
-        public class RegistroC390 : RegistroBaseSped
+        public class RegistroC390 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC390" />.
             /// </summary>
-            public RegistroC390()
+            public RegistroC390() : base("C390")
             {
-                Reg = "C390";
             }
 
             /// <summary>
@@ -3833,14 +3787,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C400: EQUIPAMENTO ECF (CÓDIGO 02, 2D e 60).
         /// </summary>
-        public class RegistroC400 : RegistroBaseSped
+        public class RegistroC400 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC400" />.
             /// </summary>
-            public RegistroC400()
+            public RegistroC400() : base("C400")
             {
-                Reg = "C400";
             }
 
             /// <summary>
@@ -3873,14 +3826,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C405: REDUÇÃO Z (CÓDIGO 02, 2D e 60).
         /// </summary>
-        public class RegistroC405 : RegistroBaseSped
+        public class RegistroC405 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC405" />.
             /// </summary>
-            public RegistroC405()
+            public RegistroC405() : base("C405")
             {
-                Reg = "C405";
             }
 
             /// <summary>
@@ -3928,14 +3880,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C410: PIS E COFINS TOTALIZADOS NO DIA (CÓDIGO 02 e 2D).
         /// </summary>
-        public class RegistroC410 : RegistroBaseSped
+        public class RegistroC410 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC410" />.
             /// </summary>
-            public RegistroC410()
+            public RegistroC410() : base("C410")
             {
-                Reg = "C410";
             }
 
             /// <summary>
@@ -3954,14 +3905,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C420: REGISTRO DOS TOTALIZADORES PARCIAIS DA REDUÇÃO Z (COD 02, 2D e 60).
         /// </summary>
-        public class RegistroC420 : RegistroBaseSped
+        public class RegistroC420 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC420" />.
             /// </summary>
-            public RegistroC420()
+            public RegistroC420() : base("C420")
             {
-                Reg = "C420";
             }
 
             /// <summary>
@@ -3995,14 +3945,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C425: RESUMO DE ITENS DO MOVIMENTO DIÁRIO (CÓDIGO 02 e 2D).
         /// </summary>
-        public class RegistroC425 : RegistroBaseSped
+        public class RegistroC425 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC425" />.
             /// </summary>
-            public RegistroC425()
+            public RegistroC425() : base("C425")
             {
-                Reg = "C425";
             }
 
             /// <summary>
@@ -4048,14 +3997,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C430: INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE SAÍDA DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CÓDIGO 02, 2D e 60).
         /// </summary>
-        public class RegistroC430 : RegistroBaseSped
+        public class RegistroC430 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC430" />.
             /// </summary>
-            public RegistroC430()
+            public RegistroC430() : base("C430")
             {
-                Reg = "C430";
             }
 
             /// <summary>
@@ -4152,14 +4100,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C460: DOCUMENTO FISCAL EMITIDO POR ECF (CÓDIGO 02, 2D e 60).
         /// </summary>
-        public class RegistroC460 : RegistroBaseSped
+        public class RegistroC460 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC460" />.
             /// </summary>
-            public RegistroC460()
+            public RegistroC460() : base("C460")
             {
-                Reg = "C460";
             }
 
             /// <summary>
@@ -4223,14 +4170,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C465: COMPLEMENTO DO CUPOM FISCAL ELETRÔNICO EMITIDO POR ECF – CF-e-ECF (CÓDIGO 60).
         /// </summary>
-        public class RegistroC465 : RegistroBaseSped
+        public class RegistroC465 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC465" />.
             /// </summary>
-            public RegistroC465()
+            public RegistroC465() : base("C465")
             {
-                Reg = "C465";
             }
 
             /// <summary>
@@ -4249,14 +4195,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C470: ITENS DO DOCUMENTO FISCAL EMITIDO POR ECF (CÓDIGO 02 e 2D).
         /// </summary>
-        public class RegistroC470 : RegistroBaseSped
+        public class RegistroC470 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC470" />.
             /// </summary>
-            public RegistroC470()
+            public RegistroC470() : base("C470")
             {
-                Reg = "C470";
             }
 
             /// <summary>
@@ -4325,14 +4270,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C480: INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE SAÍDA DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CÓDIGO 02, 2D e 60).
         /// </summary>
-        public class RegistroC480 : RegistroBaseSped
+        public class RegistroC480 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC480" />.
             /// </summary>
-            public RegistroC480()
+            public RegistroC480() : base("C480")
             {
-                Reg = "C480";
             }
 
             /// <summary>
@@ -4429,14 +4373,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C490: REGISTRO ANALÍTICO DO MOVIMENTO DIÁRIO (CÓDIGO 02, 2D e 60).
         /// </summary>
-        public class RegistroC490 : RegistroBaseSped
+        public class RegistroC490 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC490" />.
             /// </summary>
-            public RegistroC490()
+            public RegistroC490() : base("C490")
             {
-                Reg = "C490";
             }
 
             /// <summary>
@@ -4486,14 +4429,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C495: RESUMO MENSAL DE ITENS DO ECF POR ESTABELECIMENTO (CÓDIGO 02 e 2D).
         /// </summary>
-        public class RegistroC495 : RegistroBaseSped
+        public class RegistroC495 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC495" />.
             /// </summary>
-            public RegistroC495()
+            public RegistroC495() : base("C495")
             {
-                Reg = "C495";
             }
 
             /// <summary>
@@ -4584,14 +4526,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C500: NOTA FISCAL/CONTA DE ENERGIA ELÉTRICA (CÓDIGO 06), NOTA FISCAL/CONTA DE FORNECIMENTO D'ÁGUA CANALIZADA (CÓDIGO 29) E NOTA FISCAL CONSUMO FORNECIMENTO DE GÁS (CÓDIGO 28)
         /// </summary>
-        public class RegistroC500 : RegistroBaseSped
+        public class RegistroC500 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC500" />.
             /// </summary>
-            public RegistroC500()
+            public RegistroC500() : base("C500")
             {
-                Reg = "C500";
             }
 
             /// <summary>
@@ -4601,9 +4542,8 @@ namespace FiscalBr.EFDFiscal
                 IndClasseConsumoEnergiaOuGas indConsumoEnergia,
                 IndCodTipoLigacao indTipoLigacao,
                 IndCodGrupoTensao indGrupoTensao
-                )
+                ) : base("C500")
             {
-                Reg = "C500";
                 this.CodCons = indConsumoEnergia;
                 this.TpLigacao = indTipoLigacao;
                 this.CodGrupoTensao = indGrupoTensao;
@@ -4934,14 +4874,13 @@ namespace FiscalBr.EFDFiscal
         ///     NOTA FISCAL/CONTA DE FORNECIMENTO D'ÁGUA CANALIZADA (CÓDIGO 29) E NOTA FISCAL/CONTA
         ///     DE FORNECIMENTO DE GÁS (CÓDIGO 28)
         /// </summary>
-        public class RegistroC510 : RegistroBaseSped
+        public class RegistroC510 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC510" />.
             /// </summary>
-            public RegistroC510()
+            public RegistroC510() : base("C510")
             {
-                Reg = "C510";
             }
 
             /// <summary>
@@ -5076,14 +5015,13 @@ namespace FiscalBr.EFDFiscal
         ///     D'ÁGUA CANALIZADA (CÓDIGO 29) E NOTA FISCAL CONSUMO FORNECIMENTO DE
         ///     GÁS (CÓDIGO 28)
         /// </summary>
-        public class RegistroC590 : RegistroBaseSped
+        public class RegistroC590 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC590" />.
             /// </summary>
-            public RegistroC590()
+            public RegistroC590() : base("C590")
             {
-                Reg = "C590";
             }
 
             /// <summary>
@@ -5158,11 +5096,10 @@ namespace FiscalBr.EFDFiscal
             public RegistroC591 RegC591 { get; set; }
         }
 
-        public class RegistroC591 : RegistroBaseSped
+        public class RegistroC591 : RegistroSped
         {
-            public RegistroC591()
+            public RegistroC591() : base("C591")
             {
-                Reg = "C591";
             }
 
             [SpedCampos(2, "VL_FCP_OP", "N", 12, 2, false, 2)]
@@ -5172,11 +5109,10 @@ namespace FiscalBr.EFDFiscal
             public decimal VlFcpSt { get; set; }
         }
 
-        public class RegistroC595 : RegistroBaseSped
+        public class RegistroC595 : RegistroSped
         {
-            public RegistroC595()
+            public RegistroC595() : base("C595")
             {
-                Reg = "C595";
             }
 
             [SpedCampos(2, "COD_OBS", "C", 6, 0, true, 2)]
@@ -5188,11 +5124,10 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC597> RegC597s { get; set; }
         }
 
-        public class RegistroC597 : RegistroBaseSped
+        public class RegistroC597 : RegistroSped
         {
-            public RegistroC597()
+            public RegistroC597() : base("C597")
             {
-                Reg = "C597";
             }
 
             [SpedCampos(2, "COD_AJ", "C", 10, 0, true, 2)]
@@ -5220,14 +5155,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C600: CONSOLIDAÇÃO DIÁRIA DE NOTAS FISCAIS (EMPRESAS NÃO OBRIGADAS AO CONVÊNIO ICMS 115/03)
         /// </summary>
-        public class RegistroC600 : RegistroBaseSped
+        public class RegistroC600 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC600" />.
             /// </summary>
-            public RegistroC600()
+            public RegistroC600() : base("C600")
             {
-                Reg = "C600";
             }
 
             /// <summary>
@@ -5375,14 +5309,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C601: DOCUMENTOS CANCELADOS - CONSOLIDAÇÃO DIÁRIA DE NOTAS FISCAIS
         /// </summary>
-        public class RegistroC601 : RegistroBaseSped
+        public class RegistroC601 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC601" />.
             /// </summary>
-            public RegistroC601()
+            public RegistroC601() : base("C601")
             {
-                Reg = "C601";
             }
 
             /// <summary>
@@ -5395,14 +5328,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C610: ITENS DO DOCUMENTO CONSOLIDADO (EMPRESAS NÃO OBRIGADAS AO CONVÊNIO ICMS 115/03)
         /// </summary>
-        public class RegistroC610 : RegistroBaseSped
+        public class RegistroC610 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC610" />.
             /// </summary>
-            public RegistroC610()
+            public RegistroC610() : base("C610")
             {
-                Reg = "C610";
             }
 
             /// <summary>
@@ -5505,14 +5437,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C690: REGISTRO ANALÍTICO DOS DOCUMENTOS
         /// </summary>
-        public class RegistroC690 : RegistroBaseSped
+        public class RegistroC690 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC690" />.
             /// </summary>
-            public RegistroC690()
+            public RegistroC690() : base("C690")
             {
-                Reg = "C690";
             }
 
             /// <summary>
@@ -5583,14 +5514,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO C700: CONSOLIDAÇÃO DOS DOCUMENTOS (EMPRESAS OBRIGADAS
         ///     À ENTREGA DO ARQUIVO PREVISTO NO CONVÊNIO ICMS 115/03)
         /// </summary>
-        public class RegistroC700 : RegistroBaseSped
+        public class RegistroC700 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC700" />.
             /// </summary>
-            public RegistroC700()
+            public RegistroC700() : base("C700")
             {
-                Reg = "C700";
             }
 
             /// <summary>
@@ -5651,14 +5581,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C790: REGISTRO ANALÍTICO DOS DOCUMENTOS
         /// </summary>
-        public class RegistroC790 : RegistroBaseSped
+        public class RegistroC790 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC790" />.
             /// </summary>
-            public RegistroC790()
+            public RegistroC790() : base("C790")
             {
-                Reg = "C790";
             }
 
             /// <summary>
@@ -5732,14 +5661,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C791: REGISTRO DE INFORMAÇÕES DE ST POR UF (COD 06)
         /// </summary>
-        public class RegistroC791 : RegistroBaseSped
+        public class RegistroC791 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC791" />.
             /// </summary>
-            public RegistroC791()
+            public RegistroC791() : base("C791")
             {
-                Reg = "C791";
             }
 
             /// <summary>
@@ -5764,14 +5692,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C800: REGISTRO CUPOM FISCAL ELETRÔNICO - CF-E (CÓDIGO 59)
         /// </summary>
-        public class RegistroC800 : RegistroBaseSped
+        public class RegistroC800 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC800" />.
             /// </summary>
-            public RegistroC800()
+            public RegistroC800() : base("C800")
             {
-                Reg = "C800";
             }
 
             /// <summary>
@@ -5877,14 +5804,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C810: ITENS DO DOCUMENTO DO CUPOM FISCAL ELETRÔNICO – SAT (CF-E-SAT) (CÓDIGO 59):
         /// </summary>
-        public class RegistroC810 : RegistroBaseSped
+        public class RegistroC810 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC810" />.
             /// </summary>
-            public RegistroC810()
+            public RegistroC810() : base("C810")
             {
-                Reg = "C810";
             }
 
             /// <summary>
@@ -5935,14 +5861,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C810: ITENS DO DOCUMENTO DO CUPOM FISCAL ELETRÔNICO – SAT (CF-E-SAT) (CÓDIGO 59):
         /// </summary>
-        public class RegistroC815 : RegistroBaseSped
+        public class RegistroC815 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC815" />.
             /// </summary>
-            public RegistroC815()
+            public RegistroC815() : base("C815")
             {
-                Reg = "C815";
             }
 
             /// <summary>
@@ -6027,14 +5952,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C850: REGISTRO ANALÍTICO DO CF-E (CÓDIGO 59)
         /// </summary>
-        public class RegistroC850 : RegistroBaseSped
+        public class RegistroC850 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC850" />.
             /// </summary>
-            public RegistroC850()
+            public RegistroC850() : base("C850")
             {
-                Reg = "C850";
             }
 
             /// <summary>
@@ -6093,14 +6017,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO C855: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59)
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroC855 : RegistroBaseSped
+        public class RegistroC855 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC855" />.
             /// </summary>
-            public RegistroC855()
+            public RegistroC855() : base("C855")
             {
-                Reg = "C855";
             }
 
             /// <summary>
@@ -6123,14 +6046,13 @@ namespace FiscalBr.EFDFiscal
         ///     VALORES PROVENIENTES DE DOCUMENTO FISCAL.
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroC857 : RegistroBaseSped
+        public class RegistroC857 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC857" />.
             /// </summary>
-            public RegistroC857()
+            public RegistroC857() : base("C857")
             {
-                Reg = "C857";
             }
 
             /// <summary>
@@ -6179,14 +6101,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C860: IDENTIFICAÇÃO DO EQUIPAMENTO SAT-CF-E (CÓDIGO 59)
         /// </summary>
-        public class RegistroC860 : RegistroBaseSped
+        public class RegistroC860 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC860" />.
             /// </summary>
-            public RegistroC860()
+            public RegistroC860() : base("C860")
             {
-                Reg = "C860";
             }
 
             /// <summary>
@@ -6235,14 +6156,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C870: ITENS DO RESUMO DIÁRIO DOS DOCUMENTOS (CF-E-SAT) (CÓDIGO 59)
         /// </summary>
-        public class RegistroC870 : RegistroBaseSped
+        public class RegistroC870 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC870" />.
             /// </summary>
-            public RegistroC870()
+            public RegistroC870() : base("C870")
             {
-                Reg = "C870";
             }
 
             /// <summary>
@@ -6281,14 +6201,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C880: INFORMAÇÕES COMPLEMENTARES DAS OPERAÇÕES DE SAÍDA DE MERCADORIAS SUJEITAS À SUBSTITUIÇÃO TRIBUTÁRIA (CF-E-SAT) (CÓDIGO 59)
         /// </summary>
-        public class RegistroC880 : RegistroBaseSped
+        public class RegistroC880 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC880" />.
             /// </summary>
-            public RegistroC880()
+            public RegistroC880() : base("C880")
             {
-                Reg = "C880";
             }
 
             /// <summary>
@@ -6374,14 +6293,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C890: RESUMO DIÁRIO DE CF-E (CÓDIGO 59) POR EQUIPAMENTO SAT-CF-E
         /// </summary>
-        public class RegistroC890 : RegistroBaseSped
+        public class RegistroC890 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC890" />.
             /// </summary>
-            public RegistroC890()
+            public RegistroC890() : base("C890")
             {
-                Reg = "C890";
             }
 
             /// <summary>
@@ -6438,14 +6356,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO C895: OBSERVAÇÕES DO LANÇAMENTO FISCAL (CÓDIGO 59)
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroC895 : RegistroBaseSped
+        public class RegistroC895 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC895" />.
             /// </summary>
-            public RegistroC895()
+            public RegistroC895() : base("C895")
             {
-                Reg = "C895";
             }
 
             /// <summary>
@@ -6467,14 +6384,13 @@ namespace FiscalBr.EFDFiscal
         ///     REGISTRO C897: OUTRAS OBRIGAÇÕES TRIBUTÁRIAS, AJUSTES E INFORMAÇÕES DE VALORES PROVENIENTES DE DOCUMENTO FISCAL.
         /// </summary>
         [SpedRegistros("01/01/2023", "")]
-        public class RegistroC897 : RegistroBaseSped
+        public class RegistroC897 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC897" />.
             /// </summary>
-            public RegistroC897()
+            public RegistroC897() : base("C897")
             {
-                Reg = "C897";
             }
 
             /// <summary>
@@ -6523,14 +6439,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO C990: ENCERRAMENTO DO BLOCO C
         /// </summary>
-        public class RegistroC990 : RegistroBaseSped
+        public class RegistroC990 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroC990" />.
             /// </summary>
-            public RegistroC990()
+            public RegistroC990() : base("C990")
             {
-                Reg = "C990";
             }
 
             /// <summary>

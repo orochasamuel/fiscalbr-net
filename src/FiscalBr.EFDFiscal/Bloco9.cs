@@ -17,14 +17,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO 9001: ABERTURA DO BLOCO 9
         /// </summary>
-        public class Registro9001 : RegistroBaseSped
+        public class Registro9001 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro9001" />.
             /// </summary>
-            public Registro9001()
+            public Registro9001() : base("9001")
             {
-                Reg = "9001";
             }
 
             /// <summary>
@@ -39,14 +38,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO 9900: REGISTRO DO ARQUIVO
         /// </summary>
-        public class Registro9900 : RegistroBaseSped
+        public class Registro9900 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro9900" />.
             /// </summary>
-            public Registro9900()
+            public Registro9900() : base("9900")
             {
-                Reg = "9900";
             }
 
             /// <summary>
@@ -67,14 +65,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO 9990: ENCERRAMENTO DO BLOCO 9
         /// </summary>
-        public class Registro9990 : RegistroBaseSped
+        public class Registro9990 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro9990" />.
             /// </summary>
-            public Registro9990()
+            public Registro9990() : base("9990")
             {
-                Reg = "9990";
             }
 
             /// <summary>
@@ -87,14 +84,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO 9999: ENCERRAMENTO DO ARQUIVO DIGITAL
         /// </summary>
-        public class Registro9999 : RegistroBaseSped
+        public class Registro9999 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro9999" />.
             /// </summary>
-            public Registro9999()
+            public Registro9999() : base("9999")
             {
-                Reg = "9999";
             }
 
             /// <summary>

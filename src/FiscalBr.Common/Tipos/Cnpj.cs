@@ -92,12 +92,15 @@ namespace FiscalBr.Common.Tipos
 
         public static bool TryParse(string value, out Cnpj cnpj)
         {
+            // TODO: Implementar
             cnpj = new Cnpj(value);
             return true;
         }
 
         //public static implicit operator Cnpj(long value)
         //    => Parse(value);
+
+        public static implicit operator string(Cnpj cnpj) => cnpj._value;
 
         public static implicit operator Cnpj(string value)
             => Parse(value);

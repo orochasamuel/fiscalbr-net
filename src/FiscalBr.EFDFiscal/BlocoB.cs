@@ -16,14 +16,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO B001: ABERTURA DO BLOCO B
         /// </summary>
-        public class RegistroB001 : RegistroBaseSped
+        public class RegistroB001 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB001" />.
             /// </summary>
-            public RegistroB001()
+            public RegistroB001() : base("B001")
             {
-                Reg = "B001";
             }
 
             /// <summary>
@@ -46,14 +45,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO B020: NOTA FISCAL (CÓDIGO 01),NOTA FISCAL DE SERVIÇOS (CÓDIGO 03), NOTA FISCAL DE SERVIÇOS AVULSA (CÓDIGO 3B), NOTA FISCAL DE PRODUTOR (CÓDIGO 04), CONHECIMENTO DE  TRANSPORTE  RODOVIÁRIO DE CARGAS (CÓDIGO 08), NF-e (CÓDIGO 55) e NFC-e (CÓDIGO 65).
         /// </summary>
-        public class RegistroB020 : RegistroBaseSped
+        public class RegistroB020 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB020" />.
             /// </summary>
-            public RegistroB020()
+            public RegistroB020() : base("B020")
             {
-                Reg = "B020";
             }
 
             /// <summary>
@@ -182,14 +180,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO B025: DETALHAMENTO POR COMBINAÇÃO DE ALÍQUOTA E ITEM DA LISTA DE SERVIÇOS DA LC 116/2003)
         /// </summary>
-        public class RegistroB025 : RegistroBaseSped
+        public class RegistroB025 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB025" />.
             /// </summary>
-            public RegistroB025()
+            public RegistroB025() : base("B025")
             {
-                Reg = "B025";
             }
 
             /// <summary>
@@ -233,14 +230,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO B030: NOTA FISCAL DE SERVIÇOS SIMPLIFICADA (CÓDIGO 3A)
         /// </summary>
-        public class RegistroB030 : RegistroBaseSped
+        public class RegistroB030 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB030" />.
             /// </summary>
-            public RegistroB030()
+            public RegistroB030() : base("B030")
             {
-                Reg = "B030";
             }
 
             /// <summary>
@@ -316,14 +312,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO B035: DETALHAMENTO POR COMBINAÇÃO DE ALÍQUOTA E ITEM DA LISTA DE SERVIÇOS DA LC 116/2003)
         /// </summary>
-        public class RegistroB035 : RegistroBaseSped
+        public class RegistroB035 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB035" />.
             /// </summary>
-            public RegistroB035()
+            public RegistroB035() : base("B035")
             {
-                Reg = "B035";
             }
 
             /// <summary>
@@ -367,14 +362,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///  REGISTRO B350: SERVIÇOS PRESTADOS POR INSTITUIÇÕES FINANCEIRAS
         /// </summary>
-        public class RegistroB350 : RegistroBaseSped
+        public class RegistroB350 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB350" />.
             /// </summary>
-            public RegistroB350()
+            public RegistroB350() : base("B350")
             {
-                Reg = "B350";
             }
 
             /// <summary>
@@ -442,14 +436,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO B420: TOTALIZAÇÃO DOS VALORES DE SERVIÇOS PRESTADOS POR COMBINAÇÃO DE ALÍQUOTA E ITEM DA LISTA DE SERVIÇOS DA LC 116/2003
         /// </summary>
-        public class RegistroB420 : RegistroBaseSped
+        public class RegistroB420 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB420" />.
             /// </summary>
-            public RegistroB420()
+            public RegistroB420() : base("B420")
             {
-                Reg = "B420";
             }
 
             /// <summary>
@@ -493,14 +486,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO B440: TOTALIZAÇÃO DOS VALORES RETIDOS REGISTRO
         /// </summary>
-        public class RegistroB440 : RegistroBaseSped
+        public class RegistroB440 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB440" />.
             /// </summary>
-            public RegistroB440()
+            public RegistroB440() : base("B440")
             {
-                Reg = "B440";
             }
 
             /// <summary>
@@ -541,14 +533,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///    REGISTRO B460: DEDUÇÕES DO ISS
         /// </summary>
-        public class RegistroB460 : RegistroBaseSped
+        public class RegistroB460 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB460" />.
             /// </summary>
-            public RegistroB460()
+            public RegistroB460() : base("B460")
             {
-                Reg = "B460";
             }
 
             /// <summary>
@@ -608,14 +599,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///  REGISTRO B470: APURAÇÃO DO ISS
         /// </summary>
-        public class RegistroB470 : RegistroBaseSped
+        public class RegistroB470 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB470" />.
             /// </summary>
-            public RegistroB470()
+            public RegistroB470() : base("B470")
             {
-                Reg = "B470";
             }
 
             /// <summary>
@@ -707,14 +697,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO B500: APURAÇÃO DO ISS SOCIEDADE UNIPROFISSIONAL
         /// </summary>
-        public class RegistroB500 : RegistroBaseSped
+        public class RegistroB500 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB500" />.
             /// </summary>
-            public RegistroB500()
+            public RegistroB500() : base("B500")
             {
-                Reg = "B500";
             }
 
             /// <summary>
@@ -742,14 +731,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///   REGISTRO B510: UNIPROFISSIONAL - EMPREGADOS E SÓCIOS
         /// </summary>
-        public class RegistroB510 : RegistroBaseSped
+        public class RegistroB510 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB510" />.
             /// </summary>
-            public RegistroB510()
+            public RegistroB510() : base("B510")
             {
-                Reg = "B510";
             }
 
             /// <summary>
@@ -787,14 +775,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO B990: ENCERRAMENTO DO BLOCO B
         /// </summary>
-        public class RegistroB990 : RegistroBaseSped
+        public class RegistroB990 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroB990" />.
             /// </summary>
-            public RegistroB990()
+            public RegistroB990() : base("B990")
             {
-                Reg = "B990";
             }
 
             /// <summary>

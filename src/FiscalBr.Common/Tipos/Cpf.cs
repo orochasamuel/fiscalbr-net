@@ -88,6 +88,8 @@
         //public static implicit operator Cpf(long value)
         //    => new Cpf(value);
 
+        public static implicit operator string(Cpf cpf) => cpf._value;
+
         public static implicit operator Cpf(string value)
             => new Cpf(value);
 

@@ -260,7 +260,7 @@ namespace FiscalBr.Common.Sped
             // TODO: Refatorar e melhorar
             if ((IsCodeOrNumber(tpAttr) && (tamanho > 0 && tamanho <= 4)) || IsLiteralEnum(tpAttr))
                 if (valor.Length <= tamanho)
-                    return valor.PadLeft(tamanho, '0');
+                    return FormatarCampoString(valor, tamanho, '0');
 
             if (IsDateTime(tpProp))
                 if (IsHour(tpAttr))
@@ -286,9 +286,9 @@ namespace FiscalBr.Common.Sped
             //}
 
             if (valor.Length > tamanho)
-                return valor.Substring(0, tamanho);
+                return FormatarCampoString(valor.Substring(0, tamanho));
 
-            return valor;
+            return FormatarCampoString(valor);
         }
 
         public bool ExisteAtributoSpedNaPropriedade(PropertyInfo prop, int version)

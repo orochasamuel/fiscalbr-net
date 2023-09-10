@@ -10,11 +10,10 @@ namespace FiscalBr.EFDContribuicoes
         public RegistroA001 RegA001 { get; set; }
         public RegistroA990 RegA990 { get; set; }
 
-        public class RegistroA001 : RegistroBaseSped
+        public class RegistroA001 : RegistroSped
         {
-            public RegistroA001()
+            public RegistroA001() : base("A001")
             {
-                Reg = "A001";
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 2)]
@@ -26,11 +25,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// IDENTIFICAÇÃO DO ESTABELECIMENTO
         /// </summary>
-        public class RegistroA010 : RegistroBaseSped
+        public class RegistroA010 : RegistroSped
         {
-            public RegistroA010()
+            public RegistroA010() : base("A010")
             {
-                Reg = "A010";
             }
 
             [SpedCampos(2, "CNPJ", "N", 14, 0, true, 2)]
@@ -42,11 +40,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// DOCUMENTO - NOTA FISCAL DE SERVIÇO
         /// </summary>
-        public class RegistroA100 : RegistroBaseSped
+        public class RegistroA100 : RegistroSped
         {
-            public RegistroA100()
+            public RegistroA100() : base("A100")
             {
-                Reg = "A100";
             }
 
             /// <summary>
@@ -187,11 +184,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// COMPLEMENTO DO DOCUMENTO - INFORMAÇÃO COMPLEMENTAR DA NF
         /// </summary>
-        public class RegistroA110 : RegistroBaseSped
+        public class RegistroA110 : RegistroSped
         {
-            public RegistroA110()
+            public RegistroA110() : base("A110")
             {
-                Reg = "A110";
             }
 
             [SpedCampos(2, "COD_INF", "C", 6, 0, true, 2)]
@@ -204,11 +200,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///    Registro A111: Processo Referenciado
         /// </summary>
-        public class RegistroA111 : RegistroBaseSped
+        public class RegistroA111 : RegistroSped
         {
-            public RegistroA111()
+            public RegistroA111() : base("A111")
             {
-                Reg = "A111";
             }
 
             /// <summary>
@@ -230,11 +225,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///    Registro A120: Informação Complementar -Operações de Importação
         /// </summary>
-        public class RegistroA120 : RegistroBaseSped
+        public class RegistroA120 : RegistroSped
         {
-            public RegistroA120()
+            public RegistroA120() : base("A120")
             {
-                Reg = "A120";
             }
 
             /// <summary>
@@ -291,11 +285,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// COMPLEMENTO DO DOCUMENTO - ITENS DO DOCUMENTO
         /// </summary>
-        public class RegistroA170 : RegistroBaseSped
+        public class RegistroA170 : RegistroSped
         {
-            public RegistroA170()
+            public RegistroA170() : base("A170")
             {
-                Reg = "A170";
             }
 
             /// <summary>
@@ -405,11 +398,10 @@ namespace FiscalBr.EFDContribuicoes
         }
 
 
-        public class RegistroA990 : RegistroBaseSped
+        public class RegistroA990 : RegistroSped
         {
-            public RegistroA990()
+            public RegistroA990() : base("A990")
             {
-                Reg = "A990";
             }
 
             [SpedCampos(2, "QTD_LIN_A", "N", int.MaxValue, 0, true, 2)]

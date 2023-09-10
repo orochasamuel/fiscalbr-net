@@ -16,14 +16,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D001: ABERTURA DO BLOCO D
         /// </summary>
-        public class RegistroD001 : RegistroBaseSped
+        public class RegistroD001 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
             /// </summary>
-            public RegistroD001()
+            public RegistroD001() : base("D001")
             {
-                Reg = "D001";
             }
 
             /// <summary>
@@ -38,14 +37,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D010: IDENTIFICAÇÃO DO ESTABELECIMENTO
         /// </summary>
-        public class RegistroD010 : RegistroBaseSped
+        public class RegistroD010 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD010"/>
             /// </summary>
-            public RegistroD010()
+            public RegistroD010() : base("D010")
             {
-                Reg = "D010";
             }
 
             /// <summary>
@@ -71,14 +69,13 @@ namespace FiscalBr.EFDContribuicoes
         ///     FERROVIÁRIO DE CARGA (CÓDIGO 27) E CONHECIMENTO DE TRANSPORTE ELETRÔNICO - 
         ///     CT-e (CÓDIGO 57)
         /// </summary>
-        public class RegistroD100 : RegistroBaseSped
+        public class RegistroD100 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD100"/>
             /// </summary>
-            public RegistroD100()
+            public RegistroD100() : base("D100")
             {
-                Reg = "D100";
             }
 
             /// <summary>
@@ -245,14 +242,13 @@ namespace FiscalBr.EFDContribuicoes
         ///     REGISTRO D101: COMPLEMENTO DO DOCUMENTO DE TRANSPORTE (Códigos 07, 08, 
         ///     8B, 09, 10, 11, 26, 27 e 57) - PIS/PASEP
         /// </summary>
-        public class RegistroD101 : RegistroBaseSped
+        public class RegistroD101 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD101"/>
             /// </summary>
-            public RegistroD101()
+            public RegistroD101() : base("D101")
             {
-                Reg = "D101";
             }
 
             /// <summary>
@@ -315,14 +311,13 @@ namespace FiscalBr.EFDContribuicoes
         ///     REGISTRO D105: COMPLEMENTO DO DOCUMENTO DE TRANSPORTE (Códigos 07, 08, 
         ///     8B, 09, 10, 11, 26, 27 e 57) - COFINS
         /// </summary>
-        public class RegistroD105 : RegistroBaseSped
+        public class RegistroD105 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD105"/>
             /// </summary>
-            public RegistroD105()
+            public RegistroD105() : base("D105")
             {
-                Reg = "D105";
             }
 
             /// <summary>
@@ -384,14 +379,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D111: Processo Referenciado
         /// </summary>
-        public class RegistroD111 : RegistroBaseSped
+        public class RegistroD111 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD111"/>
             /// </summary>
-            public RegistroD111()
+            public RegistroD111() : base("D111")
             {
-                Reg = "D111";
             }
 
             /// <summary>
@@ -420,14 +414,13 @@ namespace FiscalBr.EFDContribuicoes
         ///     Conhecimento de Transporte Eletrônico –CT-E (Código 57),
         ///     Bilhete de Passagem Eletrônico -BP-e (Código 63) e Conhecimento de Transporte Eletrônico para Outros Serviços –CT-e OS, modelo 67. 
         /// </summary>
-        public class RegistroD200 : RegistroBaseSped
+        public class RegistroD200 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD200"/>
             /// </summary>
-            public RegistroD200()
+            public RegistroD200() : base("D200")
             {
-                Reg = "D200";
             }
 
             /// <summary>
@@ -499,14 +492,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D201: Totalização do Resumo Diário –PIS/Pasep
         /// </summary>
-        public class RegistroD201 : RegistroBaseSped
+        public class RegistroD201 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD201"/>
             /// </summary>
-            public RegistroD201()
+            public RegistroD201() : base("D201")
             {
-                Reg = "D201";
             }
 
             /// <summary>
@@ -549,14 +541,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D205: Totalização do Resumo Diário –Cofins
         /// </summary>
-        public class RegistroD205 : RegistroBaseSped
+        public class RegistroD205 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD205"/>
             /// </summary>
-            public RegistroD205()
+            public RegistroD205() : base("D205")
             {
-                Reg = "D205";
             }
 
             /// <summary>
@@ -599,14 +590,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D209: Processo Referenciado
         /// </summary>
-        public class RegistroD209 : RegistroBaseSped
+        public class RegistroD209 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD209"/>
             /// </summary>
-            public RegistroD209()
+            public RegistroD209() : base("D209")
             {
-                Reg = "D209";
             }
 
             /// <summary>
@@ -628,14 +618,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D300: 
         /// </summary>
-        public class RegistroD300 : RegistroBaseSped
+        public class RegistroD300 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD300"/>
             /// </summary>
-            public RegistroD300()
+            public RegistroD300() : base("D300")
             {
-                Reg = "D300";
             }
 
             /// <summary>
@@ -753,14 +742,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D309: Processo Referenciado
         /// </summary>
-        public class RegistroD309 : RegistroBaseSped
+        public class RegistroD309 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD309"/>
             /// </summary>
-            public RegistroD309()
+            public RegistroD309() : base("D309")
             {
-                Reg = "D309";
             }
 
             /// <summary>
@@ -782,14 +770,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D350: Resumo Diário de Cupom Fiscal Emitido Por ECF -(Código: 2E, 13, 14, 15 e 16)
         /// </summary>
-        public class RegistroD350 : RegistroBaseSped
+        public class RegistroD350 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD350"/>
             /// </summary>
-            public RegistroD350()
+            public RegistroD350() : base("D350")
             {
-                Reg = "D350";
             }
 
             /// <summary>
@@ -931,14 +918,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D359: Processo Referenciado
         /// </summary>
-        public class RegistroD359 : RegistroBaseSped
+        public class RegistroD359 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD359"/>
             /// </summary>
-            public RegistroD359()
+            public RegistroD359() : base("D359")
             {
-                Reg = "D359";
             }
 
             /// <summary>
@@ -961,14 +947,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D500: NOTA FISCAL DE SERVIÇO DE COMUNICAÇÃO (CÓDIGO 21) E NOTA FISCAL DE SERVIÇO DE TELECOMUNICAÇÃO (CÓDIGO 22) - DOCUMENTOS DE AQUISIÇÃO COM DIREITO A CRÉDITO
         /// </summary>
-        public class RegistroD500 : RegistroBaseSped
+        public class RegistroD500 : RegistroSped
         {
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="RegistroD500"/>.
             /// </summary>
-            public RegistroD500()
+            public RegistroD500() : base("D500")
             {
-                Reg = "D500";
             }
 
             /// <summary>
@@ -1110,14 +1095,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// REGISTRO D501: COMPLEMENTO DA OPERAÇÃO (CÓDIGO 21 e 22) - PIS/Pasep
         /// </summary>
-        public class RegistroD501 : RegistroBaseSped
+        public class RegistroD501 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD501"/>
             /// </summary>
-            public RegistroD501()
+            public RegistroD501() : base("D501")
             {
-                Reg = "D501";
             }
 
             /// <summary>
@@ -1185,14 +1169,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// REGISTRO D505: COMPLEMENTO DA OPERAÇÃO (CÓDIGO 21 e 22) - Cofins
         /// </summary>
-        public class RegistroD505 : RegistroBaseSped
+        public class RegistroD505 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD505"/>
             /// </summary>
-            public RegistroD505()
+            public RegistroD505() : base("D505")
             {
-                Reg = "D505";
             }
 
             /// <summary>
@@ -1261,14 +1244,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D509: Processo Referenciado
         /// </summary>
-        public class RegistroD509 : RegistroBaseSped
+        public class RegistroD509 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD509"/>
             /// </summary>
-            public RegistroD509()
+            public RegistroD509() : base("D509")
             {
-                Reg = "D509";
             }
 
             /// <summary>
@@ -1291,14 +1273,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D600: Consolidação da Prestação de Serviços -Notas de Serviço de Comunicação (Código 21) e de Serviço de Telecomunicação (Código 22)
         /// </summary>
-        public class RegistroD600 : RegistroBaseSped
+        public class RegistroD600 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD600"/>
             /// </summary>
-            public RegistroD600()
+            public RegistroD600() : base("D600")
             {
-                Reg = "D600";
             }
 
             /// <summary>
@@ -1428,14 +1409,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D601: Complemento  da  Consolidação  da  Prestação  de  Serviços  (Códigos  21  e  22) -PIS/Pasep
         /// </summary>
-        public class RegistroD601 : RegistroBaseSped
+        public class RegistroD601 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD601"/>
             /// </summary>
-            public RegistroD601()
+            public RegistroD601() : base("D601")
             {
-                Reg = "D601";
             }
 
             /// <summary>
@@ -1490,14 +1470,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D605: Complemento da Consolidação da Prestação de Serviços (Códigos21 e 22) –Cofins
         /// </summary>
-        public class RegistroD605 : RegistroBaseSped
+        public class RegistroD605 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD605"/>
             /// </summary>
-            public RegistroD605()
+            public RegistroD605() : base("D605")
             {
-                Reg = "D605";
             }
 
             /// <summary>
@@ -1552,14 +1531,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D609: Processo Referenciado
         /// </summary>
-        public class RegistroD609 : RegistroBaseSped
+        public class RegistroD609 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroD609"/>
             /// </summary>
-            public RegistroD609()
+            public RegistroD609() : base("D609")
             {
-                Reg = "D609";
             }
 
             /// <summary>
@@ -1581,14 +1559,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO D990: ENCERRAMENTO DO BLOCO D.
         /// </summary>
-        public class RegistroD990 : RegistroBaseSped
+        public class RegistroD990 : RegistroSped
         {
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="RegistroD990"/>.
             /// </summary>
-            public RegistroD990()
+            public RegistroD990() : base("D990")
             {
-                Reg = "D990";
             }
 
             /// <summary>

@@ -16,14 +16,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO G001: ABERTURA DO BLOCO G
         /// </summary>
-        public class RegistroG001 : RegistroBaseSped
+        public class RegistroG001 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroG001" />.
             /// </summary>
-            public RegistroG001()
+            public RegistroG001() : base("G001")
             {
-                Reg = "G001";
             }
 
             /// <summary>
@@ -40,14 +39,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO G110: ICMS - ATIVO PERMANENTE - CIAP
         /// </summary>
-        public class RegistroG110 : RegistroBaseSped
+        public class RegistroG110 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroG110" />.
             /// </summary>
-            public RegistroG110()
+            public RegistroG110() : base("G110")
             {
-                Reg = "G110";
             }
 
             /// <summary>
@@ -113,14 +111,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO G125: MOVIMENTAÇÃO DE BEM OU COMPONENTE DO ATIVO IMOBILIZADO
         /// </summary>
-        public class RegistroG125 : RegistroBaseSped
+        public class RegistroG125 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroG125" />.
             /// </summary>
-            public RegistroG125()
+            public RegistroG125() : base("G125")
             {
-                Reg = "G125";
             }
 
             /// <summary>
@@ -196,14 +193,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO G126: OUTROS CRÉDITOS CIAP
         /// </summary>
-        public class RegistroG126 : RegistroBaseSped
+        public class RegistroG126 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroG126" />.
             /// </summary>
-            public RegistroG126()
+            public RegistroG126() : base("G126")
             {
-                Reg = "G126";
             }
 
             /// <summary>
@@ -260,14 +256,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO G130: IDENTIFICAÇÃO DO DOCUMENTO FISCAL
         /// </summary>
-        public class RegistroG130 : RegistroBaseSped
+        public class RegistroG130 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroG130" />.
             /// </summary>
-            public RegistroG130()
+            public RegistroG130() : base("G130")
             {
-                Reg = "G130";
             }
 
             /// <summary>
@@ -332,14 +327,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO G140: IDENTIFICAÇÃO DO ITEM DO DOCUMENTO FISCAL
         /// </summary>
-        public class RegistroG140 : RegistroBaseSped
+        public class RegistroG140 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroG140" />.
             /// </summary>
-            public RegistroG140()
+            public RegistroG140() : base("G140")
             {
-                Reg = "G140";
             }
 
             /// <summary>
@@ -394,14 +388,13 @@ namespace FiscalBr.EFDFiscal
         /// <summary>
         ///     REGISTRO G990: ENCERRAMENTO DO BLOCO G
         /// </summary>
-        public class RegistroG990 : RegistroBaseSped
+        public class RegistroG990 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroG990" />.
             /// </summary>
-            public RegistroG990()
+            public RegistroG990() : base("G990")
             {
-                Reg = "G990";
             }
 
             /// <summary>

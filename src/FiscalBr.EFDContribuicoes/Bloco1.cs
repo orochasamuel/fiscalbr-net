@@ -11,11 +11,10 @@ namespace FiscalBr.EFDContribuicoes
         public Registro1001 Reg1001 { get; set; }
         public Registro1990 Reg1990 { get; set; }
 
-        public class Registro1001 : RegistroBaseSped
+        public class Registro1001 : RegistroSped
         {
-            public Registro1001()
+            public Registro1001() : base("1001")
             {
-                Reg = "1001";
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 2)]
@@ -37,14 +36,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1010: Processo Referenciado –Ação Judicial
         /// </summary>
-        public class Registro1010 : RegistroBaseSped
+        public class Registro1010 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1010"/>
             /// </summary>
-            public Registro1010()
+            public Registro1010() : base("1010")
             {
-                Reg = "1010";
             }
 
             /// <summary>
@@ -105,14 +103,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1011: Detalhamento das Contribuições com Exigibilidade Suspensa
         /// </summary>
-        public class Registro1011 : RegistroBaseSped
+        public class Registro1011 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1011"/>
             /// </summary>
-            public Registro1011()
+            public Registro1011() : base("1011")
             {
-                Reg = "1011";
             }
 
             /// <summary>
@@ -269,14 +266,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1020: Processo Referenciado –Processo Administrativo
         /// </summary>
-        public class Registro1020 : RegistroBaseSped
+        public class Registro1020 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1020"/>
             /// </summary>
-            public Registro1020()
+            public Registro1020() : base("1020")
             {
-                Reg = "1020";
             }
 
             /// <summary>
@@ -309,14 +305,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1050:  Detalhamento de Ajustes de Base de Cálculo –Valores Extra Apuração
         /// </summary>
-        public class Registro1050 : RegistroBaseSped
+        public class Registro1050 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1050"/>
             /// </summary>
-            public Registro1050()
+            public Registro1050() : base("1050")
             {
-                Reg = "1050";
             }
 
             /// <summary>
@@ -434,14 +429,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1100: Controle de Créditos Fiscais –PIS/Pasep
         /// </summary>
-        public class Registro1100 : RegistroBaseSped
+        public class Registro1100 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1100"/>
             /// </summary>
-            public Registro1100()
+            public Registro1100() : base("1100")
             {
-                Reg = "1100";
             }
 
             /// <summary>
@@ -554,14 +548,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1101: Apuração  de  Crédito  Extemporâneo -Documentos  e  Operações  de  Períodos Anteriores –PIS/Pasep
         /// </summary>
-        public class Registro1101 : RegistroBaseSped
+        public class Registro1101 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1101"/>
             /// </summary>
-            public Registro1101()
+            public Registro1101() : base("1101")
             {
-                Reg = "1101";
             }
 
             /// <summary>
@@ -699,14 +692,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1102:  Detalhamento do Crédito Extemporaneo Vinculado a Mais de Um Tipo de Receita –PIS/Pasep
         /// </summary>
-        public class Registro1102 : RegistroBaseSped
+        public class Registro1102 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1102"/>
             /// </summary>
-            public Registro1102()
+            public Registro1102() : base("1102")
             {
-                Reg = "1102";
             }
 
             /// <summary>
@@ -732,14 +724,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1200: Contribuição Social Extemporânea –PIS/Pasep
         /// </summary>
-        public class Registro1200 : RegistroBaseSped
+        public class Registro1200 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1200"/>
             /// </summary>
-            public Registro1200()
+            public Registro1200() : base("1200")
             {
-                Reg = "1200";
             }
 
             /// <summary>
@@ -809,14 +800,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1210:  Detalhamento aa Contribuição Social Extemporânea –PIS/Pasep
         /// </summary>
-        public class Registro1210 : RegistroBaseSped
+        public class Registro1210 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1210"/>
             /// </summary>
-            public Registro1210()
+            public Registro1210() : base("1210")
             {
-                Reg = "1210";
             }
 
             /// <summary>
@@ -883,14 +873,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1220: Demonstração do Crédito a Descontar a Contribuição Extemporânea –PIS/Pasep
         /// </summary>
-        public class Registro1220 : RegistroBaseSped
+        public class Registro1220 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1220"/>
             /// </summary>
-            public Registro1220()
+            public Registro1220() : base("1220")
             {
-                Reg = "1220";
             }
 
             /// <summary>
@@ -922,14 +911,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1300: Controle dos Valores Retidos na Fonte –PIS/Pasep
         /// </summary>
-        public class Registro1300 : RegistroBaseSped
+        public class Registro1300 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1300"/>
             /// </summary>
-            public Registro1300()
+            public Registro1300() : base("1300")
             {
-                Reg = "1300";
             }
 
             /// <summary>
@@ -999,14 +987,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1500: Controle de Créditos Fiscais –Cofins
         /// </summary>
-        public class Registro1500 : RegistroBaseSped
+        public class Registro1500 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1500"/>
             /// </summary>
-            public Registro1500()
+            public Registro1500() : base("1500")
             {
-                Reg = "1500";
             }
 
             /// <summary>
@@ -1119,14 +1106,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1501:  Apuração  de  Crédito  Extemporâneo -Documentos  e  Operações  de  Períodos Anteriores –Cofins
         /// </summary>
-        public class Registro1501 : RegistroBaseSped
+        public class Registro1501 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1501"/>
             /// </summary>
-            public Registro1501()
+            public Registro1501() : base("1501")
             {
-                Reg = "1501";
             }
 
             /// <summary>
@@ -1263,14 +1249,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1502:Detalhamento do Crédito Extemporâneo Vinculado a Mais de Um Tipo de Receita –Cofins 
         /// </summary>
-        public class Registro1502 : RegistroBaseSped
+        public class Registro1502 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1502"/>
             /// </summary>
-            public Registro1502()
+            public Registro1502() : base("1502")
             {
-                Reg = "1502";
             }
 
             /// <summary>
@@ -1296,14 +1281,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1600: Contribuição Social Extemporânea –Cofins
         /// </summary>
-        public class Registro1600 : RegistroBaseSped
+        public class Registro1600 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1600"/>
             /// </summary>
-            public Registro1600()
+            public Registro1600() : base("1600")
             {
-                Reg = "1600";
             }
 
             /// <summary>
@@ -1373,14 +1357,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1610: Detalhamento da Contribuição Social Extemporânea –Cofins
         /// </summary>
-        public class Registro1610 : RegistroBaseSped
+        public class Registro1610 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1610"/>
             /// </summary>
-            public Registro1610()
+            public Registro1610() : base("1610")
             {
-                Reg = "1610";
             }
 
             /// <summary>
@@ -1447,14 +1430,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1620: Demonstração do Crédito a Descontar da Contribuição Extemporânea –Cofins
         /// </summary>
-        public class Registro1620 : RegistroBaseSped
+        public class Registro1620 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1620"/>
             /// </summary>
-            public Registro1620()
+            public Registro1620() : base("1620")
             {
-                Reg = "1620";
             }
 
             /// <summary>
@@ -1488,14 +1470,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1700: Controle dos Valores Retidos na Fonte –Cofins
         /// </summary>
-        public class Registro1700 : RegistroBaseSped
+        public class Registro1700 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1700"/>
             /// </summary>
-            public Registro1700()
+            public Registro1700() : base("1700")
             {
-                Reg = "1700";
             }
 
             /// <summary>
@@ -1571,14 +1552,13 @@ namespace FiscalBr.EFDContribuicoes
         /// relativas ao RET, nas modalidades previstas na legislação tributária, encontram-se dispostas na Instrução <para/>
         /// Normativa RFB nº 1.435/2013.
         /// </remarks>
-        public class Registro1800 : RegistroBaseSped
+        public class Registro1800 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="Registro1800" />.
             /// </summary>
-            public Registro1800()
+            public Registro1800() : base("1800")
             {
-                Reg = "1800";
             }
 
             /// <summary>
@@ -1646,14 +1626,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO 1809:Processo Referenciado 
         /// </summary>
-        public class Registro1809 : RegistroBaseSped
+        public class Registro1809 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="Registro1809"/>
             /// </summary>
-            public Registro1809()
+            public Registro1809() : base("1809")
             {
-                Reg = "1809";
             }
 
             /// <summary>
@@ -1673,11 +1652,10 @@ namespace FiscalBr.EFDContribuicoes
 
         }
 
-        public class Registro1900 : RegistroBaseSped
+        public class Registro1900 : RegistroSped
         {
-            public Registro1900()
+            public Registro1900() : base("1900")
             {
-                Reg = "1900";
             }
 
             [SpedCampos(2, "CNPJ", "N", 14, 0, true, 2)]
@@ -1717,11 +1695,10 @@ namespace FiscalBr.EFDContribuicoes
             public string CodCta { get; set; }
         }
 
-        public class Registro1990 : RegistroBaseSped
+        public class Registro1990 : RegistroSped
         {
-            public Registro1990()
+            public Registro1990() : base("1990")
             {
-                Reg = "1990";
             }
 
             [SpedCampos(2, "QTD_LIN_1", "N", int.MaxValue, 0, true, 2)]

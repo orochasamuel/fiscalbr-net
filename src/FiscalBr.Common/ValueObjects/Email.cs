@@ -5,31 +5,43 @@ using System.Text.RegularExpressions;
 
 namespace FiscalBr.Common.ValueObjects
 {
-    public class Email
+    public class Email : ValueObject
     {
-        // Obrigatório para funcionar com EF
-        protected Email()
-        {
-        }
+        public readonly bool EhValido;
 
-        public Email(string address)
-        {
-            if (string.IsNullOrEmpty(address) || address.Length < 5)
-                throw new ArgumentException(nameof(address));
+        protected Email() { }
 
-            Address = address.ToLower().Trim();
+        public Email(string email)
+        {
+            if (string.IsNullOrEmpty(email) || email.Length < 5)
+            {
+                EhValido = false;
+                return;
+            }
+
+            Endereco = email.ToLower().Trim();
             const string pattern = @"^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$";
 
-            if (!Regex.IsMatch(address, pattern))
-                throw new Exception("E-mail inválido!");
+            //if (!Regex.IsMatch(email, pattern))
+            //{
+            //    EhValido = false;
+            //    return;
+            //}
+
+            EhValido = Regex.IsMatch(email, pattern);
         }
 
-        public string Address { get; } = string.Empty;
+        public string Endereco { get; private set; } = string.Empty;
 
-        public static implicit operator string(Email email) => email.Address;
+        public static implicit operator string(Email email) => email.Endereco;
+        
+        public static implicit operator Email(string email) => new Email(email);
 
-        public static implicit operator Email(string address) => new Email(address);
+        public override string ToString() => Endereco;
 
-        public override string ToString() => Address;
+        protected override IEnumerable<object> GetEqualityComponents()
+        {
+            yield return Endereco;
+        }
     }
 }

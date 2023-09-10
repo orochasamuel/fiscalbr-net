@@ -4,6 +4,7 @@ using System.Text;
 
 namespace FiscalBr.Common.Sped
 {
+    [Obsolete]
     public class RegistroBaseSped
     {
         [SpedCampos(1, "REG", "C", 4, 0, true, 2)]

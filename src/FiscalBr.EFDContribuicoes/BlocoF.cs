@@ -10,11 +10,10 @@ namespace FiscalBr.EFDContribuicoes
         public RegistroF001 RegF001 { get; set; }
         public RegistroF990 RegF990 { get; set; }
 
-        public class RegistroF001 : RegistroBaseSped
+        public class RegistroF001 : RegistroSped
         {
-            public RegistroF001()
+            public RegistroF001() : base("F001")
             {
-                Reg = "F001";
             }
 
             [SpedCampos(2, "IND_MOV", "C", 1, 0, true, 2)]
@@ -27,11 +26,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// Identificação do Estabelecimento
         /// </summary>
-        public class RegistroF010 : RegistroBaseSped
+        public class RegistroF010 : RegistroSped
         {
-            public RegistroF010()
+            public RegistroF010() : base("F010")
             {
-                Reg = "F010";
             }
 
             [SpedCampos(2, "CNPJ", "N", 14, 0, true, 2)]
@@ -55,11 +53,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// DEMAIS DOCUMENTOS E OPERAÇÕES GERADORAS DE CONTRIBUIÇÃO E CRÉDITOS
         /// </summary>
-        public class RegistroF100 : RegistroBaseSped
+        public class RegistroF100 : RegistroSped
         {
-            public RegistroF100()
+            public RegistroF100() : base("F100")
             {
-                Reg = "F100";
             }
 
             [SpedCampos(2, "IND_OPER", "N", 1, 0, true, 2)]
@@ -123,14 +120,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F111: Processo Referenciado
         /// </summary>
-        public class RegistroF111 : RegistroBaseSped
+        public class RegistroF111 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF111"/>
             /// </summary>
-            public RegistroF111()
+            public RegistroF111() : base("F111")
             {
-                Reg = "F111";
             }
 
             /// <summary>
@@ -153,14 +149,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F120: Bens Incorporados ao Ativo Imobilizado –Operações Geradoras de Créditos com Base nos Encargos de Depreciação e Amortização
         /// </summary>
-        public class RegistroF120 : RegistroBaseSped
+        public class RegistroF120 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF120"/>
             /// </summary>
-            public RegistroF120()
+            public RegistroF120() : base("F120")
             {
-                Reg = "F120";
             }
 
             /// <summary>
@@ -286,14 +281,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F129: Processo Referenciado
         /// </summary>
-        public class RegistroF129 : RegistroBaseSped
+        public class RegistroF129 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF129"/>
             /// </summary>
-            public RegistroF129()
+            public RegistroF129() : base("F129")
             {
-                Reg = "F129";
             }
 
             /// <summary>
@@ -316,14 +310,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F130: Bens Incorporados ao Ativo Imobilizado –Operações Geradoras de Créditos com Base no Valor de Aquisição/Contribuição
         /// </summary>
-        public class RegistroF130 : RegistroBaseSped
+        public class RegistroF130 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF130"/>
             /// </summary>
-            public RegistroF130()
+            public RegistroF130() : base("F130")
             {
-                Reg = "F130";
             }
 
             /// <summary>
@@ -470,14 +463,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F139: Processo Referenciado
         /// </summary>
-        public class RegistroF139 : RegistroBaseSped
+        public class RegistroF139 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF139"/>
             /// </summary>
-            public RegistroF139()
+            public RegistroF139() : base("F139")
             {
-                Reg = "F139";
             }
 
             /// <summary>
@@ -500,14 +492,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F150: CRÉDITO PRESUMIDO SOBRE ESTOQUE DE ABERTURA
         /// </summary>
-        public class RegistroF150 : RegistroBaseSped
+        public class RegistroF150 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroF150" />.
             /// </summary>
-            public RegistroF150()
+            public RegistroF150() : base("F150")
             {
-                Reg = "F150";
             }
 
             /// <summary>
@@ -592,11 +583,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// OPERAÇÕES DA ATIVIDADE IMOBILIÁRIA - UNIDADE IMOBILIÁRIA VENDIDA
         /// </summary>
-        public class RegistroF200 : RegistroBaseSped
+        public class RegistroF200 : RegistroSped
         {
-            public RegistroF200()
+            public RegistroF200() : base("F200")
             {
-                Reg = "F200";
             }
 
             [SpedCampos(2, "IND_OPER", "N", 2, 0, true, 2)]
@@ -670,14 +660,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F205: Operações da Atividade Imobiliária –Custo Incorrido da Unidade Imobiliária
         /// </summary>
-        public class RegistroF205 : RegistroBaseSped
+        public class RegistroF205 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF205"/>
             /// </summary>
-            public RegistroF205()
+            public RegistroF205() : base("F205")
             {
-                Reg = "F205";
             }
 
             /// <summary>
@@ -787,14 +776,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F210: Operações da Atividade Imobiliária -Custo Orçado da Unidade Imobiliária Vendida
         /// </summary>
-        public class RegistroF210 : RegistroBaseSped
+        public class RegistroF210 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF210"/>
             /// </summary>
-            public RegistroF210()
+            public RegistroF210() : base("F210")
             {
-                Reg = "F210";
             }
 
             /// <summary>
@@ -862,14 +850,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F211: Processo Referenciado
         /// </summary>
-        public class RegistroF211 : RegistroBaseSped
+        public class RegistroF211 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF211"/>
             /// </summary>
-            public RegistroF211()
+            public RegistroF211() : base("F211")
             {
-                Reg = "F211";
             }
 
             /// <summary>
@@ -892,11 +879,10 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// CONSOLIDAÇÃO DAS OPERAÇÕES DA PESSOA JURÍDICA SUBMETIDA AO REGIME DE TRIBUTAÇÃO COM BASE NO LUCRO PRESUMIDO  – INCIDÊNCIA DO PIS/PASEP E DA COFINS PELO REGIME DE CAIXA
         /// </summary>
-        public class RegistroF500 : RegistroBaseSped
+        public class RegistroF500 : RegistroSped
         {
-            public RegistroF500()
+            public RegistroF500() : base("F500")
             {
-                Reg = "F500";
             }
 
             [SpedCampos(2, "VL_REC_CAIXA", "N", int.MaxValue, 2, true, 2)]
@@ -950,14 +936,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F509: Processo Referenciado
         /// </summary>
-        public class RegistroF509 : RegistroBaseSped
+        public class RegistroF509 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF509"/>
             /// </summary>
-            public RegistroF509()
+            public RegistroF509() : base("F509")
             {
-                Reg = "F509";
             }
 
             /// <summary>
@@ -981,14 +966,13 @@ namespace FiscalBr.EFDContribuicoes
         ///     REGISTRO F510: Consolidação das Operações da Pessoa Jurídica Submetida ao Regime de Tributação Com Base no Lucro Presumido 
         ///     –Incidência do PIS/Pasep e da Cofins pelo Regime de Caixa (Apuração da Contribuição por Unidade de Medida de Produto –Alíquota em Reais)
         /// </summary>
-        public class RegistroF510 : RegistroBaseSped
+        public class RegistroF510 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF510"/>
             /// </summary>
-            public RegistroF510()
+            public RegistroF510() : base("F510")
             {
-                Reg = "F510";
             }
 
             /// <summary>
@@ -1087,14 +1071,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///    Registro F519: Processo Referenciado
         /// </summary>
-        public class RegistroF519 : RegistroBaseSped
+        public class RegistroF519 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF519"/>
             /// </summary>
-            public RegistroF519()
+            public RegistroF519() : base("F519")
             {
-                Reg = "F519";
             }
 
             /// <summary>
@@ -1114,11 +1097,10 @@ namespace FiscalBr.EFDContribuicoes
 
         }
 
-        public class RegistroF525 : RegistroBaseSped
+        public class RegistroF525 : RegistroSped
         {
-            public RegistroF525()
+            public RegistroF525() : base("F525")
             {
-                Reg = "F525";
             }
 
             [SpedCampos(2, "VL_REC", "N", int.MaxValue, 2, true, 2)]
@@ -1152,11 +1134,10 @@ namespace FiscalBr.EFDContribuicoes
             public string CodCta { get; set; }
         }
 
-        public class RegistroF550 : RegistroBaseSped
+        public class RegistroF550 : RegistroSped
         {
-            public RegistroF550()
+            public RegistroF550() : base("F550")
             {
-                Reg = "F550";
             }
 
             [SpedCampos(2, "VL_REC_COMP", "N", int.MaxValue, 2, true, 2)]
@@ -1210,14 +1191,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F559: Processo Referenciado
         /// </summary>
-        public class RegistroF559 : RegistroBaseSped
+        public class RegistroF559 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF559"/>
             /// </summary>
-            public RegistroF559()
+            public RegistroF559() : base("F559")
             {
-                Reg = "F559";
             }
 
             /// <summary>
@@ -1243,14 +1223,13 @@ namespace FiscalBr.EFDContribuicoes
         ///     PELO REGIME DE COMPETÊNCIA (APURAÇÃO DA CONTRIBUIÇÃO POR UNIDADE DE MEDIDA DE PRODUTO
         ///     – ALÍQUOTA EM REAIS)
         /// </summary>
-        public class RegistroF560 : RegistroBaseSped
+        public class RegistroF560 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroF560" />.
             /// </summary>
-            public RegistroF560()
+            public RegistroF560() : base("F560")
             {
-                Reg = "F560";
             }
 
             /// <summary>
@@ -1349,14 +1328,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F569: Processo Referenciado
         /// </summary>
-        public class RegistroF569 : RegistroBaseSped
+        public class RegistroF569 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF569"/>
             /// </summary>
-            public RegistroF569()
+            public RegistroF569() : base("F569")
             {
-                Reg = "F569";
             }
 
             /// <summary>
@@ -1379,14 +1357,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         /// CONTRIBUIÇÃO RETIDA NA FONTE
         /// </summary>
-        public class RegistroF600 : RegistroBaseSped
+        public class RegistroF600 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroF600" />.
             /// </summary>
-            public RegistroF600()
+            public RegistroF600() : base("F600")
             {
-                Reg = "F600";
             }
 
             /// <summary>
@@ -1481,14 +1458,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F700: DEDUÇÕES DIVERSAS
         /// </summary>
-        public class RegistroF700 : RegistroBaseSped
+        public class RegistroF700 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma nova instância da classe <see cref="RegistroF700" />.
             /// </summary>
-            public RegistroF700()
+            public RegistroF700() : base("F700")
             {
-                Reg = "F700";
             }
 
             /// <summary>
@@ -1544,14 +1520,13 @@ namespace FiscalBr.EFDContribuicoes
         /// <summary>
         ///     REGISTRO F800: Créditos Decorrentes de Eventos de Incorporação, Fusão e Cisão
         /// </summary>
-        public class RegistroF800 : RegistroBaseSped
+        public class RegistroF800 : RegistroSped
         {
             /// <summary>
             ///     Inicializa uma instância da classe <see cref="RegistroF800"/>
             /// </summary>
-            public RegistroF800()
+            public RegistroF800() : base("F800")
             {
-                Reg = "F800";
             }
 
             /// <summary>
@@ -1609,11 +1584,10 @@ namespace FiscalBr.EFDContribuicoes
 
         }
 
-        public class RegistroF990 : RegistroBaseSped
+        public class RegistroF990 : RegistroSped
         {
-            public RegistroF990()
+            public RegistroF990() : base("F990")
             {
-                Reg = "F990";
             }
 
             [SpedCampos(2, "QTD_LIN_F", "N", int.MaxValue, 0, true, 2)]

@@ -46,7 +46,7 @@
             var expectedResult =
                 $"|0000|015|0|{formatedInitialDate}|{formatedFinalDate}|BANCO DO BRASIL S.A.|00000000000191||GO|123456789|5204508|||A|1|{Environment.NewLine}";
 
-            var source = new EFDFiscal.Bloco0.Registro0000New
+            var source = new EFDFiscal.Bloco0.Registro0000
             {
                 CodVer = CodVersaoSpedFiscal.V15,
                 CodFin = IndCodFinalidadeArquivo.RemessaArquivoOriginal,
