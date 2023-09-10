@@ -40,7 +40,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <param name="cdMunicipio">Código do município do domicílio fiscal da pessoa jurídica</param>
             /// <param name="idAtividade">Indicador de tipo de atividade preponderante</param>
             public Registro0000(
-                int cdVersao,
+                CodVersaoSpedContrib cdVersao,
                 int tpEscrituracao,
                 DateTime dtInicial,
                 DateTime dtFinal,
@@ -80,7 +80,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <param name="idNaturezaPj">Indicador da natureza da pessoa jurídica</param>
             /// <param name="idAtividade">Indicador de tipo de atividade preponderante</param>
             public Registro0000(
-                int cdVersao,
+                CodVersaoSpedContrib cdVersao,
                 int tpEscrituracao,
                 int idSituacaoEspecial,
                 string nrReciboAnterior,
@@ -115,7 +115,7 @@ namespace FiscalBr.EFDContribuicoes
             /// Código da versão do leiaute
             /// </summary>
             [SpedCampos(2, "COD_VER", "N", 3, 0, true, 2)]
-            public int CodVer { get; set; }
+            public CodVersaoSpedContrib CodVer { get; set; }
 
             /// <summary>
             /// Tipo de escrituração:

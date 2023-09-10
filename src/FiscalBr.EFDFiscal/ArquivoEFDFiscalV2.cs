@@ -17,15 +17,8 @@ namespace FiscalBr.EFDFiscal
         public BlocoK BlocoK { get; set; }
 
         public ArquivoEFDFiscalV2(
-            LeiauteArquivoSped arquivoSped = LeiauteArquivoSped.EFDFiscal
-            ) : base(arquivoSped)
-        {
-        }
-
-        public ArquivoEFDFiscalV2(
-            CodigoVersaoLeiaute versaoLeiaute,
-            LeiauteArquivoSped arquivoSped = LeiauteArquivoSped.EFDFiscal
-            ) : base(versaoLeiaute, arquivoSped)
+            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V17
+            ) : base(LeiauteArquivoSped.EFDFiscal, versaoLeiaute)
         {
         }
 

@@ -50,7 +50,7 @@
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
                 source,
-                CodigoVersaoLeiaute.V2,
+                VersaoLeiauteSped.V2,
                 new DateTime(2015, 01, 01),
                 false,
                 true
@@ -107,7 +107,7 @@
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
                 source,
-                CodigoVersaoLeiaute.V3,
+                VersaoLeiauteSped.V3,
                 new DateTime(2015, 01, 01),
                 false,
                 true
@@ -164,7 +164,7 @@
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
                 source,
-                CodigoVersaoLeiaute.V14,
+                VersaoLeiauteSped.V14,
                 new DateTime(2021, 01, 01),
                 false,
                 true
@@ -228,7 +228,7 @@
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
                 source,
-                CodigoVersaoLeiaute.V16,
+                VersaoLeiauteSped.V16,
                 new DateTime(2022, 01, 01),
                 false,
                 true

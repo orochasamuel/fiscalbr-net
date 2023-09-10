@@ -9,9 +9,8 @@ namespace FiscalBr.Test.Sped.Bloco1
 {
     public class Bloco1Registro1320Test
     {
-        [Theory]
-        [InlineData("pt-BR")]
-        public void Ler_Registro_1320_EFDFiscal(string currentCulture)
+        [Fact]
+        public void Ler_Registro_1320_EFDFiscal()
         {
             string linha = "|1320|1|1234567890|Motivo 1|Interventor 1|51077662000109|00695196090|100,13|55,20|10|40|";
              

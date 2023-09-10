@@ -19,5 +19,7 @@ namespace FiscalBr.Common.Sped.Interfaces
         string FormatarCampoInt(int? v);
         string FormatarCampoInt(int? v, int tamanho);
         string FormatarCampoString(string v);
+        string FormatarCampoString(string v, int tamanho);
+        string FormatarCampoString(string v, int tamanho, char caractere);
     }
 }

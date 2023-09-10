@@ -33,7 +33,7 @@ namespace FiscalBr.EFDFiscal
             ///     Código da versão do leiaute conforme a tabela indicada no Ato COTEPE.
             /// </summary>
             [SpedCampos(2, "COD_VER", "N", 3, 0, true, 2)]
-            public CodigoVersaoLeiaute CodVer { get; set; }
+            public CodVersaoSpedFiscal CodVer { get; set; }
 
             /// <summary>
             ///     Código da finalidade do arquivo
@@ -124,13 +124,132 @@ namespace FiscalBr.EFDFiscal
 
             #endregion Propriedades
 
-            public Registro0000 ComVersaoLayout(CodigoVersaoLeiaute valor)
+            public Registro0000 ComVersaoLayout(CodVersaoSpedFiscal valor)
             {
                 this.CodVer = valor;
                 return this;
             }
 
             public Registro0000 ComFinalidade(IndCodFinalidadeArquivo valor)
+            {
+                this.CodFin = valor;
+                return this;
+            }
+        }
+
+        public class Registro0000New : RegistroSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0000" />.
+            /// </summary>
+            public Registro0000New() : base("0000")
+            {
+            }
+
+            #region Propriedades
+
+            /// <summary>
+            ///     Código da versão do leiaute conforme a tabela indicada no Ato COTEPE.
+            /// </summary>
+            [SpedCampos(2, "COD_VER", "N", 3, 0, true, 2)]
+            public CodVersaoSpedFiscal CodVer { get; set; }
+
+            /// <summary>
+            ///     Código da finalidade do arquivo
+            /// </summary>
+            /// <remarks>
+            ///     0 - Remessa do arquivo original
+            ///     1 - Remessa do arquivo substituto
+            /// </remarks>
+            [SpedCampos(3, "COD_FIN", "N", 1, 0, true, 2)]
+            public IndCodFinalidadeArquivo CodFin { get; set; }
+
+            /// <summary>
+            ///     Data inicial das informações contidas no arquivo.
+            /// </summary>
+            [SpedCampos(4, "DT_INI", "N", 8, 0, true, 2)]
+            public DateTime DtIni { get; set; }
+
+            /// <summary>
+            ///     Data final das informações contidas no arquivo.
+            /// </summary>
+            [SpedCampos(5, "DT_FIN", "N", 8, 0, true, 2)]
+            public DateTime DtFin { get; set; }
+
+            /// <summary>
+            ///     Nome empresarial da entidade.
+            /// </summary>
+            [SpedCampos(6, "NOME", "C", 100, 0, true, 2)]
+            public string Nome { get; set; }
+
+            /// <summary>
+            ///     Número de inscrição da entidade no CNPJ.
+            /// </summary>
+            [SpedCampos(7, "CNPJ", "N", 14, 0, false, 2)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///     Número de inscrição da entidade no CPF.
+            /// </summary>
+            [SpedCampos(8, "CPF", "N", 11, 0, false, 2)]
+            public string Cpf { get; set; }
+
+            /// <summary>
+            ///     Sigla da unidade da federação da entidade.
+            /// </summary>
+            [SpedCampos(9, "UF", "C", 2, 0, true, 2)]
+            public string Uf { get; set; }
+
+            /// <summary>
+            ///     Inscrição Estadual da entidade.
+            /// </summary>
+            [SpedCampos(10, "IE", "C", 14, 0, true, 2)]
+            public string Ie { get; set; }
+
+            /// <summary>
+            ///     Código do município do domicílio fiscal da entidade, conforme a tabela IBGE.
+            /// </summary>
+            [SpedCampos(11, "COD_MUN", "N", 7, 0, true, 2)]
+            public string CodMun { get; set; }
+
+            /// <summary>
+            ///     Inscrição Municipal da entidade.
+            /// </summary>
+            [SpedCampos(12, "IM", "C", int.MaxValue, 0, false, 2)]
+            public string Im { get; set; }
+
+            /// <summary>
+            ///     Inscrição da entidade na SUFRAMA.
+            /// </summary>
+            [SpedCampos(13, "SUFRAMA", "C", 9, 0, false, 2)]
+            public string Suframa { get; set; }
+
+            /// <summary>
+            ///     Perfil de apresentação do arquivo fiscal:
+            ///     A - Perfil A;
+            ///     B - Perfil B;
+            ///     C - Perfil C.
+            /// </summary>
+            [SpedCampos(14, "IND_PERFIL", "LE", 1, 0, true, 2)]
+            public IndPerfilArquivo IndPerfil { get; set; }
+
+            /// <summary>
+            ///     Indicador de tipo de atividade:
+            ///     0 - Industrial ou equiparado a industrial;
+            ///     1 - Outros.
+            /// </summary>
+            [SpedCampos(15, "IND_ATIV", "N", 1, 0, true, 2)]
+            public IndTipoAtividade IndAtiv { get; set; }
+
+            #endregion Propriedades
+
+            public Registro0000New ComVersaoLayout(CodVersaoSpedFiscal valor)
+            {
+                this.CodVer = valor;
+                return this;
+            }
+
+            public Registro0000New ComFinalidade(IndCodFinalidadeArquivo valor)
             {
                 this.CodFin = valor;
                 return this;
@@ -200,6 +319,63 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
+        public class Registro0001New : RegistroSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0001" />.
+            /// </summary>
+            public Registro0001New() : base("0001")
+            {
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0001" />.
+            /// </summary>
+            public Registro0001New(IndMovimento indMovimento) : base("0001")
+            {
+                IndMov = indMovimento;
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0001" />.
+            /// </summary>
+            public Registro0001New(bool temMovimento) : base("0001")
+            {
+                IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+            }
+
+            /// <summary>
+            ///     Indicador de movimento
+            /// </summary>
+            /// <remarks>
+            ///     0 - Bloco com dados informados;
+            ///     <para />
+            ///     1 - Bloco sem dados informados.
+            /// </remarks>
+            [SpedCampos(2, "IND_MOV", "N", 1, 0, true, 2)]
+            public IndMovimento IndMov { get; set; }
+
+            public Registro0002 Reg0002 { get; set; }
+            public Registro0005 Reg0005 { get; set; }
+            public List<Registro0015> Reg0015s { get; set; }
+            public List<Registro0100> Reg0100s { get; set; }
+            public List<Registro0150> Reg0150s { get; set; }
+            public List<Registro0190> Reg0190s { get; set; }
+            public List<Registro0200> Reg0200s { get; set; }
+            public List<Registro0300> Reg0300s { get; set; }
+            public List<Registro0400> Reg0400s { get; set; }
+            public List<Registro0450> Reg0450s { get; set; }
+            public List<Registro0460> Reg0460s { get; set; }
+            public List<Registro0500> Reg0500s { get; set; }
+            public List<Registro0600> Reg0600s { get; set; }
+
+            public Registro0001New ComIndicadorMovimento(bool valor)
+            {
+                this.IndMov = valor ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+                return this;
+            }
+        }
+
         /// <summary>
         ///     REGISTRO 0002: CLASSIFICAÇÃO DO ESTABELECIMENTO INDUSTRIAL OU EQUIPARADO A INDUSTRIAL
         /// </summary>
@@ -220,6 +396,22 @@ namespace FiscalBr.EFDFiscal
             public ClassEstabIndustrial ClassEstabInd { get; set; }
         }
 
+        public class Registro0002New : RegistroSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0002" />.
+            /// </summary>
+            public Registro0002New() : base("0002")
+            {
+            }
+
+            /// <summary>
+            ///     Informar a classificação do estabelecimento conforme tabela 4.5.5
+            /// </summary>
+            [SpedCampos(2, "CLAS_ESTAB_IND", "C", 2, 0, true, 2)]
+            public ClassEstabIndustrial ClassEstabInd { get; set; }
+        }
+
         /// <summary>
         ///     REGISTRO 0005: DADOS COMPLEMENTARES DA ENTIDADE
         /// </summary>
@@ -231,6 +423,70 @@ namespace FiscalBr.EFDFiscal
             public Registro0005()
             {
                 Reg = "0005";
+            }
+
+            /// <summary>
+            ///     Nome de fantasia associado ao nome empresarial.
+            /// </summary>
+            [SpedCampos(2, "FANTASIA", "C", 60, 0, true, 2)]
+            public string Fantasia { get; set; }
+
+            /// <summary>
+            ///     Código de endeçamento postal.
+            /// </summary>
+            [SpedCampos(3, "CEP", "N", 8, 0, true, 2)]
+            public string Cep { get; set; }
+
+            /// <summary>
+            ///     Logradouro e endereço do imóvel.
+            /// </summary>
+            [SpedCampos(4, "END", "C", 60, 0, true, 2)]
+            public string End { get; set; }
+
+            /// <summary>
+            ///     Número do imóvel.
+            /// </summary>
+            [SpedCampos(5, "NUM", "C", 10, 0, false, 2)]
+            public string Num { get; set; }
+
+            /// <summary>
+            ///     Dados complementares do endereço.
+            /// </summary>
+            [SpedCampos(6, "COMPL", "C", 60, 0, false, 2)]
+            public string Compl { get; set; }
+
+            /// <summary>
+            ///     Bairro em que o imóvel está situado.
+            /// </summary>
+            [SpedCampos(7, "BAIRRO", "C", 60, 0, true, 2)]
+            public string Bairro { get; set; }
+
+            /// <summary>
+            ///     Número do telefone (DDD+FONE).
+            /// </summary>
+            [SpedCampos(8, "FONE", "C", 11, 0, false, 2)]
+            public string Fone { get; set; }
+
+            /// <summary>
+            ///     Número do fax.
+            /// </summary>
+            [SpedCampos(9, "FAX", "C", 11, 0, false, 2)]
+            public string Fax { get; set; }
+
+            /// <summary>
+            ///     Endereço do correio eletrônico.
+            /// </summary>
+            [SpedCampos(10, "EMAIL", "C", int.MaxValue, 0, false, 2)]
+            public string Email { get; set; }
+        }
+
+        public class Registro0005New : RegistroSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0005" />.
+            /// </summary>
+            public Registro0005New() : base("0005")
+            {
             }
 
             /// <summary>
@@ -314,6 +570,28 @@ namespace FiscalBr.EFDFiscal
             public string IeSt { get; set; }
         }
 
+        public class Registro0015New : RegistroSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0015" />.
+            /// </summary>
+            public Registro0015New() : base("0015")
+            {
+            }
+
+            /// <summary>
+            ///     Sigla da unidade da federação do contribuinte substituído.
+            /// </summary>
+            [SpedCampos(2, "UF_ST", "C", 2, 0, true, 2)]
+            public string UfSt { get; set; }
+
+            /// <summary>
+            ///     Inscrição Estadual do contribuinte substituto na unidade da federação do contribuinte substituído.
+            /// </summary>
+            [SpedCampos(3, "IE_ST", "C", 14, 0, true, 2)]
+            public string IeSt { get; set; }
+        }
+
         /// <summary>
         ///     REGISTRO 0100: DADOS DO CONTABILISTA
         /// </summary>
@@ -325,6 +603,94 @@ namespace FiscalBr.EFDFiscal
             public Registro0100()
             {
                 Reg = "0100";
+            }
+
+            /// <summary>
+            ///     Nome do contabilista.
+            /// </summary>
+            [SpedCampos(2, "NOME", "C", 100, 0, true, 2)]
+            public string Nome { get; set; }
+
+            /// <summary>
+            ///     Número de inscrição do contabilista no CPF.
+            /// </summary>
+            [SpedCampos(3, "CPF", "N", 11, 0, true, 2)]
+            public string Cpf { get; set; }
+
+            /// <summary>
+            ///     Número de inscrição do contabilista no Conselho Regional de Contabilidade.
+            /// </summary>
+            [SpedCampos(4, "CRC", "C", 15, 0, true, 2)]
+            public string Crc { get; set; }
+
+            /// <summary>
+            ///     Número de inscrição do escritório de contabilidade no CNPJ, se houver.
+            /// </summary>
+            [SpedCampos(5, "CNPJ", "N", 14, 0, false, 2)]
+            public string Cnpj { get; set; }
+
+            /// <summary>
+            ///     Código de endereçamento postal.
+            /// </summary>
+            [SpedCampos(6, "CEP", "N", 8, 0, false, 2)]
+            public string Cep { get; set; }
+
+            /// <summary>
+            ///     Logradouro e endereço do imóvel.
+            /// </summary>
+            [SpedCampos(7, "END", "C", 60, 0, false, 2)]
+            public string End { get; set; }
+
+            /// <summary>
+            ///     Número do imóvel.
+            /// </summary>
+            [SpedCampos(8, "NUM", "C", 10, 0, false, 2)]
+            public string Num { get; set; }
+
+            /// <summary>
+            ///     Dados complementares do endereço.
+            /// </summary>
+            [SpedCampos(9, "COMPL", "C", 60, 0, false, 2)]
+            public string Compl { get; set; }
+
+            /// <summary>
+            ///     Bairro em que o imóvel está situado.
+            /// </summary>
+            [SpedCampos(10, "BAIRRO", "C", 60, 0, false, 2)]
+            public string Bairro { get; set; }
+
+            /// <summary>
+            ///     Número de telefone (DDD+FONE).
+            /// </summary>
+            [SpedCampos(11, "FONE", "C", 11, 0, false, 2)]
+            public string Fone { get; set; }
+
+            /// <summary>
+            ///     Número do fax.
+            /// </summary>
+            [SpedCampos(12, "FAX", "C", 11, 0, false, 2)]
+            public string Fax { get; set; }
+
+            /// <summary>
+            ///     Endereço do correio eletrônico.
+            /// </summary>
+            [SpedCampos(13, "EMAIL", "C", int.MaxValue, 0, true, 2)]
+            public string Email { get; set; }
+
+            /// <summary>
+            ///     Código do município, conforme tabela IBGE.
+            /// </summary>
+            [SpedCampos(14, "COD_MUN", "N", 7, 0, true, 2)]
+            public string CodMun { get; set; }
+        }
+
+        public class Registro0100New : RegistroSped
+        {
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="Registro0100" />.
+            /// </summary>
+            public Registro0100New() : base("0100")
+            {
             }
 
             /// <summary>

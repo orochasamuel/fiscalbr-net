@@ -25,7 +25,7 @@
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
                 source,
-                CodigoVersaoLeiaute.V2,
+                VersaoLeiauteSped.V2,
                 DateTime.Now,
                 false,
                 true

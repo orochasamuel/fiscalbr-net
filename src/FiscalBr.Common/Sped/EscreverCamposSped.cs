@@ -292,7 +292,7 @@ namespace FiscalBr.Common.Sped
 
             var listaComPropriedadesOrdenadas = ObtemListaComPropriedadesOrdenadas(type);
 
-            var availableVersions = (CodigoVersaoLeiaute[])Enum.GetValues(typeof(CodigoVersaoLeiaute));
+            var availableVersions = (VersaoLeiauteSped[])Enum.GetValues(typeof(VersaoLeiauteSped));
             var lastVersion = availableVersions.LastOrDefault();
 
             var sb = new StringBuilder();
@@ -374,7 +374,7 @@ namespace FiscalBr.Common.Sped
         /// <returns>Linha de arquivo SPED escrita e formatada.</returns>
         public static string EscreverCampos(
             this object source,
-            CodigoVersaoLeiaute version,
+            VersaoLeiauteSped version,
             DateTime? competenciaDeclaracao = null,
             bool tryTrim = false,
             bool ignoreErrors = false
@@ -515,7 +515,7 @@ namespace FiscalBr.Common.Sped
 
             var listaComPropriedadesOrdenadas = ObtemListaComPropriedadesOrdenadas(type);
 
-            var availableVersions = (CodigoVersaoLeiaute[])Enum.GetValues(typeof(CodigoVersaoLeiaute));
+            var availableVersions = (VersaoLeiauteSped[])Enum.GetValues(typeof(VersaoLeiauteSped));
             var lastVersion = availableVersions.LastOrDefault();
 
             var sb = new StringBuilder();
@@ -609,7 +609,7 @@ namespace FiscalBr.Common.Sped
         /// <returns>Linha de arquivo SPED escrita e formatada.</returns>
         public static string EscreverCampos(
             this object source,
-            CodigoVersaoLeiaute version,
+            VersaoLeiauteSped version,
             out string errosEncontrados,
             DateTime? competenciaDeclaracao = null,
             bool tryTrim = false

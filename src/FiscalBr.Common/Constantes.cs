@@ -9,6 +9,7 @@ namespace FiscalBr.Common
     public static class Constantes
     {
         public const decimal VZero = 0.00M;
+        public const string IsRequiredField = "|CAMPO_OBRIGATORIO|";
         public const string StructuralError = "|ERRO_NA_ESTRUTURA|";
 
         public static class ArquivoDigital
@@ -19,19 +20,6 @@ namespace FiscalBr.Common
                 public const string ECF = "ECF";
                 public const string EFDContribuicoes = "EFDContribuicoes";
                 public const string EFDFiscal = "EFDFiscal";
-
-                public static class Bloco
-                {
-                    public static class D
-                    {
-                        public const string D001 = "D001";
-
-                        public const string D100 = "D100";
-                        public const string D300 = "D300";
-
-                        public const string D990 = "D990";
-                    }
-                }
 
                 public static class TipoInformacao
                 {

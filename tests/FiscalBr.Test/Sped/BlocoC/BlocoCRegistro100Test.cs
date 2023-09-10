@@ -23,7 +23,7 @@ namespace FiscalBr.Test.Sped.BlocoC
 
             var currentResult = Utils.EscreverCampos(
                 source,
-                CodigoVersaoLeiaute.V17,
+                VersaoLeiauteSped.V17,
                 new DateTime(2023, 01, 01),
                 false,
                 true
@@ -50,7 +50,7 @@ namespace FiscalBr.Test.Sped.BlocoC
 
             var currentResult = Utils.EscreverCampos(
                 source,
-                CodigoVersaoLeiaute.V17,
+                VersaoLeiauteSped.V17,
                 new DateTime(2023, 01, 01),
                 false,
                 true
@@ -76,7 +76,7 @@ namespace FiscalBr.Test.Sped.BlocoC
 
             var currentResult = Utils.EscreverCampos(
                 source,
-                CodigoVersaoLeiaute.V17,
+                VersaoLeiauteSped.V17,
                 new DateTime(2023, 01, 01),
                 false,
                 true

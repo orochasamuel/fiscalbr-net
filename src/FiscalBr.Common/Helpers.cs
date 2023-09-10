@@ -1,11 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 
 namespace FiscalBr.Common
 {
+    public static class DateTimeHelpers
+    {
+        public static DateTime GetFirstDayOfNextMonth(this DateTime date)
+        {
+            return GetFirstDayOfCurrentMonth(date).AddMonths(1);
+        }
+
+        public static DateTime GetFirstDayOfCurrentMonth(this DateTime date)
+        {
+            return new DateTime(date.Year, date.Month, 1);
+        }
+
+        public static DateTime GetLastDayOfCurrentMonth(this DateTime date)
+        {
+            return
+                new DateTime(date.Year, date.Month, DateTime.DaysInMonth(date.Year, date.Month)).AddHours(23)
+                    .AddMinutes(59)
+                    .AddSeconds(59);
+        }
+    }
+
     public static class EnumHelpers
     {
         private static T GetAttribute<T>(this Enum value) where T : Attribute
@@ -24,6 +46,16 @@ namespace FiscalBr.Common
             var enumObj = Enum.ToObject(type, value) as Enum;
 
             return enumObj.ToDefaultValue();
+        }
+
+        public static T GetEnumMaxValue<T>() where T : Enum
+        {
+            return Enum.GetValues(typeof(T)).Cast<T>().Max();
+        }
+
+        public static int[] GetEnumValues<T>() where T : Enum
+        {
+            return (int[])Enum.GetValues(typeof(T));
         }
 
         public static string ToDefaultValue(this Enum value)

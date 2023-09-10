@@ -11,15 +11,17 @@ namespace FiscalBr.Test.Sped
         [Fact]
         public void EscreverArquivoEFDFiscalV2()
         {
-            var efdFiscal = new ArquivoEFDFiscalV2(CodigoVersaoLeiaute.V2, LeiauteArquivoSped.EFDFiscal);
+            // Arrange
+            var efdContrib = new ArquivoEFDContribuicoesV2();
+            var efdFiscal = new ArquivoEFDFiscalV2();
 
-            //var expectResult = $"|D001|0|{Environment.NewLine}";
+            // Act
+            var enumContrib = (CodVersaoSpedContrib)efdContrib.ObterEnumVersaoLeiaute();
+            var enumFiscal = (CodVersaoSpedFiscal)efdFiscal.ObterEnumVersaoLeiaute();
 
-            //var d001 = new FiscalBr.EFDFiscal.BlocoD.RegistroD001New(true);
-
-            //var currentResult = efdFiscal.EscreverLinha(d001, efdFiscal.VersaoLeiaute);
-
-            //Assert.Equal(expectResult, currentResult);
+            // Assert
+            Assert.Equal(CodVersaoSpedContrib.V6, enumContrib);
+            Assert.Equal(CodVersaoSpedFiscal.V17, enumFiscal);
         }
     }
 }

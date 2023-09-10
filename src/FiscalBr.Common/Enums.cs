@@ -185,7 +185,169 @@ namespace FiscalBr.Common
         [DefaultValue("ECF")] ECF,
     }
 
-    public enum CodigoVersaoLeiaute
+    public enum VersaoLeiauteSped
+    {
+        [DefaultValue("01")] V1 = 1,
+        [DefaultValue("02")] V2,
+        [DefaultValue("03")] V3,
+        [DefaultValue("04")] V4,
+        [DefaultValue("05")] V5,
+        [DefaultValue("06")] V6,
+        [DefaultValue("07")] V7,
+        [DefaultValue("08")] V8,
+        [DefaultValue("09")] V9,
+        [DefaultValue("10")] V10,
+        [DefaultValue("11")] V11,
+        [DefaultValue("12")] V12,
+        [DefaultValue("13")] V13,
+        [DefaultValue("14")] V14,
+        [DefaultValue("15")] V15,
+        [DefaultValue("16")] V16,
+        [DefaultValue("17")] V17
+    }
+
+    public enum CodVersaoSpedECD
+    {
+        /// <summary>
+        /// Até o Ano-Calendário 2012
+        /// </summary>
+        [DefaultValue("0001")] V1 = 1,
+
+        /// <summary>
+        /// Ano-Calendário 2013
+        /// </summary>
+        [DefaultValue("0002")] V2,
+
+        /// <summary>
+        /// Ano-Calendário 2014
+        /// </summary>
+        [DefaultValue("0003")] V3,
+
+        /// <summary>
+        /// Ano-Calendário 2015
+        /// </summary>
+        [DefaultValue("0004")] V4,
+
+        /// <summary>
+        /// Ano-Calendário 2016
+        /// </summary>
+        [DefaultValue("0005")] V5,
+
+        /// <summary>
+        /// Ano-Calendário 2017
+        /// </summary>
+        [DefaultValue("0006")] V6,
+
+        /// <summary>
+        /// Ano-Calendário 2018
+        /// </summary>
+        [DefaultValue("0007")] V7,
+
+        /// <summary>
+        /// Ano-Calendário 2019
+        /// </summary>
+        [DefaultValue("0008")] V8,
+
+        /// <summary>
+        /// Ano-Calendário 2020, 2021 e 2022
+        /// </summary>
+        [DefaultValue("0009")] V9,
+    }
+
+    public enum CodVersaoSpedECF
+    {
+        /// <summary>
+        /// Ano-Calendário 2014 e Situações Especiais de 2015
+        /// </summary>
+        [DefaultValue("0001")] V1 = 1,
+
+        /// <summary>
+        /// Ano-Calendário 2015 e Situações Especiais de 2016
+        /// </summary>
+        [DefaultValue("0002")] V2,
+
+        /// <summary>
+        /// Ano-Calendário 2016 e Situações Especiais de 2017
+        /// </summary>
+        [DefaultValue("0003")] V3,
+
+        /// <summary>
+        /// Ano-Calendário 2017 e Situações Especiais de 2018
+        /// </summary>
+        [DefaultValue("0004")] V4,
+
+        /// <summary>
+        /// Ano-Calendário 2018 e Situações Especiais de 2019
+        /// </summary>
+        [DefaultValue("0005")] V5,
+
+        /// <summary>
+        /// Ano-Calendário 2019 e Situações Especiais de 2020
+        /// </summary>
+        [DefaultValue("0006")] V6,
+
+        /// <summary>
+        /// Ano-Calendário 2020 e Situações Especiais de 2021
+        /// </summary>
+        [DefaultValue("0007")] V7,
+
+        /// <summary>
+        /// Ano-Calendário 2021 e Situações Especiais de 2022
+        /// </summary>
+        [DefaultValue("0008")] V8,
+
+        /// <summary>
+        /// Ano-Calendário 2022 e Situações Especiais de 2023
+        /// </summary>
+        [DefaultValue("0009")] V9,
+    }
+
+    public enum CodVersaoSpedContrib
+    {
+        /// <summary>
+        /// Código: 001
+        /// Versão: 1.00
+        /// Validade: 01/04/2011 - 30/06/2012
+        /// </summary>
+        [DefaultValue("001")] V1 = 1,
+
+        /// <summary>
+        /// Código: 002
+        /// Versão: 2.00
+        /// Validade: 01/04/2011 - 30/06/2012
+        /// </summary>
+        [DefaultValue("002")] V2,
+
+        /// <summary>
+        /// Código: 003
+        /// Versão: 2.01A
+        /// Validade: 01/07/2012 - 31/05/2018
+        /// </summary>
+        [DefaultValue("003")] V3,
+
+        /// <summary>
+        /// Código: 004
+        /// Versão: 3.0.0
+        /// Validade: 01/06/2018 - 31/12/2018
+        /// </summary>
+        [DefaultValue("004")] V4,
+
+        /// <summary>
+        /// Código: 005
+        /// Versão: 3.1.0
+        /// Validade: 01/01/2019 - 31/12/2019
+        /// </summary>
+        [DefaultValue("005")] V5,
+
+        /// <summary>
+        /// Código: 006
+        /// Versão: 3.2.0
+        /// Validade: 01/01/2020 - 31/12/20??
+        /// </summary>
+        [DefaultValue("006")] V6,
+    }
+
+    public enum CodVersaoSpedFiscal
     {
         /// <summary>
         /// Código: 002

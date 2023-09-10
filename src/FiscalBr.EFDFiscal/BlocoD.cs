@@ -73,16 +73,18 @@ namespace FiscalBr.EFDFiscal
 
         public class RegistroD001New : RegistroSped
         {
+            private const string RegD001 = "D001";
+
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
             /// </summary>
-            public RegistroD001New() : base(Constantes.ArquivoDigital.Sped.Bloco.D.D001) { }
+            public RegistroD001New() : base(RegD001) { }
 
             /// <summary>
             /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
             /// </summary>
             /// <param name="indMovimento"></param>
-            public RegistroD001New(IndMovimento indMovimento) : base(Constantes.ArquivoDigital.Sped.Bloco.D.D001)
+            public RegistroD001New(IndMovimento indMovimento) : base(RegD001)
             {
                 IndMov = indMovimento;
             }
@@ -91,7 +93,7 @@ namespace FiscalBr.EFDFiscal
             /// Inicializa uma nova instância da classe <see cref="RegistroD001"/>.
             /// </summary>
             /// <param name="temMovimento"></param>
-            public RegistroD001New(bool temMovimento) : base(Constantes.ArquivoDigital.Sped.Bloco.D.D001)
+            public RegistroD001New(bool temMovimento) : base(RegD001)
             {
                 IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
             }
@@ -123,10 +125,8 @@ namespace FiscalBr.EFDFiscal
 
             public override bool Validar()
             {
-                if (!Reg.Equals(Constantes.ArquivoDigital.Sped.Bloco.D.D001))
+                if (!Reg.Equals(RegD001))
                     return false;
-
-
 
                 return base.Validar();
             }

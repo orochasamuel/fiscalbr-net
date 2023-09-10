@@ -120,12 +120,12 @@ namespace FiscalBr.Common.Sped
 
         private int ObterUltimaVersaoDisponivelLayout()
         {
-            return Enum.GetValues(typeof(CodigoVersaoLeiaute)).Cast<int>().Max();
+            return Enum.GetValues(typeof(VersaoLeiauteSped)).Cast<int>().Max();
         }
 
         private int ObterPrimeiraVersaoLayout()
         {
-            return Enum.GetValues(typeof(CodigoVersaoLeiaute)).Cast<int>().Min();
+            return Enum.GetValues(typeof(VersaoLeiauteSped)).Cast<int>().Min();
         }
 
         /// <summary>
