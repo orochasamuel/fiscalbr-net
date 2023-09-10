@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace FiscalBr.EFDFiscal
     /// <summary>
     ///     BLOCO G: CONTROLE DO CRÉDITO DE ICMS DO ATIVO PERMANENTE CIAP
     /// </summary>
-    public class BlocoG
+    public class BlocoG : IBlocoSped
     {
         public RegistroG001 RegG001 { get; set; }
         public RegistroG990 RegG990 { get; set; }

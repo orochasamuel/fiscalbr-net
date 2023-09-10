@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace FiscalBr.EFDContribuicoes
     /// <summary>
     /// BLOCO 0: ABERTURA, IDENTIFICAÇÃO E REFERÊNCIAS
     /// </summary>
-    public class Bloco0
+    public class Bloco0 : IBlocoSped
     {
         public Registro0000 Reg0000 { get; set; }
         public Registro0001 Reg0001 { get; set; }

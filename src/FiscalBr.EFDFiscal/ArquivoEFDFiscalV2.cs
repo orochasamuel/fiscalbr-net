@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -174,7 +175,7 @@ namespace FiscalBr.EFDFiscal
                 QtdLin = Linhas.Count + Bloco9.Reg9001.Reg9900s.Count + 3 /* 9001, 9990 e 9999 */
             };
 
-            GerarComFilhos(Bloco9);
+            GerarBlocoSped(Bloco9);
 
             #endregion
         }
@@ -183,25 +184,25 @@ namespace FiscalBr.EFDFiscal
         {
             base.GerarLinhas();
 
-            GerarComFilhos(Bloco0);
+            GerarBlocoSped(Bloco0);
 
-            GerarComFilhos(BlocoB);
+            GerarBlocoSped(BlocoB);
 
-            GerarComFilhos(BlocoC);
+            GerarBlocoSped(BlocoC);
 
-            GerarComFilhos(BlocoD);
+            GerarBlocoSped(BlocoD);
 
-            GerarComFilhos(BlocoE);
+            GerarBlocoSped(BlocoE);
 
-            GerarComFilhos(BlocoG);
+            GerarBlocoSped(BlocoG);
 
-            GerarComFilhos(BlocoH);
+            GerarBlocoSped(BlocoH);
 
-            GerarComFilhos(BlocoK);
+            GerarBlocoSped(BlocoK);
 
-            GerarComFilhos(Bloco1);
+            GerarBlocoSped(Bloco1);
 
-            GerarComFilhos(Bloco9);
+            GerarBlocoSped(Bloco9);
         }
 
         #region Leitura
@@ -217,7 +218,7 @@ namespace FiscalBr.EFDFiscal
                 {
                     // TODO: Deixei essa opção de escolher a versão pois posso querer
                     // importar uma versão antiga e gerar para uma versão mais recente
-                    var registro = (RegistroSped)LerLinha(linha, ArquivoSped, versao);
+                    var registro = LerLinha(linha, ArquivoSped, versao);
 
                     if (registro.Reg == "9999")
                         leituraConcluida = true;
@@ -256,7 +257,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBloco0(RegistroSped registro)
+        private void LerBloco0(IRegistroSped registro)
         {
             if (Bloco0 == null)
                 Bloco0 = new Bloco0();
@@ -397,7 +398,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBloco1(RegistroSped registro)
+        private void LerBloco1(IRegistroSped registro)
         {
             if (Bloco1 == null)
                 Bloco1 = new Bloco1();
@@ -673,7 +674,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBloco9(RegistroSped registro)
+        private void LerBloco9(IRegistroSped registro)
         {
             if (Bloco9 == null)
                 Bloco9 = new Bloco9();
@@ -694,7 +695,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBlocoB(RegistroSped registro)
+        private void LerBlocoB(IRegistroSped registro)
         {
             if (BlocoB == null)
                 BlocoB = new BlocoB();
@@ -779,7 +780,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBlocoC(RegistroSped registro)
+        private void LerBlocoC(IRegistroSped registro)
         {
             if (BlocoC == null)
             {
@@ -1378,7 +1379,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBlocoD(RegistroSped registro)
+        private void LerBlocoD(IRegistroSped registro)
         {
             if (BlocoD == null)
                 BlocoD = new BlocoD();
@@ -1691,7 +1692,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBlocoE(RegistroSped registro)
+        private void LerBlocoE(IRegistroSped registro)
         {
             if (BlocoE == null)
                 BlocoE = new BlocoE();
@@ -1885,7 +1886,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBlocoG(RegistroSped registro)
+        private void LerBlocoG(IRegistroSped registro)
         {
             if (BlocoG == null)
                 BlocoG = new BlocoG();
@@ -1940,7 +1941,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBlocoH(RegistroSped registro)
+        private void LerBlocoH(IRegistroSped registro)
         {
             if (BlocoH == null)
                 BlocoH = new BlocoH();
@@ -1982,7 +1983,7 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
-        private void LerBlocoK(RegistroSped registro)
+        private void LerBlocoK(IRegistroSped registro)
         {
             if (BlocoK == null)
                 BlocoK = new BlocoK();

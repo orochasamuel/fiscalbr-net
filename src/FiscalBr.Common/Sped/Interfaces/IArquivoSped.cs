@@ -10,6 +10,10 @@ namespace FiscalBr.Common.Sped.Interfaces
         LeiauteArquivoSped ArquivoSped { get; }
         VersaoLeiauteSped? VersaoLeiaute { get; }
 
+        void CalcularBloco9(bool totalizarBlocos);
+        //void GerarBlocoSped(IBlocoSped blocoSped);
+        //void GerarRegistroSped(IRegistroSped registroSped);
+
         int ObterVersaoLeiaute(VersaoLeiauteSped? versaoLeiaute);
         int[] ObterVersoesLeiaute(LeiauteArquivoSped? leiauteSped);
         Enum ObterEnumVersaoLeiaute();

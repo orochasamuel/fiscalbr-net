@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace FiscalBr.EFDContribuicoes
     /// <summary>
     ///     BLOCO 9: CONTROLE E ENCERRAMENTO DO ARQUIVO DIGITAL
     /// </summary>
-    public class Bloco9
+    public class Bloco9 : IBlocoSped
     {
         public Registro9001 Reg9001 { get; set; }
         public Registro9990 Reg9990 { get; set; }

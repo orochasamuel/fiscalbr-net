@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace FiscalBr.EFDFiscal
     /// <summary>
     ///     BLOCO K: CONTROLE DA PRODUÇÃO E DO ESTOQUE
     /// </summary>
-    public class BlocoK
+    public class BlocoK : IBlocoSped
     {
         public RegistroK001 RegK001 { get; set; }
         public RegistroK990 RegK990 { get; set; }

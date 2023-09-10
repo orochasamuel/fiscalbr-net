@@ -1,15 +1,15 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 
 namespace FiscalBr.EFDFiscal
 {
     /// <summary>
     ///     BLOCO C: DOCUMENTOS FISCAIS I - MERCADORIAS (ICMS/IPI)
     /// </summary>
-    public class BlocoC
+    public class BlocoC : IBlocoSped
     {
         public RegistroC001 RegC001 { get; set; }
         public RegistroC990 RegC990 { get; set; }
@@ -4859,14 +4859,14 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroC590> RegC590s { get; set; }
             public List<RegistroC595> RegC595s { get; set; }
 
-            //public override bool Validar()
-            //{
-            //    if (IndOper == IndTipoOperacaoProduto.Saida)
-            //        if (IndDest == IndCodDestAcessante.None)
-            //            return false;
+            public override bool Validar()
+            {
+                if (IndOper == IndTipoOperacaoProduto.Saida)
+                    if (IndDest == IndCodDestAcessante.None)
+                        return false;
 
-            //    return base.Validar();
-            //}
+                return base.Validar();
+            }
         }
 
         /// <summary>

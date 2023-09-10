@@ -1,11 +1,12 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
 namespace FiscalBr.EFDContribuicoes
 {
-    public class BlocoC
+    public class BlocoC : IBlocoSped
     {
         public RegistroC001 RegC001 { get; set; }
         public RegistroC990 RegC990 { get; set; }

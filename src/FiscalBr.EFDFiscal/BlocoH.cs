@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace FiscalBr.EFDFiscal
     /// <summary>
     ///     BLOCO H: INVENTÁRIO FÍSICO
     /// </summary>
-    public class BlocoH
+    public class BlocoH : IBlocoSped
     {
         public RegistroH001 RegH001 { get; set; }
         public RegistroH990 RegH990 { get; set; }

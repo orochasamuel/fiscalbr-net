@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace FiscalBr.EFDFiscal
     /// <summary>
     ///     BLOCO E: APURAÇÃO DO ICMS E DO IPI
     /// </summary>
-    public class BlocoE
+    public class BlocoE : IBlocoSped
     {
         public RegistroE001 RegE001 { get; set; }
         public RegistroE990 RegE990 { get; set; }

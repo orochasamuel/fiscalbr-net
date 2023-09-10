@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace FiscalBr.EFDFiscal
     /// <summary>
     ///     BLOCO B: ESCRITURAÇÃO E APURAÇÃO DO ISS
     /// </summary>
-    public class BlocoB
+    public class BlocoB : IBlocoSped
     {
         public RegistroB001 RegB001 { get; set; }
         public RegistroB990 RegB990 { get; set; }

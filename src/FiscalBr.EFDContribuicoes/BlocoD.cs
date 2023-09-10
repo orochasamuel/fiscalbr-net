@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
 
@@ -8,7 +9,7 @@ namespace FiscalBr.EFDContribuicoes
     /// <summary>
     ///     BLOCO D: DOCUMENTOS FISCAIS ii - SERVIÇOS (ICMS)
     /// </summary>
-    public class BlocoD
+    public class BlocoD : IBlocoSped
     {
         public RegistroD001 RegD001 { get; set; }
         public RegistroD990 RegD990 { get; set; }

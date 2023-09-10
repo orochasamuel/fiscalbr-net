@@ -25,7 +25,7 @@ namespace FiscalBr.Common.Sped
 
         public SoftwareHouse SoftwareHouse { get; private set; }
         public LeiauteArquivoSped ArquivoSped { get; private set; }
-        public VersaoLeiauteSped VersaoLeiaute { get; private set; }
+        public VersaoLeiauteSped? VersaoLeiaute { get; private set; }
 
         public List<string> Erros { get; private set; }
         public List<string> Linhas { get; private set; }
@@ -165,48 +165,35 @@ namespace FiscalBr.Common.Sped
                 throw new Exception("Não é possível calcular o bloco 9 sem as linhas. Execute a função \"GerarLinhas()\", gere as linhas manualemnte ou leia um arquivo para preencher as linhas.");
         }
 
-        protected virtual void GerarComFilhos(object registro)
+        protected virtual void GerarBlocoSped(IBlocoSped bloco)
+        {
+            if (bloco == null)
+                return;
+
+            object obj = null;
+
+            // TODO: Usar GetNestedTypes para GerarRegistroSped
+            GerarRegistroSped((IRegistroSped)obj);
+        }
+
+        /// <summary>
+        /// TODO: REFATORAR
+        /// </summary>
+        /// <param name="registro"></param>
+        protected virtual void GerarRegistroSped(IRegistroSped registro)
         {
             if (registro == null)
                 return;
 
-            //Testa antes porque porque pode-se tratar de um bloco
-            if (registro is RegistroSped)
-                EscreverLinha(registro as RegistroSped);
-
-            var tipo = registro.GetType();
-
-            var propriedades = tipo
-                                .GetProperties()
-                                .ToList();
-
-            foreach (var propriedade in propriedades)
-            {
-                var valor = propriedade.GetValue(registro);
-
-                if (valor == null)
-                    continue;
-
-                if (valor is RegistroSped)
-                    GerarComFilhos(valor);
-
-                //Lista de objetos
-                else if (valor is System.Collections.IList)
-                {
-                    var lista = (System.Collections.IList)valor;
-
-                    foreach (var item in lista)
-                        GerarComFilhos(item);
-                }
-            }
+            EscreverEAdicionarNasLinhas(registro);
         }
 
         /// <summary>
-        /// Serealiza o objeto no atributo "Linhas"
+        /// Serializa o objeto no atributo "Linhas"
         /// </summary>
         public virtual void GerarLinhas()
         {
-            //Linhas = new List<string>();
+            Linhas = new List<string>();
         }
 
         private void RemoverLinhasVazias()
@@ -259,9 +246,9 @@ namespace FiscalBr.Common.Sped
             return FormatarCampoString(valor);
         }
 
-        public bool ExisteAtributoSpedNaPropriedade(PropertyInfo prop, int version)
+        public bool ExisteAtributoSpedNaPropriedade(PropertyInfo prop, int versao)
         {
-            return ObterAtributosSpedDoCache(prop).Any(a => a.Versao == version);
+            return ObterAtributosSpedDoCache(prop).Any(a => a.Versao == versao);
         }
 
         private SpedCamposAttribute[] ObterAtributosSpedDoCache(PropertyInfo prop)
@@ -276,10 +263,10 @@ namespace FiscalBr.Common.Sped
             }
         }
 
-        public SpedCamposAttribute ObterAtributoSpedDaPropriedade(PropertyInfo prop, int? version = null)
+        public SpedCamposAttribute ObterAtributoSpedDaPropriedade(PropertyInfo prop, int? versao = null)
         {
-            if (version.HasValue)
-                return ObterAtributosSpedDoCache(prop).FirstOrDefault(f => f.Versao == version);
+            if (versao.HasValue)
+                return ObterAtributosSpedDoCache(prop).FirstOrDefault(f => f.Versao == versao);
 
             return ObterAtributosSpedDoCache(prop)[0];
         }
@@ -317,16 +304,34 @@ namespace FiscalBr.Common.Sped
             return false;
         }
 
-        public List<PropertyInfo> ObterListaComPropriedadesDoTipo(Type t)
+        public List<PropertyInfo> ObterListaComPropriedadesDoTipo(Type t, int? v)
         {
             /*
              * http://stackoverflow.com/questions/22306689/get-properties-of-class-by-order-using-reflection
              */
-            return t.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
+            //return t.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
+            //    .Cast<SpedCamposAttribute>()
+            //    .Select(a => a.Ordem)
+            //    .FirstOrDefault())
+            //    .ToList();
+
+            var r = t.GetProperties()
+                .Where(p => Attribute.IsDefined(p, typeof(SpedCamposAttribute))); //Só quero os campos do tipo SpedCamposAttribute, ignorando registros filhos!
+
+            if (v != null)
+                if (v.HasValue && v > 0)
+                {
+                    r = r.Where(x => x.GetCustomAttributes(typeof(SpedCamposAttribute), true)
+                    .Cast<SpedCamposAttribute>()
+                    .Any(a => a.Versao <= v));
+                }
+
+            r = r.OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
                 .Cast<SpedCamposAttribute>()
                 .Select(a => a.Ordem)
-                .FirstOrDefault())
-                .ToList();
+                .FirstOrDefault());
+
+            return r.ToList();
         }
 
         public virtual string ObterTipoDaPropriedade(PropertyInfo prop)
@@ -360,6 +365,11 @@ namespace FiscalBr.Common.Sped
             File.WriteAllLines(caminho, Linhas.ToArray(), encoding ?? Encoding.Default);
         }
 
+        private void EscreverEAdicionarNasLinhas(IRegistroSped reg, DateTime? competencia = null, bool? removerQuebraLinha = false)
+        {
+            Linhas.Add(EscreverLinha(reg, competencia, removerQuebraLinha));
+        }
+
         public virtual string EscreverLinha(IRegistroSped reg, DateTime? competencia = null, bool? removerQuebraLinha = false)
         {
             var type = reg.GetType();
@@ -388,7 +398,7 @@ namespace FiscalBr.Common.Sped
             var sb = new StringBuilder();
             if (deveGerarCamposDoRegistro)
             {
-                var propriedades = ObterListaComPropriedadesDoTipo(type);
+                var propriedades = ObterListaComPropriedadesDoTipo(type, versaoDesejada);
                 foreach (var property in propriedades)
                 {
                     if (EhPropriedadeSomenteLeitura(property)) continue;
@@ -443,8 +453,6 @@ namespace FiscalBr.Common.Sped
                 sb.Append(Pipe());
                 sb.Append(NewLine());
             }
-            
-            Linhas.Add(sb.ToString().Trim());
 
             return removerQuebraLinha.HasValue ? sb.ToString().Trim() : sb.ToString();
         }
@@ -624,7 +632,9 @@ namespace FiscalBr.Common.Sped
 
             var instantiatedObject = Activator.CreateInstance(objectType);
 
-            var properties = ObterListaComPropriedadesDoTipo(objectType); // Preciso informar a versão???
+            var versaoDesejada = versao == null ? (int)VersaoLeiaute : (int)versao;
+
+            var properties = ObterListaComPropriedadesDoTipo(objectType, versaoDesejada);
 
             for (int i = 0; i < properties.Count; i++)
             {
