@@ -179,8 +179,8 @@ namespace FiscalBr.Common
 
     public enum LeiauteArquivoSped
     {
-        [DefaultValue("EFD Contrib")] EFDContrib,
-        [DefaultValue("EFD Fiscal")] EFDFiscal,
+        [DefaultValue("EFDContribuicoes")] EFDContrib,
+        [DefaultValue("EFDFiscal")] EFDFiscal,
         [DefaultValue("ECD")] ECD,
         [DefaultValue("ECF")] ECF,
     }

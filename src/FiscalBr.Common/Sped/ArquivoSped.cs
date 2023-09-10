@@ -6,12 +6,6 @@ using System.Text;
 
 namespace FiscalBr.Common.Sped
 {
-    public sealed class SpedEventArgs : EventArgs
-    {
-        public string Linha { get; set; }
-        public RegistroSped Registro { get; set; }
-    }
-
     public abstract class ArquivoSped
     {
         public event EventHandler<SpedEventArgs> AoProcessarLinha;

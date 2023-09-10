@@ -13,7 +13,11 @@ namespace FiscalBr.Test.Sped
         {
             // Arrange
             var efdContrib = new ArquivoEFDContribuicoesV2();
-            var efdFiscal = new ArquivoEFDFiscalV2();
+            var efdFiscal = new ArquivoEFDFiscalV2(
+                "FiscalBrOffice",
+                "00000000000191",
+                "oi@fiscalbr.com"
+                );
 
             // Act
             var enumContrib = (CodVersaoSpedContrib)efdContrib.ObterEnumVersaoLeiaute();
