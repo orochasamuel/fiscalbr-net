@@ -9,7 +9,11 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2022 - para gera
 
 - [SPED](#sped)
   - [EFD Contribuições](#sped-efd-contribuicoes)
+    - [Instalação](#sped-efd-contribuicoes-instalacao)
+    - [Modo de usar](#sped-efd-contribuicoes-modo-de-usar)
   - [EFD Fiscal](#sped-efd-fiscal)
+    - [Instalação](#sped-efd-fiscal-instalacao)
+    - [Modo de usar](#sped-efd-fiscal-modo-de-usar)
 - [Apoie :D](#buy-me-a-coffee)
 - [Dúvidas](#need-help)
 - [Licença](#license)
@@ -20,7 +24,7 @@ O Sistema Público de Escrituração Digital (SPED), é o sistema criado pelo go
 
 ## <a id="sped-efd-contribuicoes" /> EFD Contribuições [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?label=EFD%20Contribuições)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/)
 
-Instalação
+### <a id="sped-efd-contribuicoes-instalacao" /> Instalação
 ```bash
 $ dotnet add package FiscalBr.EFDContribuicoes --version 6.0.1
 ```
@@ -31,7 +35,7 @@ $ NuGet\Install-Package FiscalBr.EFDContribuicoes -Version 6.0.1
 
 <br>
 
-Modo de usar
+### <a id="sped-efd-contribuicoes-modo-de-usar" /> Modo de usar
 ```cs
 public class MeuGeradorSped
 {
@@ -64,7 +68,7 @@ public class MeuGeradorSped
 
 ## <a id="sped-efd-fiscal" /> EFD Fiscal [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?label=EFD%20Fiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/)
 
-Instalação
+### <a id="sped-efd-fiscal-instalacao" /> Instalação
 ```bash
 $ dotnet add package FiscalBr.EFDFiscal --version 17.0.1
 ```
@@ -75,7 +79,7 @@ $ NuGet\Install-Package FiscalBr.EFDFiscal -Version 17.0.1
 
 <br>
 
-Modo de usar
+### <a id="sped-efd-fiscal-modo-de-usar" /> Modo de usar
 ```cs
 public class MeuGeradorSped
 {
