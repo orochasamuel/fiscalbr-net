@@ -18,7 +18,7 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2022 - para gera
 
 O Sistema Público de Escrituração Digital (SPED), é o sistema criado pelo governo federal para o recebimento de informações fiscais e contábeis das empresas.
 
-### <a id="sped-efd-contribuicoes" /> EFD Contribuições [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?label=EFD%20Contribuições)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/)
+## <a id="sped-efd-contribuicoes" /> EFD Contribuições [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?label=EFD%20Contribuições)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/)
 
 Instalação
 ```bash
@@ -62,7 +62,7 @@ public class MeuGeradorSped
 }
 ```
 
-### <a id="sped-efd-fiscal" /> EFD Fiscal [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?label=EFD%20Fiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/)
+## <a id="sped-efd-fiscal" /> EFD Fiscal [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?label=EFD%20Fiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/)
 
 Instalação
 ```bash
