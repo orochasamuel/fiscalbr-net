@@ -3,14 +3,16 @@
 # FiscalBr.NET
 [![Build Status](https://github.com/orochasamuel/fiscalbr-net/actions/workflows/dotnet.yml/badge.svg)](https://github.com/orochasamuel/fiscalbr-net/actions/workflows/dotnet.yml) [![GitHub issues](https://img.shields.io/github/issues/orochasamuel/fiscalbr.net)](https://github.com/orochasamuel/FiscalBr.NET/issues) [![GitHub](https://img.shields.io/github/license/orochasamuel/fiscalbr.net)](https://github.com/orochasamuel/FiscalBr.NET/blob/master/LICENSE)
 [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Common?color=red&label=Common)](https://www.nuget.org/packages/FiscalBr.Common/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Dimob?label=Dimob)](https://www.nuget.org/packages/FiscalBr.Dimob/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.ECF?label=ECF)](https://www.nuget.org/packages/FiscalBr.ECF/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Sintegra?label=Sintegra)](https://www.nuget.org/packages/FiscalBr.Sintegra/)
-</div>
 
-###### SITE OFICIAL DO SPED: http://sped.rfb.gov.br/
-Biblioteca gratuita  - desenvolvida com Visual Studio Community 2022 - para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
+###### http://sped.rfb.gov.br/
+Biblioteca gratuita para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
+
+</div>
 
 ## <a id="table-of-contents" /> 📖 Conteúdo
 
 - [SPED](#sped)
+- [Instalação](#instalacao)
   - [EFD Contribuições](#sped-efd-contribuicoes)
     - [Instalação](#sped-efd-contribuicoes-instalacao)
     - [Modo de usar](#sped-efd-contribuicoes-modo-de-usar)
@@ -29,10 +31,14 @@ O Sistema Público de Escrituração Digital (SPED), é o sistema criado pelo go
 
 O pacote `FiscalBr.Common` é o core do projeto, todos os outros pacotes dependem deste. Veja a lista de pacotes disponíveis abaixo: 
 
+<div align="center">
+  
 | Package | NuGet | Downloads |
 | ------- | ----- | --------- |
 | [FiscalBr.Common](https://www.nuget.org/packages/FiscalBr.Common/)<br><small>É o Core do projeto</small> | [![FiscalBr.Common](https://img.shields.io/nuget/v/FiscalBr.Common?color=red&label=Common)](https://www.nuget.org/packages/FiscalBr.Common/) | [![NuGet](https://img.shields.io/nuget/dt/FiscalBr.Common.svg)](https://www.nuget.org/packages/FiscalBr.Common/) |
-| [FiscalBr.Dimob](https://www.nuget.org/packages/FiscalBr.Dimob/)<br><small>Gerador da DIMOB</small> | [![FiscalBr.Dimob](https://img.shields.io/nuget/v/FiscalBr.Dimob?color=red&label=Dimob)](https://www.nuget.org/packages/FiscalBr.Dimob/) | [![NuGet](https://img.shields.io/nuget/dt/FiscalBr.Dimob.svg)](https://www.nuget.org/packages/FiscalBr.Dimob/) |
+| [FiscalBr.Dimob](https://www.nuget.org/packages/FiscalBr.Dimob/)<br><small>Gerador da DIMOB</small> | [![FiscalBr.Dimob](https://img.shields.io/nuget/v/FiscalBr.Dimob?color=gray&label=Dimob)](https://www.nuget.org/packages/FiscalBr.Dimob/) | [![NuGet](https://img.shields.io/nuget/dt/FiscalBr.Dimob.svg)](https://www.nuget.org/packages/FiscalBr.Dimob/) | [FiscalBr.ECF](https://www.nuget.org/packages/FiscalBr.ECF/)<br><small>Gerador da ECF (Escrituração Contábil Fiscal)</small> | [![FiscalBr.ECF](https://img.shields.io/nuget/v/FiscalBr.ECF?color=blue&label=ECF)](https://www.nuget.org/packages/FiscalBr.ECF/) | [![NuGet](https://img.shields.io/nuget/dt/FiscalBr.ECF.svg)](https://www.nuget.org/packages/FiscalBr.ECF/) |
+
+</div>
 
 ## <a id="sped-efd-contribuicoes" /> EFD Contribuições [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?label=EFD%20Contribuições)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/)
 
