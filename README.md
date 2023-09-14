@@ -2,7 +2,6 @@
 
 # FiscalBr.NET
 [![Build Status](https://github.com/orochasamuel/fiscalbr-net/actions/workflows/dotnet.yml/badge.svg)](https://github.com/orochasamuel/fiscalbr-net/actions/workflows/dotnet.yml) [![GitHub issues](https://img.shields.io/github/issues/orochasamuel/fiscalbr.net)](https://github.com/orochasamuel/FiscalBr.NET/issues) [![GitHub](https://img.shields.io/github/license/orochasamuel/fiscalbr.net)](https://github.com/orochasamuel/FiscalBr.NET/blob/master/LICENSE)
-[![Nuget](https://img.shields.io/nuget/v/FiscalBr.Common?color=red&label=Common)](https://www.nuget.org/packages/FiscalBr.Common/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Dimob?label=Dimob)](https://www.nuget.org/packages/FiscalBr.Dimob/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.ECF?label=ECF)](https://www.nuget.org/packages/FiscalBr.ECF/) [![Nuget](https://img.shields.io/nuget/v/FiscalBr.Sintegra?label=Sintegra)](https://www.nuget.org/packages/FiscalBr.Sintegra/)
 
 ###### http://sped.rfb.gov.br/
 Biblioteca gratuita para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
@@ -44,7 +43,7 @@ O pacote `FiscalBr.Common` é o core do projeto, todos os outros pacotes depende
 
 </div>
 
-## <a id="sped-efd-contribuicoes" /> EFD Contribuições [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?label=EFD%20Contribuições)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/)
+## <a id="sped-efd-contribuicoes" /> EFD Contribuições [![FiscalBr.EFDContribuicoes](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?color=orange&label=EFDContribuicoes)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/)
 
 ### <a id="sped-efd-contribuicoes-instalacao" /> Instalação
 ```bash
@@ -86,7 +85,7 @@ public class MeuGeradorSped
 }
 ```
 
-## <a id="sped-efd-fiscal" /> EFD Fiscal [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?label=EFD%20Fiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/)
+## <a id="sped-efd-fiscal" /> EFD Fiscal [![FiscalBr.EFDFiscal](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?color=orange&label=EFDFiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/)
 
 ### <a id="sped-efd-fiscal-instalacao" /> Instalação
 ```bash
