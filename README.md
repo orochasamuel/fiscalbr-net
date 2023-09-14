@@ -8,16 +8,16 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2022 - para gera
 ## 📖 Conteúdo
 
 - [SPED](#sped)
-- [EFD Fiscal](#efd-fiscal)
-- [Apoie :D](#gostou)
-- [Dúvidas](#duvidas)
-- [Licença](#licenca)
+- [EFD Fiscal](#sped-efd-fiscal)
+- [Apoie :D](#buy-me-a-coffee)
+- [Dúvidas](#need-help)
+- [Licença](#license)
 
 ## SPED
 
 O Sistema Público de Escrituração Digital (SPED), é o sistema criado pelo governo federal para o recebimento de informações fiscais e contábeis das empresas.
 
-### EFD Fiscal [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?label=EFD%20Fiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/)
+### <a id="sped-efd-fiscal" /> EFD Fiscal [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDFiscal?label=EFD%20Fiscal)](https://www.nuget.org/packages/FiscalBr.EFDFiscal/)
 
 Instalação
 ```bash
@@ -61,14 +61,14 @@ public class MeuGeradorSped
 }
 ```
 
-### Gostou? Me paga um café :D [![Coffee](https://img.shields.io/badge/buy%20me%20a-coffee-yellow)](https://www.buymeacoffee.com/orochasamuel)
+## <a id="buy-me-a-coffee" /> Gostou? Me paga um café :D [![Coffee](https://img.shields.io/badge/buy%20me%20a-coffee-yellow)](https://www.buymeacoffee.com/orochasamuel)
 
 Se as bibliotecas lhe ajudaram ou contribuiram de alguma forma, apoie. :D Ajude a dar continuidade nesse projeto.
 
-### Dúvidas? [![GitHub issues](https://img.shields.io/github/issues/orochasamuel/fiscalbr-net)](https://github.com/orochasamuel/fiscalbr-net/issues)
+### <a id="need-help" /> Dúvidas? [![GitHub issues](https://img.shields.io/github/issues/orochasamuel/fiscalbr-net)](https://github.com/orochasamuel/fiscalbr-net/issues)
 
 Abra um issue na página do projeto no GitHub ou [clique aqui](https://github.com/orochasamuel/fiscalbr-net/issues).
 
-### Licença [![GitHub](https://img.shields.io/github/license/orochasamuel/fiscalbr-net)](https://github.com/orochasamuel/fiscalbr-net/blob/master/LICENSE)
+### <a id="license" /> Licença [![GitHub](https://img.shields.io/github/license/orochasamuel/fiscalbr-net)](https://github.com/orochasamuel/fiscalbr-net/blob/master/LICENSE)
 
 [MIT](https://github.com/orochasamuel/fiscalbr-net/blob/master/LICENSE)
