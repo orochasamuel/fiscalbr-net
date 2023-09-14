@@ -25,6 +25,15 @@ Biblioteca gratuita  - desenvolvida com Visual Studio Community 2022 - para gera
 
 O Sistema Público de Escrituração Digital (SPED), é o sistema criado pelo governo federal para o recebimento de informações fiscais e contábeis das empresas.
 
+## <a id="instalacao" /> 💿 Instalação
+
+O pacote `FiscalBr.Common` é o core do projeto, todos os outros pacotes dependem deste. Veja a lista de pacotes disponíveis abaixo: 
+
+| Package | NuGet | Downloads |
+| ------- | ----- | --------- |
+| [FiscalBr.Common](https://www.nuget.org/packages/FiscalBr.Common/)<br><small>É o Core do projeto</small> | [![FiscalBr.Common](https://img.shields.io/nuget/v/FiscalBr.Common?color=red&label=Common)](https://www.nuget.org/packages/FiscalBr.Common/) | [![NuGet](https://img.shields.io/nuget/dt/FiscalBr.Common.svg)](https://www.nuget.org/packages/FiscalBr.Common/) |
+| [FiscalBr.Dimob](https://www.nuget.org/packages/FiscalBr.Dimob/)<br><small>Gerador da DIMOB</small> | [![FiscalBr.Dimob](https://img.shields.io/nuget/v/FiscalBr.Dimob?color=red&label=Dimob)](https://www.nuget.org/packages/FiscalBr.Dimob/) | [![NuGet](https://img.shields.io/nuget/dt/FiscalBr.Dimob.svg)](https://www.nuget.org/packages/FiscalBr.Dimob/) |
+
 ## <a id="sped-efd-contribuicoes" /> EFD Contribuições [![Nuget](https://img.shields.io/nuget/v/FiscalBr.EFDContribuicoes?label=EFD%20Contribuições)](https://www.nuget.org/packages/FiscalBr.EFDContribuicoes/)
 
 ### <a id="sped-efd-contribuicoes-instalacao" /> Instalação
