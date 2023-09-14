@@ -133,7 +133,9 @@ Se as bibliotecas lhe ajudaram ou contribuiram de alguma forma, apoie. :D Ajude 
 
 <div align="center">
   
-[![Apoie](https://github.com/orochasamuel/fiscalbr-net/assets/15462690/a951abc7-a7ac-4e7d-86fb-68c63017c2e7)](https://nubank.com.br/pagar/4jklf/N5Nz6ZCJ6d)
+<a href="https://nubank.com.br/pagar/4jklf/N5Nz6ZCJ6d">
+  <img src="https://github.com/orochasamuel/fiscalbr-net/assets/15462690/a951abc7-a7ac-4e7d-86fb-68c63017c2e7" width="400" height="400">
+</a>
 
 </div>
 
