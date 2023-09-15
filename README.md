@@ -6,6 +6,8 @@
 ###### http://sped.rfb.gov.br/
 Biblioteca gratuita para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
+###### Precisa de ajuda para começar? Então [clique aqui](https://github.com/orochasamuel/fiscalbr-net/issues/115).
+
 </div>
 
 ## <a id="brother-project" /> Conheça o FiscalBrJS
