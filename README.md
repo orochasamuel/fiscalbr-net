@@ -1,7 +1,7 @@
 <div align="center">
 
 # <a id="title" /> FiscalBr.NET
-[![Build Status](https://img.shields.io/github/actions/workflow/status/orochasamuel/fiscalbr-net/dotnet)](https://github.com/orochasamuel/fiscalbr-net/actions/workflows/dotnet.yml) [![GitHub issues](https://img.shields.io/github/issues/orochasamuel/fiscalbr-net)](https://github.com/orochasamuel/fiscalbr-net/issues) [![GitHub](https://img.shields.io/github/license/orochasamuel/fiscalbr-net)](https://github.com/orochasamuel/fiscalbr-net/blob/master/LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/orochasamuel/fiscalbr-net/build-and-test)](https://github.com/orochasamuel/fiscalbr-net/actions/workflows/build-and-test.yml) [![GitHub issues](https://img.shields.io/github/issues/orochasamuel/fiscalbr-net)](https://github.com/orochasamuel/fiscalbr-net/issues) [![GitHub](https://img.shields.io/github/license/orochasamuel/fiscalbr-net)](https://github.com/orochasamuel/fiscalbr-net/blob/master/LICENSE)
 
 ###### http://sped.rfb.gov.br/
 Biblioteca gratuita para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
