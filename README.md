@@ -6,6 +6,8 @@
 ###### http://sped.rfb.gov.br/
 Biblioteca gratuita para geração dos arquivos SPED e demais declarações necessárias no cenário contábil/fiscal brasileiro.
 
+###### Precisa de ajuda para começar? Então [clique aqui](https://github.com/orochasamuel/fiscalbr-net/issues/115).
+
 </div>
 
 ## <a id="brother-project" /> Conheça o FiscalBrJS
@@ -53,11 +55,11 @@ O pacote `FiscalBr.Common` é o core do projeto, todos os outros pacotes depende
 
 ### <a id="sped-efd-contribuicoes-instalacao" /> Instalação
 ```sh
- dotnet add package FiscalBr.EFDContribuicoes --version 6.0.1
+ dotnet add package FiscalBr.EFDContribuicoes --version 6.1.0
 ```
 OU
 ```sh
- NuGet\Install-Package FiscalBr.EFDContribuicoes -Version 6.0.1
+ NuGet\Install-Package FiscalBr.EFDContribuicoes -Version 6.1.0
 ```
 
 <p align="right">(<a href="#title">voltar para o topo</a>)</p>
@@ -99,11 +101,11 @@ public class MeuGeradorSped
 
 ### <a id="sped-efd-fiscal-instalacao" /> Instalação
 ```sh
- dotnet add package FiscalBr.EFDFiscal --version 17.0.1
+ dotnet add package FiscalBr.EFDFiscal --version 17.1.0
 ```
 OU
 ```sh
- NuGet\Install-Package FiscalBr.EFDFiscal -Version 17.0.1
+ NuGet\Install-Package FiscalBr.EFDFiscal -Version 17.1.0
 ```
 
 <p align="right">(<a href="#title">voltar para o topo</a>)</p>
