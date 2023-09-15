@@ -121,7 +121,7 @@ namespace FiscalBr.EFDFiscal
             ///     1 - Outros.
             /// </summary>
             [SpedCampos(15, "IND_ATIV", "N", 1, 0, true, 2)]
-            public IndTipoAtividade IndAtiv { get; set; }
+            public TipoAtivSpedFiscal IndAtiv { get; set; }
 
             #endregion Propriedades
 

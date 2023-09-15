@@ -1,6 +1,9 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Enums;
 using FiscalBr.Common.Sped.Interfaces;
+using FiscalBr.Common.ValueObjects;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +30,47 @@ namespace FiscalBr.EFDFiscal
                 versaoLeiaute
                 )
         {
+        }
+
+        public ArquivoEFDFiscalV2(
+            Empresa dadosEmpresa,
+            DateTime dataInicial,
+            DateTime dataFinal,
+            IndCodFinalidadeArquivo finalidadeArquivo = IndCodFinalidadeArquivo.RemessaArquivoOriginal,
+            IndPerfilArquivo perfilArquivo = IndPerfilArquivo.A,
+            TipoAtivSpedFiscal tipoAtividade = TipoAtivSpedFiscal.Outros,
+            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V17
+            ) : base(
+                LeiauteArquivoSped.EFDFiscal,
+                versaoLeiaute
+                )
+        {
+            if (this.Bloco0 is null)
+                this.Bloco0 = new FiscalBr.EFDFiscal.Bloco0();
+
+            if (this.Bloco0.Reg0000 is null)
+                this.Bloco0.Reg0000 = new FiscalBr.EFDFiscal.Bloco0.Registro0000();
+
+            this.Bloco0.Reg0000.CodVer = (CodVersaoSpedFiscal)ObterEnumVersaoLeiaute();
+            this.Bloco0.Reg0000.CodFin = finalidadeArquivo;
+            this.Bloco0.Reg0000.DtIni = dataInicial;
+            this.Bloco0.Reg0000.DtFin = dataFinal;
+            this.Bloco0.Reg0000.Nome = dadosEmpresa.RazaoSocial;
+
+            if (dadosEmpresa.CpfCnpj.EhCpf)
+                this.Bloco0.Reg0000.Cpf = dadosEmpresa.CpfCnpj.Numero;
+            else
+                this.Bloco0.Reg0000.Cnpj = dadosEmpresa.CpfCnpj.Numero;
+            
+            this.Bloco0.Reg0000.Ie = dadosEmpresa.InscEstadual;
+            this.Bloco0.Reg0000.Im = dadosEmpresa.InscMunicipal;
+            this.Bloco0.Reg0000.Suframa = dadosEmpresa.InscSuframa;
+
+            this.Bloco0.Reg0000.Uf = dadosEmpresa.SiglaUf;
+            this.Bloco0.Reg0000.CodMun = dadosEmpresa.CodMunicipio;
+
+            this.Bloco0.Reg0000.IndPerfil = perfilArquivo;
+            this.Bloco0.Reg0000.IndAtiv = tipoAtividade;
         }
 
         public ArquivoEFDFiscalV2(

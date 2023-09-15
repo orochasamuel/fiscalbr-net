@@ -26,7 +26,7 @@
                 Ie = "123456789",
                 CodMun = "5204508",
                 IndPerfil = IndPerfilArquivo.A,
-                IndAtiv = IndTipoAtividade.Outros
+                IndAtiv = Common.Sped.Enums.TipoAtivSpedFiscal.Outros
             };
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(source, VersaoLeiauteSped.V15);
@@ -58,7 +58,7 @@
                 Ie = "123456789",
                 CodMun = "5204508",
                 IndPerfil = IndPerfilArquivo.A,
-                IndAtiv = IndTipoAtividade.Outros
+                IndAtiv = Common.Sped.Enums.TipoAtivSpedFiscal.Outros
             };
 
             var efd = new ArquivoEFDFiscalV2(VersaoLeiauteSped.V15);

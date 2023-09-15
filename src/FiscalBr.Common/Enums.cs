@@ -604,22 +604,6 @@ namespace FiscalBr.Common
         [DefaultValue("C")] C
     }
 
-    /// <summary>
-    ///     Indicador do tipo de atividade
-    /// </summary>
-    public enum IndTipoAtividade
-    {
-        /// <summary>
-        ///     Industrial ou equiparado a industrial
-        /// </summary>
-        [DefaultValue("0")] IndustrialOuEquiparado,
-
-        /// <summary>
-        ///     Outros
-        /// </summary>
-        [DefaultValue("1")] Outros
-    }
-
     public enum IndCodMod
     {
         /// <summary>

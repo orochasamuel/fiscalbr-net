@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Enums;
 using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -41,14 +42,14 @@ namespace FiscalBr.EFDContribuicoes
             /// <param name="idAtividade">Indicador de tipo de atividade preponderante</param>
             public Registro0000(
                 CodVersaoSpedContrib cdVersao,
-                int tpEscrituracao,
+                IndCodFinalidadeArquivo tpEscrituracao,
                 DateTime dtInicial,
                 DateTime dtFinal,
                 string rzSocial,
                 string nrCnpj,
                 string uf,
                 string cdMunicipio,
-                int idAtividade
+                TipoAtivSpedContrib idAtividade
                 ) : base("0000")
             {
                 CodVer = cdVersao;
@@ -80,7 +81,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <param name="idAtividade">Indicador de tipo de atividade preponderante</param>
             public Registro0000(
                 CodVersaoSpedContrib cdVersao,
-                int tpEscrituracao,
+                IndCodFinalidadeArquivo tpEscrituracao,
                 int idSituacaoEspecial,
                 string nrReciboAnterior,
                 DateTime dtInicial,
@@ -91,7 +92,7 @@ namespace FiscalBr.EFDContribuicoes
                 string cdMunicipio,
                 string suframa,
                 int idNaturezaPj,
-                int idAtividade
+                TipoAtivSpedContrib idAtividade
                 ) : base("0000")
             {
                 CodVer = cdVersao;
@@ -119,11 +120,11 @@ namespace FiscalBr.EFDContribuicoes
             /// Tipo de escrituração:
             /// <remarks>
             /// 0 - Original; <para/>
-            /// 1 - Retificadora.2
+            /// 1 - Retificadora.
             /// </remarks>
             /// </summary>
             [SpedCampos(3, "TIPO_ESCRIT", "N", 1, 0, true, 2)]
-            public int TipoEscrit { get; set; }
+            public IndCodFinalidadeArquivo TipoEscrit { get; set; }
 
             /// <summary>
             /// Indicador de situação especial:
@@ -212,7 +213,7 @@ namespace FiscalBr.EFDContribuicoes
             /// </remarks>
             /// </summary>
             [SpedCampos(14, "IND_ATIV", "N", 1, 0, true, 2)]
-            public int IndAtiv { get; set; }
+            public TipoAtivSpedContrib IndAtiv { get; set; }
         }
 
         /// <summary>
