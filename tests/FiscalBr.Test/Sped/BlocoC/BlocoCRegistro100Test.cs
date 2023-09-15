@@ -1,5 +1,4 @@
-﻿using C100EFDFiscal = FiscalBr.EFDFiscal.BlocoC.RegistroC100;
-using Utils = FiscalBr.Common.Sped.EscreverCamposSped;
+﻿using Utils = FiscalBr.Common.Sped.EscreverCamposSped;
 
 namespace FiscalBr.Test.Sped.BlocoC
 {
@@ -12,7 +11,8 @@ namespace FiscalBr.Test.Sped.BlocoC
             var expectedResult =
                 $"|C100|1|0||65|02|001|123456789|1234567890...44|||||||||||||||||||||{Environment.NewLine}";
 
-            var source = C100EFDFiscal.PreencherDFeCancelado(
+            var source = new EFDFiscal.BlocoC.RegistroC100()
+                .PreencherDFeCancelado(
                 IndTipoOperacaoProduto.Saida,
                 IndEmitente.EmissaoPropria,
                 IndCodMod.Mod65,
@@ -39,7 +39,8 @@ namespace FiscalBr.Test.Sped.BlocoC
             var expectedResult =
                 $"|C100|1|0||65|04|001|123456789|1234567890...44|||||||||||||||||||||{Environment.NewLine}";
 
-            var source = C100EFDFiscal.PreencherDFeDenegado(
+            var source = new EFDFiscal.BlocoC.RegistroC100()
+                .PreencherDFeDenegado(
                 IndTipoOperacaoProduto.Saida,
                 IndEmitente.EmissaoPropria,
                 IndCodMod.Mod65,
@@ -66,7 +67,8 @@ namespace FiscalBr.Test.Sped.BlocoC
             var expectedResult =
                 $"|C100|1|0||65|05|001|123456789||||||||||||||||||||||{Environment.NewLine}";
 
-            var source = C100EFDFiscal.PreencherDFeInutilizado(
+            var source = new EFDFiscal.BlocoC.RegistroC100()
+                .PreencherDFeInutilizado(
                 IndTipoOperacaoProduto.Saida,
                 IndEmitente.EmissaoPropria,
                 IndCodMod.Mod65,

@@ -28,6 +28,22 @@ namespace FiscalBr.EFDFiscal
             }
 
             /// <summary>
+            ///   Inicializa uma nova instância da classe <see cref="RegistroE001"/>.
+            /// </summary>
+            public RegistroE001(IndMovimento indMovimento) : base("E001")
+            {
+                IndMov = indMovimento;
+            }
+
+            /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE001" />.
+            /// </summary>
+            public RegistroE001(bool temMovimento) : base("E001")
+            {
+                IndMov = temMovimento ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+            }
+
+            /// <summary>
             ///     Indicador de movimento: 
             ///     0 - Bloco com dados informados; 
             ///     1 - Bloco sem dados informados.
@@ -39,6 +55,12 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroE200> RegE200s { get; set; }
             public List<RegistroE300> RegE300s { get; set; }
             public List<RegistroE500> RegE500s { get; set; }
+
+            public RegistroE001 ComIndicadorMovimento(bool v)
+            {
+                IndMov = v ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
+                return this;
+            }
         }
 
         /// <summary>
@@ -54,6 +76,18 @@ namespace FiscalBr.EFDFiscal
             }
 
             /// <summary>
+            ///     Inicializa uma nova instância da classe <see cref="RegistroE100" />.
+            /// </summary>
+            public RegistroE100(
+                DateTime dataInicial,
+                DateTime dataFinal
+                ) : base("E100")
+            {
+                DtIni = dataInicial;
+                DtFin = dataFinal;
+            }
+
+            /// <summary>
             ///     Data inicial a que a apuração se refere.
             /// </summary>
             [SpedCampos(2, "DT_INI", "N", 8, 0, true, 2)]
@@ -66,7 +100,18 @@ namespace FiscalBr.EFDFiscal
             public DateTime DtFin { get; set; }
 
             public RegistroE110 RegE110 { get; set; }
-           
+
+            public RegistroE100 ComDataInicial(DateTime v)
+            {
+                DtIni = v;
+                return this;
+            }
+
+            public RegistroE100 ComDataFinal(DateTime v)
+            {
+                DtFin = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -84,90 +129,174 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total dos débitos por "Saídas e prestações com débito do imposto"
             /// </summary>
-            [SpedCampos(2, "VL_TOT_DEBITOS", "N", 0, 2, true, 2)]
+            [SpedCampos(2, "VL_TOT_DEBITOS", "N", int.MaxValue, 2, true, 2)]
             public decimal VlTotDebitos { get; set; }
 
             /// <summary>
             ///     Valor total dos ajustes a débito decorrentes do documento fiscal.
             /// </summary>
-            [SpedCampos(3, "VL_AJ_DEBITOS", "N", 0, 2, true, 2)]
+            [SpedCampos(3, "VL_AJ_DEBITOS", "N", int.MaxValue, 2, true, 2)]
             public decimal VlAjDebitos { get; set; }
 
             /// <summary>
             ///     Valor total de "Ajustes a débito"
             /// </summary>
-            [SpedCampos(4, "VL_TOT_AJ_DEBITOS", "N", 0, 2, true, 2)]
+            [SpedCampos(4, "VL_TOT_AJ_DEBITOS", "N", int.MaxValue, 2, true, 2)]
             public decimal VlTotAjDebitos { get; set; }
 
             /// <summary>
             ///     Valor total de Ajustes “Estornos de créditos”
             /// </summary>
-            [SpedCampos(5, "VL_ESTORNOS_CRED", "N", 0, 2, true, 2)]
+            [SpedCampos(5, "VL_ESTORNOS_CRED", "N", int.MaxValue, 2, true, 2)]
             public decimal VlEstornosCred { get; set; }
 
             /// <summary>
             ///     Valor total dos créditos por "Entradas e aquisições com crédito do imposto"
             /// </summary>
-            [SpedCampos(6, "VL_TOT_CREDITOS", "N", 0, 2, true, 2)]
+            [SpedCampos(6, "VL_TOT_CREDITOS", "N", int.MaxValue, 2, true, 2)]
             public decimal VlTotCreditos { get; set; }
 
             /// <summary>
             ///     Valor total dos ajustes a crédito decorrentes do documento fiscal.
             /// </summary>
-            [SpedCampos(7, "VL_AJ_CREDITOS", "N", 0, 2, true, 2)]
+            [SpedCampos(7, "VL_AJ_CREDITOS", "N", int.MaxValue, 2, true, 2)]
             public decimal VlAjCreditos { get; set; }
 
             /// <summary>
             ///     Valor total de "Ajustes a crédito"
             /// </summary>
-            [SpedCampos(8, "VL_TOT_AJ_CREDITOS", "N", 0, 2, true, 2)]
+            [SpedCampos(8, "VL_TOT_AJ_CREDITOS", "N", int.MaxValue, 2, true, 2)]
             public decimal VlTotAjCreditos { get; set; }
 
             /// <summary>
             ///     Valor total de Ajustes “Estornos de Débitos”
             /// </summary>
-            [SpedCampos(9, "VL_ESTORNOS_DEB", "N", 0, 2, true, 2)]
+            [SpedCampos(9, "VL_ESTORNOS_DEB", "N", int.MaxValue, 2, true, 2)]
             public decimal VlEstornosDeb { get; set; }
 
             /// <summary>
             ///     Valor total de "Saldo credor do período anterior"
             /// </summary>
-            [SpedCampos(10, "VL_SLD_CREDOR_ANT", "N", 0, 2, true, 2)]
+            [SpedCampos(10, "VL_SLD_CREDOR_ANT", "N", int.MaxValue, 2, true, 2)]
             public decimal VlSldCredorAnt { get; set; }
 
             /// <summary>
             ///     Valor do saldo devedor apurado
             /// </summary>
-            [SpedCampos(11, "VL_SLD_APURADO", "N", 0, 2, true, 2)]
+            [SpedCampos(11, "VL_SLD_APURADO", "N", int.MaxValue, 2, true, 2)]
             public decimal VlSldApurado { get; set; }
 
             /// <summary>
             ///     Valor total de "Deduções"
             /// </summary>
-            [SpedCampos(12, "VL_TOT_DED", "N", 0, 2, true, 2)]
+            [SpedCampos(12, "VL_TOT_DED", "N", int.MaxValue, 2, true, 2)]
             public decimal VlTotDed { get; set; }
 
             /// <summary>
             ///     Valor total de "ICMS a recolher (11-12)
             /// </summary>
-            [SpedCampos(13, "VL_ICMS_RECOLHER", "N", 0, 2, true, 2)]
+            [SpedCampos(13, "VL_ICMS_RECOLHER", "N", int.MaxValue, 2, true, 2)]
             public decimal VlIcmsRecolher { get; set; }
 
             /// <summary>
             ///     Valor total de "Saldo credor a transportar para o período seguinte”
             /// </summary>
-            [SpedCampos(14, "VL_SLD_CREDOR_TRANSPORTAR", "N", 0, 2, true, 2)]
+            [SpedCampos(14, "VL_SLD_CREDOR_TRANSPORTAR", "N", int.MaxValue, 2, true, 2)]
             public decimal VlSldCredorTransportar { get; set; }
 
             /// <summary>
             ///     Valores recolhidos ou a recolher, extraapuração.
             /// </summary>
-            [SpedCampos(15, "DEB_ESP", "N", 0, 2, true, 2)]
+            [SpedCampos(15, "DEB_ESP", "N", int.MaxValue, 2, true, 2)]
             public decimal DebEsp { get; set; }
 
             public List<RegistroE111> RegE111s { get; set; }
             public List<RegistroE115> RegE115s { get; set; }
             public List<RegistroE116> RegE116s { get; set; }
+
+            public RegistroE110 ComValorTotalDebitos(decimal v)
+            {
+                VlTotDebitos = v;
+                return this;
+            }
+
+            public RegistroE110 ComValorAjusteDebitos(decimal v)
+            {
+                VlTotAjDebitos = v;
+                return this;
+            }
+
+            public RegistroE110 ComValorTotalAjusteDebitos(decimal v)
+            {
+                VlTotAjDebitos = v;
+                return this;
+            }
+
+            public RegistroE110 ComValorEstornoCreditos(decimal v)
+            {
+                VlEstornosCred = v;
+                return this;
+            }
+
+            public RegistroE110 ComValorTotalCreditos(decimal v)
+            {
+                VlTotCreditos = v;
+                return this;
+            }
+
+            public RegistroE110 ComValorAjusteCreditos(decimal v)
+            {
+                VlTotAjCreditos = v;
+                return this;
+            }
+
+            public RegistroE110 ComValorTotalAjusteCreditos(decimal v)
+            {
+                VlTotAjCreditos = v;
+                return this;
+            }
+
+            public RegistroE110 ComValorEstornoDebitos(decimal v)
+            {
+                VlEstornosDeb = v;
+                return this;
+            }
+
+            public RegistroE110 ComSaldoCredorPeriodoAnterior(decimal v)
+            {
+                VlSldCredorAnt = v;
+                return this;
+            }
+
+            public RegistroE110 ComSaldoDevedorApurado(decimal v)
+            {
+                VlSldApurado = v;
+                return this;
+            }
+
+            public RegistroE110 ComDeducoes(decimal v)
+            {
+                VlTotDed = v;
+                return this;
+            }
+
+            public RegistroE110 ComIcmsRecolher(decimal v)
+            {
+                VlIcmsRecolher = v;
+                return this;
+            }
+
+            public RegistroE110 ComSaldoCredorTransportar(decimal v)
+            {
+                VlSldCredorTransportar = v;
+                return this;
+            }
+
+            public RegistroE110 ComValoresRecolhidosRecolherExtra(decimal v)
+            {
+                DebEsp = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -191,17 +320,35 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Descrição complementar do ajuste da apuração
             /// </summary>
-            [SpedCampos(3, "DESCR_COMPL_AJ", "C", 1024, 0, false, 2)]
+            [SpedCampos(3, "DESCR_COMPL_AJ", "C", int.MaxValue, 0, false, 2)]
             public string DescrComplAj { get; set; }
 
             /// <summary>
             ///     Valor do ajuste da apuração
             /// </summary>
-            [SpedCampos(4, "VL_AJ_APUR", "N", 0, 2, true, 2)]
+            [SpedCampos(4, "VL_AJ_APUR", "N", int.MaxValue, 2, true, 2)]
             public decimal VlAjApur { get; set; }
 
             public List<RegistroE112> RegE112s { get; set; }
             public List<RegistroE113> RegE113s { get; set; }
+
+            public RegistroE111 ComCodigoAjuste(string v)
+            {
+                CodAjApur = v;
+                return this;
+            }
+
+            public RegistroE111 ComDescricaoAjuste(string v)
+            {
+                DescrComplAj = v;
+                return this;
+            }
+
+            public RegistroE111 ComValorAjuste(decimal v)
+            {
+                VlAjApur = v;
+                return this;
+            }
         }
 
         /// <summary>

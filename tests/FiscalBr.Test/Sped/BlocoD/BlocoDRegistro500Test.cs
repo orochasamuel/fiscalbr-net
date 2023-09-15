@@ -1,4 +1,6 @@
-﻿namespace FiscalBr.Test.Sped.BlocoD
+﻿using FiscalBr.Common.Sped.Enums;
+
+namespace FiscalBr.Test.Sped.BlocoD
 {
     public class BlocoDRegistro500Test
     {

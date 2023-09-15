@@ -955,18 +955,7 @@ namespace FiscalBr.Common
     /// <summary>
     ///     Indicador do tipo de operação
     /// </summary>
-    public enum IndTipoOperacaoServico
-    {
-        /// <summary>
-        ///     Aquisição
-        /// </summary>
-        [DefaultValue("0")] Aquisicao,
 
-        /// <summary>
-        ///     Prestação
-        /// </summary>
-        [DefaultValue("1")] Prestacao
-    }
 
     /// <summary>
     ///     Indicador do emitente do documento fiscal/título

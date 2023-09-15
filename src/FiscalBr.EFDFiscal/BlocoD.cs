@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Enums;
 using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -94,6 +95,8 @@ namespace FiscalBr.EFDFiscal
             {
             }
 
+            #region Propriedades
+
             /// <summary>
             ///     Indicador do tipo de operação:
             ///     <para />
@@ -102,7 +105,7 @@ namespace FiscalBr.EFDFiscal
             ///     1- Prestação
             /// </summary>
             [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 2)]
-            public int IndOper { get; set; }
+            public IndTipoOperacaoServico IndOper { get; set; }
 
             /// <summary>
             ///     Indicador do emitente do documento fiscal:
@@ -112,7 +115,7 @@ namespace FiscalBr.EFDFiscal
             ///     1 - Terceiros;
             /// </summary>
             [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 2)]
-            public int IndEmit { get; set; }
+            public IndEmitente IndEmit { get; set; }
 
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150):
@@ -129,13 +132,13 @@ namespace FiscalBr.EFDFiscal
             ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
             /// </summary>
             [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 2)]
-            public string CodMod { get; set; }
+            public IndCodMod CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
             [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 2)]
-            public int CodSit { get; set; }
+            public IndCodSitDoc CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
@@ -171,7 +174,7 @@ namespace FiscalBr.EFDFiscal
             ///     Data da aquisição ou da prestação do serviço
             /// </summary>
             [SpedCampos(12, "DT_AP", "N", 8, 0, false, 2)]
-            public DateTime? DtAP { get; set; }
+            public DateTime? DtAp { get; set; }
 
             /// <summary>
             ///     Tipo de Conhecimento de Transporte Eletrônico conforme definido no Manual de Integração do CT-e
@@ -212,7 +215,7 @@ namespace FiscalBr.EFDFiscal
             ///     9- Sem cobrança de frete.
             /// </remarks>
             [SpedCampos(17, "IND_FRT", "N", 1, 0, false, 2)]
-            public int? IndFrt { get; set; }
+            public IndTipoFrete IndFrt { get; set; }
 
             /// <summary>
             ///     Valor total do serviço
@@ -270,6 +273,8 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(25, "COD_MUN_DEST", "N", 7, 0, false, 2)]
             public string CodMunDest { get; set; }
 
+            #region Registros Filhos
+
             public RegistroD101 RegD101 { get; set; }
             public List<RegistroD110> RegD110s { get; set; }
             public List<RegistroD130> RegD130s { get; set; }
@@ -280,6 +285,154 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroD180> RegD180s { get; set; }
             public List<RegistroD190> RegD190s { get; set; }
             public List<RegistroD195> RegD195s { get; set; }
+
+            #endregion Registros Filhos
+
+            #endregion Propriedades
+
+            public RegistroD100 ComTipoOperacao(IndTipoOperacaoServico v)
+            {
+                IndOper = v;
+                return this;
+            }
+
+            public RegistroD100 ComTipoEmissao(IndEmitente v)
+            {
+                IndEmit = v;
+                return this;
+            }
+
+            public RegistroD100 ComCodigoParticipante(string v)
+            {
+                CodPart = v;
+                return this;
+            }
+
+            public RegistroD100 ComCodigoModelo(IndCodMod v)
+            {
+                CodMod = v;
+                return this;
+            }
+
+            public RegistroD100 ComCodigoSituacao(IndCodSitDoc v)
+            {
+                CodSit = v;
+                return this;
+            }
+
+            public RegistroD100 ComSerie(string v)
+            {
+                Ser = v;
+                return this;
+            }
+
+            public RegistroD100 ComSubSerie(string v)
+            {
+                Sub = v;
+                return this;
+            }
+
+            public RegistroD100 ComNumeroDocumento(string v)
+            {
+                NumDoc = v;
+                return this;
+            }
+
+            public RegistroD100 ComChaveDfe(string v)
+            {
+                ChvCte = v;
+                return this;
+            }
+
+            public RegistroD100 ComDataEmissao(DateTime v)
+            {
+                DtDoc = v;
+                return this;
+            }
+
+            public RegistroD100 ComDataAquisicaoPrestacao(DateTime v)
+            {
+                DtAp = v;
+                return this;
+            }
+
+            public RegistroD100 ComTipoCte(int v)
+            {
+                TpCte = v;
+                return this;
+            }
+
+            public RegistroD100 ComChaveDfeRef(string v)
+            {
+                ChvCteRef = v;
+                return this;
+            }
+
+            public RegistroD100 ComValorTotal(decimal v)
+            {
+                VlDoc = v;
+                return this;
+            }
+
+            public RegistroD100 ComValorDesconto(decimal v)
+            {
+                VlDesc = v;
+                return this;
+            }
+
+            public RegistroD100 ComTipoFrete(IndTipoFrete v)
+            {
+                IndFrt = v;
+                return this;
+            }
+
+            public RegistroD100 ComValorServico(decimal v)
+            {
+                VlServ = v;
+                return this;
+            }
+
+            public RegistroD100 ComValorBaseIcms(decimal v)
+            {
+                VlBcIcms = v;
+                return this;
+            }
+
+            public RegistroD100 ComValorIcms(decimal v)
+            {
+                VlIcms = v;
+                return this;
+            }
+
+            public RegistroD100 ComValorNaoTributado(decimal v)
+            {
+                VlNt = v;
+                return this;
+            }
+
+            public RegistroD100 ComCodigoInfComplementar(string v)
+            {
+                CodInf = v;
+                return this;
+            }
+
+            public RegistroD100 ComContaContabil(string v)
+            {
+                CodCta = v;
+                return this;
+            }
+
+            public RegistroD100 ComCodMunicipioOrigem(string v)
+            {
+                CodMunOrig = v;
+                return this;
+            }
+
+            public RegistroD100 ComCodMunicipioDestino(string v)
+            {
+                CodMunOrig = v;
+                return this;
+            }
         }
 
         /// <summary>

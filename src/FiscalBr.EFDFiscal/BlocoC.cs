@@ -466,9 +466,9 @@ namespace FiscalBr.EFDFiscal
 
             #endregion Métodos no Padrão Builder
 
-            #region Métodos Estáticos
+            #region Métodos Prontos
 
-            public static RegistroC100 PreencherDFeCancelado(
+            public RegistroC100 PreencherDFeCancelado(
                 IndTipoOperacaoProduto indOperacao,
                 IndEmitente indEmit,
                 IndCodMod codModelo,
@@ -477,7 +477,7 @@ namespace FiscalBr.EFDFiscal
                 string chaveDfe
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(indOperacao)
                     .ComTipoEmissao(indEmit)
                     .ComCodigoModelo(codModelo)
@@ -488,7 +488,7 @@ namespace FiscalBr.EFDFiscal
                     .ComTipoFrete(IndTipoFrete.None);
             }
 
-            public static RegistroC100 PreencherDFeCanceladoExtemporaneo(
+            public RegistroC100 PreencherDFeCanceladoExtemporaneo(
                 IndTipoOperacaoProduto indOperacao,
                 IndEmitente indEmit,
                 IndCodMod codModelo,
@@ -497,7 +497,7 @@ namespace FiscalBr.EFDFiscal
                 string chaveDfe
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(indOperacao)
                     .ComTipoEmissao(indEmit)
                     .ComCodigoModelo(codModelo)
@@ -508,7 +508,7 @@ namespace FiscalBr.EFDFiscal
                     .ComTipoFrete(IndTipoFrete.None);
             }
 
-            public static RegistroC100 PreencherDFeDenegado(
+            public RegistroC100 PreencherDFeDenegado(
                 IndTipoOperacaoProduto indOperacao,
                 IndEmitente indEmit,
                 IndCodMod codModelo,
@@ -517,7 +517,7 @@ namespace FiscalBr.EFDFiscal
                 string chaveDfe
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(indOperacao)
                     .ComTipoEmissao(indEmit)
                     .ComCodigoModelo(codModelo)
@@ -528,7 +528,7 @@ namespace FiscalBr.EFDFiscal
                     .ComTipoFrete(IndTipoFrete.None);
             }
 
-            public static RegistroC100 PreencherDFeInutilizado(
+            public RegistroC100 PreencherDFeInutilizado(
                 IndTipoOperacaoProduto indOperacao,
                 IndEmitente indEmit,
                 IndCodMod codModelo,
@@ -536,7 +536,7 @@ namespace FiscalBr.EFDFiscal
                 string numSerie
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(indOperacao)
                     .ComTipoEmissao(indEmit)
                     .ComCodigoModelo(codModelo)
@@ -546,7 +546,7 @@ namespace FiscalBr.EFDFiscal
                     .ComTipoFrete(IndTipoFrete.None);
             }
 
-            public static RegistroC100 PreencherDFeDeCompraAVistaComFretePorContaDoEmitente(
+            public RegistroC100 PreencherDFeDeCompraAVistaComFretePorContaDoEmitente(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -572,7 +572,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
                     .ComTipoEmissao(IndEmitente.Terceiros)
                     .ComCodigoParticipante(codPart)
@@ -603,7 +603,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeVendaAVistaComFretePorContaDoEmitente(
+            public RegistroC100 PreencherDFeDeVendaAVistaComFretePorContaDoEmitente(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -629,7 +629,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
                     .ComTipoEmissao(IndEmitente.EmissaoPropria)
                     .ComCodigoParticipante(codPart)
@@ -660,7 +660,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeCompraAVistaComFretePorContaDoDestinatario(
+            public RegistroC100 PreencherDFeDeCompraAVistaComFretePorContaDoDestinatario(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -686,7 +686,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
                     .ComTipoEmissao(IndEmitente.Terceiros)
                     .ComCodigoParticipante(codPart)
@@ -717,7 +717,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeVendaAVistaComFretePorContaDoDestinatario(
+            public RegistroC100 PreencherDFeDeVendaAVistaComFretePorContaDoDestinatario(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -743,7 +743,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
                     .ComTipoEmissao(IndEmitente.EmissaoPropria)
                     .ComCodigoParticipante(codPart)
@@ -774,7 +774,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeCompraAVistaSemFrete(
+            public RegistroC100 PreencherDFeDeCompraAVistaSemFrete(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -800,7 +800,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
                     .ComTipoEmissao(IndEmitente.Terceiros)
                     .ComCodigoParticipante(codPart)
@@ -830,7 +830,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeVendaAVistaSemFrete(
+            public RegistroC100 PreencherDFeDeVendaAVistaSemFrete(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -856,7 +856,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
                     .ComTipoEmissao(IndEmitente.EmissaoPropria)
                     .ComCodigoParticipante(codPart)
@@ -886,7 +886,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeCompraAPrazoComFretePorContaDoEmitente(
+            public RegistroC100 PreencherDFeDeCompraAPrazoComFretePorContaDoEmitente(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -912,7 +912,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
                     .ComTipoEmissao(IndEmitente.Terceiros)
                     .ComCodigoParticipante(codPart)
@@ -943,7 +943,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeVendaAPrazoComFretePorContaDoEmitente(
+            public RegistroC100 PreencherDFeDeVendaAPrazoComFretePorContaDoEmitente(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -969,7 +969,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
                     .ComTipoEmissao(IndEmitente.EmissaoPropria)
                     .ComCodigoParticipante(codPart)
@@ -1000,7 +1000,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeCompraAPrazoComFretePorContaDoDestinatario(
+            public RegistroC100 PreencherDFeDeCompraAPrazoComFretePorContaDoDestinatario(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -1026,7 +1026,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
                     .ComTipoEmissao(IndEmitente.Terceiros)
                     .ComCodigoParticipante(codPart)
@@ -1057,7 +1057,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeVendaAPrazoComFretePorContaDoDestinatario(
+            public RegistroC100 PreencherDFeDeVendaAPrazoComFretePorContaDoDestinatario(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -1083,7 +1083,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
                     .ComTipoEmissao(IndEmitente.EmissaoPropria)
                     .ComCodigoParticipante(codPart)
@@ -1114,7 +1114,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeCompraAPrazoSemFrete(
+            public RegistroC100 PreencherDFeDeCompraAPrazoSemFrete(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -1140,7 +1140,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Entrada)
                     .ComTipoEmissao(IndEmitente.Terceiros)
                     .ComCodigoParticipante(codPart)
@@ -1170,7 +1170,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            public static RegistroC100 PreencherDFeDeVendaAPrazoSemFrete(
+            public RegistroC100 PreencherDFeDeVendaAPrazoSemFrete(
                 IndCodMod codModelo,
                 string numDoc,
                 string numSerie,
@@ -1196,7 +1196,7 @@ namespace FiscalBr.EFDFiscal
                 decimal vlCofinsSt = 0M
                 )
             {
-                return new RegistroC100()
+                return this
                     .ComTipoOperacao(IndTipoOperacaoProduto.Saida)
                     .ComTipoEmissao(IndEmitente.EmissaoPropria)
                     .ComCodigoParticipante(codPart)
@@ -1226,7 +1226,7 @@ namespace FiscalBr.EFDFiscal
                     .ComValorCofinsSt(vlCofinsSt);
             }
 
-            #endregion Métodos Estáticos
+            #endregion Métodos Prontos
         }
 
         /// <summary>
