@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Enums;
 using FiscalBr.Common.Sped.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -901,7 +902,7 @@ namespace FiscalBr.EFDFiscal
                 string codItem,
                 string descItem,
                 string unidItem,
-                string tipoItem
+                IndTipoItem tipoItem
                 ) : base("0200")
             {
                 CodItem = codItem;
@@ -953,7 +954,7 @@ namespace FiscalBr.EFDFiscal
             ///     Material de Uso e Consumo; 08 - Ativo Imobilizado; 09 - Serviços; 10 - Outros insumos; 99 - Outras.
             /// </summary>
             [SpedCampos(7, "TIPO_ITEM", "N", 2, 0, true, 2)]
-            public string TipoItem { get; set; }
+            public IndTipoItem TipoItem { get; set; }
 
             /// <summary>
             ///     Código da Nomenclatura Comum do Mercosul
@@ -998,6 +999,72 @@ namespace FiscalBr.EFDFiscal
             public List<Registro0210> Reg0210s { get; set; }
             public List<Registro0220> Reg0220s { get; set; }
             public List<Registro0221> Reg0221s { get; set; }
+
+            public Registro0200 ComCodigoItem(string v)
+            {
+                CodItem = v;
+                return this;
+            }
+
+            public Registro0200 ComDescricaoItem(string v)
+            {
+                DescrItem = v;
+                return this;
+            }
+
+            public Registro0200 ComCodBarras(string v)
+            {
+                CodBarra = v;
+                return this;
+            }
+
+            public Registro0200 ComUnidade(string v)
+            {
+                UnidInv = v;
+                return this;
+            }
+
+            public Registro0200 ComTipoItem(IndTipoItem v)
+            {
+                TipoItem = v;
+                return this;
+            }
+
+            public Registro0200 ComCodigoNcm(string v)
+            {
+                CodNcm = v;
+                return this;
+            }
+
+            public Registro0200 ComCodigoExIpi(string v)
+            {
+                ExIpi = v;
+                return this;
+            }
+
+            public Registro0200 ComCodigoGenero(string v)
+            {
+                CodGen = v;
+                return this;
+            }
+
+            public Registro0200 ComCodigoServico(string v)
+            {
+                CodLst = v;
+                return this;
+            }
+
+            public Registro0200 ComAliqIcms(decimal v)
+            {
+                AliqIcms = v;
+                return this;
+            }
+
+            public Registro0200 ComCodigoCest(string v)
+            {
+                Cest = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1035,6 +1102,30 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(5, "COD_ANT_ITEM", "C", 60, 0, false, 3)]
             public string CodAntItem { get; set; }
+
+            public Registro0205 ComDescricaoAnterior(string v)
+            {
+                DescrAntItem = v;
+                return this;
+            }
+
+            public Registro0205 ComDataInicial(DateTime v)
+            {
+                DtIni = v;
+                return this;
+            }
+
+            public Registro0205 ComDataFinal(DateTime v)
+            {
+                DtFin = v;
+                return this;
+            }
+
+            public Registro0205 ComCodigoAnterior(string v)
+            {
+                CodAntItem = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1054,6 +1145,12 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(2, "COD_COMB", "C", int.MaxValue, 0, true, 2)]
             public string CodComb { get; set; }
+
+            public Registro0206 ComCodigo(string v)
+            {
+                CodComb = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1085,6 +1182,24 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(4, "PERDA", "N", int.MaxValue, 4, true, 10)]
             public decimal Perda { get; set; }
+
+            public Registro0210 ComCodigoItem(string v)
+            {
+                CodItemComp = v;
+                return this;
+            }
+
+            public Registro0210 ComQuantidade(decimal v)
+            {
+                QtdComp = v;
+                return this;
+            }
+
+            public Registro0210 ComPerda(decimal v)
+            {
+                Perda = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1117,6 +1232,24 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(4, "COD_BARRA", "C", int.MaxValue, 0, false, 16)]
             public string CodBarra { get; set; }
+
+            public Registro0220 ComUnidade(string v)
+            {
+                UnidConv = v;
+                return this;
+            }
+
+            public Registro0220 ComFatorConversao(decimal v)
+            {
+                FatConv = v;
+                return this;
+            }
+
+            public Registro0220 ComCodBarras(string v)
+            {
+                CodBarra = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1143,6 +1276,18 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(3, "QTD_CONTIDA", "N", int.MaxValue, 6, true, 17)]
             public decimal QtdContida { get; set; }
+
+            public Registro0221 ComCodItem(string v)
+            {
+                CodItemAtomico = v;
+                return this;
+            }
+
+            public Registro0221 ComQuantidade(decimal v)
+            {
+                QtdContida = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1168,7 +1313,7 @@ namespace FiscalBr.EFDFiscal
             ///     Identificação do tipo de mercadoria: 1 = bem; 2 = componente.
             /// </summary>
             [SpedCampos(3, "IDENT_MERC", "C", 1, 0, true, 4)]
-            public int IdentMerc { get; set; }
+            public IndTipoMercadoria IdentMerc { get; set; }
 
             /// <summary>
             ///     Descrição do bem ou componente (modelo, marca e outras
@@ -1201,6 +1346,41 @@ namespace FiscalBr.EFDFiscal
 
             public Registro0305 Reg0305 { get; set; }
 
+            public Registro0300 ComCodigoBem(string v)
+            {
+                CodIndBem = v;
+                return this;
+            }
+
+            public Registro0300 ComTipoMercadoria(IndTipoMercadoria v)
+            {
+                IdentMerc = v;
+                return this;
+            }
+
+            public Registro0300 ComDescricao(string v)
+            {
+                DescrItem = v;
+                return this;
+            }
+
+            public Registro0300 ComCodigoBemPrincipal(string v)
+            {
+                CodPrnc = v;
+                return this;
+            }
+
+            public Registro0300 ComContaContabil(string v)
+            {
+                CodCta = v;
+                return this;
+            }
+
+            public Registro0300 ComNumeroParcelas(int v)
+            {
+                NrParc = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1233,6 +1413,24 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(4, "VIDA_UTIL", "N", 3, 0, false, 4)]
             public int VidaUtil { get; set; }
+
+            public Registro0305 ComCodigoCentroCusto(string v)
+            {
+                CodCcus = v;
+                return this;
+            }
+
+            public Registro0305 ComDescricaoFuncaoBem(string v)
+            {
+                Func = v;
+                return this;
+            }
+
+            public Registro0305 ComVidaUtilEmMeses(int v)
+            {
+                VidaUtil = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1258,6 +1456,18 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(3, "DESCR_NAT", "C", int.MaxValue, 0, true, 2)]
             public string DescrNat { get; set; }
+
+            public Registro0400 ComCodigoNatureza(string v)
+            {
+                CodNat = v;
+                return this;
+            }
+
+            public Registro0400 ComDescricaoNatureza(string v)
+            {
+                DescrNat = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1287,6 +1497,18 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(3, "TXT", "C", int.MaxValue, 0, true, 2)]
             public string Txt { get; set; }
+
+            public Registro0450 ComCodInformacaoComplementar(string v)
+            {
+                CodInf = v;
+                return this;
+            }
+
+            public Registro0450 ComTxtInformacaoComplementar(string v)
+            {
+                Txt = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1312,6 +1534,18 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(3, "TXT", "C", int.MaxValue, 0, true, 2)]
             public string Txt { get; set; }
+
+            public Registro0460 ComCodigoObservacao(string v)
+            {
+                CodObs = v;
+                return this;
+            }
+
+            public Registro0460 ComDescricaoObservacao(string v)
+            {
+                Txt = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1342,13 +1576,13 @@ namespace FiscalBr.EFDFiscal
             ///     09 - Outras.
             /// </summary>
             [SpedCampos(3, "COD_NAT_CC", "C", 2, 0, true, 4)]
-            public string CodNatCc { get; set; }
+            public IndTipoNaturezaContaContabil CodNatCc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de conta: S - Sintética (grupo de contas); A - Analítica (conta).
             /// </summary>
             [SpedCampos(4, "IND_CTA", "C", 1, 0, true, 4)]
-            public string IndCta { get; set; }
+            public IndTipoContaContabil IndCta { get; set; }
 
             /// <summary>
             ///     Nível da conta analítica/grupo de contas.
@@ -1367,6 +1601,42 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(7, "NOME_CTA", "C", 60, 0, true, 4)]
             public string NomeCta { get; set; }
+
+            public Registro0500 ComData(DateTime v)
+            {
+                DtAlt = v;
+                return this;
+            }
+
+            public Registro0500 ComNaturezaContaContabil(IndTipoNaturezaContaContabil v)
+            {
+                CodNatCc = v;
+                return this;
+            }
+
+            public Registro0500 ComTipoContaContabil(IndTipoContaContabil v)
+            {
+                IndCta = v;
+                return this;
+            }
+
+            public Registro0500 ComNivel(int v)
+            {
+                Nivel = v;
+                return this;
+            }
+
+            public Registro0500 ComCodigoContaContabil(string v)
+            {
+                CodCta = v;
+                return this;
+            }
+
+            public Registro0500 ComNomeContaContabil(string v)
+            {
+                NomeCta = v;
+                return this;
+            }
         }
 
         /// <summary>
@@ -1398,6 +1668,24 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(4, "CCUS", "C", 60, 0, true, 4)]
             public string Ccus { get; set; }
+
+            public Registro0600 ComData(DateTime v)
+            {
+                DtAlt = v;
+                return this;
+            }
+
+            public Registro0600 ComCodigoCentroCusto(string v)
+            {
+                CodCcus = v;
+                return this;
+            }
+
+            public Registro0600 ComDescricaoCentroCusto(string v)
+            {
+                Ccus = v;
+                return this;
+            }
         }
 
         /// <summary>

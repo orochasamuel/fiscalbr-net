@@ -16,11 +16,6 @@ namespace FiscalBr.Common
         {
             public static class Sped
             {
-                public const string ECD = "ECD";
-                public const string ECF = "ECF";
-                public const string EFDContribuicoes = "EFDContribuicoes";
-                public const string EFDFiscal = "EFDFiscal";
-
                 public static class TipoInformacao
                 {
                     public const string CodeOrNumber = "CODNUM";
