@@ -14,7 +14,7 @@ namespace FiscalBr.Test.Sped.Bloco1
         {
             string linha = "|1320|1|1234567890|Motivo 1|Interventor 1|51077662000109|00695196090|100,13|55,20|10|40|";
              
-            var registro = (FiscalBr.EFDFiscal.Bloco1.Registro1320)LerCamposSped.LerCampos(linha, Constantes.ArquivoDigital.Sped.EFDFiscal, 0); 
+            var registro = (FiscalBr.EFDFiscal.Bloco1.Registro1320)LerCamposSped.LerCampos(linha, "EFDFiscal", 0); 
 
             Assert.Equal("1320", registro.Reg);
             Assert.Equal(1, registro.NumBico);

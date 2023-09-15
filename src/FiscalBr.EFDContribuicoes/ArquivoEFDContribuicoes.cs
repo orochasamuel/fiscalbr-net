@@ -32,7 +32,7 @@ namespace FiscalBr.EFDContribuicoes
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroSped)LerCamposSped.LerCampos(linha, Constantes.ArquivoDigital.Sped.EFDContribuicoes, codVersaoLayout);
+                    var registro = (RegistroSped)LerCamposSped.LerCampos(linha, "EFDContribuicoes", codVersaoLayout);
 
                     if (registro.Reg == "9999")
                         leituraConcluida = true;
