@@ -303,6 +303,22 @@ namespace FiscalBr.EFDFiscal
             }
         }
 
+        private int DetectarVersaoLeiauteParaLeitura(Type tipo, int versaoDesejada, int qtdCampos)
+        {
+            // TODO: Refatorar e melhorar
+            var versaoAtual = versaoDesejada;
+            var props = ObterListaComPropriedadesDoTipo(tipo, versaoAtual);
+            while (props.Count > qtdCampos)
+            {
+                if (versaoAtual == 2) break;
+
+                versaoAtual--;
+
+                props = ObterListaComPropriedadesDoTipo(tipo, versaoAtual);
+            }
+            return versaoAtual;
+        }
+
         public override IRegistroSped LerLinha(string linha, LeiauteArquivoSped tipo, VersaoLeiauteSped? versao)
         {
             // TODO: REFATORAR
@@ -323,7 +339,12 @@ namespace FiscalBr.EFDFiscal
 
             var instantiatedObject = Activator.CreateInstance(objectType);
 
-            var versaoDesejada = versao == null ? (int)VersaoLeiaute : (int)versao;
+            //var versaoDesejada = versao == null ? (int)VersaoLeiaute : (int)versao;
+
+            var versaoDesejada = DetectarVersaoLeiauteParaLeitura(
+                objectType,
+                versao == null ? (int)VersaoLeiaute : (int)versao,
+                splittedLine.Length);
 
             var properties = ObterListaComPropriedadesDoTipo(objectType, versaoDesejada);
 
