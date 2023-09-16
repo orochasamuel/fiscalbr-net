@@ -391,9 +391,14 @@ namespace FiscalBr.Common.Sped
                     competencia.Value
                     );
 
+            var versoesLeiaute = ObterVersoesLeiaute(ArquivoSped);
+
             int versaoDesejada =
-                ObterVersoesLeiaute(ArquivoSped).FirstOrDefault(fd =>
+                versoesLeiaute.FirstOrDefault(fd =>
                     Convert.ToInt32(fd.ToString()).Equals((int)VersaoLeiaute));
+
+            if (versaoDesejada == 0)
+                versaoDesejada = versoesLeiaute.LastOrDefault();
 
             var sb = new StringBuilder();
             if (deveGerarCamposDoRegistro)

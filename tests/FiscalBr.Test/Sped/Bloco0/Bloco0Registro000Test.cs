@@ -63,7 +63,7 @@
 
             var efd = new ArquivoEFDFiscalV2(VersaoLeiauteSped.V15);
 
-            var currentResult = efd.EscreverLinha(source, null, null);
+            var currentResult = efd.EscreverLinha(source);
 
             Assert.Equal(expectedResult, currentResult);
         }
