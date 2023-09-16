@@ -5,7 +5,9 @@ using FiscalBr.Common.Sped.Interfaces;
 using FiscalBr.Common.ValueObjects;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 
 namespace FiscalBr.EFDFiscal
@@ -55,19 +57,19 @@ namespace FiscalBr.EFDFiscal
             this.Bloco0.Reg0000.CodFin = finalidadeArquivo;
             this.Bloco0.Reg0000.DtIni = dataInicial;
             this.Bloco0.Reg0000.DtFin = dataFinal;
-            this.Bloco0.Reg0000.Nome = dadosEmpresa.RazaoSocial;
+            this.Bloco0.Reg0000.Nome = dadosEmpresa?.RazaoSocial;
 
-            if (dadosEmpresa.CpfCnpj.EhCpf)
-                this.Bloco0.Reg0000.Cpf = dadosEmpresa.CpfCnpj.Numero;
-            else
-                this.Bloco0.Reg0000.Cnpj = dadosEmpresa.CpfCnpj.Numero;
+            //if (dadosEmpresa.CpfCnpj.EhCpf)
+            //    this.Bloco0.Reg0000.Cpf = dadosEmpresa?.CpfCnpj.Numero;
+            //else
+            //    this.Bloco0.Reg0000.Cnpj = dadosEmpresa?.CpfCnpj.Numero;
             
-            this.Bloco0.Reg0000.Ie = dadosEmpresa.InscEstadual;
-            this.Bloco0.Reg0000.Im = dadosEmpresa.InscMunicipal;
-            this.Bloco0.Reg0000.Suframa = dadosEmpresa.InscSuframa;
+            this.Bloco0.Reg0000.Ie = dadosEmpresa?.InscEstadual;
+            this.Bloco0.Reg0000.Im = dadosEmpresa?.InscMunicipal;
+            this.Bloco0.Reg0000.Suframa = dadosEmpresa?.InscSuframa;
 
-            this.Bloco0.Reg0000.Uf = dadosEmpresa.SiglaUf;
-            this.Bloco0.Reg0000.CodMun = dadosEmpresa.CodMunicipio;
+            this.Bloco0.Reg0000.Uf = dadosEmpresa?.SiglaUf;
+            this.Bloco0.Reg0000.CodMun = dadosEmpresa?.CodMunicipio;
 
             this.Bloco0.Reg0000.IndPerfil = perfilArquivo;
             this.Bloco0.Reg0000.IndAtiv = tipoAtividade;
@@ -299,6 +301,199 @@ namespace FiscalBr.EFDFiscal
                 }
                 else { break; }
             }
+        }
+
+        public override IRegistroSped LerLinha(string linha, LeiauteArquivoSped tipo, VersaoLeiauteSped? versao)
+        {
+            // TODO: REFATORAR
+            linha = linha.TrimStart().Substring(1);
+
+            linha = linha.Remove(linha.LastIndexOf('|'));
+
+            var splittedLine = linha.Split('|');
+
+            // Retorna o registro sem os 'pipes'. Ex: |0000| -> 0000
+            var registro = linha.Substring(0, linha.IndexOf('|', 1));
+
+            var bloco = registro.Substring(0, 1);
+
+            var toInstantiate = $"FiscalBr.{tipo.ToDefaultValue()}.Bloco{bloco}+Registro{registro}, FiscalBr.{tipo.ToDefaultValue()}";
+
+            var objectType = Type.GetType(toInstantiate);
+
+            var instantiatedObject = Activator.CreateInstance(objectType);
+
+            var versaoDesejada = versao == null ? (int)VersaoLeiaute : (int)versao;
+
+            var properties = ObterListaComPropriedadesDoTipo(objectType, versaoDesejada);
+
+            for (int i = 0; i < properties.Count; i++)
+            {
+                var prop = properties[i];
+
+                bool conversionResult = true;
+
+                object value = splittedLine[i];
+
+                if (prop.CanWrite)
+                {
+                    var propType = prop.PropertyType;
+
+                    //Trata campos nullable com valor vazio
+                    if (propType.IsNullable() && (value == null || string.IsNullOrEmpty(value.ToString())))
+                        prop.SetValue(instantiatedObject, null);
+
+                    else if (propType == typeof(Int32) || propType == typeof(Nullable<Int32>))
+                    {
+                        int convertedInt32Value;
+                        conversionResult = Int32.TryParse(value.ToStringSafe(), out convertedInt32Value);
+                        prop.SetValue(instantiatedObject, convertedInt32Value);
+                    }
+
+                    else if (propType == typeof(Int64) || propType == typeof(Nullable<Int64>))
+                    {
+                        int convertedInt32Value;
+                        conversionResult = Int32.TryParse(value.ToStringSafe(), out convertedInt32Value);
+
+                        if (propType == typeof(Nullable<Int64>))
+                            prop.SetValue(instantiatedObject, (Nullable<Int64>)convertedInt32Value);
+                        else
+                            prop.SetValue(instantiatedObject, convertedInt32Value);
+                    }
+
+                    else if (propType == typeof(DateTime) || propType == typeof(Nullable<DateTime>))
+                    {
+                        var dateToConvert = value.ToStringSafe();
+
+                        if (dateToConvert.Length == 6) //MA -< MM/yyyy, Ex: E250 - MES_REF
+                            dateToConvert = $"01{dateToConvert}";
+
+                        dateToConvert = dateToConvert.Insert(2, "/").Insert(5, "/");
+                        DateTime convertedDateTimeValue;
+                        conversionResult = DateTime.TryParse(dateToConvert, out convertedDateTimeValue);
+                        prop.SetValue(instantiatedObject, convertedDateTimeValue);
+                    }
+
+                    else if (propType.IsEnum)
+                    {
+                        foreach (var currentEnumItem in propType.GetEnumValues())
+                        {
+                            MemberInfo memberInfo = propType.GetMember(currentEnumItem.ToString()).FirstOrDefault();
+
+                            if (memberInfo != null)
+                            {
+                                DefaultValueAttribute attribute = (DefaultValueAttribute)
+                                             memberInfo.GetCustomAttributes(typeof(DefaultValueAttribute), false)
+                                                       .FirstOrDefault();
+
+                                if (attribute != null)
+                                {
+                                    if (attribute.Value.ToString() == value.ToString())
+                                    {
+                                        bool isSet = false;
+                                        var convertedEnum = Enum.Parse(propType, currentEnumItem.ToString());
+
+                                        // TODO: Refatorar e simplificar verificação
+                                        if (propType.Name == nameof(IndTipoFrete))
+                                        {
+                                            // Se houver data informada no Registro0000 deve usar esta data como referencia
+                                            DateTime? dtInicial = this.Bloco0?.Reg0000?.DtIni;
+                                            if (dtInicial.HasValue)
+                                            {
+                                                if (dtInicial.Value < new DateTime(2012, 1, 1))
+                                                {
+                                                    switch (attribute.Value.ToString())
+                                                    {
+                                                        case "0":
+                                                            isSet = true;
+                                                            prop.SetValue(instantiatedObject, IndTipoFrete.ContaTerceirosPre2012);
+                                                            break;
+                                                        case "1":
+                                                            isSet = true;
+                                                            prop.SetValue(instantiatedObject, IndTipoFrete.ContaEmitentePre2012);
+                                                            break;
+                                                        case "2":
+                                                            isSet = true;
+                                                            prop.SetValue(instantiatedObject, IndTipoFrete.ContaDestinatarioPre2012);
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                }
+                                                else if (dtInicial.Value >= new DateTime(2012, 1, 1) 
+                                                    && dtInicial.Value < new DateTime(2018, 1, 1))
+                                                {
+                                                    switch (attribute.Value.ToString())
+                                                    {
+                                                        case "0":
+                                                            isSet = true;
+                                                            prop.SetValue(instantiatedObject, IndTipoFrete.ContaEmitentePre2018);
+                                                            break;
+                                                        case "1":
+                                                            isSet = true;
+                                                            prop.SetValue(instantiatedObject, IndTipoFrete.ContaDestinatarioRemetentePre2018);
+                                                            break;
+                                                        case "2":
+                                                            isSet = true;
+                                                            prop.SetValue(instantiatedObject, IndTipoFrete.ContaTerceirosPre2018);
+                                                            break;
+                                                        default:
+                                                            break;
+                                                    }
+                                                }
+                                            }
+                                        }
+
+                                        if (isSet == false)
+                                        {
+                                            prop.SetValue(instantiatedObject, convertedEnum);
+                                            break;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    else if (propType == typeof(Decimal) || propType == typeof(Nullable<Decimal>))
+                    {
+                        Decimal convertedDecimalValue;
+                        System.Globalization.NumberStyles style = System.Globalization.NumberStyles.Number;
+                        conversionResult = Decimal.TryParse(value.ToStringSafe(), style, System.Globalization.CultureInfo.GetCultureInfo("pt-BR"), out convertedDecimalValue);
+
+                        if (propType == typeof(Nullable<Decimal>))
+                            prop.SetValue(instantiatedObject, (Nullable<Decimal>)convertedDecimalValue);
+                        else
+                            prop.SetValue(instantiatedObject, convertedDecimalValue);
+                    }
+                    else if (propType == typeof(Double) || propType == typeof(Nullable<Double>))
+                    {
+                        Double convertedDoubleValue;
+                        System.Globalization.NumberStyles style = System.Globalization.NumberStyles.Number;
+                        conversionResult = Double.TryParse(value.ToStringSafe(), style, System.Globalization.CultureInfo.GetCultureInfo("pt-BR"), out convertedDoubleValue);
+
+                        if (propType == typeof(Nullable<Double>))
+                            prop.SetValue(instantiatedObject, (Nullable<Double>)convertedDoubleValue);
+                        else
+                            prop.SetValue(instantiatedObject, convertedDoubleValue);
+                    }
+                    else if (propType == typeof(Int32) || propType == typeof(Nullable<Int32>))
+                    {
+                        int convertedInt32Value;
+                        conversionResult = Int32.TryParse(value.ToStringSafe(), out convertedInt32Value);
+                        prop.SetValue(instantiatedObject, convertedInt32Value);
+                    }
+                    else
+                    {
+                        if (string.IsNullOrEmpty(value.ToStringSafe()))
+                            prop.SetValue(instantiatedObject, null, null);
+                        else
+                            prop.SetValue(instantiatedObject, value, null);
+                    }
+                }
+            }
+
+            return (IRegistroSped)instantiatedObject;
         }
 
         private void LerBloco0(IRegistroSped registro)

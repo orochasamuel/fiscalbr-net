@@ -1,5 +1,14 @@
 ﻿using FiscalBr.Common;
 using FiscalBr.Common.Sped;
+using FiscalBr.Common.Sped.Enums;
+using FiscalBr.Common.Sped.Interfaces;
+using FiscalBr.Common.ValueObjects;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Reflection;
+using System.Text;
 
 namespace FiscalBr.EFDContribuicoes
 {
@@ -20,6 +29,11 @@ namespace FiscalBr.EFDContribuicoes
             VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V6
             ) : base(LeiauteArquivoSped.EFDContrib, versaoLeiaute)
         {
+        }
+
+        public override IRegistroSped LerLinha(string linha, LeiauteArquivoSped tipo, VersaoLeiauteSped? versao)
+        {
+            throw new NotImplementedException();
         }
     }
 }
