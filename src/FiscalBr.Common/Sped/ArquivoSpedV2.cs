@@ -365,12 +365,12 @@ namespace FiscalBr.Common.Sped
             File.WriteAllLines(caminho, Linhas.ToArray(), encoding ?? Encoding.Default);
         }
 
-        private void EscreverEAdicionarNasLinhas(IRegistroSped reg, DateTime? competencia = null, bool? removerQuebraLinha = false)
+        private void EscreverEAdicionarNasLinhas(IRegistroSped reg, DateTime? competencia = null, bool? removerQuebraLinha = null)
         {
             Linhas.Add(EscreverLinha(reg, competencia, removerQuebraLinha));
         }
 
-        public virtual string EscreverLinha(IRegistroSped reg, DateTime? competencia = null, bool? removerQuebraLinha = false)
+        public virtual string EscreverLinha(IRegistroSped reg, DateTime? competencia = null, bool? removerQuebraLinha = null)
         {
             var type = reg.GetType();
 
@@ -462,7 +462,7 @@ namespace FiscalBr.Common.Sped
             return removerQuebraLinha.HasValue ? sb.ToString().Trim() : sb.ToString();
         }
 
-        public virtual string[] EscreverLinhas(List<IRegistroSped> regs, DateTime? competencia = null, bool? removerQuebraLinha = false)
+        public virtual string[] EscreverLinhas(List<IRegistroSped> regs, DateTime? competencia = null, bool? removerQuebraLinha = null)
         {
             List<string> list = new List<string>();
 
