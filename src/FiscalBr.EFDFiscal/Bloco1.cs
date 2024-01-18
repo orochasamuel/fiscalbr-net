@@ -988,6 +988,7 @@ namespace FiscalBr.EFDFiscal
             ///     01 – Bagaço de cana
             ///     02 - DDG
             ///     03 - WDG
+            ///     04 - (DDG + WDG)
             /// </remarks>
             [SpedCampos(19, "TP_RESIDUO", "N", 2, 0, false, 6)]
             public int? TpResiduo { get; set; }
@@ -995,8 +996,26 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Quantidade de resíduo produzido (toneladas)
             /// </summary>
-            [SpedCampos(19, "QTD_RESIDUO", "N", int.MaxValue, 2, true, 6)]
+            [SpedCampos(20, "QTD_RESIDUO", "N", int.MaxValue, 2, true, 6)]
             public decimal QtdResiduo { get; set; }
+
+            /// <summary>
+            ///     Quantidade de resíduo produzido de DDG (toneladas)
+            /// </summary>
+            [SpedCampos(21, "QTD_RESIDUO_DDG", "N", int.MaxValue, 2, true, 18)]
+            public decimal QtdResiduoDdg { get; set; }
+
+            /// <summary>
+            ///     Quantidade de resíduo produzido de WDG (toneladas)
+            /// </summary>
+            [SpedCampos(22, "QTD_RESIDUO_WDG", "N", int.MaxValue, 2, true, 18)]
+            public decimal QtdResiduoWdg { get; set; }
+
+            /// <summary>
+            ///     Quantidade de resíduo produzido de bagaço de cana (toneladas)
+            /// </summary>
+            [SpedCampos(23, "QTD_RESIDUO_CANA", "N", int.MaxValue, 2, true, 18)]
+            public decimal QtdResiduoCana { get; set; }
         }
 
         /// <summary>
@@ -1012,7 +1031,9 @@ namespace FiscalBr.EFDFiscal
             }
 
             /// <summary>
-            ///     Código do item - próprio IPM ou campo 02 do Registro 0200
+            ///     Código do item (Tabela 5.9.1 de Itens UF Índice de 
+            ///     Participação dos Municípios ou Tabela 5.9.2 de Itens UF_ST
+            ///     Índice de participação dos Municípios) ou campo 02 do Registro 0200
             /// </summary>
             [SpedCampos(2, "COD_ITEM_IPM", "C", 60, 0, true, 2)]
             public string CodItemIpm { get; set; }

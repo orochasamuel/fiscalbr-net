@@ -414,11 +414,11 @@ namespace FiscalBr.EFDFiscal
             }
 
             /// <summary>
-            ///     Código do participante
+            ///     Código do participante (campo 02 do Registro 0150)
             /// </summary>
             /// <remarks>
             ///     - do emitente do documento ou do remetente das mercadorias, no caso das entradas;
-            ///     - do adquirente, no caso de saídas
+            ///     - do adquirente, no caso de saídas.
             /// </remarks>
             [SpedCampos(2, "COD_PART", "C", 60, 0, true, 2)]
             public string CodPart { get; set; }
@@ -454,7 +454,7 @@ namespace FiscalBr.EFDFiscal
             public DateTime DtDoc { get; set; }
 
             /// <summary>
-            ///     Código do item
+            ///     Código do item (campo 02 do Registro 0200)
             /// </summary>
             [SpedCampos(8, "COD_ITEM", "C", 60, 0, false, 2)]
             public string CodItem { get; set; }
@@ -856,6 +856,12 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(9, "VL_AJ_ITEM", "N", 0, 2, true, 2)]
             public decimal VlAjItem { get; set; }
+
+            /// <summary>
+            ///     Chave do Documento Eletrônico
+            /// </summary>
+            [SpedCampos(9, "CHV_DOCe", "N", 44, 0, false, 18)]
+            public decimal ChvDoc { get; set; }
         }
 
         /// <summary>
