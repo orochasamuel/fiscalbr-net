@@ -203,7 +203,8 @@ namespace FiscalBr.Common
         [DefaultValue("14")] V14,
         [DefaultValue("15")] V15,
         [DefaultValue("16")] V16,
-        [DefaultValue("17")] V17
+        [DefaultValue("17")] V17,
+        [DefaultValue("18")] V18
     }
 
     public enum CodVersaoSpedECD
@@ -460,6 +461,13 @@ namespace FiscalBr.Common
         /// Validade: 01/01/2023 - 31/12/2023
         /// </summary>
         [DefaultValue("017")] V17,
+
+        /// <summary>
+        /// Código: 018
+        /// Versão: 1.16
+        /// Validade: 01/01/2024 - 31/12/2024
+        /// </summary>
+        [DefaultValue("018")] V18
     }
 
     public enum SimOuNao
@@ -896,7 +904,12 @@ namespace FiscalBr.Common
         /// <summary>
         ///     1 - Leasing de veículos ou faturamento direto.
         /// </summary>
-        [DefaultValue("1")] LeasingVeiculosFaturamentoDireto
+        [DefaultValue("1")] LeasingVeiculosFaturamentoDireto,
+
+        /// <summary>
+        ///     2 - Recusa de recebimento (de acordo com as condições descritas nas instruções do Registro)
+        /// </summary>
+        [DefaultValue("2")] RecusaDeRecebimento
     }
 
     /// <summary>

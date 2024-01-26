@@ -1278,8 +1278,8 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             /// <remarks>
             ///     0 - Combustíveis e lubrificantes;
-            ///     <para />
-            ///     1 - Leasing de veículos ou faturamento direto.
+            ///     1 - Leasing de veículos ou faturamento direto;
+            ///     2 - Recusa de recebimento (de acordo com as condições descritas nas instruções do Registro).
             /// </remarks>
             [SpedCampos(2, "OPER", "N", 1, 0, true, 3)]
             public IndTipoOperacaoStUfDiversa Oper { get; set; }
@@ -5512,7 +5512,9 @@ namespace FiscalBr.EFDFiscal
 
         /// <summary>
         ///     REGISTRO C700: CONSOLIDAÇÃO DOS DOCUMENTOS (EMPRESAS OBRIGADAS
-        ///     À ENTREGA DO ARQUIVO PREVISTO NO CONVÊNIO ICMS 115/03)
+        ///     À ENTREGA DO ARQUIVO PREVISTO NO CONVÊNIO ICMS 115/03), NOTA FISCAL/CONTA DE
+        ///     FORNECIMENTO DE GÁS CANALIZADO (CÓDIGO 28) e NOTA FISCAL DE ENERGIA
+        ///     ELÉTRICA ELETRÔNICA – NF3e (CÓDIGO 66)
         /// </summary>
         public class RegistroC700 : RegistroSped
         {

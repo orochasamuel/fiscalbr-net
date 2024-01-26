@@ -12,7 +12,7 @@ namespace FiscalBr.Test.Sped.Bloco1
         [Fact]
         public void Ler_Registro_1391_EFDFiscal()
         {
-            string linha = "|1391|01012023|123,41|123,42|123,43|123,44|123,45|123,46|123,47|123,48|123,49|123,40|123,41|123,42|123,43|123,44|Observações|COD_ITEM|01|123,45|";
+            string linha = "|1391|01012023|123,41|123,42|123,43|123,44|123,45|123,46|123,47|123,48|123,49|123,40|123,41|123,42|123,43|123,44|Observações|COD_ITEM|01|123,45|123,45|123,45|123,45|";
 
             var registro = (FiscalBr.EFDFiscal.Bloco1.Registro1391)LerCamposSped.LerCampos(linha, "EFDFiscal", 0);
 

@@ -3066,6 +3066,7 @@ namespace FiscalBr.EFDFiscal
             ///     Série do documento fiscal.
             /// </summary>
             [SpedCampos(7, "SER", "N", 3, 0, false, 17)]
+            [SpedCampos(7, "SER", "N", 3, 0, true, 18)]
             public string Ser { get; set; }
 
             /// <summary>
@@ -3081,7 +3082,7 @@ namespace FiscalBr.EFDFiscal
             public DateTime? DtDoc { get; set; }
 
             /// <summary>
-            ///     Data da entrada.
+            ///     Data da entrada ou da saída.
             /// </summary>
             [SpedCampos(10, "DT_E_S", "N", 8, 0, false, 17)]
             public DateTime? DtEs { get; set; }
@@ -3156,6 +3157,7 @@ namespace FiscalBr.EFDFiscal
             ///     Chave da Nota Fiscal Fatura de Serviço de Comunicação Eletrônica.
             /// </summary>
             [SpedCampos(22, "CHV_DOCe", "C", 44, 0, false, 17)]
+            [SpedCampos(22, "CHV_DOCe", "C", 44, 0, true, 18)]
             public string ChvDoce { get; set; }
 
             /// <summary>
@@ -3262,8 +3264,8 @@ namespace FiscalBr.EFDFiscal
             public decimal AliqIcms { get; set; }
 
             /// <summary>
-            ///     Valor total acumulado das operações correspondentes à combinação de CST_ICMS, CFOP e alíquota do ICMS, incluídas as
-            ///     despesas acessórias e acréscimos.
+            ///     Valor total dos itens relacionados aos serviços próprios, com destaque de ICMS, correspondente à
+            ///     combinação de CST_ICMS, CFOP, e alíquota do CMS.
             /// </summary>
             [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 17)]
             public decimal VlOpr { get; set; }
@@ -3424,6 +3426,7 @@ namespace FiscalBr.EFDFiscal
             ///     Série do documento fiscal
             /// </summary>
             [SpedCampos(3, "SER", "C", 3, 0, true, 17)]
+            [SpedCampos(3, "SER", "N", 3, 0, true, 18)]
             public string Ser { get; set; }
 
             /// <summary>
@@ -3540,8 +3543,8 @@ namespace FiscalBr.EFDFiscal
             public decimal AliqIcms { get; set; }
 
             /// <summary>
-            ///     Valor total acumulado das operações correspondentes à combinação de CST_ICMS, CFOP e alíquota do ICMS, incluídas as
-            ///     despesas acessórias menos os descontos incondicionais. 
+            ///     Valor total dos itens relacionados aos serviços próprios com destaque de ICMS, correspondente à combinação de
+            ///     CST_ICMS, CFOP, e alíquota do ICMS.
             /// </summary>
             [SpedCampos(5, "VL_OPR", "N", 0, 2, true, 17)]
             public decimal VlOpr { get; set; }
