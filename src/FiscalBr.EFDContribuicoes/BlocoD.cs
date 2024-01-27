@@ -428,7 +428,7 @@ namespace FiscalBr.EFDContribuicoes
             ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1
             /// </summary>
             [SpedCampos(2, "COD_MOD", "C", 2, 0, true, 2)]
-            public string CodMod { get; set; }
+            public IndCodMod CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
@@ -475,14 +475,14 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///    Valor total dos documentos fiscais
             /// </summary>
-            [SpedCampos(10, "VL_DOC", "N", 0, 2, true, 2)]
-            public string VlDoc { get; set; }
+            [SpedCampos(10, "VL_DOC", "N", 19, 2, true, 2)]
+            public decimal VlDoc { get; set; }
 
             /// <summary>
             ///     Valor total dos descontos
             /// </summary>
-            [SpedCampos(11, "VL_DESC", "N", 0, 2, false, 2)]
-            public string VlDesc { get; set; }
+            [SpedCampos(11, "VL_DESC", "N", 19, 2, false, 2)]
+            public decimal VlDesc { get; set; }
 
             public List<RegistroD201> RegD201s { get; set; }
             public List<RegistroD205> RegD205s { get; set; }
