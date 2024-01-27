@@ -116,7 +116,7 @@ namespace FiscalBr.Test.Sped.Enums
         [InlineData(VersaoLeiauteSped.V9, 9)]
         [InlineData(VersaoLeiauteSped.V10, 10)]
         [InlineData(VersaoLeiauteSped.V17, 17)]
-        [InlineData(null, 17)]
+        [InlineData(null, 18)]
         public void ObterIntVersaoEFDFiscalTest(VersaoLeiauteSped? v, int versaoEsperada)
         {
             // Arrange
