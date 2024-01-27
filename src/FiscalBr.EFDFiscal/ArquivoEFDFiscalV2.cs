@@ -26,7 +26,7 @@ namespace FiscalBr.EFDFiscal
         public BlocoK BlocoK { get; set; }
 
         public ArquivoEFDFiscalV2(
-            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V17
+            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V18
             ) : base(
                 LeiauteArquivoSped.EFDFiscal,
                 versaoLeiaute
@@ -41,7 +41,7 @@ namespace FiscalBr.EFDFiscal
             IndCodFinalidadeArquivo finalidadeArquivo = IndCodFinalidadeArquivo.RemessaArquivoOriginal,
             IndPerfilArquivo perfilArquivo = IndPerfilArquivo.A,
             TipoAtivSpedFiscal tipoAtividade = TipoAtivSpedFiscal.Outros,
-            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V17
+            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V18
             ) : base(
                 LeiauteArquivoSped.EFDFiscal,
                 versaoLeiaute
@@ -77,7 +77,7 @@ namespace FiscalBr.EFDFiscal
 
         public ArquivoEFDFiscalV2(
             string nomeSoftwareHouse,
-            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V17
+            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V18
             ) : base(
                 nomeSoftwareHouse,
                 LeiauteArquivoSped.EFDFiscal,
@@ -89,7 +89,7 @@ namespace FiscalBr.EFDFiscal
         public ArquivoEFDFiscalV2(
              string nomeSoftwareHouse,
             string cnpjSoftwareHouse,
-            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V17
+            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V18
             ) : base(
                 nomeSoftwareHouse,
                 cnpjSoftwareHouse,
@@ -103,7 +103,7 @@ namespace FiscalBr.EFDFiscal
              string nomeSoftwareHouse,
             string cnpjSoftwareHouse,
             string emailSoftwareHouse,
-            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V17
+            VersaoLeiauteSped versaoLeiaute = VersaoLeiauteSped.V18
             ) : base(
                 nomeSoftwareHouse,
                 cnpjSoftwareHouse,

@@ -456,91 +456,91 @@ namespace FiscalBr.EFDContribuicoes
             ///    CNPJ da pessoa jurídica cedente do crédito (se ORIG_CRED = 02).
             /// </summary>
             [SpedCampos(4, "CNPJ_SUC", "N", 14, 0, false, 2)]
-            public decimal CnpjSuc { get; set; }
+            public string CnpjSuc { get; set; }
 
             /// <summary>
             ///    Código do Tipo do Crédito, conforme Tabela 4.3.6.
             /// </summary>
             [SpedCampos(5, "COD_CRED", "N", 3, 0, true, 2)]
-            public decimal CodCred { get; set; }
+            public string CodCred { get; set; }
 
             /// <summary>
             ///    Valor total do crédito apurado na Escrituração Fiscal Digital (Registro M100) ou em demonstrativo DACON (Fichas 06A e 06B) de período anterior. 
             /// </summary>
-            [SpedCampos(6, "VL_CRED_APU", "N", 0, 2, true, 2)]
-            public string VlCredApu { get; set; }
+            [SpedCampos(6, "VL_CRED_APU", "N", 19, 2, true, 2)]
+            public decimal VlCredApu { get; set; }
 
             /// <summary>
             ///    Valor de Crédito Extemporâneo Apurado (Registro 1101), referente a Período Anterior, Informado no Campo 02 –PER_APU_CRED
             /// </summary>
-            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 0, 2, false, 2)]
-            public string VlCredExtApu { get; set; }
+            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 19, 2, false, 2)]
+            public decimal? VlCredExtApu { get; set; }
 
             /// <summary>
             ///     Valor Total do Crédito Apurado (06 + 07)
             /// </summary>
-            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 0, 2, true, 2)]
-            public string VlTotCredApu { get; set; }
+            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 19, 2, true, 2)]
+            public decimal VlTotCredApu { get; set; }
 
             /// <summary>
             ///   Valor do Crédito utilizado mediante Desconto, em Período(s)  Anterior(es).
             /// </summary>
-            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 0, 2, true, 2)]
-            public string VlCredDescPaAnt { get; set; }
+            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 19, 2, true, 2)]
+            public decimal VlCredDescPaAnt { get; set; }
 
             /// <summary>
             ///   Valor do Crédito utilizado mediante Pedido de Ressarcimento, em Período(s) Anterior(es).
             /// </summary>
-            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 0, 2, false, 2)]
-            public string VlCredPerPaAnt { get; set; }
+            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 19, 2, false, 2)]
+            public decimal? VlCredPerPaAnt { get; set; }
 
             /// <summary>
             ///     Valor do Crédito utilizado mediante Declaração de Compensação Intermediária (Crédito de Exportação), em Período(s) Anterior(es).
             /// </summary>
-            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 0, 2, false, 2)]
-            public string VlCredDcompPaAnt { get; set; }
+            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 19, 2, false, 2)]
+            public decimal? VlCredDcompPaAnt { get; set; }
 
             /// <summary>
             ///     Saldo do Crédito Disponível para Utilização neste Período de Escrituração (08 –09 –10 -11).
             /// </summary>
-            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 0, 2, true, 2)]
-            public string SdCredDispEfd { get; set; }
+            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 19, 2, true, 2)]
+            public decimal SdCredDispEfd { get; set; }
 
             /// <summary>
             ///   Valor do Crédito descontado neste período de escrituração.
             /// </summary>
-            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 0, 2, false, 2)]
-            public string VlCredDescEfd { get; set; }
+            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 19, 2, false, 2)]
+            public decimal? VlCredDescEfd { get; set; }
 
             /// <summary>
             ///     Valor do Crédito objeto de Pedido de Ressarcimento (PER) neste período de escrituração.
             /// </summary>
-            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 0, 2, false, 2)]
-            public string VlCredPerEfd { get; set; }
+            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 19, 2, false, 2)]
+            public decimal? VlCredPerEfd { get; set; }
 
             /// <summary>
             ///  Valor do Crédito utilizado mediante Declaração de Compensação Intermediária neste período de escrituração.
             /// </summary>
-            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 0, 2, false, 2)]
-            public string VlCredDcompEfd { get; set; }
+            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 19, 2, false, 2)]
+            public decimal? VlCredDcompEfd { get; set; }
 
             /// <summary>
             ///    Valor do crédito transferido em evento de cisão, fusão ou incorporação.
             /// </summary>
-            [SpedCampos(16, "VL_CRED_TRANS", "N", 0, 2, false, 2)]
-            public string VlCredTrans { get; set; }
+            [SpedCampos(16, "VL_CRED_TRANS", "N", 19, 2, false, 2)]
+            public decimal? VlCredTrans { get; set; }
 
             /// <summary>
             ///  Valor do crédito utilizado por outras formas.
             /// </summary>
-            [SpedCampos(17, "VL_CRED_OUT", "N", 0, 2, false, 2)]
-            public string VlCredOut { get; set; }
+            [SpedCampos(17, "VL_CRED_OUT", "N", 19, 2, false, 2)]
+            public decimal? VlCredOut { get; set; }
 
             /// <summary>
             ///    Saldo de créditos a utilizar em período de apuração futuro (12 –13 –14 –15 –16 -17).
             /// </summary>
-            [SpedCampos(18, "SLD_CRED_FIM", "N", 0, 2, false, 2)]
-            public string SldCredFim { get; set; }
+            [SpedCampos(18, "SLD_CRED_FIM", "N", 19, 2, false, 2)]
+            public decimal? SldCredFim { get; set; }
 
             public List<Registro1101> Reg1101s { get; set; }
         }
@@ -1014,91 +1014,91 @@ namespace FiscalBr.EFDContribuicoes
             ///    CNPJ  da  pessoa  jurídica  cedente  do  crédito  (se ORIG_CRED = 02).
             /// </summary>
             [SpedCampos(4, "CNPJ_SUC", "N", 14, 0, false, 2)]
-            public decimal CnpjSuc { get; set; }
+            public string CnpjSuc { get; set; }
 
             /// <summary>
             ///    Código do Tipo do Crédito, conforme Tabela 4.3.6.
             /// </summary>
             [SpedCampos(5, "COD_CRED", "N", 3, 0, true, 2)]
-            public decimal CodCred { get; set; }
+            public string CodCred { get; set; }
 
             /// <summary>
             ///    Valor Total  do  crédito  apurado  na  Escrituração  Fiscal Digital (Registro M500) ou em demonstrativo DACON (Fichas 16A e 16B) de período anterior.
             /// </summary>
-            [SpedCampos(6, "VL_CRED_APU", "N", 0, 2, true, 2)]
-            public string VlCredApu { get; set; }
+            [SpedCampos(6, "VL_CRED_APU", "N", 19, 2, true, 2)]
+            public decimal VlCredApu { get; set; }
 
             /// <summary>
             ///    Valor  de  Crédito Extemporâneo  Apurado  (Registro 1501),  referente  a  Período  Anterior,  Informado  no Campo 02 –PER_APU_CRED
             /// </summary>
-            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 0, 2, false, 2)]
-            public string VlCredExtApu { get; set; }
+            [SpedCampos(7, "VL_CRED_EXT_APU", "N", 19, 2, false, 2)]
+            public decimal? VlCredExtApu { get; set; }
 
             /// <summary>
             ///     Valor Total do Crédito Apurado (06 + 07)
             /// </summary>
-            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 0, 2, true, 2)]
-            public string VlTotCredApu { get; set; }
+            [SpedCampos(8, "VL_TOT_CRED_APU", "N", 19, 2, true, 2)]
+            public decimal VlTotCredApu { get; set; }
 
             /// <summary>
             ///   Valor  do  Crédito  utilizado  mediante  Desconto,  em Período(s)  Anterior(es)
             /// </summary>
-            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 0, 2, true, 2)]
-            public string VlCredDescPaAnt { get; set; }
+            [SpedCampos(9, "VL_CRED_DESC_PA_ANT", "N", 19, 2, true, 2)]
+            public decimal VlCredDescPaAnt { get; set; }
 
             /// <summary>
             ///   Valor  do  Crédito  utilizado  mediante  Pedido  de Ressarcimento, em Período(s) Anterior(es).
             /// </summary>
-            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 0, 2, false, 2)]
-            public string VlCredPerPaAnt { get; set; }
+            [SpedCampos(10, "VL_CRED_PER_PA_ANT", "N", 19, 2, false, 2)]
+            public decimal? VlCredPerPaAnt { get; set; }
 
             /// <summary>
             ///     Valor  do  Crédito utilizado  mediante  Declaração  de Compensação Intermediária (Crédito de Exportação), em Período(s) Anterior(es)
             /// </summary>
-            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 0, 2, false, 2)]
-            public string VlCredDcompPaAnt { get; set; }
+            [SpedCampos(11, "VL_CRED_DCOMP_PA_ANT", "N", 19, 2, false, 2)]
+            public decimal? VlCredDcompPaAnt { get; set; }
 
             /// <summary>
             ///     Saldo  do  Crédito  Disponível  para  Utilização  neste Período de Escrituração (08-09-10-11)
             /// </summary>
-            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 0, 2, true, 2)]
-            public string SdCredDispEfd { get; set; }
+            [SpedCampos(12, "SD_CRED_DISP_EFD", "N", 19, 2, true, 2)]
+            public decimal SdCredDispEfd { get; set; }
 
             /// <summary>
             ///   Valor  do  Crédito  descontado  neste  período  de escrituração
             /// </summary>
-            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 0, 2, false, 2)]
-            public string VlCredDescEfd { get; set; }
+            [SpedCampos(13, "VL_CRED_DESC_EFD", "N", 19, 2, false, 2)]
+            public decimal? VlCredDescEfd { get; set; }
 
             /// <summary>
             ///     Valor  do  Crédito  objeto  de  Pedido  de  Ressarcimento (PER) neste período de escrituração
             /// </summary>
-            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 0, 2, false, 2)]
-            public string VlCredPerEfd { get; set; }
+            [SpedCampos(14, "VL_CRED_PER_EFD", "N", 19, 2, false, 2)]
+            public decimal? VlCredPerEfd { get; set; }
 
             /// <summary>
             ///  Valor  do  Crédito utilizado  mediante  Declaração  de Compensação   Intermediária   neste   período   de escrituração
             /// </summary>
-            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 0, 2, false, 2)]
-            public string VlCredDcompEfd { get; set; }
+            [SpedCampos(15, "VL_CRED_DCOMP_EFD", "N", 19, 2, false, 2)]
+            public decimal? VlCredDcompEfd { get; set; }
 
             /// <summary>
             ///    Valor do crédito transferido em evento de cisão, fusão ou incorporação
             /// </summary>
-            [SpedCampos(16, "VL_CRED_TRANS", "N", 0, 2, false, 2)]
-            public string VlCredTrans { get; set; }
+            [SpedCampos(16, "VL_CRED_TRANS", "N", 19, 2, false, 2)]
+            public decimal? VlCredTrans { get; set; }
 
             /// <summary>
             ///  Valor do crédito utilizado por outras formas
             /// </summary>
-            [SpedCampos(17, "VL_CRED_OUT", "N", 0, 2, false, 2)]
-            public string VlBcPisSusp { get; set; }
+            [SpedCampos(17, "VL_CRED_OUT", "N", 19, 2, false, 2)]
+            public decimal? VlBcPisSusp { get; set; }
 
             /// <summary>
             ///    Saldo  de  créditos  a  utilizar  em  período  de  apuração futuro (12-13-14-15-16-17)
             /// </summary>
-            [SpedCampos(18, "SLD_CRED_FIM", "N", 0, 2, true, 2)]
-            public string SldCredFim { get; set; }
+            [SpedCampos(18, "SLD_CRED_FIM", "N", 19, 2, true, 2)]
+            public decimal SldCredFim { get; set; }
 
             public List<Registro1501> Reg1501s { get; set; }
         }
