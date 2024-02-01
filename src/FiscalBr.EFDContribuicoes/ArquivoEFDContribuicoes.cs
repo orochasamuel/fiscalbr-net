@@ -42,7 +42,7 @@ namespace FiscalBr.EFDContribuicoes
                         Linha = linha,
                         Registro = registro
                     };
-                    AoProcessarLinhaRaise(this, args);
+                    AoLerLinhaRaise(this, args);
 
                     if (linha.StartsWith("|0"))
                         LerBloco0(registro);

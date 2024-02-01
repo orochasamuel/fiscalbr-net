@@ -8,11 +8,11 @@ namespace FiscalBr.Common.Sped
 {
     public abstract class ArquivoSped
     {
-        public event EventHandler<SpedEventArgs> AoProcessarLinha;
-        protected void AoProcessarLinhaRaise(object sender, SpedEventArgs e)
+        public event EventHandler<SpedEventArgs> AoLerLinha;
+        protected void AoLerLinhaRaise(object sender, SpedEventArgs e)
         {
-            if (AoProcessarLinha != null)
-                AoProcessarLinha.Invoke(sender, e);
+            if (AoLerLinha != null)
+                AoLerLinha.Invoke(sender, e);
         }
 
         public List<string> Linhas { get; private set; }
