@@ -15,6 +15,13 @@ namespace FiscalBr.Common.Sped
                 AoLerLinha.Invoke(sender, e);
         }
 
+        public event EventHandler<SpedEventArgs> AntesEscreverLinha;
+        protected void AntesEscreverLinhaRaise(object sender, SpedEventArgs e)
+        {
+            if (AntesEscreverLinha != null)
+                AntesEscreverLinha.Invoke(sender, e);
+        }
+
         public List<string> Linhas { get; private set; }
         public List<string> Erros { get; private set; }
 
@@ -161,7 +168,15 @@ namespace FiscalBr.Common.Sped
             if (!string.IsNullOrEmpty(erro))
                 Erros.Add(erro);
 
-            Linhas.Add(texto);
+            //permite interceptar a linha que será escrita e alterar o texto da linha
+            var args = new SpedEventArgs 
+            {
+                Linha = texto, 
+                Registro = registro 
+            };
+            AntesEscreverLinhaRaise(this, args);
+
+            Linhas.Add(args.Linha);
         }
 
         protected virtual void GerarComFilhos(object registro)
