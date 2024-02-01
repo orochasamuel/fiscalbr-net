@@ -8,11 +8,18 @@ namespace FiscalBr.Common.Sped
 {
     public abstract class ArquivoSped
     {
-        public event EventHandler<SpedEventArgs> AoProcessarLinha;
-        protected void AoProcessarLinhaRaise(object sender, SpedEventArgs e)
+        public event EventHandler<SpedEventArgs> AoLerLinha;
+        protected void AoLerLinhaRaise(object sender, SpedEventArgs e)
         {
-            if (AoProcessarLinha != null)
-                AoProcessarLinha.Invoke(sender, e);
+            if (AoLerLinha != null)
+                AoLerLinha.Invoke(sender, e);
+        }
+
+        public event EventHandler<SpedEventArgs> AntesEscreverLinha;
+        protected void AntesEscreverLinhaRaise(object sender, SpedEventArgs e)
+        {
+            if (AntesEscreverLinha != null)
+                AntesEscreverLinha.Invoke(sender, e);
         }
 
         public List<string> Linhas { get; private set; }
@@ -130,7 +137,7 @@ namespace FiscalBr.Common.Sped
         public virtual void CalcularBloco9(bool totalizarblocos = true)
         {
             if (Linhas == null || !Linhas.Any())
-                throw new Exception("Não é possível calcular o bloco 9 sem as linhas. Execute a função \"GerarLinhas()\", gere as linhas manualemnte ou leia um arquivo para preencher as linhas.");
+                throw new Exception("Não é possível calcular o bloco 9 sem as linhas. Execute a função \"GerarLinhas()\", gere as linhas manualmente ou leia um arquivo para preencher as linhas.");
         }
 
         /// <summary>
@@ -161,7 +168,15 @@ namespace FiscalBr.Common.Sped
             if (!string.IsNullOrEmpty(erro))
                 Erros.Add(erro);
 
-            Linhas.Add(texto);
+            //permite interceptar a linha que será escrita e alterar o texto da linha
+            var args = new SpedEventArgs 
+            {
+                Linha = texto, 
+                Registro = registro 
+            };
+            AntesEscreverLinhaRaise(this, args);
+
+            Linhas.Add(args.Linha);
         }
 
         protected virtual void GerarComFilhos(object registro)
