@@ -130,7 +130,7 @@ namespace FiscalBr.Common.Sped
         public virtual void CalcularBloco9(bool totalizarblocos = true)
         {
             if (Linhas == null || !Linhas.Any())
-                throw new Exception("Não é possível calcular o bloco 9 sem as linhas. Execute a função \"GerarLinhas()\", gere as linhas manualemnte ou leia um arquivo para preencher as linhas.");
+                throw new Exception("Não é possível calcular o bloco 9 sem as linhas. Execute a função \"GerarLinhas()\", gere as linhas manualmente ou leia um arquivo para preencher as linhas.");
         }
 
         /// <summary>
