@@ -6140,7 +6140,7 @@ namespace FiscalBr.EFDFiscal
             ///     Preenchimento: informar o número do primeiro CF-e-SAT emitido, mesmo que cancelado, no período, pelo equipamento.
             /// </remarks>
             [SpedCampos(5, "DOC_INI", "N", 6, 0, true, 2)]
-            public string NumDocIni { get; set; }
+            public int NumDocIni { get; set; }
 
             /// <summary>
             ///     Número do documento final
