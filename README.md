@@ -10,7 +10,7 @@ Biblioteca gratuita para geração dos arquivos SPED e demais declarações nece
 
 </div>
 
-## <a id="brother-project" /> Conheça o FiscalBrJS
+## <a id="brother-project" /> Conheça também o FiscalBrJS
 
 [FiscalBrJS](https://github.com/orochasamuel/fiscalbr-js) é uma biblioteca feita em TypeScript para auxiliar na escrita e leitura dos arquivos SPED.
 
