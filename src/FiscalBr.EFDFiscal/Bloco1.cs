@@ -765,7 +765,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Número de série da bomba
             /// </summary>
-            [SpedCampos(2, "SERIE", "C", 0, 0, true, 2)]
+            [SpedCampos(2, "SERIE", "C", 255, 0, true, 2)]
             public string Serie { get; set; }
 
             /// <summary>
@@ -777,7 +777,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Modelo da bomba
             /// </summary>
-            [SpedCampos(4, "MODELO", "C", 0, 0, true, 2)]
+            [SpedCampos(4, "MODELO", "C", 255, 0, true, 2)]
             public string Modelo { get; set; }
 
             /// <summary>
