@@ -53,7 +53,7 @@ namespace FiscalBr.Common
             return Enum.GetValues(typeof(T)).Cast<T>().Max();
         }
 
-        public static int[] GetEnumValues<T>() where T : Enum
+        public static int[] GetEnumValues<T>() where T : Enum 
         {
             return (int[])Enum.GetValues(typeof(T));
         }
@@ -116,6 +116,17 @@ namespace FiscalBr.Common
                 return (TEnum)Enum.Parse(typeof(TEnum), @this, true);
 
             return defaultValue;
+        }
+
+        public static TEnum ToEnumByDefaultValue<TEnum>(this string @this) where TEnum : Enum
+        {
+            var enumItens = Enum.GetValues(typeof(TEnum));
+
+            foreach (var item in enumItens)
+                if (((TEnum)item).ToDefaultValue() == @this)
+                    return (TEnum)item;
+
+            return default(TEnum);
         }
     }
 
