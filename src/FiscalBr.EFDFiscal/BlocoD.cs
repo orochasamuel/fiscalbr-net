@@ -62,11 +62,13 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroD500> RegD500s { get; set; }
             public List<RegistroD600> RegD600s { get; set; }
             public List<RegistroD695> RegD695s { get; set; }
+            public List<RegistroD700> RegD700s { get; set; }
+            public List<RegistroD750> RegD750s { get; set; }
 
             public RegistroD001 ComIndicadorMovimento(bool v)
             {
                 IndMov = v ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
-                return this;  
+                return this;
             }
 
             public override bool Validar()
@@ -3222,14 +3224,9 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(31, "COD_MUN_DEST", "N", 7, 0, true, 17)]
             public string CodMunDes { get; set; }
 
-            public RegistroD730 RegD730 { get; set; }
-            public RegistroD731 RegD731 { get; set; }
-            public RegistroD735 RegD735 { get; set; }
-            public RegistroD737 RegD737 { get; set; }
-            public RegistroD750 RegD750 { get; set; }
-            public RegistroD760 RegD760 { get; set; }
-            public RegistroD761 RegD761 { get; set; }
+            public List<RegistroD730> RegD730s { get; set; }
 
+            public List<RegistroD735> RegD735s { get; set; }
         }
 
         /// <summary>
@@ -3296,6 +3293,9 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(9, "COD_OBS", "C", 6, 0, false, 17)]
             public string CodObs { get; set; }
+
+            public RegistroD731 RegD731 { get; set; }
+
         }
 
         /// <summary>
@@ -3343,6 +3343,9 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(3, "TXT_COMPL", "C", 999, 0, false, 17)]
             public string TxrCompl { get; set; }
+
+            public List<RegistroD737> RegD737s { get; set; }
+
         }
 
         /// <summary>
@@ -3508,6 +3511,8 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(16, "VL_COFINS", "N", 0, 2, true, 17)]
             public decimal VlCofins { get; set; }
+
+            public List<RegistroD760> RegD760s { get; set; }
         }
 
         /// <summary>
@@ -3575,6 +3580,9 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(09, "COD_OBS", "C", 6, 0, false, 17)]
             public string CodObs { get; set; }
+
+            public RegistroD761 RegD761 { get; set; }
+
         }
 
         /// <summary>
