@@ -236,19 +236,19 @@ namespace FiscalBr.EFDContribuicoes
             ///  Valor total do serviço, prestado por pessoa física ou jurídica domiciliada no exterior.
             /// </summary>
             [SpedCampos(2, "VL_TOT_SERV", "N", 0, 2, true, 2)]
-            public string VlTotServ { get; set; }
+            public decimal VlTotServ { get; set; }
 
             /// <summary>
             ///  Valor  da  base  de  cálculo  da  Operação –PIS/PASEP –Importação
             /// </summary>
             [SpedCampos(3, "VL_BC_PIS", "N", 0, 2, true, 2)]
-            public string VlBcPis { get; set; }
+            public decimal VlBcPis { get; set; }
 
             /// <summary>
             ///   Valor pago/recolhido de PIS/PASEP –Importação
             /// </summary>
-            [SpedCampos(4, "VL_PIS_IMP", "N", int.MaxValue, 2, false, 2)]
-            public string VlPisImp { get; set; }
+            [SpedCampos(4, "VL_PIS_IMP", "N", 0, 2, false, 2)]
+            public decimal VlPisImp { get; set; }
 
             /// <summary>
             ///   Data de pagamento do PIS/PASEP –Importação
@@ -266,7 +266,7 @@ namespace FiscalBr.EFDContribuicoes
             ///   Valor pago/recolhido de COFINS –Importação
             /// </summary>
             [SpedCampos(7, "VL_COFINS_IMP", "N", 0, 2, false, 2)]
-            public string VlCofinsImp { get; set; }
+            public decimal VlCofinsImp { get; set; }
 
             /// <summary>
             ///  Data de pagamento do COFINS –Importação
