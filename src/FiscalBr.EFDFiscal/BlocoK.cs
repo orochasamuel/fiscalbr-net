@@ -349,7 +349,7 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Quantidade consumida do item
             /// </summary>
-            [SpedCampos(4, "QTD", "N", 0, 3, true, 10)]
+            [SpedCampos(4, "QTD", "N", 0, 6, true, 10)]
             public decimal Qtd { get; set; }
 
             /// <summary>
