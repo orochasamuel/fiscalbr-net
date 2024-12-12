@@ -559,8 +559,8 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///    Valor do ajuste de base de cálculo
             /// </summary>
-            [SpedCampos(3, "VL_AJ_BC", "N", 0, 2, true, 2)]
-            public string VlAjBc { get; set; }
+            [SpedCampos(3, "VL_AJ_BC", "N", 18, 2, true, 2)]
+            public decimal VlAjBc { get; set; }
 
             /// <summary>
             ///    Código do ajuste, conforme a Tabela indicada no item 4.3.18
@@ -1452,8 +1452,8 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///    Valor do ajuste de base de cálculo
             /// </summary>
-            [SpedCampos(3, "VL_AJ_BC", "N", 0, 2, true, 2)]
-            public string VlAjBc { get; set; }
+            [SpedCampos(3, "VL_AJ_BC", "N", 18, 2, true, 2)]
+            public decimal VlAjBc { get; set; }
 
             /// <summary>
             ///    Código do ajuste, conforme a Tabela indicada no item 4.3.18
