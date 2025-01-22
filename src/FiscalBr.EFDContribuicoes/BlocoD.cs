@@ -990,7 +990,7 @@ namespace FiscalBr.EFDContribuicoes
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2
             /// </summary>
             [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 2)]
-            public decimal CodSit { get; set; }
+            public int CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal
