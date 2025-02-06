@@ -757,6 +757,8 @@ namespace FiscalBr.Common.Sped
                             return CodVersaoSpedFiscal.V17;
                         case VersaoLeiauteSped.V18:
                             return CodVersaoSpedFiscal.V18;
+                        case VersaoLeiauteSped.V19:
+                            return CodVersaoSpedFiscal.V19;
                     }
                     break;
             }

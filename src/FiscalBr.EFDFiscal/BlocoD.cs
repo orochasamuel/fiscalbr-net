@@ -548,6 +548,7 @@ namespace FiscalBr.EFDFiscal
 
         /// <summary>
         ///     REGISTRO  D130:  COMPLEMENTO  DO  CONHECIMENTO  RODOVIÁRIO  DE  CARGAS (CÓDIGO 08) E DO CONHECIMENTO RODOVIÁRIO DE CARGAS AVULSO (CÓDIGO 8B)
+        ///     E DO CONHECIMENTO DE TRANSPORTE ELETRÔNICO SIMPLIFICADO(CÓDIGO 57)
         /// </summary>
         public class RegistroD130 : RegistroSped
         {
@@ -3166,7 +3167,7 @@ namespace FiscalBr.EFDFiscal
             ///     3 - NFCom de Substituição; 
             ///     4 - NFCom de Ajuste;
             /// </summary>
-            [SpedCampos(23, "FIN_DOCe", "N", 1, 0, false, 17)]
+            [SpedCampos(23, "FIN_DOCe", "N", 1, 0, true, 17)]
             public int FinDoce { get; set; }
 
             /// <summary>
@@ -3175,7 +3176,7 @@ namespace FiscalBr.EFDFiscal
             ///     1 - Faturamento centralizado;
             ///     4 - 2 - Cofaturamento
             /// </summary>
-            [SpedCampos(24, "TIP_FAT", "N", 1, 0, false, 17)]
+            [SpedCampos(24, "TIP_FAT", "N", 1, 0, true, 17)]
             public int TipFat { get; set; }
 
             /// <summary>
@@ -3221,6 +3222,12 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(31, "COD_MUN_DEST", "N", 7, 0, true, 17)]
             public string CodMunDes { get; set; }
+
+            /// <summary>
+            ///     Deduções.
+            /// </summary>
+            [SpedCampos(32, "DED", "N", int.MaxValue, 2, false, 19)]
+            public decimal Ded { get; set; }
 
             public RegistroD730 RegD730 { get; set; }
             public RegistroD731 RegD731 { get; set; }
@@ -3500,14 +3507,20 @@ namespace FiscalBr.EFDFiscal
             /// <summary>
             ///     Valor total do PIS.
             /// </summary>
-            [SpedCampos(15, "VL_PIS", "N", 0, 2, true, 17)]
+            [SpedCampos(15, "VL_PIS", "N", 0, 2, false, 17)]
             public decimal VlPis { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS.
             /// </summary>
-            [SpedCampos(16, "VL_COFINS", "N", 0, 2, true, 17)]
+            [SpedCampos(16, "VL_COFINS", "N", 0, 2, false, 17)]
             public decimal VlCofins { get; set; }
+
+            /// <summary>
+            ///     Deduções.
+            /// </summary>
+            [SpedCampos(17, "DED", "N", int.MaxValue, 2, false, 19)]
+            public decimal Ded { get; set; }
         }
 
         /// <summary>
