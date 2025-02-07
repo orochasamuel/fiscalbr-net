@@ -52,6 +52,8 @@ namespace FiscalBr.Test.Sped.Enums
         [InlineData(CodVersaoSpedFiscal.V15)]
         [InlineData(CodVersaoSpedFiscal.V16)]
         [InlineData(CodVersaoSpedFiscal.V17)]
+        [InlineData(CodVersaoSpedFiscal.V18)]
+        [InlineData(CodVersaoSpedFiscal.V19)]
         public void CodigoVersaoLeiauteSpedFiscalTest(CodVersaoSpedFiscal v)
         {
             Assert.Equal(v.ToString("D").PadLeft(3, '0'), v.ToDefaultValue());
@@ -116,7 +118,7 @@ namespace FiscalBr.Test.Sped.Enums
         [InlineData(VersaoLeiauteSped.V9, 9)]
         [InlineData(VersaoLeiauteSped.V10, 10)]
         [InlineData(VersaoLeiauteSped.V17, 17)]
-        [InlineData(null, 18)]
+        [InlineData(null, 19)]
         public void ObterIntVersaoEFDFiscalTest(VersaoLeiauteSped? v, int versaoEsperada)
         {
             // Arrange
