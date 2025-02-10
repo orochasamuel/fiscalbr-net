@@ -7,10 +7,10 @@
     <Company>orochasamuel sroliveira</Company>
     <Product>FiscalBr EFDFiscal (ICMS/IPI)</Product>
     <Description>Biblioteca para geração do arquivo EFD Fiscal (ICMS/IPI)</Description>
-    <Copyright>Copyright ₢ 2023 Samuel Rocha de Oliveira</Copyright>
+    <Copyright>Copyright ₢ 2025 Samuel Rocha de Oliveira</Copyright>
     <PackageProjectUrl>https://github.com/orochasamuel/fiscalbr-net</PackageProjectUrl>
     <PackageTags>fiscalbr  efd sped fiscal icms ipi</PackageTags>
-    <Version>18.0.1</Version>
+    <Version>19.0.2</Version>
   </PropertyGroup>
 
   <ItemGroup>

@@ -548,6 +548,7 @@ namespace FiscalBr.EFDFiscal
 
         /// <summary>
         ///     REGISTRO  D130:  COMPLEMENTO  DO  CONHECIMENTO  RODOVIÁRIO  DE  CARGAS (CÓDIGO 08) E DO CONHECIMENTO RODOVIÁRIO DE CARGAS AVULSO (CÓDIGO 8B)
+        ///     E DO CONHECIMENTO DE TRANSPORTE ELETRÔNICO SIMPLIFICADO(CÓDIGO 57)
         /// </summary>
         public class RegistroD130 : RegistroSped
         {
