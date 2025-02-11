@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using FiscalBr.Common.Sped.Interfaces;
@@ -24,18 +26,25 @@ namespace FiscalBr.Common.Sped
             Reg = reg;
         }
 
-        public static object GetPropValue(IRegistroSped src, string propName)
+
+        public static object GetPropValue(IRegistroSped src, string prop) 
         {
-            var property = src.GetType().GetProperty(propName);
-
-            var propertyValue = property?.GetValue(src);
-
-            if (TypeHelpers.IsEnumProperty(property?.PropertyType))
-                propertyValue = TypeHelpers.GetEnumDefaultValueByType(property.PropertyType, propertyValue);
-
-            return propertyValue;
+            var property = src.GetType().GetProperty(prop);
+            return GetPropValue(src, property);
         }
 
+        private static ConcurrentDictionary<PropertyInfo, Func<object, object>> PropertyGetMethodsCache = new ConcurrentDictionary<PropertyInfo, Func<object, object>>();
+        public static object GetPropValue(IRegistroSped src, PropertyInfo prop) 
+        {
+            var method = PropertyGetMethodsCache.GetOrAdd(prop, (property) => {
+
+                if (TypeHelpers.IsEnumProperty(property?.PropertyType))
+                    return (obj) => TypeHelpers.GetEnumDefaultValueByType(property.PropertyType, property.GetValue(obj));
+
+                return property.GetValue;
+            });
+            return method(src);
+        }
         public virtual bool Validar()
         {
             return true;

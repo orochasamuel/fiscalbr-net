@@ -8,6 +8,6 @@ namespace FiscalBr.Common.Sped.Interfaces
 {
     public interface ISped : ICampoSpedAtributo, ICampoSpedPropriedade, ICampoSpedVersao, IFormatarCampoSped
     {
-        string PreencherCampo(string valor, string tpAttr, string tpProp, int tamanho, int qtdCasas, bool ehObrigatorio);
+        string PreencherCampo(object valor, string tpAttr, string tpProp, int tamanho, int qtdCasas, bool ehObrigatorio);
     }
 }

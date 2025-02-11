@@ -1,5 +1,6 @@
 ﻿using FiscalBr.Common.Sped.Interfaces;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -24,6 +25,10 @@ namespace FiscalBr.Common.Sped
             LiteralEnum,
             MonthAndYear
         }
+        private static readonly ConcurrentDictionary<Type, string> RegistroAtualCache = new ConcurrentDictionary<Type, string>();
+        private static readonly ConcurrentDictionary<Type, SpedRegistrosAttribute> AtributoRegistroAtualCache = new ConcurrentDictionary<Type, SpedRegistrosAttribute>();
+        private static readonly ConcurrentDictionary<Type, List<PropertyInfo>> ListaComPropriedadesOrdenadasCache = new ConcurrentDictionary<Type, List<PropertyInfo>>();
+        private static readonly ConcurrentDictionary<PropertyInfo, bool> SomenteParaLeituraCache = new ConcurrentDictionary<PropertyInfo, bool>();
 
         /// <summary>
         /// Escrever campo do Registro atual.
@@ -39,11 +44,10 @@ namespace FiscalBr.Common.Sped
         /// </remarks>
         /// </param>
         /// <returns>Campo escrito.</returns>
-        private static string EscreverCampo(this string valorEscrever,
-            Tuple<InformationType, InformationType, bool, int, int> info)
-        {
-            var hasValue = !string.IsNullOrEmpty(valorEscrever) ||
-                           !string.IsNullOrWhiteSpace(valorEscrever);
+        private static string EscreverCampo(object valorEscrever,
+    Tuple<InformationType, InformationType, bool, int, int> info) {
+            var isEmpty = valorEscrever == null || (valorEscrever is string vStr && string.IsNullOrEmpty(vStr));
+            var hasValue = !isEmpty;
             var isDecimal = info.Item2 == InformationType.Decimal;
             var isNullableDecimal = info.Item2 == InformationType.NullableDecimal;
             var isDateTime = info.Item2 == InformationType.DateTime;
@@ -57,60 +61,43 @@ namespace FiscalBr.Common.Sped
             var decimalPlacesStr = string.Empty.PadLeft(decimalPlaces, '0');
             var cultura = CultureInfo.GetCultureInfo("pt-BR");
 
-            var propertyLength = hasValue ? valorEscrever.Length : 0;
-
-
-            // Verificação necessária p/ ajustes no tamanho de campos como CSTs e Indicadores. Ex.: CST PIS '1' -> Deve estar no arquivo como '01'.
             var isCodeOrNumberAndHasLength = info.Item2 == InformationType.CodeOrNumber &&
                                              (fieldLength > 0 && fieldLength <= 4);
-
-            //if (isRequired && !hasValue)
-            //    throw new Exception(
-            //        $"O campo {spedCampoAttr.Ordem} - {spedCampoAttr.Campo} no Registro {registroAtual} é obrigatório e não foi informado!");
 
             if (!hasValue && isRequired)
                 return Constantes.StructuralError;
 
+            if (!hasValue)
+                return string.Empty;
+
             if (isRequired && isDecimal &&
-                (valorEscrever == string.Empty || valorEscrever.ToDecimal() == 0))
-                //return Constantes.VZero.ToString("N" + decimalPlaces);
+                (valorEscrever.ToString() == string.Empty || Convert.ToDecimal(valorEscrever) == 0))
                 return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Constantes.VZero);
-            else
-            {
-                if (isDecimal && hasValue)
-                {
+            else {
+                if(isLiteralEnum)
+                    return valorEscrever.ToString();
+                else if (isDecimal) 
                     return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Convert.ToDecimal(valorEscrever));
-                    /*
-                    var vDecimal =
-                        Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
-                    return vDecimal.ToStringSafe().Replace(".", string.Empty);
-                    */
-                }
-                else if (isNullableDecimal && hasValue)
-                {
+                else if (isNullableDecimal)
                     return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Convert.ToDecimal(valorEscrever));
-                    /*
-                    var vDecimal =
-                        Convert.ToDecimal(valorEscrever).ToString("N" + decimalPlaces);
-                    return vDecimal.ToStringSafe().Replace(".", string.Empty);
-                    */
-                }
-                else if (isNullableDateTime && hasValue)
-                    return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
-                else if ((isDateTime && hasValue) && isHour)
-                    return Convert.ToDateTime(valorEscrever).Date.ToString("hhmmss");
-                else if ((isDateTime && hasValue) && onlyMonthAndYear)
-                    return Convert.ToDateTime(valorEscrever).Date.ToString("MMyyyy");
-                else if (isDateTime && hasValue)
-                    return Convert.ToDateTime(valorEscrever).Date.ToString("ddMMyyyy");
-                else if ((isCodeOrNumberAndHasLength && hasValue) || (isLiteralEnum && hasValue))
-                    return valorEscrever.PadLeft(fieldLength, '0');
-                else
-                {
+                else if (isNullableDateTime)
+                    return ((DateTime)valorEscrever).ToString("ddMMyyyy");
+                else if ((isDateTime) && isHour)
+                    return ((DateTime)valorEscrever).ToString("hhmmss");
+                else if ((isDateTime) && onlyMonthAndYear)
+                    return ((DateTime)valorEscrever).ToString("MMyyyy");
+                else if (isDateTime)
+                    return ((DateTime)valorEscrever).ToString("ddMMyyyy");
+                else if (isCodeOrNumberAndHasLength)
+                    return valorEscrever.ToString().PadLeft(fieldLength, '0');
+                else {
+                    var valorAsString = valorEscrever.ToStringSafe().Trim();
+                    var propertyLength = hasValue ? valorAsString.ToString().Length : 0;
+
                     if (propertyLength > 0 && (propertyLength > fieldLength))
-                        return valorEscrever.Substring(0, fieldLength);
+                        return valorAsString.Substring(0, fieldLength);
                     else
-                        return valorEscrever;
+                        return valorAsString;
                 }
             }
         }
@@ -146,7 +133,8 @@ namespace FiscalBr.Common.Sped
             /*
              * Substituir todos os campos de indicadores por Int16
              */
-            if (property.PropertyType == typeof(Int16) ||
+            if (property.PropertyType.IsEnum || 
+                property.PropertyType == typeof(Int16) ||
                 property.PropertyType == typeof(Int16?) ||
                 property.PropertyType == typeof(Int32) ||
                 property.PropertyType == typeof(Int32?))
@@ -165,32 +153,29 @@ namespace FiscalBr.Common.Sped
         /// </summary>
         /// <param name="tipo"></param>
         /// <returns></returns>
-        private static string ObtemRegistroAtual(Type tipo)
+        private static string ObtemRegistroAtual(Type tipo) 
         {
-            if (tipo == null)
-                throw new Exception("Falha ao identificar tipo do objeto!");
+            return RegistroAtualCache.GetOrAdd(tipo, t => {
+                if (t == null)
+                    throw new Exception("Falha ao identificar tipo do objeto!");
 
-            // Extrai o nome do registro atual. Ex.: RegistroA001 -> Resultado: A001
-            return tipo.Name.Substring(tipo.Name.Length - 4);
+                return t.Name.Substring(t.Name.Length - 4);
+            });
         }
 
-        private static SpedRegistrosAttribute ObtemAtributoRegistroAtual(Type tipo)
+        private static SpedRegistrosAttribute ObtemAtributoRegistroAtual(Type tipo) 
         {
-            return (SpedRegistrosAttribute)Attribute.GetCustomAttribute(tipo, typeof(SpedRegistrosAttribute));
+            return AtributoRegistroAtualCache.GetOrAdd(tipo, t => {
+                return (SpedRegistrosAttribute)Attribute.GetCustomAttribute(t, typeof(SpedRegistrosAttribute));
+            });
         }
 
-        private static readonly Dictionary<string, SpedCamposAttribute[]> SpedCamposAttributeRepository = new Dictionary<string, SpedCamposAttribute[]>();
+        private static readonly ConcurrentDictionary<string, SpedCamposAttribute[]> SpedCamposAttributeRepository = new ConcurrentDictionary<string, SpedCamposAttribute[]>();
 
-        private static SpedCamposAttribute[] GetSpedCamposAttribute(PropertyInfo prop)
+        private static SpedCamposAttribute[] GetSpedCamposAttribute(PropertyInfo prop) 
         {
-            lock (SpedCamposAttributeRepository)
-            {
-                string propName = $"{prop.DeclaringType.FullName}.{prop.Name}";
-                if (!SpedCamposAttributeRepository.ContainsKey(propName))
-                    SpedCamposAttributeRepository.Add(propName, (SpedCamposAttribute[])Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute)));
-
-                return SpedCamposAttributeRepository[propName];
-            }
+            string propName = $"{prop.DeclaringType.FullName}.{prop.Name}";
+            return SpedCamposAttributeRepository.GetOrAdd(propName, (name) => (SpedCamposAttribute[])Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute)));
         }
 
         private static SpedCamposAttribute ObtemAtributoPropriedadeAtual(PropertyInfo prop, int index = 0)
@@ -219,16 +204,15 @@ namespace FiscalBr.Common.Sped
             return attrs.FirstOrDefault(f => f.Versao == versao);
         }
 
-        private static List<System.Reflection.PropertyInfo> ObtemListaComPropriedadesOrdenadas(Type tipo)
+        private static List<System.Reflection.PropertyInfo> ObtemListaComPropriedadesOrdenadas(Type tipo) 
         {
-            /*
-             * http://stackoverflow.com/questions/22306689/get-properties-of-class-by-order-using-reflection
-             */
-            return tipo.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
-                .Cast<SpedCamposAttribute>()
-                .Select(a => a.Ordem)
-                .FirstOrDefault())
-                .ToList();
+            return ListaComPropriedadesOrdenadasCache.GetOrAdd(tipo, t => {
+                return t.GetProperties().OrderBy(p => p.GetCustomAttributes(typeof(SpedCamposAttribute), true)
+                    .Cast<SpedCamposAttribute>()
+                    .Select(a => a.Ordem)
+                    .FirstOrDefault())
+                    .ToList();
+            });
         }
 
         /// <summary>
@@ -248,14 +232,16 @@ namespace FiscalBr.Common.Sped
             return obrigatorio;
         }
 
-        private static bool SomenteParaLeitura(System.Reflection.PropertyInfo property)
+        private static bool SomenteParaLeitura(System.Reflection.PropertyInfo property) 
         {
-            if (property.PropertyType.BaseType.Equals(typeof(RegistroSped))) return true;
+            return SomenteParaLeituraCache.GetOrAdd(property, p => {
+                if (p.PropertyType.BaseType.Equals(typeof(RegistroSped))) return true;
 
-            if (property.PropertyType.IsGenericType &&
-                property.PropertyType.GetGenericTypeDefinition() == typeof(List<>)) return true;
+                if (p.PropertyType.IsGenericType &&
+                    p.PropertyType.GetGenericTypeDefinition() == typeof(List<>)) return true;
 
-            return false;
+                return false;
+            });
         }
 
         #endregion Private Methods
@@ -333,12 +319,12 @@ namespace FiscalBr.Common.Sped
                         throw new Exception(string.Format(
                             "O campo {0} no registro {1} não possui atributo SPED definido!", property.Name, registroAtual));
 
-                    var propertyValue = RegistroSped.GetPropValue(source as IRegistroSped, property.Name);
-                    var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
+                    var propertyValue = RegistroSped.GetPropValue(source as IRegistroSped, property);
 
                     var isRequired = spedCampoAttr.IsObrigatorio;
                     var campoEscrito =
-                        propertyValueToStringSafe.EscreverCampo(
+                        EscreverCampo(
+                            propertyValue,
                             new Tuple<
                                 InformationType,
                                 InformationType,
@@ -442,12 +428,12 @@ namespace FiscalBr.Common.Sped
                     if (spedCampoAttr != null)
                     {
                         sb.Append("|");
-                        var propertyValue = RegistroSped.GetPropValue(source as IRegistroSped, property.Name);
-                        var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
+                        var propertyValue = RegistroSped.GetPropValue(source as IRegistroSped, property);
 
                         var isRequired = spedCampoAttr.IsObrigatorio;
                         var campoEscrito =
-                            propertyValueToStringSafe.EscreverCampo(
+                            EscreverCampo(
+                                propertyValue,
                                 new Tuple<
                                     InformationType,
                                     InformationType,
@@ -563,12 +549,11 @@ namespace FiscalBr.Common.Sped
                         throw new Exception(string.Format(
                             "O campo {0} no registro {1} não possui atributo SPED definido!", property.Name, registroAtual));
 
-                    var propertyValue = RegistroSped.GetPropValue(source as IRegistroSped, property.Name);
-                    var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
-
+                    var propertyValue = RegistroSped.GetPropValue(source as IRegistroSped, property);
                     var isRequired = spedCampoAttr.IsObrigatorio;
                     var campoEscrito =
-                        propertyValueToStringSafe.EscreverCampo(
+                        EscreverCampo(
+                            propertyValue,
                             new Tuple<
                                 InformationType,
                                 InformationType,
@@ -682,12 +667,12 @@ namespace FiscalBr.Common.Sped
                         throw new Exception(string.Format(
                             "O campo {0} no registro {1} não possui atributo SPED definido!", property.Name, registroAtual));
 
-                    var propertyValue = RegistroSped.GetPropValue(source as IRegistroSped, property.Name);
-                    var propertyValueToStringSafe = propertyValue.ToStringSafe().Trim();
+                    var propertyValue = RegistroSped.GetPropValue(source as IRegistroSped, property);
 
                     var isRequired = spedCampoAttr.IsObrigatorio;
                     var campoEscrito =
-                        propertyValueToStringSafe.EscreverCampo(
+                        EscreverCampo(
+                            propertyValue,
                             new Tuple<
                                 InformationType,
                                 InformationType,
