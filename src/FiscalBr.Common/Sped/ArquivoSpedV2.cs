@@ -436,11 +436,12 @@ namespace FiscalBr.Common.Sped
                             break;
                         default:
                             var maiorVersaoEncontrada = 0;
-                            for(var i = attrs.Length + 1; i > 0; i--) {
-                                if(attrs[i].Versao <= versaoDesejada && attrs[i].Versao > maiorVersaoEncontrada) {
+                            for (var i = attrs.Length - 1; i >= 0; i--)
+                            {
+                                if (attrs[i].Versao <= versaoDesejada && attrs[i].Versao > maiorVersaoEncontrada)
+                                {
                                     spedCampoAttr = attrs[i];
                                     maiorVersaoEncontrada = attrs[i].Versao;
-                                    break;
                                 }
                             }
 
