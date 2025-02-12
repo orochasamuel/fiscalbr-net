@@ -45,23 +45,21 @@ namespace FiscalBr.Common.Sped
         /// </param>
         /// <returns>Campo escrito.</returns>
         private static string EscreverCampo(object valorEscrever,
-    Tuple<InformationType, InformationType, bool, int, int> info) {
+    InformationType attributeType, InformationType propertyType, bool isRequired, int fieldLength, int decimalPlaces)
+        {
             var isEmpty = valorEscrever == null || (valorEscrever is string vStr && string.IsNullOrEmpty(vStr));
             var hasValue = !isEmpty;
-            var isDecimal = info.Item2 == InformationType.Decimal;
-            var isNullableDecimal = info.Item2 == InformationType.NullableDecimal;
-            var isDateTime = info.Item2 == InformationType.DateTime;
-            var isNullableDateTime = info.Item2 == InformationType.NullableDateTime;
-            var isLiteralEnum = info.Item1 == InformationType.LiteralEnum;
-            var isHour = info.Item1 == InformationType.Hour;
-            var onlyMonthAndYear = info.Item1 == InformationType.MonthAndYear;
-            var isRequired = info.Item3;
-            var fieldLength = info.Item4;
-            var decimalPlaces = info.Item5;
+            var isDecimal = propertyType == InformationType.Decimal;
+            var isNullableDecimal = propertyType == InformationType.NullableDecimal;
+            var isDateTime = propertyType == InformationType.DateTime;
+            var isNullableDateTime = propertyType == InformationType.NullableDateTime;
+            var isLiteralEnum = attributeType == InformationType.LiteralEnum;
+            var isHour = attributeType == InformationType.Hour;
+            var onlyMonthAndYear = attributeType == InformationType.MonthAndYear;
             var decimalPlacesStr = string.Empty.PadLeft(decimalPlaces, '0');
             var cultura = CultureInfo.GetCultureInfo("pt-BR");
 
-            var isCodeOrNumberAndHasLength = info.Item2 == InformationType.CodeOrNumber &&
+            var isCodeOrNumberAndHasLength = propertyType == InformationType.CodeOrNumber &&
                                              (fieldLength > 0 && fieldLength <= 4);
 
             if (!hasValue && isRequired)
@@ -73,10 +71,11 @@ namespace FiscalBr.Common.Sped
             if (isRequired && isDecimal &&
                 (valorEscrever.ToString() == string.Empty || Convert.ToDecimal(valorEscrever) == 0))
                 return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Constantes.VZero);
-            else {
-                if(isLiteralEnum)
+            else
+            {
+                if (isLiteralEnum)
                     return valorEscrever.ToString();
-                else if (isDecimal) 
+                else if (isDecimal)
                     return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Convert.ToDecimal(valorEscrever));
                 else if (isNullableDecimal)
                     return string.Format(cultura, $"{{0:0.{decimalPlacesStr}}}", Convert.ToDecimal(valorEscrever));
@@ -90,7 +89,8 @@ namespace FiscalBr.Common.Sped
                     return ((DateTime)valorEscrever).ToString("ddMMyyyy");
                 else if (isCodeOrNumberAndHasLength)
                     return valorEscrever.ToString().PadLeft(fieldLength, '0');
-                else {
+                else
+                {
                     var valorAsString = valorEscrever.ToStringSafe().Trim();
                     var propertyLength = hasValue ? valorAsString.ToString().Length : 0;
 
@@ -325,18 +325,12 @@ namespace FiscalBr.Common.Sped
                     var campoEscrito =
                         EscreverCampo(
                             propertyValue,
-                            new Tuple<
-                                InformationType,
-                                InformationType,
-                                bool,
-                                int,
-                                int>(
-                                ObtemTipoDoAtributo(spedCampoAttr),
-                                ObtemTipoDaPropriedade(property),
-                                isRequired,
-                                spedCampoAttr.Tamanho,
-                                spedCampoAttr.QtdCasas
-                                ));
+                            ObtemTipoDoAtributo(spedCampoAttr),
+                            ObtemTipoDaPropriedade(property),
+                            isRequired,
+                            spedCampoAttr.Tamanho,
+                            spedCampoAttr.QtdCasas
+                            );
 
                     if (campoEscrito == Constantes.StructuralError)
                         throw new Exception(string.Format(
@@ -434,18 +428,12 @@ namespace FiscalBr.Common.Sped
                         var campoEscrito =
                             EscreverCampo(
                                 propertyValue,
-                                new Tuple<
-                                    InformationType,
-                                    InformationType,
-                                    bool,
-                                    int,
-                                    int>(
-                                    ObtemTipoDoAtributo(spedCampoAttr),
-                                    ObtemTipoDaPropriedade(property),
-                                    isRequired,
-                                    spedCampoAttr.Tamanho,
-                                    spedCampoAttr.QtdCasas
-                                    ));
+                                ObtemTipoDoAtributo(spedCampoAttr),
+                                ObtemTipoDaPropriedade(property),
+                                isRequired,
+                                spedCampoAttr.Tamanho,
+                                spedCampoAttr.QtdCasas
+                                );
 
                         if (ignoreErrors == false)
                             if (campoEscrito == Constantes.StructuralError)
@@ -554,18 +542,12 @@ namespace FiscalBr.Common.Sped
                     var campoEscrito =
                         EscreverCampo(
                             propertyValue,
-                            new Tuple<
-                                InformationType,
-                                InformationType,
-                                bool,
-                                int,
-                                int>(
-                                ObtemTipoDoAtributo(spedCampoAttr),
-                                ObtemTipoDaPropriedade(property),
-                                isRequired,
-                                spedCampoAttr.Tamanho,
-                                spedCampoAttr.QtdCasas
-                                ));
+                            ObtemTipoDoAtributo(spedCampoAttr),
+                            ObtemTipoDaPropriedade(property),
+                            isRequired,
+                            spedCampoAttr.Tamanho,
+                            spedCampoAttr.QtdCasas
+                            );
 
                     if (campoEscrito == Constantes.StructuralError)
                         errosEncontrados +=
@@ -673,18 +655,12 @@ namespace FiscalBr.Common.Sped
                     var campoEscrito =
                         EscreverCampo(
                             propertyValue,
-                            new Tuple<
-                                InformationType,
-                                InformationType,
-                                bool,
-                                int,
-                                int>(
-                                ObtemTipoDoAtributo(spedCampoAttr),
-                                ObtemTipoDaPropriedade(property),
-                                isRequired,
-                                spedCampoAttr.Tamanho,
-                                spedCampoAttr.QtdCasas
-                                ));
+                            ObtemTipoDoAtributo(spedCampoAttr),
+                            ObtemTipoDaPropriedade(property),
+                            isRequired,
+                            spedCampoAttr.Tamanho,
+                            spedCampoAttr.QtdCasas
+                            );
 
                     if (campoEscrito == Constantes.StructuralError)
                         errosEncontrados +=
