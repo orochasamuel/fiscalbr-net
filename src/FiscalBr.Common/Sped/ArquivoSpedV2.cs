@@ -22,7 +22,9 @@ namespace FiscalBr.Common.Sped
                 AoProcessarLinha.Invoke(sender, e);
         }
 
-        private readonly Dictionary<string, SpedCamposAttribute[]> CachedSpedCamposAttribute;
+        private readonly ConcurrentDictionary<PropertyInfo, SpedCamposAttribute[]> CachedSpedCamposAttribute;
+        private readonly ConcurrentDictionary<StructTipoVersao, List<PropertyInfo>> ObterListaComPropriedadesDoTipoCache;
+        private readonly ConcurrentDictionary<LeiauteArquivoSped?, int[]> ObterVersoesLeiauteCache;
 
         public SoftwareHouse SoftwareHouse { get; private set; }
         public LeiauteArquivoSped ArquivoSped { get; private set; }
@@ -30,8 +32,6 @@ namespace FiscalBr.Common.Sped
 
         public List<string> Erros { get; private set; }
         public List<string> Linhas { get; private set; }
-
-        private ConcurrentDictionary<StructTipoVersao, List<PropertyInfo>> ObterListaComPropriedadesDoTipoCache = new ConcurrentDictionary<StructTipoVersao, List<PropertyInfo>>();
 
         private ArquivoSpedV2(
             LeiauteArquivoSped leiauteSped
@@ -42,7 +42,9 @@ namespace FiscalBr.Common.Sped
             Erros = new List<string>();
             Linhas = new List<string>();
 
-            CachedSpedCamposAttribute = new Dictionary<string, SpedCamposAttribute[]>();
+            CachedSpedCamposAttribute = new ConcurrentDictionary<PropertyInfo, SpedCamposAttribute[]>();
+            ObterListaComPropriedadesDoTipoCache = new ConcurrentDictionary<StructTipoVersao, List<PropertyInfo>>();
+            ObterVersoesLeiauteCache = new ConcurrentDictionary<LeiauteArquivoSped?, int[]>();
         }
 
         public ArquivoSpedV2(
@@ -260,16 +262,8 @@ namespace FiscalBr.Common.Sped
             return ObterAtributosSpedDoCache(prop).Any(a => a.Versao == versao);
         }
 
-        private SpedCamposAttribute[] ObterAtributosSpedDoCache(PropertyInfo prop)
-        {
-            lock (CachedSpedCamposAttribute)
-            {
-                string propName = $"{prop.DeclaringType.FullName}.{prop.Name}";
-                if (!CachedSpedCamposAttribute.ContainsKey(propName))
-                    CachedSpedCamposAttribute.Add(propName, (SpedCamposAttribute[])Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute)));
-
-                return CachedSpedCamposAttribute[propName];
-            }
+        private SpedCamposAttribute[] ObterAtributosSpedDoCache(PropertyInfo prop) {
+            return CachedSpedCamposAttribute.GetOrAdd(prop, _ => (SpedCamposAttribute[])Attribute.GetCustomAttributes(prop, typeof(SpedCamposAttribute)));
         }
 
         public SpedCamposAttribute ObterAtributoSpedDaPropriedade(PropertyInfo prop, int? versao = null)
@@ -441,15 +435,15 @@ namespace FiscalBr.Common.Sped
                             spedCampoAttr = ObterAtributoSpedDaPropriedade(property);
                             break;
                         default:
-                            while (!ExisteAtributoSpedNaPropriedade(property, versaoDesejada))
-                            {
-                                versaoDesejada--;
-
-                                if (versaoDesejada < 1)
+                            var maiorVersaoEncontrada = 0;
+                            for(var i = attrs.Length + 1; i > 0; i--) {
+                                if(attrs[i].Versao <= versaoDesejada && attrs[i].Versao > maiorVersaoEncontrada) {
+                                    spedCampoAttr = attrs[i];
+                                    maiorVersaoEncontrada = attrs[i].Versao;
                                     break;
+                                }
                             }
 
-                            spedCampoAttr = ObterAtributoSpedDaPropriedade(property, versaoDesejada);
                             break;
                     }
 
@@ -658,18 +652,19 @@ namespace FiscalBr.Common.Sped
 
         public virtual int[] ObterVersoesLeiaute(LeiauteArquivoSped? leiauteSped)
         {
-            switch (leiauteSped ?? ArquivoSped)
-            {
-                case LeiauteArquivoSped.ECD:
-                    return EnumHelpers.GetEnumValues<CodVersaoSpedECD>();
-                case LeiauteArquivoSped.ECF:
-                    return EnumHelpers.GetEnumValues<CodVersaoSpedECF>();
-                case LeiauteArquivoSped.EFDContrib:
-                    return EnumHelpers.GetEnumValues<CodVersaoSpedContrib>();
-                case LeiauteArquivoSped.EFDFiscal:
-                    return EnumHelpers.GetEnumValues<CodVersaoSpedFiscal>();
-            }
-            throw new ArgumentException("O leiute do arquivo não foi especificado!");
+            return ObterVersoesLeiauteCache.GetOrAdd(leiauteSped ?? ArquivoSped, (leiaute) => {
+                switch (leiaute) {
+                    case LeiauteArquivoSped.ECD:
+                        return EnumHelpers.GetEnumValues<CodVersaoSpedECD>();
+                    case LeiauteArquivoSped.ECF:
+                        return EnumHelpers.GetEnumValues<CodVersaoSpedECF>();
+                    case LeiauteArquivoSped.EFDContrib:
+                        return EnumHelpers.GetEnumValues<CodVersaoSpedContrib>();
+                    case LeiauteArquivoSped.EFDFiscal:
+                        return EnumHelpers.GetEnumValues<CodVersaoSpedFiscal>();
+                }
+                throw new ArgumentException("O leiute do arquivo não foi especificado!");
+            });
         }
 
         public virtual Enum ObterEnumVersaoLeiaute()
