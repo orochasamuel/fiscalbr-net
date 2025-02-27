@@ -261,18 +261,20 @@ namespace FiscalBr.EFDFiscal
             public string CodItemDest { get; set; }
 
             /// <summary>
-            ///     Quantidade movimentada
+            ///     Quantidade movimentada do item de origem
+            ///     Guia Prático EFD-ICMS/IPI – Versão 3.1.8
+            ///     Atualização: 31/10/2024
             /// </summary>
-            [SpedCampos(5, "QTD", "N", 0, 3, true, 10)]
-            public decimal Qtd { get; set; }
+            [SpedCampos(5, "QTD_ORI", "N", 0, 6, true, 10)]
+            public decimal QtdOri { get; set; }
 
             /// <summary>
             ///     Quantidade movimentada do item de destino
-            ///     Guia Prático EFD-ICMS/IPI – Versão 2.0.21
-            ///     Atualização: 22/08/2017
+            ///     Guia Prático EFD-ICMS/IPI – Versão 3.1.8
+            ///     Atualização: 31/10/2024
             /// </summary>
-            [SpedCampos(6, "QTD_DEST", "N", 3, 0, false, 10)]
-            public string QtdDest { get; set; }
+            [SpedCampos(6, "QTD_DEST", "N", 0, 6, false, 10)]
+            public decimal QtdDest { get; set; }
         }
 
         /// <summary>
