@@ -9,7 +9,7 @@
     <SignAssembly>false</SignAssembly>
     <PackageTags>fiscalbr dimob</PackageTags>
     <PackageLicenseExpression></PackageLicenseExpression>
-    <Copyright>Copyright ₢ 2023 Samuel Rocha de Oliveira</Copyright>
+    <Copyright>Copyright ₢ 2025 Samuel Rocha de Oliveira</Copyright>
     <Product>FiscalBr Dimob</Product>
     <Description>Biblioteca para geração do arquivo DIMOB</Description>
     <Version>2.0.1</Version>
