@@ -117,6 +117,17 @@ namespace FiscalBr.Common
 
             return defaultValue;
         }
+
+        public static TEnum ToEnumByDefaultValue<TEnum>(this string @this) where TEnum : Enum
+        {
+            var enumItens = Enum.GetValues(typeof(TEnum));
+
+            foreach (var item in enumItens)
+                if (((TEnum)item).ToDefaultValue() == @this)
+                    return (TEnum)item;
+
+            return default(TEnum);
+        }
     }
 
     public static class TypeHelpers
