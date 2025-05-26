@@ -104,8 +104,8 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Data da emissão do documento fiscal
             /// </summary>
-            [SpedCampos(10, "DT_DOC", "N", 8, 0, true, 2)]
-            public DateTime DtDoc { get; set; }
+            [SpedCampos(10, "DT_DOC", "N", 8, 0, false, 2)]
+            public DateTime? DtDoc { get; set; }
 
             /// <summary>
             ///     Data de Execução / Conclusão do Serviço
@@ -116,8 +116,8 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Valor total do documento
             /// </summary>
-            [SpedCampos(12, "VL_DOC", "N", 0, 2, true, 2)]
-            public decimal VlDoc { get; set; }
+            [SpedCampos(12, "VL_DOC", "N", 0, 2, false, 2)]
+            public decimal? VlDoc { get; set; }
 
             /// <summary>
             ///     Indicador do tipo de pagamento:
@@ -125,8 +125,8 @@ namespace FiscalBr.EFDContribuicoes
             ///     1 - A prazo;
             ///     9 - Sem pagamento (até 30/06/2012).
             /// </summary>
-            [SpedCampos(13, "IND_PGTO", "C", 1, 0, true, 2)]
-            public int IndPgto { get; set; }
+            [SpedCampos(13, "IND_PGTO", "C", 1, 0, false, 2)]
+            public int? IndPgto { get; set; }
 
             /// <summary>
             ///     Valor total do desconto
@@ -137,26 +137,26 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Valor da base de cálculo do PIS/PASEP
             /// </summary>
-            [SpedCampos(15, "VL_BC_PIS", "N", 0, 2, true, 2)]
-            public decimal VlBcPis { get; set; }
+            [SpedCampos(15, "VL_BC_PIS", "N", 0, 2, false, 2)]
+            public decimal? VlBcPis { get; set; }
 
             /// <summary>
             ///     Valor total do PIS
             /// </summary>
-            [SpedCampos(16, "VL_PIS", "N", 0, 2, true, 2)]
-            public decimal VlPis { get; set; }
+            [SpedCampos(16, "VL_PIS", "N", 0, 2, false, 2)]
+            public decimal? VlPis { get; set; }
 
             /// <summary>
             ///     Valor da base de cálculo da COFINS
             /// </summary>
             [SpedCampos(17, "VL_BC_COFINS", "N", 0, 2, true, 2)]
-            public decimal VlBcCofins { get; set; }
+            public decimal? VlBcCofins { get; set; }
 
             /// <summary>
             ///     Valor total da COFINS
             /// </summary>
-            [SpedCampos(18, "VL_COFINS", "N", 0, 2, true, 2)]
-            public decimal VlCofins { get; set; }
+            [SpedCampos(18, "VL_COFINS", "N", 0, 2, false, 2)]
+            public decimal? VlCofins { get; set; }
 
             /// <summary>
             ///     Valor total do PIS Retido na Fonte
