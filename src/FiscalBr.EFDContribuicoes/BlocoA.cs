@@ -149,7 +149,7 @@ namespace FiscalBr.EFDContribuicoes
             /// <summary>
             ///     Valor da base de cálculo da COFINS
             /// </summary>
-            [SpedCampos(17, "VL_BC_COFINS", "N", 0, 2, true, 2)]
+            [SpedCampos(17, "VL_BC_COFINS", "N", 0, 2, false, 2)]
             public decimal? VlBcCofins { get; set; }
 
             /// <summary>
