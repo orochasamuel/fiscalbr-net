@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using FiscalBr.Common.ModeloAuxiliar;
 using System.Linq;
 using System.Text;
 using FiscalBr.Common;
@@ -27,103 +29,146 @@ namespace FiscalBr.EFDFiscal
         /// <param name="source"></param>
         public override void Ler(string[] source)
         {
+            var errosLancadosAoLerLinhas = new List<ErroLinha>();
+
             base.Ler(source);
 
             var codVersaoLayout = ObterVersaoLayout();
 
             bool leituraConcluida = false;
+            int linhaAtual = 1;
             foreach (var linha in Linhas)
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroSped)LerCamposSped.LerCampos(linha, "EFDFiscal", codVersaoLayout);
-
-                    if (registro.Reg == "9999")
-                        leituraConcluida = true;
-
-                    var args = new SpedEventArgs()
+                    try
                     {
-                        Linha = linha,
-                        Registro = registro
-                    };
-                    AoLerLinhaRaise(this, args);
+                        var registro = (RegistroSped)LerCamposSped.LerCampos(linha, "EFDFiscal", codVersaoLayout);
 
-                    if (linha.StartsWith("|0"))
-                        LerBloco0(registro);
-                    else if (linha.StartsWith("|1"))
-                        LerBloco1(registro);
-                    else if (linha.StartsWith("|9"))
-                        LerBloco9(registro);
-                    else if (linha.StartsWith("|B"))
-                        LerBlocoB(registro);
-                    else if (linha.StartsWith("|C"))
-                        LerBlocoC(registro);
-                    else if (linha.StartsWith("|D"))
-                        LerBlocoD(registro);
-                    else if (linha.StartsWith("|E"))
-                        LerBlocoE(registro);
-                    else if (linha.StartsWith("|G"))
-                        LerBlocoG(registro);
-                    else if (linha.StartsWith("|H"))
-                        LerBlocoH(registro);
-                    else if (linha.StartsWith("|K"))
-                        LerBlocoK(registro);
-                    else
-                        break;
+                        if (registro.Reg == "9999")
+                            leituraConcluida = true;
+
+                        var args = new SpedEventArgs()
+                        {
+                            Linha = linha,
+                            Registro = registro
+                        };
+                        AoLerLinhaRaise(this, args);
+
+                        if (linha.StartsWith("|0"))
+                            LerBloco0(registro);
+                        else if (linha.StartsWith("|1"))
+                            LerBloco1(registro);
+                        else if (linha.StartsWith("|9"))
+                            LerBloco9(registro);
+                        else if (linha.StartsWith("|B"))
+                            LerBlocoB(registro);
+                        else if (linha.StartsWith("|C"))
+                            LerBlocoC(registro);
+                        else if (linha.StartsWith("|D"))
+                            LerBlocoD(registro);
+                        else if (linha.StartsWith("|E"))
+                            LerBlocoE(registro);
+                        else if (linha.StartsWith("|G"))
+                            LerBlocoG(registro);
+                        else if (linha.StartsWith("|H"))
+                            LerBlocoH(registro);
+                        else if (linha.StartsWith("|K"))
+                            LerBlocoK(registro);
+                        else
+                            break;
+                    }
+                    catch (Exception ex)
+                    {
+                        var erroLinha = new ErroLinha(linhaAtual, linha, ex.Message);
+
+                        errosLancadosAoLerLinhas.Add(erroLinha);
+                    }
+                    finally
+                    {
+                        linhaAtual++;
+                    }
                 }
                 else { break; }
             }
 
+            if (errosLancadosAoLerLinhas.Count > 0)
+            {
+                var erros = string.Join(Environment.NewLine, errosLancadosAoLerLinhas.Select(x => $"Linha {x.Numero}: {x.Conteudo}"));
+                throw new Exception(erros);
+            }
         }
 
         public override void Ler(string path, Encoding encoding = null, int codVersaoLayout = 0)
         {
+            var errosLancadosAoLerLinhas = new List<ErroLinha>();
+
             base.Ler(path, encoding);
 
             if (codVersaoLayout == 0)
                 codVersaoLayout = ObterVersaoLayout();
 
             bool leituraConcluida = false;
+            int linhaAtual = 1;
             foreach (var linha in Linhas)
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroSped)LerCamposSped.LerCampos(linha, "EFDFiscal", codVersaoLayout);
-
-                    if (registro.Reg == "9999")
-                        leituraConcluida = true;
-
-                    var args = new SpedEventArgs()
+                    try
                     {
-                        Linha = linha,
-                        Registro = registro
-                    };
-                    AoLerLinhaRaise(this, args);
+                        var registro = (RegistroSped)LerCamposSped.LerCampos(linha, "EFDFiscal", codVersaoLayout);
 
-                    if (linha.StartsWith("|0"))
-                        LerBloco0(registro);
-                    else if (linha.StartsWith("|1"))
-                        LerBloco1(registro);
-                    else if (linha.StartsWith("|9"))
-                        LerBloco9(registro);
-                    else if (linha.StartsWith("|B"))
-                        LerBlocoB(registro);
-                    else if (linha.StartsWith("|C"))
-                        LerBlocoC(registro);
-                    else if (linha.StartsWith("|D"))
-                        LerBlocoD(registro);
-                    else if (linha.StartsWith("|E"))
-                        LerBlocoE(registro);
-                    else if (linha.StartsWith("|G"))
-                        LerBlocoG(registro);
-                    else if (linha.StartsWith("|H"))
-                        LerBlocoH(registro);
-                    else if (linha.StartsWith("|K"))
-                        LerBlocoK(registro);
-                    else
-                        break;
+                        if (registro.Reg == "9999")
+                            leituraConcluida = true;
+
+                        var args = new SpedEventArgs()
+                        {
+                            Linha = linha,
+                            Registro = registro
+                        };
+                        AoLerLinhaRaise(this, args);
+
+                        if (linha.StartsWith("|0"))
+                            LerBloco0(registro);
+                        else if (linha.StartsWith("|1"))
+                            LerBloco1(registro);
+                        else if (linha.StartsWith("|9"))
+                            LerBloco9(registro);
+                        else if (linha.StartsWith("|B"))
+                            LerBlocoB(registro);
+                        else if (linha.StartsWith("|C"))
+                            LerBlocoC(registro);
+                        else if (linha.StartsWith("|D"))
+                            LerBlocoD(registro);
+                        else if (linha.StartsWith("|E"))
+                            LerBlocoE(registro);
+                        else if (linha.StartsWith("|G"))
+                            LerBlocoG(registro);
+                        else if (linha.StartsWith("|H"))
+                            LerBlocoH(registro);
+                        else if (linha.StartsWith("|K"))
+                            LerBlocoK(registro);
+                        else
+                            break;
+                    }
+                    catch (Exception ex)
+                    {
+                        var erroLinha = new ErroLinha(linhaAtual, linha, ex.Message);
+
+                        errosLancadosAoLerLinhas.Add(erroLinha);
+                    }
+                    finally
+                    {
+                        linhaAtual++;
+                    }
                 }
                 else { break; }
+            }
+
+            if (errosLancadosAoLerLinhas.Count > 0)
+            {
+                var erros = string.Join(Environment.NewLine, errosLancadosAoLerLinhas.Select(x => $"Linha {x.Numero}: {x.Conteudo}"));
+                throw new Exception(erros);
             }
         }
 

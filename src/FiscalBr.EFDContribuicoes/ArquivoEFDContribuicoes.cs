@@ -1,4 +1,5 @@
 ﻿using FiscalBr.Common;
+using FiscalBr.Common.ModeloAuxiliar;
 using FiscalBr.Common.Sped;
 using System;
 using System.Collections.Generic;
@@ -22,52 +23,74 @@ namespace FiscalBr.EFDContribuicoes
 
         public override void Ler(string path, Encoding encoding = null, int codVersaoLayout = 0)
         {
+            var errosLancadosAoLerLinhas = new List<ErroLinha>();
+
             base.Ler(path, encoding);
 
             if (codVersaoLayout == 0)
                 codVersaoLayout = ObterVersaoLayout();
 
             bool leituraConcluida = false;
+            int linhaAtual = 1;
             foreach (var linha in Linhas)
             {
                 if (leituraConcluida == false)
                 {
-                    var registro = (RegistroSped)LerCamposSped.LerCampos(linha, "EFDContribuicoes", codVersaoLayout);
-
-                    if (registro.Reg == "9999")
-                        leituraConcluida = true;
-
-                    var args = new SpedEventArgs()
+                    try
                     {
-                        Linha = linha,
-                        Registro = registro
-                    };
-                    AoLerLinhaRaise(this, args);
+                        var registro = (RegistroSped)LerCamposSped.LerCampos(linha, "EFDContribuicoes", codVersaoLayout);
 
-                    if (linha.StartsWith("|0"))
-                        LerBloco0(registro);
-                    else if (linha.StartsWith("|1"))
-                        LerBloco1(registro);
-                    else if (linha.StartsWith("|9"))
-                        LerBloco9(registro);
-                    else if (linha.StartsWith("|A"))
-                        LerBlocoA(registro);
-                    else if (linha.StartsWith("|C"))
-                        LerBlocoC(registro);
-                    else if (linha.StartsWith("|D"))
-                        LerBlocoD(registro);
-                    else if (linha.StartsWith("|F"))
-                        LerBlocoF(registro);
-                    else if (linha.StartsWith("|I"))
-                        LerBlocoI(registro);
-                    else if (linha.StartsWith("|M"))
-                        LerBlocoM(registro);
-                    else if (linha.StartsWith("|P"))
-                        LerBlocoP(registro);
-                    else
-                        break;
+                        if (registro.Reg == "9999")
+                            leituraConcluida = true;
+
+                        var args = new SpedEventArgs()
+                        {
+                            Linha = linha,
+                            Registro = registro
+                        };
+                        AoLerLinhaRaise(this, args);
+
+                        if (linha.StartsWith("|0"))
+                            LerBloco0(registro);
+                        else if (linha.StartsWith("|1"))
+                            LerBloco1(registro);
+                        else if (linha.StartsWith("|9"))
+                            LerBloco9(registro);
+                        else if (linha.StartsWith("|A"))
+                            LerBlocoA(registro);
+                        else if (linha.StartsWith("|C"))
+                            LerBlocoC(registro);
+                        else if (linha.StartsWith("|D"))
+                            LerBlocoD(registro);
+                        else if (linha.StartsWith("|F"))
+                            LerBlocoF(registro);
+                        else if (linha.StartsWith("|I"))
+                            LerBlocoI(registro);
+                        else if (linha.StartsWith("|M"))
+                            LerBlocoM(registro);
+                        else if (linha.StartsWith("|P"))
+                            LerBlocoP(registro);
+                        else
+                            break;
+                    }
+                    catch (Exception ex)
+                    {
+                        var erroLinha = new ErroLinha(linhaAtual, linha, ex.Message);
+
+                        errosLancadosAoLerLinhas.Add(erroLinha);
+                    }
+                    finally
+                    {
+                        linhaAtual++;
+                    }
                 }
                 else { break; }
+            }
+
+            if (errosLancadosAoLerLinhas.Count > 0)
+            {
+                var erros = string.Join(Environment.NewLine, errosLancadosAoLerLinhas.Select(x => $"Linha {x.Numero}: {x.Conteudo}"));
+                throw new Exception(erros);
             }
         }
 
