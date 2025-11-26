@@ -61,12 +61,13 @@ namespace FiscalBr.EFDFiscal
             public List<RegistroD400> RegD400s { get; set; }
             public List<RegistroD500> RegD500s { get; set; }
             public List<RegistroD600> RegD600s { get; set; }
+            public List<RegistroD700> RegD700s { get; set; }
             public List<RegistroD695> RegD695s { get; set; }
 
             public RegistroD001 ComIndicadorMovimento(bool v)
             {
                 IndMov = v ? IndMovimento.BlocoComDados : IndMovimento.BlocoSemDados;
-                return this;  
+                return this;
             }
 
             public override bool Validar()
@@ -3035,7 +3036,7 @@ namespace FiscalBr.EFDFiscal
             ///     1- Saiía
             /// </summary>
             [SpedCampos(2, "IND_OPER", "C", 1, 0, true, 17)]
-            public int IndOper { get; set; }
+            public IndTipoOperacaoServico IndOper { get; set; }
 
             /// <summary>
             ///     Indicador do emitente do documento fiscal:
@@ -3043,7 +3044,7 @@ namespace FiscalBr.EFDFiscal
             ///     1 - Terceiros;
             /// </summary>
             [SpedCampos(3, "IND_EMIT", "C", 1, 0, true, 17)]
-            public int IndEmit { get; set; }
+            public IndEmitente IndEmit { get; set; }
 
             /// <summary>
             ///     Código do participante (campo 02 do Registro 0150) do prestador, no caso de entradas.
@@ -3055,13 +3056,13 @@ namespace FiscalBr.EFDFiscal
             ///     Código do modelo do documento fiscal, conforme a Tabela 4.1.1.
             /// </summary>
             [SpedCampos(5, "COD_MOD", "C", 2, 0, true, 17)]
-            public string CodMod { get; set; }
+            public IndCodMod CodMod { get; set; }
 
             /// <summary>
             ///     Código da situação do documento fiscal, conforme a Tabela 4.1.2.
             /// </summary>
             [SpedCampos(6, "COD_SIT", "N", 2, 0, true, 17)]
-            public int CodSit { get; set; }
+            public IndCodSitDoc CodSit { get; set; }
 
             /// <summary>
             ///     Série do documento fiscal.
@@ -3183,7 +3184,7 @@ namespace FiscalBr.EFDFiscal
             ///     Código do modelo do documento fiscal referenciado, conforme a Tabela 4.1.1. 
             /// </summary>
             [SpedCampos(25, "COD_MOD_DOC_REF", "N", 2, 0, false, 17)]
-            public int CodModDocRef { get; set; }
+            public int? CodModDocRef { get; set; }
 
             /// <summary>
             ///     Chave da nota referenciada.
@@ -3229,10 +3230,9 @@ namespace FiscalBr.EFDFiscal
             [SpedCampos(32, "DED", "N", int.MaxValue, 2, false, 19)]
             public decimal Ded { get; set; }
 
-            public RegistroD730 RegD730 { get; set; }
-            public RegistroD731 RegD731 { get; set; }
-            public RegistroD735 RegD735 { get; set; }
-            public RegistroD737 RegD737 { get; set; }
+            public List<RegistroD730> RegD730s { get; set; }
+
+            public List<RegistroD735> RegD735s { get; set; }
             public RegistroD750 RegD750 { get; set; }
             public RegistroD760 RegD760 { get; set; }
             public RegistroD761 RegD761 { get; set; }
@@ -3303,6 +3303,8 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(9, "COD_OBS", "C", 6, 0, false, 17)]
             public string CodObs { get; set; }
+
+            public RegistroD731 RegD731 { get; set; }
         }
 
         /// <summary>
@@ -3350,6 +3352,8 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(3, "TXT_COMPL", "C", 999, 0, false, 17)]
             public string TxrCompl { get; set; }
+
+            public List<RegistroD737> RegD737s { get; set; }
         }
 
         /// <summary>

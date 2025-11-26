@@ -763,6 +763,11 @@ namespace FiscalBr.Common
         [DefaultValue("60")] Mod60,
 
         /// <summary>
+        /// Nota Fiscal Fatura de Serviços de Comunicação Eletrônica - (NFCom)
+        /// </summary>
+        [DefaultValue("62")] Mod62,
+
+        /// <summary>
         /// Nota Fiscal Eletrônica p/ Consumidor Final - NFC-e
         /// </summary>
         [DefaultValue("65")] Mod65,
