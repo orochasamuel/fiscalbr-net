@@ -1948,6 +1948,32 @@ namespace FiscalBr.EFDFiscal
                     regD696.RegD697s.Add((BlocoD.RegistroD697)registro);
                     break;
 
+                case "D700":
+                    if (BlocoD.RegD001.RegD700s == null)
+                        BlocoD.RegD001.RegD700s = new List<BlocoD.RegistroD700>();
+
+                    BlocoD.RegD001.RegD700s.Add((BlocoD.RegistroD700)registro);
+                    break;
+
+                case "D730":
+                    var regD700 = BlocoD.RegD001.RegD700s.Last();
+
+                    if (regD700.RegD730s == null)
+                        regD700.RegD730s = new List<BlocoD.RegistroD730>();
+
+                    regD700.RegD730s.Add((BlocoD.RegistroD730)registro);
+                    break;
+
+                case "D731":
+                    var regD700s = BlocoD.RegD001.RegD700s.Last();
+
+                    if (regD700s.RegD730s == null)
+                        regD700s.RegD730s = new List<BlocoD.RegistroD730>();
+
+
+                    regD700s.RegD730s.Last().RegD731 = (BlocoD.RegistroD731)registro;
+                    break;
+
                 case "D990": BlocoD.RegD990 = (BlocoD.RegistroD990)registro; break;
             }
         }
