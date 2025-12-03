@@ -25,7 +25,7 @@ namespace FiscalBr.Test.Sped
 
             // Assert
             Assert.Equal(CodVersaoSpedContrib.V6, enumContrib);
-            Assert.Equal(CodVersaoSpedFiscal.V19, enumFiscal);
+            Assert.Equal(CodVersaoSpedFiscal.V20, enumFiscal);
         }
     }
 }

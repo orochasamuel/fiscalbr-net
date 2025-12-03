@@ -14,7 +14,7 @@ namespace FiscalBr.Test.Sped.BlocoD
             var formattedToday = today.ToString(new CultureInfo("pt-BR")).Replace("/", "").Split(" ")[0];
 
             var expectedResult =
-                $"|D700|1|1||62|00|1|1|{formattedToday}||10,00||10,00|||||||||51251141557175000181620000000000461013182247|0|0|00||||||1100015|0,00|{Environment.NewLine}";
+                $"|D700|1|1||62|00|1|1|{formattedToday}||10,00||10,00|||||||||51251141557175000181620000000000461013182247|0|0|||||||1100015|0,00|{Environment.NewLine}";
 
             var source = new EFDFiscal.BlocoD.RegistroD700
             {
@@ -34,7 +34,7 @@ namespace FiscalBr.Test.Sped.BlocoD
 
             var currentResult = Common.Sped.EscreverCamposSped.EscreverCampos(
                 source,
-                VersaoLeiauteSped.V19,
+                VersaoLeiauteSped.V20,
                 DateTime.Now,
                 false,
                 true

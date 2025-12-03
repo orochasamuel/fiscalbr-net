@@ -3069,6 +3069,7 @@ namespace FiscalBr.EFDFiscal
             /// </summary>
             [SpedCampos(7, "SER", "N", 3, 0, false, 17)]
             [SpedCampos(7, "SER", "N", 3, 0, true, 18)]
+            [SpedCampos(7, "SER", "C", 3, 0, true, 20)]
             public string Ser { get; set; }
 
             /// <summary>

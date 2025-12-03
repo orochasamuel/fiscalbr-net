@@ -205,7 +205,8 @@ namespace FiscalBr.Common
         [DefaultValue("16")] V16,
         [DefaultValue("17")] V17,
         [DefaultValue("18")] V18,
-        [DefaultValue("19")] V19
+        [DefaultValue("19")] V19,
+        [DefaultValue("20")] V20
     }
 
     public enum CodVersaoSpedECD
@@ -475,7 +476,14 @@ namespace FiscalBr.Common
         /// Versão: 1.18
         /// Validade: 01/01/2025 - 31/12/2025
         /// </summary>
-        [DefaultValue("019")] V19
+        [DefaultValue("019")] V19,
+
+        /// <summary>
+        /// Código: 020
+        /// Versão: 1.19
+        /// Validade: 01/01/2026 - 31/12/2026
+        /// </summary>
+        [DefaultValue("020")] V20
     }
 
     public enum SimOuNao
