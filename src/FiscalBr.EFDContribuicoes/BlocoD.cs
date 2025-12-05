@@ -1088,6 +1088,12 @@ namespace FiscalBr.EFDContribuicoes
             [SpedCampos(22, "VL_COFINS", "N", 0, 2, false, 2)]
             public decimal VlCofins { get; set; }
 
+            /// <summary>
+            ///     Chave da Nota Fiscal Fatura de Serviço de Comunicação Eletrônica.
+            /// </summary>
+            [SpedCampos(23, "CHV_DOC_E", "C", 44, 0, true, 2)]
+            public string ChvDoce { get; set; }
+
             public List<RegistroD501> RegD501s { get; set; }
             public List<RegistroD505> RegD505s { get; set; }
             public List<RegistroD509> RegD509s { get; set; }
